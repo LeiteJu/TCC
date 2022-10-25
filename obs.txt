@@ -1,5 +1,0 @@
-GRU -> arquitetura
-- seq temporal -> 5 em 5 anos => 60 pontos
-mixup
-arranjar mais dados de entrada 
--> outros dados econômicos/comércio/consumo de bens duráveis/construção/carros 
