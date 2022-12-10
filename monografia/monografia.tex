@@ -42,7 +42,7 @@
 %\nocolorlinks % para impressão em P&B
 \input{extras/source-code}
 \input{extras/utils}
-
+ 
 % Diretórios onde estão as figuras; com isso, não é preciso colocar o caminho
 % completo em \includegraphics (e nem a extensão).
 \graphicspath{{figuras/},{logos/}}
@@ -62,8 +62,8 @@
   %style=authoryear-comp, % autor-data "padrão" do biblatex
   %style=apa, % variante de autor-data, muito usado
   %style=abnt,
-]{biblatex}
-
+]{biblatex}     
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% METADADOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,7 +78,7 @@
 %\nocite{bronevetsky02,schmidt03:MSc, FSF:GNU-GPL, CORBA:spec, MenaChalco08}
 % Com este comando, todos os itens do arquivo .bib são incluídos na lista
 % de referências
-%\nocite{*}
+%\nocite{*}  
 
 % É possível definir como determinadas palavras podem (ou não) ser
 % hifenizadas; no entanto, a hifenização automática geralmente funciona bem
@@ -145,7 +145,7 @@
 % página de rosto, resumo, sumário etc. O comando frontmatter faz números
 % de página aparecem em algarismos romanos ao invés de arábicos e
 % desabilita a contagem de capítulos.
-\frontmatter
+\frontmatter 
 
 \pagestyle{plain}
 
@@ -229,7 +229,7 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 
 %\chapter*{Lista de Abreviaturas}
 \disablenewpage{\chapter*{Lista de Abreviaturas}}
-
+ 
 \begin{tabular}{rl}
   MLP & Perceptron Multi-Camadas (\emph{Multilayer perceptron})\\
   LSTM & (\emph{Long Short Term Memory})\\
@@ -302,10 +302,12 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 % Espaçamento simples
 \singlespacing
 
-\input{conteudo/00-exemplo-introducao}
-\input{conteudo/03-exemplo-latex}
-\input{conteudo/04-exemplo-tutorial}
-\input{conteudo/05-exemplo-exemplos}
+\input{conteudo/00-introducao}
+\input{conteudo/01-fundamentacao}
+\input{conteudo/02-metodologia}
+\input{conteudo/03-experimentos}
+\input{conteudo/04-resultados}
+\input{conteudo/05-conclusao}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% APÊNDICES E ANEXOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -330,40 +332,6 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 % o comando seguinte costuma ser "\chapter", mas pode causar problemas com
 % a formatação dos cabeçalhos. Assim, vamos forçar uma nova página antes
 % de cada um deles.
-
-%%%% Apêndices %%%%
-
-\makeatletter
-\if@openright\cleardoublepage\else\clearpage\fi
-\makeatother
-
-\pagestyle{appendix}
-
-\appendix
-
-% \addappheadtotoc acrescenta a palavra "Apêndice" ao sumário; se
-% só há apêndices, sem anexos, provavelmente não é necessário.
-\addappheadtotoc
-
-\input{conteudo/apendice-exemplo-pseudocodigo}
-\par
-
-%%%% Anexos %%%%
-
-\makeatletter
-\if@openright\cleardoublepage\else\clearpage\fi
-\makeatother
-
-\pagestyle{appendix} % repete o anterior, caso você não use apêndices
-
-\annex
-
-% \addappheadtotoc acrescenta a palavra "Anexo" ao sumário; se
-% só há anexos, sem apêndices, provavelmente não é necessário.
-\addappheadtotoc
-
-\input{conteudo/anexo-exemplo-faq}
-\par
 
 
 %%%%%%%%%%%%%%% SEÇÕES FINAIS (BIBLIOGRAFIA E ÍNDICE REMISSIVO) %%%%%%%%%%%%%%%%

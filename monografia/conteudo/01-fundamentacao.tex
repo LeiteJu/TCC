@@ -1,0 +1,28 @@
+%!TeX root=../tese.tex
+%("dica" para o editor de texto: este arquivo é parte de um documento maior)
+% para saber mais: https://tex.stackexchange.com/q/78101
+
+\chapter{Fundamentação teórica}
+
+\section{Modelos}
+
+  %% Ver se não é melhor tirar pq opde ficar longo <---
+Os problemas de \textit{machine learning} pertencem a duas categorias principais: classificação ou regressão. As tarefas de classificação, por um lado, consistem em determinar a categoria, dentre as $k$ disponíveis, a que um \textit{input} pertence, um exemplo de tarefa de classificação seria determinar se o consumo de cimento em um estado em um mês específico representa um aumento, queda ou estabilidade em relação ao mês anterior. Os problemas de regressão, por outro lado, compreendem prever um valor numérico a partir de um \textit{input}, \cite{Goodfellow-et-al-2016} como adotado neste trabalho.
+  
+\subsection{Regressão linear}
+  % assume um relacionamento linear entre entrada e saída
+  % dar uma melhorada na regressão
+O modelo de regressão linear estabelece uma relação linear, ou seja, uma função, entre a variável que será prevista (\textit{target}) e as variáveis de entrada (\textit{predictor variables}), neste projeto: o consumo de cimento em um mês e estado determinados e os indicadores econômicos correspondentes, respectivamente. O algoritmo, então, calcula um coeficiente para cada \textit{predictor} afim de mensurar o efeito desse no \textit{target}, de modo a minimizar o erro na previsão.
+        
+\subsection{Redes neurais feedforward}
+  % dar uma melhorada -> parte do com o treinamento fornecido
+  % se agredar -> combinação -> melhorar
+  % redes de arquitetura multilayer ...
+  % o "e feedforward" não tem nada a ver -> é um passo do treinamento  -> sequencia dos dados de entrada
+Redes neurais são modelos de \textit{machine learning} inspiradas no cérebro humano aonde o aprendizado ocorre ao se agregarem neurônios matemáticos que estabelecem conexões de acordo com o treinamento fornecido. Neste trabalho, aplicaram-se redes \textit{multilayer perceptrons} (MLPs), ou seja, que apresentam múltiplas camadas de neurônios e \textit{feedfoward}, onde a saída de uma camada de neurônios é utilizada como entrada para a camada seguinte, sem utilizar retropropagação.
+          
+        
+\subsection{Redes Neurais Recorrentes}
+  
+Já as redes neurais recorrentes são projetadas para reconhecer padrões nos dados, uma vez que levam tempo e sequência em consideração. Assim, nessas redes, a decisão tomada na etapa anterior influencia a etapa seguinte por conta dos \textit{loops de feedback}, então o presente e o passado recente se combinam para determinar a previsão. Neste trabalho, foram testadas as redes Long Short Term Memory (LSTM), redes Gated Recurrent Unit (GRU) e Bidirecionais.
+  
