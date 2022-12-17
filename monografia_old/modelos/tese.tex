@@ -1,3 +1,20 @@
+% Arquivo LaTeX de exemplo de dissertação/tese a ser apresentada à CPG do IME-USP
+%
+% Criação: Jesús P. Mena-Chalco
+% Revisão: Fabio Kon e Paulo Feofiloff
+% Adaptação para UTF8, biblatex e outras melhorias: Nelson Lago
+%
+% Except where otherwise indicated, these files are distributed under
+% the MIT Licence. The example text, which includes the tutorial and
+% examples as well as the explanatory comments in the source, are
+% available under the Creative Commons Attribution International
+% Licence, v4.0 (CC-BY 4.0) - https://creativecommons.org/licenses/by/4.0/
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREÂMBULO LaTeX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % A opção twoside (frente-e-verso) significa que a aparência das páginas pares
 % e ímpares pode ser diferente. Por exemplo, as margens podem ser diferentes ou
 % os números de página podem aparecer à direita ou à esquerda alternadamente.
@@ -42,7 +59,7 @@
 %\nocolorlinks % para impressão em P&B
 \input{extras/source-code}
 \input{extras/utils}
- 
+
 % Diretórios onde estão as figuras; com isso, não é preciso colocar o caminho
 % completo em \includegraphics (e nem a extensão).
 \graphicspath{{figuras/},{logos/}}
@@ -60,10 +77,10 @@
   %style=alphabetic, % similar a alpha
   %style=numeric, % comum em artigos
   %style=authoryear-comp, % autor-data "padrão" do biblatex
-  %style=apa, % variante de autor-data, muito usado 
+  %style=apa, % variante de autor-data, muito usado
   %style=abnt,
-]{biblatex}     
- 
+]{biblatex}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% METADADOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,27 +95,79 @@
 %\nocite{bronevetsky02,schmidt03:MSc, FSF:GNU-GPL, CORBA:spec, MenaChalco08}
 % Com este comando, todos os itens do arquivo .bib são incluídos na lista
 % de referências
-%\nocite{*}  
+%\nocite{*}
 
 % É possível definir como determinadas palavras podem (ou não) ser
 % hifenizadas; no entanto, a hifenização automática geralmente funciona bem
-\babelhyphenation{documentclass latexmk soft-ware} % todas as línguas
+\babelhyphenation{documentclass latexmk soft-ware clsguide} % todas as línguas
 \babelhyphenation[brazilian]{Fu-la-no}
 \babelhyphenation[english]{what-ever}
+
+% Estes comandos definem o título e autoria do trabalho e devem sempre ser
+% definidos, pois além de serem utilizados para criar a capa, também são
+% armazenados nos metadados do PDF.
+\title{
+    % Obrigatório nas duas línguas
+    titlept={Título do trabalho},
+    titleen={Title of the document},
+    % Opcional, mas se houver deve existir nas duas línguas
+    subtitlept={um subtítulo},
+    subtitleen={a subtitle},
+}
+
+\author[fem]{Nome Completo}
+
+% Para TCCs, este comando define o supervisor
+\orientador[fem]{Profª. Drª. Fulana de Tal}
+
+% Se não houver, remova; se houver mais de um, basta
+% repetir o comando quantas vezes forem necessárias
+\coorientador{Prof. Dr. Ciclano de Tal}
+\coorientador[fem]{Profª. Drª. Beltrana de Tal}
 
 % A página de rosto da versão para depósito (ou seja, a versão final
 % antes da defesa) deve ser diferente da página de rosto da versão
 % definitiva (ou seja, a versão final após a incorporação das sugestões
 % da banca).
 \defesa{
-  nivel=tcc, % mestrado, doutorado ou tcc
+  nivel=mestrado, % mestrado, doutorado ou tcc
   % É a versão para defesa ou a versão definitiva?
   %definitiva,
   % É qualificação?
   %quali,
   programa={Ciência da Computação},
+  membrobanca={Profª. Drª. Fulana de Tal (orientadora) -- IME-USP [sem ponto final]},
+  % Em inglês, não há o "ª"
+  %membrobanca{Prof. Dr. Fulana de Tal (advisor) -- IME-USP [sem ponto final]},
+  membrobanca={Prof. Dr. Ciclano de Tal -- IME-USP [sem ponto final]},
+  membrobanca={Profª. Drª. Convidada de Tal -- IMPA [sem ponto final]},
+  % Se não houve bolsa, remova
+  %
+  % Norma sobre agradecimento por auxílios da FAPESP:
+  % https://fapesp.br/11789/referencia-ao-apoio-da-fapesp-em-todas-as-formas-de-divulgacao
+  %
+  % Norma sobre agradecimento por auxílios da CAPES (Portaria 206,
+  % de 4 de Setembro de 2018):
+  % https://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/39729251/do1-2018-09-05-portaria-n-206-de-4-de-setembro-de-2018-39729135
+  %
+  %apoio={O presente trabalho foi realizado com apoio da Coordenação
+  %       de Aperfeiçoamento\\ de Pessoal de Nível Superior -- Brasil
+  %       (CAPES) -- Código de Financiamento 001}, % o código é sempre 001
+  %
+  %apoio={This study was financed in part by the Coordenação de
+  %       Aperfeiçoamento\\ de Pessoal de Nível Superior -- Brasil
+  %       (CAPES) -- Finance Code 001}, % o código é sempre 001
+  %
+  %apoio={Durante o desenvolvimento deste trabalho, o autor recebeu\\
+  %       auxílio financeiro da FAPESP -- processo nº aaaa/nnnnn-d},
+  %
+  %apoio={During the development if this work, the author received\\
+  %       financial support from FAPESP -- grant \#aaaa/nnnnn-d},
+  %
+  apoio={Durante o desenvolvimento deste trabalho o autor
+         recebeu auxílio financeiro da XXXX},
   local={São Paulo},
-  data=2022-10-19, % YYYY-MM-DD
+  data=2017-08-10, % YYYY-MM-DD
   % A licença do seu trabalho. Use CC-BY, CC-BY-NC, CC-BY-ND, CC-BY-SA,
   % CC-BY-NC-SA ou CC-BY-NC-ND para escolher a licença Creative Commons
   % correspondente (o sistema insere automaticamente o texto da licença).
@@ -108,30 +177,20 @@
   % acrescentados ao BDTA. Se você tem alguma intenção de publicar o
   % trabalho comercialmente no futuro, sugerimos a licença CC-BY-NC-ND.
   direitos={CC-BY}, % Creative Commons Attribution 4.0 International License
+  %direitos={CC-BY-NC-ND}, % Creative Commons Attribution / NonCommercial /
+                           % NoDerivatives 4.0 International License
   %direitos={Autorizo a reprodução e divulgação total ou parcial
   %          deste trabalho, por qualquer meio convencional ou
   %          eletrônico, para fins de estudo e pesquisa, desde que
   %          citada a fonte.},
-  % Isto deve ser preparado em conjunto com o bibliotecário
-  %fichacatalografica={nome do autor, título, etc.},
+  %direitos={I authorize the complete or partial reproduction and disclosure
+  %          of this work by any conventional or electronic means for study
+  %          and research purposes, provided that the source is acknowledged.}
+  % Para gerar a ficha catalográfica, acesse https://fc.ime.usp.br/,
+  % preencha o formulário e escolha a opção "Gerar Código LaTeX".
+  % Basta copiar e colar o resultado aqui.
+  fichacatalografica={},
 }
-
-% Estes comandos definem o título e autoria do trabalho e devem sempre ser
-% definidos, pois além de serem utilizados para criar a capa, também são
-% armazenados nos metadados do PDF.
-\title{
-    % Obrigatório nas duas línguas
-    titlept={Previsão de consumo nos estados do Brasil},
-    titleen={},
-    % Opcional, mas se houver deve existir nas duas línguas
-    % subtitlept={},
-    % subtitleen={a subtitle},
-}
-
-\author[fem]{Julia Leite da Silva}
-
-% Para TCCs, este comando define o supervisor
-\orientador{Prof. Dr. Marcelo Finger}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%% AQUI COMEÇA O CONTEÚDO DE FATO %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,7 +204,7 @@
 % página de rosto, resumo, sumário etc. O comando frontmatter faz números
 % de página aparecem em algarismos romanos ao invés de arábicos e
 % desabilita a contagem de capítulos.
-\frontmatter 
+\frontmatter
 
 \pagestyle{plain}
 
@@ -156,12 +215,8 @@
 %%%%%%%%%%%%%%%% DEDICATÓRIA, AGRADECIMENTOS, RESUMO/ABSTRACT %%%%%%%%%%%%%%%%%%
 
 \begin{dedicatoria}
-Dedico este trabalho a minha família, meu pai e minha mãe que 
-têm iluminado meu dia e me dado força, alegria e paz. Acima de 
-tudo, dedico a Deus, quem me presentou com capacidade, com uma 
-família maravilhosa e que foi adicionando pessoas no meu caminho
-para me apoiar e me ajudar em cada passo da jornada.
-
+Esta seção é opcional e fica numa página separada; ela pode ser usada para
+uma dedicatória ou epígrafe.
 \end{dedicatoria}
 
 % Reinicia o contador de páginas (a próxima página recebe o número "i") para
@@ -174,25 +229,12 @@ para me apoiar e me ajudar em cada passo da jornada.
 % epígrafes em todos os capítulos. O comando "\chapter*" faz esta seção
 % não ser incluída no sumário.
 \chapter*{Agradecimentos}
-\epigrafe{Fight with determination, embrace life and live it with 
-passion. Lose your battles with class and dare to win because the  
-world belongs to those who dare to live. Life is worth too much to be 
-insignificant.}{Charles Chaplin}
+\epigrafe{Do. Or do not. There is no try.}{Mestre Yoda}
 
-Queria agradecer, antes de tudo, a Deus por tudo que Ele tem me dado.
-Uma vez minha mãe me disse que Deus abençoa o trabalho das nossas mãos, 
-que várias vezes onde ela pensou que não daria certo ou não daria conta,
-ela pedia ajuda e, no final, tudo se endireitava. Ela me disse também
-que Deus colocava pessoas na vida dela que a ajudavam e orientavam a 
-encontrar um caminho. Fico muito grata de enxergar isso acontecendo 
-na minha vida também.
-
-Agradeço aos meus pais, que têm sido minha força, alegria e lar. Agradeços aos meus amigos 
-e amigas, por colorir meus dias e encher meu rosto de sorrisos. 
-
-Quero também agradecer ao Marcelo Finger, meu erientador obrigada para o Felipe, que me surpreendeu com a parceria e a 
-nessa jornada. Muito 
-ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
+Texto texto texto texto texto texto texto texto texto texto texto texto texto
+texto texto texto texto texto texto texto texto texto texto texto texto texto
+texto texto texto texto texto texto texto texto texto texto texto texto texto
+texto texto texto texto. Texto opcional.
 
 \input{conteudo/resumoabstract}
 
@@ -227,18 +269,22 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 
 %%%%% Listas criadas manualmente
 
-%\chapter*{Lista de Abreviaturas}
-\disablenewpage{\chapter*{Lista de Abreviaturas}}
- 
+%\chapter*{Lista de abreviaturas}
+\disablenewpage{\chapter*{Lista de abreviaturas}}
+
 \begin{tabular}{rl}
-  MLP & Perceptron Multi-Camadas (\emph{Multilayer perceptron})\\
-  LSTM & (\emph{Long Short Term Memory})\\
-  RMSE & Raíz Média de erros Quadrados (\emph{Root Mean Squared Error})\\
-  MAPE & Erro Percentual Absoluto Médio (\emph{Mean Absolute Percentage Error})\\
+   CFT & Transformada contínua de Fourier (\emph{Continuous Fourier Transform})\\
+   DFT & Transformada discreta de Fourier (\emph{Discrete Fourier Transform})\\
+  EIIP & Potencial de interação elétron-íon (\emph{Electron-Ion Interaction Potentials})\\
+  STFT & Transformada de Fourier de tempo reduzido (\emph{Short-Time Fourier Transform})\\
+  ABNT & Associação Brasileira de Normas Técnicas\\
+   URL & Localizador Uniforme de Recursos (\emph{Uniform Resource Locator})\\
+   IME & Instituto de Matemática e Estatística\\
+   USP & Universidade de São Paulo
 \end{tabular}
 
-%\chapter*{Lista de Símbolos}
-\disablenewpage{\chapter*{Lista de Símbolos}}
+%\chapter*{Lista de símbolos}
+\disablenewpage{\chapter*{Lista de símbolos}}
 
 \begin{tabular}{rl}
   $\omega$ & Frequência angular\\
@@ -265,7 +311,7 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 %\listof{program}{\programlistname}
 \disablenewpage{\listof{program}{\programlistname}}
 
-% Sumário (obrigatório)   
+% Sumário (obrigatório)
 \tableofcontents
 
 \egroup % Final de "raggedbottom"
@@ -280,14 +326,14 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 \index{Código-fonte|see{Floats}}
 \index{Subcaptions|see{Subfiguras}}
 \index{Sublegendas|see{Subfiguras}}
-\index{Equações|see{Modo Matemático}}
-\index{Fórmulas|see{Modo Matemático}}
+\index{Equações|see{Modo matemático}}
+\index{Fórmulas|see{Modo matemático}}
 \index{Rodapé, notas|see{Notas de rodapé}}
 \index{Captions|see{Legendas}}
 \index{Versão original|see{Tese/Dissertação, versões}}
 \index{Versão corrigida|see{Tese/Dissertação, versões}}
 \index{Palavras estrangeiras|see{Língua estrangeira}}
-\index{Floats!Algoritmo|see{Floats, Ordem}}
+\index{Floats!Algoritmo|see{Floats, ordem}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CAPÍTULOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -302,12 +348,12 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 % Espaçamento simples
 \singlespacing
 
-\input{conteudo/00-introducao}
-\input{conteudo/01-teoria}
-\input{conteudo/02-metodologia}
-\input{conteudo/03-experimentos}
-\input{conteudo/04-resultados} 
-\input{conteudo/05-conclusao}
+\input{conteudo/00-exemplo-introducao}
+\input{conteudo/01-exemplo-normas-ime}
+\input{conteudo/02-exemplo-usando-o-modelo}
+\input{conteudo/03-exemplo-latex}
+\input{conteudo/04-exemplo-tutorial}
+\input{conteudo/05-exemplo-exemplos}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% APÊNDICES E ANEXOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -315,13 +361,13 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 % Um apêndice é algum conteúdo adicional de sua autoria que faz parte e
 % colabora com a ideia geral do texto mas que, por alguma razão, não precisa
 % fazer parte da sequência do discurso; por exemplo, a demonstração de um
-% teorema intermediário, as perguntas usadas em uma pesquisa qualitativa etc. 
+% teorema intermediário, as perguntas usadas em uma pesquisa qualitativa etc.
 %
 % Um anexo é um documento que não faz parte da tese (em geral, nem é de sua
 % autoria) mas é relevante para o conteúdo; por exemplo, a especificação do
 % padrão técnico ou a legislação que o trabalho discute, um artigo de jornal
 % apresentando a percepção do público sobre o tema da tese etc.
-% 
+%
 % Os comandos appendix e annex reiniciam a numeração de capítulos e passam
 % a numerá-los com letras. "annex" não faz parte de nenhuma classe padrão,
 % foi criado para este modelo. Se o trabalho não tiver apêndices ou anexos,
@@ -332,14 +378,48 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
 % o comando seguinte costuma ser "\chapter", mas pode causar problemas com
 % a formatação dos cabeçalhos. Assim, vamos forçar uma nova página antes
 % de cada um deles.
- 
+
+%%%% Apêndices %%%%
+
+\makeatletter
+\if@openright\cleardoublepage\else\clearpage\fi
+\makeatother
+
+\pagestyle{appendix}
+
+\appendix
+
+% \addappheadtotoc acrescenta a palavra "Apêndice" ao sumário; se
+% só há apêndices, sem anexos, provavelmente não é necessário.
+\addappheadtotoc
+
+\input{conteudo/apendice-exemplo-pseudocodigo}
+\par
+
+%%%% Anexos %%%%
+
+\makeatletter
+\if@openright\cleardoublepage\else\clearpage\fi
+\makeatother
+
+\pagestyle{appendix} % repete o anterior, caso você não use apêndices
+
+\annex
+
+% \addappheadtotoc acrescenta a palavra "Anexo" ao sumário; se
+% só há anexos, sem apêndices, provavelmente não é necessário.
+\addappheadtotoc
+
+\input{conteudo/anexo-exemplo-faq}
+\par
+
 
 %%%%%%%%%%%%%%% SEÇÕES FINAIS (BIBLIOGRAFIA E ÍNDICE REMISSIVO) %%%%%%%%%%%%%%%%
 
-% O comando backmatter desabilita a numeração de capítulos.  
+% O comando backmatter desabilita a numeração de capítulos.
 \backmatter
 
-\pagestyle{backmatter}  
+\pagestyle{backmatter}
 
 % Espaço adicional no sumário antes das referências / índice remissivo
 \addtocontents{toc}{\vspace{2\baselineskip plus .5\baselineskip minus .5\baselineskip}}
@@ -352,6 +432,6 @@ ajuda. Agradecer também ao Gabriel, pelo apoio para escrever ese trabalho.
   heading=bibintoc, % Inclui a bibliografia no sumário
 ]
 
-% \printindex % imprime o índice remissivo no documento (opcional)
+\printindex % imprime o índice remissivo no documento (opcional)
 
 \end{document}

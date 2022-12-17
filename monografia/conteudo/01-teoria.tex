@@ -49,6 +49,7 @@ uma sub-área de inteligência artificial.
 
 \begin{figure}[H] 
   \includegraphics[width= 10cm]{../figuras/ia_ml.png}
+  \label{fig:ia_ml}
   \caption{Relação entre inteligência artificial, aprendizado de máquina e \textit{deep learning} \cite{dl-oreilly}}
 \end{figure}
 
@@ -86,16 +87,62 @@ que o real consumo de cimento no mês é conhecido.\cite{Goodfellow-et-al-2016}
 
   
 \section{Regressão linear}
-  % assume um relacionamento linear entre entrada e saída
-  % dar uma melhorada na regressão
-O modelo de regressão linear estabelece uma relação linear, ou seja, uma 
-função, entre a variável que será prevista (\textit{target}) e as variáveis 
-de entrada (\textit{predictor variables}), neste projeto: o consumo de 
-cimento em um mês e estado determinados e os indicadores econômicos
- correspondentes, respectivamente. O algoritmo, então, calcula um 
- coeficiente para cada \textit{predictor} afim de mensurar o efeito
-  desse no \textit{target}, de modo a minimizar o erro na previsão.
-     
+
+A regressão linear é um modelo de aprendizado de máquina que assume um relacionamento
+linear entre a variável que será prevista (\textit{target}) e os dados de entrada.
+Dessa forma, o objetivo é obter uma função linear que receba um vetor 
+$x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$
+como entrada e devolva a previsão de um escalar $y \in \mathbb{R}$. \cite{Goodfellow-et-al-2016}
+Seja $\hat{y}$ o valor previsto pelo modelo para $\hat{y}$, então:
+
+\begin{equation}
+  \label{eq:reg_lin}
+  \hat{y} = w^T x + b
+\end{equation}
+
+aonde $ w \in \mathbb{R}^n, w=\{w_1, w_2, ..., w_n\}$ é um vetor de parâmetros. Em 
+particular, $w$ corresponde a um conjunto de pesos que 
+determina como cada variável afeta a previsão. Então, se $x_i$
+for associado a um peso $w_i$ positivo, aumentar o valor de $x_i$
+resulta em um aumento na previsão $\hat{y}$, se $w_i$ for negativo, 
+por outro lado, um aumento de $x_i$ resulta em diminuição de 
+$\hat{y}$. Se $w_i$ for igual a 0, por sua vez, a 
+variável $x_i$ não influencia no valor previsto.
+
+A constante $b$, do inglês \textit{bias}, é um parâmetro para
+mensurar viés, já que o \textit{output} da função é $b$ na ausência
+de uma entrada. Dessa forma, a equação \ref{eq:reg_lin} pode ser escrita da 
+seguinte forma: 
+
+\begin{equation}
+  \hat{y} = w_1 x_1 + w_2 x_2 + ... + w_n x_n + b
+\end{equation}
+
+Na ilustração abaixo, um exemplo de um modelo de regressão 
+linear com apenas uma variável:
+
+\begin{figure}[H] 
+  \includegraphics[width= 12cm]{../figuras/reg_lin.png}
+  \caption{Exemplo de um modelo simples de regressão linear
+  \cite{forecasting}}
+  \label{fig:reg_lin}
+\end{figure}
+
+Nessa imagem, as observações estão 
+representadas nos pontos pretos, enquanto a linha em laranja
+corresponde à previsão realizada pelo modelo. Observa-se que
+o modelo não prevê com total exatidão os dados observados, há 
+um erro associado a cada previsão, como o destacado em verde 
+na ilustração.
+
+Dessa forma, cada observação $y_i$ possui um erro ${\varepsilon}_i$ 
+associado e pode ser descrita por $y_i = w^T x_i + b + {\varepsilon}_i$.
+O vetor de pesos $w$, então, é escolhido de modo a minimizar 
+os erros em cada previsão.
+
+Por se tratar de um modelo mais simples, é utilizada neste trabalho como base 
+para comparar o desempenho de outros modelos mais robustos.
+
 \section{Redes neurais}
 
 \subsection{Redes neurais multi-layer perceptrons}
