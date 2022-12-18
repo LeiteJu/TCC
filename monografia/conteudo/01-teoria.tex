@@ -87,6 +87,7 @@ que o real consumo de cimento no mês é conhecido.\cite{Goodfellow-et-al-2016}
 
   
 \section{Regressão linear}
+\label{sec:reg_lin}
 
 A regressão linear é um modelo de aprendizado de máquina que assume um relacionamento
 linear entre a variável que será prevista (\textit{target}) e os dados de entrada.
@@ -145,12 +146,114 @@ para comparar o desempenho de outros modelos mais robustos.
 
 \section{Redes neurais}
 
+Redes neurais são modelos computacionais inspirados no funcionamento
+do cérebro animal, onde neurônios trabalham em paralelo sem 
+uma unidade central de controle. Um neurônio biológico é uma célula 
+nervosa que se comunica com outros neurônios e passa impulsos 
+eletro-químicos de uma célula para outra por meio das sinapses.
+A comunicação entre neurônios, sinapse, ocorre apenas se o impulso 
+for forte o bastante para ativar a liberação de
+químicos na fenda sináptica.
+
+Um neurônio é composto de vários dendritos, um axônio e corpo 
+celular, como na imagem \ref{fig:neuron}. 
+
+\begin{figure}[H] 
+  \includegraphics[width= 12cm]{../figuras/neuron.png}
+  \caption{Ilustração de um neurônio biológico. \cite{dl-oreilly}
+  Destaca-se a informação chegando a um dendrito do neurônio
+  por meio de uma sinapse, além de uma sinapse que se inicia no axônio 
+  do neurônio e propaga informação a diante.
+  }
+  \label{fig:neuron}
+\end{figure}
+
+Os dendritos recebem 
+informações de outros neurônios vizionhos, na forma de impulsos
+elétricos, e conduzi-las até o corpo celular. Ao chegar no corpo
+celular, a informação é processada e novos impulsos são gerados. 
+Essa informação é, então, repassada para outro neurônio 
+através do axônio por meio de sinapse. Dessa forma, sinapse é o
+ponto de contato entre a terminação axônica de um neurônio e o 
+dendrito de outro.\cite{deeplearningbook}. 
+
+A estrutura e funcionamento dos neurônios biológicos foram 
+base para os cientistas criarem neurônios artificiais, como 
+os \textit{perceptrons}.
+
+\subsection{Neurônios artificiais}
+
+O \textit{perceptron}, foi desenvolvido em 1957 por Frank 
+Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts.
+Trata-se de um modelo linear de classificação binária que 
+recebe $n$ entradas e produz uma saída binária, como mostrado 
+na ilustração simplificada \ref{fig:perceptron-simples}.\cite{deeplearningbook}
+Esse modelo inicial apresentava limitações e foi evoluído com o passar do 
+tempo, as redes neurais atualmente, em geral, utilizam 
+outro modelo de neurônio como ilustrado em \ref{fig:perceptron}.
+
+
+\begin{figure}[H] 
+  \centering
+  \begin{subfigure}{7cm}
+    \centering 
+    \includegraphics[width=7cm]{../figuras/perceptron-simples.png}
+    \caption{Visão simplificada de um neurônio \cite{deeplearningbook}}
+    \label{fig:perceptron-simples}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{7cm}
+    \centering
+    \includegraphics[width=7cm]{../figuras/perceptron.png}
+    \caption{Ilustração da arquitetura de um 
+    neurônio artificial \cite{dl-oreilly}}
+    \label{fig:perceptron}
+  \end{subfigure}
+\end{figure}
+
+Como é possível observar na figura \ref{fig:perceptron}, cada
+uma das entradas $x_i$ está associada a um peso $w_i$. Os pesos
+$w_1, w_2, ..., w_n$ expressam a importância das respectivas
+entradas para o valor de saída, de modo semelhante à 
+regressão linear na seção \ref{sec:reg_lin}. O produto escalar entre
+os pesos e as respectivas entradas, chamada de \textit{net input}
+na imagem \ref{fig:perceptron}, passa por uma função de 
+ativação $\phi$ que determina a saída do neurônio. 
+Além disso, um valor de \textit{bias} ou polarização é
+adicionado ao produto escalar para aumentar a liberdade 
+da função. O \textit{bias} possibilita que 
+um neurônio que possua todas as entradas nulas a 
+apresente saída não nula, dessa forma,
+aumenta a capacidade de aproximação da rede. 
+\cite{deeplearningbook}
+
+
+Seja $x$ o vetor das $n$ entradas do neurônio, então
+$x \in \mathbb{R}^n, x=\{x_1, x_2, ..., x_n\}$, seja também 
+$w$ o vetor com os pesos associados a cada entrada, 
+$w \in \mathbb{R}^n, w=\{w_1, w_2, ..., w_n\}$. Além disso,
+seja $b$ o valor de \textit{bias} e $\Phi$ a função de ativação.
+Dessa forma, o \textit{output} de um neurônio é dado por:
+ 
+\begin{equation}
+  h_{w,b} = \Phi(w \cdot x + b)
+\end{equation}
+
+
 \subsection{Redes neurais multi-layer perceptrons}
   % dar uma melhorada -> parte do com o treinamento fornecido
   % se agredar -> combinação -> melhorar
   % redes de arquitetura multilayer ...
   % o "e feedforward" não tem nada a ver -> é um passo do treinamento  -> sequencia dos dados de entrada
-Redes neurais são modelos de \textit{machine learning} inspiradas no cérebro humano aonde o aprendizado ocorre ao se agregarem neurônios matemáticos que estabelecem conexões de acordo com o treinamento fornecido. Neste trabalho, aplicaram-se redes \textit{multilayer perceptrons} (MLPs), ou seja, que apresentam múltiplas camadas de neurônios e \textit{feedfoward}, onde a saída de uma camada de neurônios é utilizada como entrada para a camada seguinte, sem utilizar retropropagação.
+Redes neurais são modelos de \textit{machine learning} 
+inspiradas no cérebro humano aonde o aprendizado ocorre 
+ao se agregarem neurônios matemáticos que 
+estabelecem conexões de acordo com o treinamento fornecido. 
+Neste trabalho, aplicaram-se redes 
+\textit{multilayer perceptrons} (MLPs), ou seja, que 
+apresentam múltiplas camadas de neurônios 
+e \textit{feedfoward}, onde a saída de 
+uma camada de neurônios é utilizada como entrada para a camada seguinte, sem utilizar retropropagação.
           
         
 \subsection{Redes Neurais Recorrentes}
@@ -163,5 +266,6 @@ Já as redes neurais recorrentes são projetadas para reconhecer padrões nos da
 
 \subsection{Função de ativação}
 
+v
 
 \subsection{Normalização}
