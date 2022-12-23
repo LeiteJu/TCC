@@ -123,7 +123,7 @@ Na ilustração abaixo, um exemplo de um modelo de regressão
 linear com apenas uma variável:
 
 \begin{figure}[H] 
-  \includegraphics[width= 12cm]{../figuras/reg_lin.png}
+  \includegraphics[width= 10cm]{../figuras/reg_lin.png}
   \caption{Exemplo de um modelo simples de regressão linear
   \cite{forecasting}}
   \label{fig:reg_lin}
@@ -179,7 +179,7 @@ dendrito de outro.\cite{deeplearningbook}.
 
 A estrutura e funcionamento dos neurônios biológicos foram 
 base para os cientistas criarem neurônios artificiais, como 
-os \textit{perceptrons}.
+os \textit{perceptrons}. 
 
 \subsection{Neurônios artificiais}
 
@@ -239,6 +239,78 @@ Dessa forma, o \textit{output} de um neurônio é dado por:
   h_{w,b} = \Phi(w \cdot x + b)
 \end{equation}
 
+Essa saída é utilizada como uma das entradas dos neurônios
+na camada seguinte, de modo a formar a estrutura das redes 
+neurais semelhante ao funcionamento do cérebro. Os neurônios,
+então, formam a unidade que compõe as redes neurais artificiais,
+como ilustrado na figura abaixo:
+
+\begin{figure}[H] 
+  \includegraphics[width= 12cm]{../figuras/rede-neural.png}
+  \caption{Ilustração de uma rede neural simples.\cite{deeplearningbook}}
+  \label{fig:redeneural}
+\end{figure}
+
+
+\subsection{Função de ativação}
+
+A função de ativação propaga a saída de um 
+neurônio na rede neural para a camada seguinte. Enquanto os pesos 
+e o \textit{bias} realizam uma transformação linear nos dados 
+de entrada, a função de ativação aplica uma transformação não
+linear e dessa forma torna possível que a rede neural resolva
+problemas não lineares e complexos, como reconhecer padrões de 
+escrita.\cite{deeplearningbook}
+
+A função de ativação é um atributo de cada uma das camadas 
+da rede e é escolhida de acordo com a tarefa que será 
+executada, por exemplo, a função sigmóide é recomendada
+ para problemas de classificação. Neste trabalho, 
+foram utilizada: \textit{rectified linear unit} (ReLU) e \textit{swish}.
+
+\subsubsection{Rectified linear unit (ReLU)}
+
+A função ReLU, do inglês \textit{rectified linear unit}, é o 
+estado da arte atualmente, uma vez que apresenta bom desempenho 
+em diferentes tarefas. \cite{dl-oreilly} A função ReLu é dada por:
+
+\begin{equation}
+  f(x) = max(0,x)
+\end{equation}
+
+Ao utilizar essa função, a derivada, utilizada para atualizar
+os pesos e \textit{bias} no treinamento da rede, é zero, quando 
+a entrada é nula ou uma constante, como na imagem abaixo. Dessa
+forma, a ReLU não sofre do problema da dissipação do gradiente como
+a sigmóide.
+
+\begin{figure}[H] 
+  \includegraphics[width= 8cm]{../figuras/relu.png}
+  \caption{Rectified linear unit (ReLU) \cite{dl-oreilly}}
+  \label{fig:relu}
+\end{figure}
+
+\subsubsection{Swish}
+
+A função \textit{swish} foi proposta por pesquisadores da 
+Google com a prerrogativa de apresentar melhor desempenho 
+que a ReLU em redes neurais profundas. \cite{swish}
+
+A \textit{swish} é uma função não monotônica e suave 
+dada por:
+
+\begin{equation}
+  f(x) = x \cdot sigmoid(x) = \frac{x}{1+e^{-x}}
+\end{equation}
+
+
+O gráfico da função é similar ao da ReLU:
+
+\begin{figure}[H] 
+  \includegraphics[width= 8cm]{../figuras/swish.png}
+  \caption{Função \textit{swish} \cite{swish}}
+  \label{fig:swish}
+\end{figure}
 
 \subsection{Redes neurais multi-layer perceptrons}
   % dar uma melhorada -> parte do com o treinamento fornecido
@@ -263,9 +335,5 @@ Já as redes neurais recorrentes são projetadas para reconhecer padrões nos da
 \subsubsection{GRU}
 
 \subsubsection{LSTM}
-
-\subsection{Função de ativação}
-
-v
 
 \subsection{Normalização}

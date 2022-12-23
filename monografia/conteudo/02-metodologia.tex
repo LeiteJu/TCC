@@ -4,35 +4,121 @@
 
 \chapter{Metodologia}
 
+\section{Dados}
+
+O objetivo deste trabalho é prever o consumo mensal de cimento nos estados 
+do Brasil. Esse indicador foi obtido do Sindicato Nacional da Indústria do 
+Cimento e apresentava granularidade mensal para cada um dos estados do 
+país.
+
+\begin{table}
+    \centering
+    \caption{Indicadores de crescimento econômico}
+    \begin{tabular}{llll}
+        \toprule
+        Indicador                   & Fonte & Período disponível & Granularidade         \\
+        \midrule
+        PIB a preços constantes     & IBGE  & 1983 até 2019      & anual por estado      \\
+        PIB a preços de mercado     & IBGE  & 1985 ate 2019      & anual por estado      \\
+        PIB per capita              & IBGE  & 1985 até 2019      & anual por estado      \\
+        PIB da construção civil     & IBGE  & 1985 até 2019      & anual por estado      \\
+        Desemprego                  & IBGE  & 1991 até 2022      & anual por estado até 2014 e mensal para o Brasil a partir de 2012      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Indicadores de inflação e política monetária}
+    \begin{tabular}{llll}
+        \toprule
+        Indicador                   & Fonte & Período disponível & Granularidade         \\
+        \midrule
+        IPCA                        & IBGE  & 1981 até 2021      & mensal para o Brasil      \\
+        INCC                        & FGV   & 1980 ate 2021      & mensal para o Brasil      \\
+        IGP                         & FGV   & 1944 até 2021      & mensal para o Brasil      \\
+        SELIC                       & IBGE  & 1986 até 2022      & mensal para o Brasil      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Indicadores de inflação e política fiscal}
+    \begin{tabular}{llll}
+        \toprule
+        Indicador                   & Fonte & Período disponível & Granularidade         \\
+        \midrule
+        NFSP                        & BACEN  & 1991 até 2022      & mensal para o Brasil      \\
+        estoque de dívida pública   & IPEA   & 1947 ate 2019      & anual para o Brasil      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 Os modelos recebem como entrada dados econômicos obtidos do Instituto Brasileiro de Geografia e Estatística (IBGE), Fundação Getúlio Vargas (FGV), Instituto de Pesquisa Econômica Aplicada, entre outros. Sobre crescimento econômico, foram utilizados: PIB do estado, PIB per capita, população , PIB da construção civil e desemprego. Já para política fiscal, utilizou-se: Necessidade de Financiamento do Setor Público (NFSP) e Estoque da Dívida Pública. Para mensurar a inflação foram utilizados Índice de Preços ao Consumidor Aplicado (IPCA), Índice Nacional de Custo da Construção (INCC) e Índice Geral de Preço (IGP). O Índice de Desenvolvimento Humano (IDH) foi utilizado como indicador social. Finalmente, a produção de cimento e o preço do saco de 50kg, da tonelada e do quilograma de cimento foram utilizados como indicadores da construção civil.
 
-% \begin{table}[H]
-%     \begin{tabular} {\colwidth } { |c|c| }
-%         \hline
-%         Categoria   & Indicadores  \\
-%         \hline
-%         Crescimento econômico  & \makecell{PIB do estado, PIB per capita, população , PIB da construção \\ civil e desemprego} \\
-%         \hline
-%         Política Fiscal  & \makecell{Necessidade de Financiamento do Setor Público (NFSP) \\ e Estoque da Dívida Pública}  \\
-%         \hline
-%         Inflação & \makecell{Índice de Preços ao Consumidor Aplicado (IPCA), Índice \\ Nacional de Custo da Construção (INCC)  e Índice \\ Geral  de Preço (IGP)} \\
-%         \hline
-%         Política monetária   & Taxa SELIC  \\
-%         \hline
-%         Indicadores sociais  & Índice de Desenvolvimento Humano (IDH)  \\
-%         \hline
-%         \makecell{Indicadores da \\ Construção Civil} & \makecell{Produção de cimento, preço do saco de 50kg, da tonelada \\ e do quilograma  de cimento} \\
-%         \hline
-%     \end{tabular}
-% \end{table}
+
 
 % % pensar em não ser tão bruta na análise exploratória... A fim de entender os dados de entrada e direcionar a limpeza. ...
 % % qual era o periodo que tinha disponível e pq optou por fazer de 2003 a 2019
     A partir da análise exploratória dos dados de entrada, optou-se por utilizar dados de 2003 até 2019, com granularidade mensal, para realizar o estudo. Se os indicadores apresentavam granularidade anual, calculou-se a divisão da medição de cada ano por 12 meses para obter a média mensal. Além disso, caso o dado estivesse disponível apenas a nível de Brasil, ao invés de por estado, o valor da medição da União foi utilizado para todos os estados.
-    
     
 % pensar em adicionar mais detalhes -> quando fez um ou outro (em alguns casos)
     A estratégia utilizada para lidar com dados faltantes nas variávies de entrada foi repetir o valor da ocorrência anterior ou marcar a entrada com um valor não presente no intervalo de dados, a exemplo de marcar "-1" como valor da produção mensal de cimento em um determinado mês em um estado específico.
 
 
     Finalmente, os dados utilizados como entrada foram deslocados um mês à frente ou um ano, no caso dos indicadores anuais, em relação aos dados de consumo. Dessa forma, os dados correspondentes a, por exemplo, fevereiro de 2004 estão relacionados ao consumo de cimento em março de 2004, com o objetivo de propor um cenário mais pertinente, uma vez que o objetivo do projeto é prever a demanda por cimento no mês seguinte em um estado a partir dos dados do mês atual e, eventualmente, dos anteriores.
+
+    \section{Avaliação de performance}
+
+    Para comparar a eficiência dos modelos mede-se os erros de 
+    cada previsão, ou seja, a distância entre o valor previsto 
+    pelo algoritmo e o valor do dado real. Neste trabalho, 
+    utilizou-se as seguintes métricas estatísticas para 
+    mensurar o desempenho: \textit{mean absolute error} (MAE),
+    \textit{root mean square  error} (RMSE) e \textit{mean 
+    absolute percentage error} (MAPE). Além disso, foi utilizado
+    o delta percentual ($\Delta$) para avaliar se o modelo tende 
+    a subestimar ou superestimar o valor previsto, se é otimista
+    ou pessimista.
+
+\subsection{Mean absolute error (MAE)}
+
+    O MAE, sigla do inglês para \textit{mean absolute error}
+    ou média do erro absoluto mede o erro absoluto de cada previsão
+    e é dado por:\cite{forecast-evaluation-ds}
+
+    \begin{equation}
+        MAE = \frac{\sum_{i=1}^n |\hat{y}_i - y_i|}{n}
+    \end{equation}
+
+\subsection{Root mean squared error (RMSE)}
+
+    A RMSE, sigla para \textit{root mean squared  error} é
+    semelhante à MAE, contudo eleva os erros ao quadrado antes de 
+    somá-los e tira aa raiz logo depois. A RMSE é, por tanto, 
+    mais sensível a \textit{outliers}.\cite{forecast-evaluation-ds}
+
+    \begin{equation}
+        RMSE = \sqrt{\frac{\sum_{i=1}^n (\hat{y}_i - y_i)^2}{n}}
+    \end{equation}
+
+\subsection{Mean absolute percentage error (MAPE)}
+
+    Foi utilizada também a MAPE, \textit{Mean absolute
+    percentage error}, para mensurar a escala do erro em 
+    relação ao tamanho das medições.
+
+    \begin{equation}
+        MAPE=\sum_{t=1}^n\left|\frac{y_t-\hat{y}_t}{y_t}\right|
+    \end{equation}
+
+\subsection{Delta percentual}
+
+O delta percentual, $\Delta$, é utilizado para mensurar se o 
+modelo apresenta tendência de subestimar ou superestimar a variável, se 
+é otimista ou pessimista.
+
+\begin{equation}
+    \Delta = \frac{\hat{y_i} - y_i}{y_i}
+\end{equation}
