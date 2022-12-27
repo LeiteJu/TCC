@@ -11,7 +11,7 @@ do Brasil. Esse indicador foi obtido do Sindicato Nacional da Indústria do
 Cimento e apresentava granularidade mensal para cada um dos estados do 
 país.
 
-\begin{table}
+\begin{table}[H]
     \centering
     \caption{Indicadores de crescimento econômico}
     \begin{tabular}{llll}
@@ -27,7 +27,7 @@ país.
     \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
     \centering
     \caption{Indicadores de inflação e política monetária}
     \begin{tabular}{llll}
@@ -42,7 +42,7 @@ país.
     \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
     \centering
     \caption{Indicadores de inflação e política fiscal}
     \begin{tabular}{llll}
@@ -55,19 +55,68 @@ país.
     \end{tabular}
 \end{table}
 
-Os modelos recebem como entrada dados econômicos obtidos do Instituto Brasileiro de Geografia e Estatística (IBGE), Fundação Getúlio Vargas (FGV), Instituto de Pesquisa Econômica Aplicada, entre outros. Sobre crescimento econômico, foram utilizados: PIB do estado, PIB per capita, população , PIB da construção civil e desemprego. Já para política fiscal, utilizou-se: Necessidade de Financiamento do Setor Público (NFSP) e Estoque da Dívida Pública. Para mensurar a inflação foram utilizados Índice de Preços ao Consumidor Aplicado (IPCA), Índice Nacional de Custo da Construção (INCC) e Índice Geral de Preço (IGP). O Índice de Desenvolvimento Humano (IDH) foi utilizado como indicador social. Finalmente, a produção de cimento e o preço do saco de 50kg, da tonelada e do quilograma de cimento foram utilizados como indicadores da construção civil.
+\begin{table}[H]
+    \centering
+    \caption{Indicadores sociais}
+    \begin{tabular}{llll}
+        \toprule
+        Indicador                   & Fonte & Período disponível & Granularidade         \\
+        \midrule
+        População                   & IBGE   & 1991 até 2021      & anual por estado      \\
+        IDH                         & IBGE   & 1991 ate 2017      & irregular      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 
+\begin{table}[H]
+    \centering
+    \caption{Indicadores de construção civil}
+    \begin{tabular}{llll}
+        \toprule
+        Indicador                   & Fonte & Período disponível & Granularidade         \\
+        \midrule
+        Produção mensal de cimento  & SNIC  & 2003 até 2022      & mensal por estado      \\
+        Valor médio do cimento Portland em reais por quilograma   & IPEA   & 1947 ate 2019      & anual para o Brasil      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
-% % pensar em não ser tão bruta na análise exploratória... A fim de entender os dados de entrada e direcionar a limpeza. ...
-% % qual era o periodo que tinha disponível e pq optou por fazer de 2003 a 2019
-    A partir da análise exploratória dos dados de entrada, optou-se por utilizar dados de 2003 até 2019, com granularidade mensal, para realizar o estudo. Se os indicadores apresentavam granularidade anual, calculou-se a divisão da medição de cada ano por 12 meses para obter a média mensal. Além disso, caso o dado estivesse disponível apenas a nível de Brasil, ao invés de por estado, o valor da medição da União foi utilizado para todos os estados.
-    
-% pensar em adicionar mais detalhes -> quando fez um ou outro (em alguns casos)
-    A estratégia utilizada para lidar com dados faltantes nas variávies de entrada foi repetir o valor da ocorrência anterior ou marcar a entrada com um valor não presente no intervalo de dados, a exemplo de marcar "-1" como valor da produção mensal de cimento em um determinado mês em um estado específico.
+Com o objetivo de direcionar a estratégia de preparação de dados
+foi realizada uma análise exploratória de cada um dos dados de 
+entrada e da variável resposta. A partir dessa análise, 
+optou-se por utilizar os dados de 2003 até 2019 para o estudo.
+
+Foram adotadas estratégias para garantir dados na granularidade
+mensal e por estado. Caso os indicadores apresentassem granularidade anual, 
+o valor foi dividido por 12 de modo a obter a média mensal, já caso a granularidade
+fosse a nível de Brasil, o valor apresentado foi repetido para todos os 
+estados.
 
 
-    Finalmente, os dados utilizados como entrada foram deslocados um mês à frente ou um ano, no caso dos indicadores anuais, em relação aos dados de consumo. Dessa forma, os dados correspondentes a, por exemplo, fevereiro de 2004 estão relacionados ao consumo de cimento em março de 2004, com o objetivo de propor um cenário mais pertinente, uma vez que o objetivo do projeto é prever a demanda por cimento no mês seguinte em um estado a partir dos dados do mês atual e, eventualmente, dos anteriores.
+A estratégia utilizada para lidar com dados faltantes foi, sempre que possível,
+repetir o valor anterior que estava disponível nos dados de entrada para
+preencher a ocorrência. Contudo, alguns indicadores não apresentavam 
+valores mais antigos, então foi usado um valor não presente no intervalo
+de dados de entrada para marcar como nulo.
+
+Além disso, tomou-se um cuidado para evitar que a previsão fosse 
+realizada com os dados do mês anterior ou do ano anterior no caso dos
+indicadores anuais. Deslocou-se, portanto, os dados de entrada 
+para frente em um ocorrência de modo a associar os dados de um 
+mês com o consumo no mês seguinte.\footnote{os dados correspondentes 
+a, por exemplo, fevereiro de 2004 estão relacionados ao consumo de 
+cimento em março de 2004, com o objetivo de propor um cenário mais pertinente, 
+uma vez que o objetivo do projeto é prever a demanda por cimento no mês seguinte 
+em um estado a partir dos dados do mês atual e, eventualmente, dos anteriores.
+}
+
+Por fim, o estado correspondente à medição foi usado como dado de entrada. 
+Como os modelos de inteligência artificial aceitam apenas caracteres numéricos,
+utilizou-se o método de codificação \textit{one hot} para criar 27 colunas, uma
+para cada estado, nas quais o valor é 1 quando a linha possui dados daquele estado 
+e é 0 caso contrário.
+
 
     \section{Avaliação de performance}
 
