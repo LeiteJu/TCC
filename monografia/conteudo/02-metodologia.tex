@@ -4,12 +4,70 @@
 
 \chapter{Metodologia}
 
+Neste trabalho, utilizou-se dados públicos de fontes como o Instituto Brasileiro 
+de Geografia e Estatística (IBGE), a Fundação Getúlio Vargas, FGV, e o 
+Banco Central do Brasil (BACEN) para prever o consumo mensal de 
+cimento nos estados da União. Para melhorar o desempenho dos modelos de 
+aprendizado de máquina, realizaram-se técnicas
+de preparação de dados, como o preenchimento de valores nulos, e para mensurar 
+o acerto das previsões são aplicadas as métricas estatísticas: \textit {root 
+mean squared error} (RMSE),  \textit{mean absolute error} (MAE) e \textit{mean 
+absolute percentage error} (MAPE), além do delta percentual.
+
+
 \section{Dados}
 
-O objetivo deste trabalho é prever o consumo mensal de cimento nos estados 
-do Brasil. Esse indicador foi obtido do Sindicato Nacional da Indústria do 
-Cimento e apresentava granularidade mensal para cada um dos estados do 
-país.
+
+O consumo mensal de cimento nos estados do Brasil, alvo da previsão 
+dos modelos aplicados neste trabalho, é um indicador fornecido pelo SNIC, 
+Sindicato Nacional da Indústria de Cimento. Os dados obtidos apresentavam granularidade
+mensal para cada um dos estados da União e estavam disponíveis de 1990 até 2019,
+a exceção dos anos de 2001 e 2002. Dessa forma, optou-se por utilizar apenas 
+dados posteriores a 2003 no trabalho, uma vez que os modelos recorrentes se 
+valem do contexto para obter a próxima previsão \ref{rnn} , então esse lapso nos dados
+poderia trazer inconsistências no modelo.
+
+Além disso, o descarte de dados mais antigos favorece a assertividade do 
+modelo, pois houve alteração no total de cimento consumida no Brasil
+ao longo do tempo, então dados mais antigos poderiam privilegiar tendências 
+mais antigas. Retirar dados mais antigos, então evita, por exemplo, que a 
+estagnação econômica da época de hiperinflação ou o otimismo do Plano real
+impacto a previsão atual. Essa alteração na quantidade de cimento consumida pela União
+pode ser observada na imagem abaixo. 
+
+\begin{figure}[H] 
+    \includegraphics[width= 14cm]{../figuras/evolucao-consumo.png}
+    \caption{Evolução do consumo de cimento no Brasil \cite{relatorio-snic}}
+    \label{fig:evolucao-consumo-cimento}
+\end{figure}
+
+Observa-se, por exemplo, uma queda no consumo de cimento entre 2015 e 2018,
+fruto das crises econômicas nesse período.
+Alem disso, a tendência do consumo não é única para os estados. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=6cm]{../figuras/evolucao-consumo-norte.png}
+    \caption{Consumo de cimento no Norte}
+\end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}{0.6 \textwidth}
+%         \centering
+%         \includegraphics[width=6cm]{../figuras/evolucao-consumo-norte.png}
+%         \caption{Consumo de cimento no Norte}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}{0.6 \textwidth}
+%         \centering
+%         \includegraphics[width=6cm]{../figuras/evolucao-consumo-nordeste.png}
+%         \caption{Consumo de cimento no Nordeste}
+%     \end{subfigure}
+% \end{figure}
+    
+
 
 \begin{table}[H]
     \centering
@@ -84,7 +142,12 @@ país.
 
 Com o objetivo de direcionar a estratégia de preparação de dados
 foi realizada uma análise exploratória de cada um dos dados de 
-entrada e da variável resposta. A partir dessa análise, 
+entrada e da variável resposta. Destaca-se nessa análise, a alta
+taxa de variação dos dados de entrada, em alguns indicadores, por exemplo 
+para o  PIB da construção civil, 
+o desvio padrão é maior que o valor médio do indicador. Esse comportamento 
+se deve a estados com valores discrepantes em relação ao resto do país.
+A partir dessa análise, 
 optou-se por utilizar os dados de 2003 até 2019 para o estudo.
 
 Foram adotadas estratégias para garantir dados na granularidade
