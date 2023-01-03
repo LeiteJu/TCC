@@ -21,7 +21,7 @@ absolute percentage error} (MAPE), além do delta percentual.
 O consumo mensal de cimento nos estados do Brasil, alvo da previsão 
 dos modelos aplicados neste trabalho, é um indicador fornecido pelo SNIC, 
 Sindicato Nacional da Indústria de Cimento. Os dados obtidos apresentavam granularidade
-mensal para cada um dos estados da União e estavam disponíveis de 1990 até 2019,
+mensal para cada um dos estados da União e estavam disponíveis de 1990 até 2021,
 a exceção dos anos de 2001 e 2002. Dessa forma, optou-se por utilizar apenas 
 dados posteriores a 2003 no trabalho, uma vez que os modelos recorrentes se 
 valem do contexto para obter a próxima previsão \ref{rnn} , então esse lapso nos dados
@@ -42,15 +42,23 @@ pode ser observada na imagem abaixo.
 \end{figure}
 
 Observa-se, por exemplo, uma queda no consumo de cimento entre 2015 e 2018,
-fruto das crises econômicas nesse período.
-Alem disso, a tendência do consumo não é única para os estados. 
+fruto das crises econômicas nesse período. Ressalta-se, também,
+que o consumo não é uniforme ao longo do ano, além da tendência
+não ser única para todos os estados, como mostrado na figura abaixo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=6cm]{../figuras/evolucao-consumo-norte.png}
-    \caption{Consumo de cimento no Norte}
+    \includegraphics[width=10cm]{../figuras/graficos/evolucao-consumo-sp.png}
+    \caption{Evolução do consumo mensal de cimento em São Paulo}
 \end{figure}
 
+Observa-se a grande variação na demanda de cimento no estado
+de São Paulo, não apenas ao longo dos anos, mas também ao 
+longo dos meses do ano. Além disso, destaca-se que existe uma 
+grande diferença no consumo entre os estados do Brasil, por 
+exemplo, o consumo médio em São Paulo de 2003 a 2019 foi de 
+aproximadamente 1014,7 mil de toneladas enquanto o de 
+Alagoas foi de 41,5 mil toneladas.
 
 % \begin{figure}[H]
 %     \centering
@@ -67,88 +75,112 @@ Alem disso, a tendência do consumo não é única para os estados.
 %     \end{subfigure}
 % \end{figure}
     
+O modelo utiliza dados econômicos, sociais e da construção
+civil para treinar estimar a demanda por cimento. Abaixo, estão
+apresentadas a fonte, granularidade e o período em que os dados 
+estavam disponíveis para todos os indicadores utilizados neste 
+trabalho. Esses dados foram separados em categorias, cada uma
+em uma tabela para melhor visualização.
 
 
 \begin{table}[H]
     \centering
-    \caption{Indicadores de crescimento econômico}
+    \caption{Indicadores utilizados no trabalho}
     \begin{tabular}{llll}
         \toprule
         Indicador                   & Fonte & Período disponível & Granularidade         \\
         \midrule
-        PIB a preços constantes     & IBGE  & 1983 até 2019      & anual por estado      \\
-        PIB a preços de mercado     & IBGE  & 1985 ate 2019      & anual por estado      \\
-        PIB per capita              & IBGE  & 1985 até 2019      & anual por estado      \\
-        PIB da construção civil     & IBGE  & 1985 até 2019      & anual por estado      \\
-        Desemprego                  & IBGE  & 1991 até 2022      & anual por estado até 2014 e mensal para o Brasil a partir de 2012      \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{Indicadores de inflação e política monetária}
-    \begin{tabular}{llll}
-        \toprule
-        Indicador                   & Fonte & Período disponível & Granularidade         \\
-        \midrule
-        IPCA                        & IBGE  & 1981 até 2021      & mensal para o Brasil      \\
-        INCC                        & FGV   & 1980 ate 2021      & mensal para o Brasil      \\
-        IGP                         & FGV   & 1944 até 2021      & mensal para o Brasil      \\
-        SELIC                       & IBGE  & 1986 até 2022      & mensal para o Brasil      \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{Indicadores de inflação e política fiscal}
-    \begin{tabular}{llll}
-        \toprule
-        Indicador                   & Fonte & Período disponível & Granularidade         \\
-        \midrule
-        NFSP                        & BACEN  & 1991 até 2022      & mensal para o Brasil      \\
-        estoque de dívida pública   & IPEA   & 1947 ate 2019      & anual para o Brasil      \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{Indicadores sociais}
-    \begin{tabular}{llll}
-        \toprule
-        Indicador                   & Fonte & Período disponível & Granularidade         \\
-        \midrule
-        População                   & IBGE   & 1991 até 2021      & anual por estado      \\
-        IDH                         & IBGE   & 1991 ate 2017      & irregular      \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-
-\begin{table}[H]
-    \centering
-    \caption{Indicadores de construção civil}
-    \begin{tabular}{llll}
-        \toprule
-        Indicador                   & Fonte & Período disponível & Granularidade         \\
-        \midrule
-        Produção mensal de cimento  & SNIC  & 2003 até 2022      & mensal por estado      \\
-        Valor médio do cimento Portland em reais por quilograma   & IPEA   & 1947 ate 2019      & anual para o Brasil      \\
+        PIB\footnote{\label{pib} Produto Interno Bruto (PIB)} a preços constantes     
+                                    & IBGE\footnote{\label{portal ipea} Dado retirado do portal do Ipeadata em \url{http://www.ipeadata.gov.br/Default.aspx}}  & 1983 até 2019      & anual por estado      \\
+        PIB\footref{pib} a preços de mercado      & IBGE\footref{portal ipea}  & 1985 ate 2019      & anual por estado      \\
+        PIB\footref{pib} per capita              & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
+        PIB\footref{pib} da construção civil      & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
+        Desemprego                   & IBGE\footref{portal ipea}  & 1991 até 2022      & irregular \footnote{Havia dados de 1992 até 2014
+        com granularidade anual e por estado, contudo, a partir de 2012 foram disponibilizados dados mensais a nível de Brasil por conta da 
+        Pesquisa Nacional por Amostra de Domicílios (PNAD) Contínua mensal realizada pelo IBGE. Neste trabalho, utilizou-se os dados anuais até 2012
+        e, após 2012, os dados provenientes da PNAD Contínua} \\
+        IPCA\footnote{Índice Nacional de Preços ao Consumidor 
+        Amplo (IPCA)}                        & IBGE\footnote{Dado retirado do IBGE em \url{https://sidra.ibge.gov.br/tabela/1737}}  & 1981 até 2021      & mensal para o Brasil      \\
+        INCC\footnote{Índice Nacional de Custo da Construção}                        & FGV\footnote{Dado obtido a partir do portal da FGV em \url{https://www.debit.com.br/tabelas/tabela-completa-pdf.php?indice=incc}}   & 1980 ate 2021      & mensal para o Brasil      \\
+        IGP\footnote{Índice Geral de Preços}                         & FGV\footref{portal ipea}   & 1944 até 2021      & mensal para o Brasil      \\
+        Taxa Selic                  & IBGE\footnote{Dado obtido em \url{https://www.debit.com.br/tabelas/tabela-completa.php?indice=selic}}  & 1986 até 2022      & mensal para o Brasil      \\
+        NFSP\footnote{Necessidade de Financiamento do Setor Público}                        & BACEN\footref{portal ipea}  & 1991 até 2022      & mensal para o Brasil      \\
+        Estoque líquido de capital fixo   & IPEA\footref{portal ipea}   & 1947 ate 2019      & anual para o Brasil      \\
+        População                   & IBGE\footnote{Dado obtido do portal Base dos Dados em \url{https://basedosdados.org/dataset/br-ibge-populacao}}   & 1991 até 2021      & anual por estado      \\
+        IDH                         & IBGE\footref{portal ipea}   & 1991 ate 2017      & irregular\footnote{Os indicadores de IDH (Renda, Longevidade e Educação) estão disponíveis em anos de censo do IBGE (1990, 2000, 2010), há 
+        dados, também, de 2014 a 2017 por conta da PNAD Contínua}      \\
+        Produção mensal de cimento  & SNIC\footnote{\label{cbic} Dados retirados do portal \url{http://www.cbicdados.com.br/menu/materiais-de-construcao/cimento}}  & 2003 até 2022      & mensal por estado      \\
+        Valor médio do cimento\footnote{Evolução do valor médio/mediano do cimento Portland 32 em US\$/Tonelada}      & IPEA\footref{cbic}   & 1947 ate 2019      & anual para o Brasil      \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 Com o objetivo de direcionar a estratégia de preparação de dados
 foi realizada uma análise exploratória de cada um dos dados de 
-entrada e da variável resposta. Destaca-se nessa análise, a alta
-taxa de variação dos dados de entrada, em alguns indicadores, por exemplo 
-para o  PIB da construção civil, 
-o desvio padrão é maior que o valor médio do indicador. Esse comportamento 
-se deve a estados com valores discrepantes em relação ao resto do país.
+entrada e da variável resposta. 
 A partir dessa análise, 
 optou-se por utilizar os dados de 2003 até 2019 para o estudo.
+Destaca-se nessa análise, a alta
+taxa de variação dos dados de entrada, em alguns indicadores, por exemplo 
+para o  PIB da construção civil,   
+o desvio padrão é maior que o valor médio do indicador. Dessa 
+forma, está presente nos dados um grande número de \textit{outliers},
+em especial ao analisar o Brasil como um todo, por conta da 
+forte diferença entre as regiões do Brasil.
+
+Para ilustrar melhor o alto volume de \textit{outliers} presentes
+nos dados, utilizou-se gráficos \textit{boxplot}, como mostrado na 
+figura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{../figuras/explicacao-boxplot.png}
+    \caption{Gráfico \textit{boxplot} \cite{explicacao-boxplot}}
+    \label{fig:boxplot}
+\end{figure}
+
+O gráfico na figura é um \textit{boxplot} \cite{boxplot}, 
+uma técnica estatística utilizada na análise exploratória
+os dados para identificar visualmente padrões, como a distribuição
+dos dados. Na figura, acima linha em verde corresponde à mediana \footnote{
+valor que fica no meio quando os dados estão ordenados ou a média
+dos dois valores centrais se o número de pontos de dados for par
+\cite{boxplot-stat}} 
+dos dados, os limite inferior e o superior ao retângulo representam
+o primeiro e terceiro quartil\footnote{O primeiro e terceiro 
+quartis também representam a mediana dos valores superiores
+à mediana dos dados e a mediana dos valores inferiores à mediana}, respectivamente. 
+
+\begin{figure}[H]
+    \centering
+    \label{fig:boxplot_all}
+    \begin{subfigure}{5 cm}
+        \centering
+        \includegraphics[width=5cm]{../figuras/graficos/boxplot-pib-cc.png}
+        \caption{Gráfico \textit{boxplot} do Brasil}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{5cm}
+        \centering
+        \includegraphics[width=5cm]{../figuras/graficos/boxplot-pib-cc-se.png}
+        \caption{Gráfico \textit{boxplot} do Sudeste}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{5cm}
+        \centering
+        \includegraphics[width=4.8cm]{../figuras/graficos/boxplot-pib-cc-n.png}
+        \caption{Gráfico \textit{boxplot} do Norte}
+    \end{subfigure}
+\end{figure}
+
+Conforme explicado na figura \ref{fig:boxplot}, a linha em 
+laranja nos gráficos acima representa a mediana dos dados,
+o retângulo que envolve a mediana é delimitado pelo primeiro e 
+terceiro quartil e retém metade central das amostras. Os valores
+reoresentados por pontos vermelhos acima ou abaixo dos limites
+superiores ou inferiores são \textit{outliers}. Observa-se,
+então, que pode-se obter uma significativa redução no número de 
+amostras com \textit{outliers} ao separar a análise por região.\cite{boxplot}
 
 Foram adotadas estratégias para garantir dados na granularidade
 mensal e por estado. Caso os indicadores apresentassem granularidade anual, 
@@ -161,7 +193,10 @@ A estratégia utilizada para lidar com dados faltantes foi, sempre que possível
 repetir o valor anterior que estava disponível nos dados de entrada para
 preencher a ocorrência. Contudo, alguns indicadores não apresentavam 
 valores mais antigos, então foi usado um valor não presente no intervalo
-de dados de entrada para marcar como nulo.
+de dados de entrada (-1) para marcar como nulo. Os indicadores 
+com dados faltantes são, em ordem descrescente de acordo com 
+o percentual de dados faltantes: produção de cimento, valor 
+médio do quilo, saco e da tonelada e cimento e desemprego.
 
 Além disso, tomou-se um cuidado para evitar que a previsão fosse 
 realizada com os dados do mês anterior ou do ano anterior no caso dos
