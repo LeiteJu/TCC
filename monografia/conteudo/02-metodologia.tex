@@ -126,11 +126,19 @@ para o  PIB da construção civil,
 o desvio padrão é maior que o valor médio do indicador. Dessa 
 forma, está presente nos dados um grande número de \textit{outliers},
 em especial ao analisar o Brasil como um todo, por conta da 
-forte diferença entre as regiões do Brasil.
+forte diferença entre as regiões do Brasil. 
 
+\begin{quote}
+    \textit{An outlier is an observation strikingly far from
+some central value. It is an unusual value relative
+to the bulk of the data...}\cite{tukey77}
+\end{quote}
+
+\textit{Outliers} são observações discrepantes do restante dos dados, que parecem
+inconsistentes e podem interferir no processo de previsão. \cite{outliers}
 Para ilustrar melhor o alto volume de \textit{outliers} presentes
 nos dados, utilizou-se gráficos \textit{boxplot}, como mostrado na 
-figura.
+figura abaixo.
 
 \begin{figure}[H]
     \centering
@@ -139,7 +147,7 @@ figura.
     \label{fig:boxplot}
 \end{figure}
 
-O gráfico na figura é um \textit{boxplot} \cite{boxplot}, 
+O \textit{boxplot} \cite{boxplot} é
 uma técnica estatística utilizada na análise exploratória
 os dados para identificar visualmente padrões, como a distribuição
 dos dados. Na figura, acima linha em verde corresponde à mediana \footnote{
@@ -149,7 +157,8 @@ dos dois valores centrais se o número de pontos de dados for par
 dos dados, os limite inferior e o superior ao retângulo representam
 o primeiro e terceiro quartil\footnote{O primeiro e terceiro 
 quartis também representam a mediana dos valores superiores
-à mediana dos dados e a mediana dos valores inferiores à mediana}, respectivamente. 
+à mediana dos dados e a mediana dos valores inferiores à mediana. Então metade
+dos dados está contida dos quadrados nas imagens}, respectivamente. 
 
 \begin{figure}[H]
     \centering
