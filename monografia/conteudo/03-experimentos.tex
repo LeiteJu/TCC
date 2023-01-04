@@ -10,10 +10,36 @@ realizados variam de acordo como o modelo, como pode ser visto a seguir:
 
 \section{Regressao linear}
 
-A regressão linear, por se tratar de um modelo mais simples, 
-possui menos parâmetros agregados. Testou-se, contudo, as 
-seguintes funções de narmalização e transformação
-nos dados de entrada.
+A regressão linear é um modelo mais simples de aprendizado de máquina que assume
+uma relação linear entre as variáveis de entrada e o alvo da previsão. Foram testados
+métodos de normalização e transformação dos dados, além da remoção de variáveis de 
+alta correlação e o uso apenas de dados mais recentes (a partir de 2009) para 
+realizar a previsão. As veriáveis de alta correlação \ref{sec:dados} que foram removidas são: 
+PIB \textit{per capita}, INCC, IGP, taxa Selic, IDH Educação e IDH Longevidade, 
+NFSP, preço do saco de cimento e preço da tonelada de cimento.
+
+\begin{table}
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        Experimento & Transformação nos dados     & Período de dados & Remoção de variáveis  \\
+        \midrule
+        A           & nenhum & de 2003 até 2019            & não~                                     \\
+        B           & Standard scaler~            & de 2003 até 2019            & não~ ~                                   \\
+        C           & MinMax scaler~ ~            & de 2003 até 2019            & não~ ~ ~                                 \\
+        D           & Power Transformer           & de 2003 até 2019            & não                                      \\
+        E           & nenhum & de 2003 até 2019            & sim                                      \\
+        F           & nenhum & de 2009 até 2019            & não                                      \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:exp-reg-lin}
+    \caption{Experimentos realizados na regressão linear}
+\end{table}
+
+Na sessão \ref{chap:resultados}, estão apresentados os 
+resultados e previsões do modelo de regressão linear com
+melhor desempenho dentre os testados no modelo.
+
 
 \section{Redes neurais MLP}
 \section{Redes recorrentes}
