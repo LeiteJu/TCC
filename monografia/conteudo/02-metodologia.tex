@@ -191,6 +191,19 @@ superiores ou inferiores são \textit{outliers}. Observa-se,
 então, que pode-se obter uma significativa redução no número de 
 amostras com \textit{outliers} ao separar a análise por região.\cite{boxplot}
 
+Analisou-se, também, a correlação entre as variáveis de entrada e observou-se
+alta correlação entre os indicadores de PIB do estado, PIB da construção
+civil e população. Além disso, há alta correlação entre os três indicadores
+de IDH, além do preço do saco de cimento e o preço do kilograma, como pode-se
+validar na figura \ref{fig:matriz-corr}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=13cm]{../figuras/graficos/matriz-corr.png}
+    \caption{Matriz de correlação}
+    \label{fig:matriz-corr}
+\end{figure}
+
 Foram adotadas estratégias para garantir dados na granularidade
 mensal e por estado. Caso os indicadores apresentassem granularidade anual, 
 o valor foi dividido por 12 de modo a obter a média mensal, já caso a granularidade
