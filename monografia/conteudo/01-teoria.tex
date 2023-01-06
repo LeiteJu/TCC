@@ -330,10 +330,53 @@ uma camada de neurônios é utilizada como entrada para a camada seguinte, sem u
         
 \subsection{Redes Neurais Recorrentes}
 \label{rnn}
-Já as redes neurais recorrentes são projetadas para reconhecer padrões nos dados, uma vez que levam tempo e sequência em consideração. Assim, nessas redes, a decisão tomada na etapa anterior influencia a etapa seguinte por conta dos \textit{loops de feedback}, então o presente e o passado recente se combinam para determinar a previsão. Neste trabalho, foram testadas as redes Long Short Term Memory (LSTM), redes Gated Recurrent Unit (GRU) e Bidirecionais.
-  
-\subsubsection{GRU}
+
+Se por um lado as redes neurais tradicionais são projetadas
+para realizar previsões sem modelar dimensão temporal, as redes
+neurais recorrentes se diferem por capturar informação de contexto, ou seja,
+histórico, para realizar previsões. Essa dimensão temporal, então, se dá por 
+meio de ciclos nas conexões, ou \textit{feedback loops}, como mostrado na 
+figura abaixo.
+
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{7cm}
+      \centering
+      \includegraphics[width=7cm]{../figuras/redes/rnn.png}
+      \caption{Redes neurais recorrentes}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{7cm}
+      \centering
+      \includegraphics[width=7cm]{../figuras/redes/ff.png}
+      \caption{Redes \textit{feed forward}}
+  \end{subfigure}
+\end{figure}
+
+Dessa forma, os neurônios nas redes recorrentes recebem entradas de ativação 
+de seu próprio estado atual e dos nós anteriores na rede, não apenas dos anteriores
+na rede, como nas redes tradicionais.
+
+As redes recorrentes, então, não recebem como entrada apenas um vetor de tamanho 
+fixo como as redes \textit{feed forward}, seu \textit{input} é formado 
+por vários vetores, um para cada \textit{time-step}. Na figura abaixo, o número
+total de amostras corresponde ao campo "examples", o vetor com as 
+variávies de entrada ao campo "inputs" ou "values per time step" (na 
+figura de Recurrent Network Data) e o tamanho das sequências consideradas
+pelo modelo ao "time steps". 
+
+\begin{figure}[H] 
+  \includegraphics[width= 12cm]{../figuras/redes/input-rnn.png}
+  \caption{Comparação entre a entrada de uma rede neural tradicional
+  e um recorrente \cite{dl-oreilly}}
+  \label{fig:input-rnn}
+\end{figure}
 
 \subsubsection{LSTM}
+
+
+\subsubsection{GRU}
+
 
 \subsection{Normalização}

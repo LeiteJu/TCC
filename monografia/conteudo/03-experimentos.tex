@@ -5,18 +5,19 @@
 \chapter{Experimentos}
 
 Para cada um dos modelos selecionados foram realizados experimentos
-alterando parâmetros e os dados visando melhoria de performance. Os experimentos
-realizados variam de acordo como o modelo, como pode ser visto a seguir:
+alterando parâmetros e os dados visando melhoria de performance. O
+treino dos modelos foram realizados com dados de 2003 até junho de 
+2017, os testes, por sua vez, foram realizados com dados de 
+julho de 2017 até dezembro de 2019, dessa forma 85\% do conjunto 
+de dados foi usado para treino e 15\% para teste. Para cada modelo foram 
+alterados diferentes parâmetros.
 
 \section{Regressao linear}
 
-A regressão linear é um modelo mais simples de aprendizado de máquina que assume
+A regressão linear é um modelo simples de aprendizado de máquina que assume
 uma relação linear entre as variáveis de entrada e o alvo da previsão. Foram testados
 métodos de normalização e transformação dos dados, além da remoção de variáveis de 
-alta correlação e o uso apenas de dados mais recentes (a partir de 2009) para 
-realizar a previsão. As veriáveis de alta correlação \ref{sec:dados} que foram removidas são: 
-PIB \textit{per capita}, INCC, IGP, taxa Selic, IDH Educação e IDH Longevidade, 
-NFSP, preço do saco de cimento e preço da tonelada de cimento.
+alta correlação. 
 
 \begin{table}
     \centering
@@ -25,22 +26,58 @@ NFSP, preço do saco de cimento e preço da tonelada de cimento.
         Experimento & Transformação nos dados     & Período de dados & Remoção de variáveis  \\
         \midrule
         A           & nenhum & de 2003 até 2019            & não~                                     \\
-        B           & Standard scaler~            & de 2003 até 2019            & não~ ~                                   \\
-        C           & MinMax scaler~ ~            & de 2003 até 2019            & não~ ~ ~                                 \\
-        D           & Power Transformer           & de 2003 até 2019            & não                                      \\
-        E           & nenhum & de 2003 até 2019            & sim                                      \\
-        F           & nenhum & de 2009 até 2019            & não                                      \\
+        B           & \textit{Standard scaler}~            & de 2003 até 2019            & não~ ~                                   \\
+        C           & \textit{MinMax scaler}~ ~            & de 2003 até 2019            & não~ ~ ~                                 \\
+        D           & \textit{Power Transformer}           & de 2003 até 2019            & não                                      \\
+        E           & nenhum & de 2003 até 2019            & sim\footnote{As variáveis removidas foram: PIB \textit{per capita}, INCC, IGP, taxa Selic, IDH Educação e IDH Longevidade, 
+        NFSP, preço do saco de cimento e preço da tonelada de cimento}                                      \\
         \bottomrule
     \end{tabular}
     \label{tab:exp-reg-lin}
     \caption{Experimentos realizados na regressão linear}
 \end{table}
 
+O resultado dos experimentos se encontra na tabela abaixo:
+
+\begin{table}[H]
+    \begin{tabular}{llll}
+        \toprule
+        Experimento & MAE     & RMSE    & MAPE \\
+        \midrule
+        A           & 35148.6 & 55391.1 & 0.6  \\
+        B           & 35148.6 & 55391.1 & 0.6  \\
+        C           & 35148.6 & 55391.1 & 0.6  \\
+        D           & 49073.6 & 67446.7 & 1.05 \\
+        E           & 26435.6 & 38970.6 & 0.32 \\
+        \bottomrule
+    \end{tabular}
+    \caption{resultado dos experimentos para regressão linear}
+\end{table}
+
+Observa-se que não houve melhoria de performance ao normalizar 
+os dados com \textit{standard scaler} ou \textit{minmax scaler},
+ao utilizar \textit{power transformer}, contudo, house piora 
+no desempenho. Ressalta-se a grande melhoria nas métricas ao 
+remover variáveis de alta correlação tanto nas métricas de erro 
+quantitativo, como o MAE e RMSE, quanto proporcionalmente ao 
+atingir 32\% de erro percentual médio.
+
 Na sessão \ref{chap:resultados}, estão apresentados os 
 resultados e previsões do modelo de regressão linear com
-melhor desempenho dentre os testados no modelo.
+melhor desempenho dentre os testados no modelo, ou seja, sem 
+normalização de dados e deletando \textit{features} com alta 
+correlação.
+
+\section{Redes neurais \textit{Feed Forward}}
+
+As redes neurais \textit{feed forward} podem ser construídas
+com várias arquiteturas e hiperparâmetros. Neste estudo, testou-se
+alterar a quantidade de camadas da rede, o número neurônios em 
+cada camada, a função de ativação utilizada, além da quantidade
+de \textit{epoch}\footnote{Uma \textit{epoch} é uma passada 
+pelos dados de entrada \cite{dl-oreilly}} utilizada no treinamento.
 
 
-\section{Redes neurais MLP}
+
 \section{Redes recorrentes}
 \section{regressao linear}
