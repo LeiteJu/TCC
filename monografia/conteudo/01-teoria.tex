@@ -373,7 +373,103 @@ pelo modelo ao "time steps".
   \label{fig:input-rnn}
 \end{figure}
 
+Redes recorrentes são uma subclasse das redes neurais, contudo, possuem mais
+de uma categoria, neste trabalho testaram-se as redes LSTM e GRU.
+
 \subsubsection{LSTM}
+
+As redes Long Short Term Memory (LSTM) foram introduzidas em 1997 por Hochreiter 
+and Schmidhuber\footnote{\cite{lstm-origem}} e são a variação mais utilizada das redes
+neurais recorrentes atualmente, por exemplo para classificar séries temporais, 
+reconhecimento de fala e de escrita a mão. Redes LSTM apresentam células de 
+memória conectadas, o conteúdo dessas células é modulado pelo \textit{input gate} e o \textit{forget gate},
+por exemplo, se ambos estiverem fechados em um tempo o conteúdo da célula permanecerá 
+o mesmo no tempo em questão e no próximo. Essa estrutura permite que a informação
+seja retida ao longo do tempo e evita o problema do \textit{vanishing gradient} que 
+ocorre com a maioria das redes recorrentes.
+
+As redes neurais LSTM apresentam uma arquitetura diferente 
+das redes tradicionais, uma vez que há ciclos de \textit{feedback}
+nas conexões entre as células. Para melhor ilustrar essa 
+arquitetura, \cite{dl-oreilly} utiliza a visualização \textit{flat} 
+ou achatada das redes neurais, na qual as células de uma mesma 
+camada da rede estão representadas como um único nó.
+Pode-se observar essa representação em \label{fig:comparacao-ff-flat-normal},
+na imagem \ref{fig:arq-ff} está a representação tradicional 
+de uma rede neural \textit{feed forward}, já em em 
+\ref{fig:arq-ff-flat} está a mesma rede com a represetnação 
+achatada.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{7.5cm}
+      \centering
+      \label{fig:arq-ff}
+      \includegraphics[width=7.5cm]{../figuras/redes/arq-ff.png}
+      \caption{Arquitetura de rede neural \textit{feed forward}}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{7.5cm}
+      \centering
+      \includegraphics[width=7.5cm]{../figuras/redes/arq-ff-flat.png}
+      \caption{Visão \textit{flat} (achatada) arquitetura de rede neural \textit{feed forward} }
+      \label{fig:arq-ff-flat}
+  \end{subfigure}
+  \label{fig:comparacao-ff-flat-normal}
+\end{figure}
+
+As redes LSTM introduzem o conceito de conexão entre a saída de uma das 
+camadas ocultas da rede neural com a entrada da mesma camada. A partir desse
+ciclo, obtém-se entradas de tempos anteriores como parte da informação que 
+chega à rede neural no tempo atual. Na figura \ref{fig:arq-rnn-flat}, essas 
+conexões recorrentes são representadas como as setas que saem de uma célula e 
+atingem a mesma célula, uma vez que utiliza-se a representação achatada.
+A imagem \ref{fig:arq-rnnff}, por sua vez, representa a rede LSTM desenrolada 
+atráves do eixo do tempo.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{7.5cm}
+      \centering
+      \includegraphics[width=7.5cm]{../figuras/redes/arq-rnn-flat.png}
+      \caption{Visão \textit{flat} (achatada) arquitetura de rede neural LSTM }
+      \label{fig:arq-rnn-flat}
+  \end{subfigure}
+  \begin{subfigure}{7.5cm}
+    \centering
+    \includegraphics[width=7.5cm]{../figuras/redes/arq-rnn.png}
+    \caption{Visão da rede neural LSTM ao longo do tempo}
+    \label{fig:arq-rnnff}
+  \end{subfigure}
+  \hfill
+  \label{fig:comparacao-rnn-flat-normal}
+\end{figure}
+
+As unidades que formam cada uma das camadas de uma LSTM são uma variação dos
+neurônios artificiais clássicos. Essas unidades, representadas em \ref{fig:lstm-cell},
+ permitem que a rede mantenha o estado
+ao longo tempo e apresentam dois tipos de 
+conexões: conexões vindas da camada anteriores e vindas \textit{outputs} dessa
+mesma unidade em tempos anteriores.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=9cm]{../figuras/redes/lstm-cell.png}
+  \caption{Célula de memória de rede LSTM \cite{deeplearningbook}}
+  \label{fig:lstm-cell}
+\end{figure}
+
+A unidade LSTM recebe duas entradas, a observação no tempo atual e a saída do 
+último estado oculto. Nas unidades LSTM, a informação é retida nas células e as manipulações de memória 
+são realizadas nos \textit{gates} (portões). O \textit{forget gate} é responsável
+por remover informações que não são mais úteis para a célula, ou seja, pelo 
+esquecimento, essa operação é realizada por meio de multiplicação de matrizes 
+de pesos, adição de parâmetro de viés e função de ativação que fornece uma saída binária. 
+O \textit{input gate}, por sua vez, adiciona informações úteis ao estado da célula
+a partir da aplicação de funções sigmoides e tangente hiperbólica, além da multiplicação de vetores. 
+Já o \textit{output gate} extrai informações úteis ao estado da célula atual 
+para apresentar como saída da célula e entrada para a próxima com funções tangente
+hiperbólica e sigmoide, além da multiplicação de vetores.
 
 
 \subsubsection{GRU}
