@@ -469,10 +469,34 @@ O \textit{input gate}, por sua vez, adiciona informações úteis ao estado da c
 a partir da aplicação de funções sigmoides e tangente hiperbólica, além da multiplicação de vetores. 
 Já o \textit{output gate} extrai informações úteis ao estado da célula atual 
 para apresentar como saída da célula e entrada para a próxima com funções tangente
-hiperbólica e sigmoide, além da multiplicação de vetores.
-
+hiperbólica e sigmoide, além da multiplicação de vetores. \cite{deeplearningbook}
 
 \subsubsection{GRU}
+
+As GRU, sigla para \textit{gated recurrent units} no inglês,
+são unidades recorrentes similares às LSTM. Enquanto as unidades
+das redes LSTM apresentam dois estados passados entre as células, 
+estado da célula e estado oculto, que carregam memória, respectivamente,
+de longo e curto prazo, as unidades GRU apresentam apenas um 
+estado oculto carregado ao longo do tempo e capaz de manter
+as dependências de curto e longo prazo ao mesmo tempo. A 
+estrutura das unidades GRU pode ser vista em \ref{fig:gru-cell}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=9cm]{../figuras/redes/gru-cell.png}
+  \caption{Unidade da rede GRU \cite{deeplearningbook}}
+  \label{fig:gru-cell}
+\end{figure}
+
+As unidades GRU apresentam portões, assim como as unidades LSTM,
+para controlar o fluxo de informações. O \textit{reset gate}, ou
+portão de redefinição, é responsável por controlar quais informações 
+das etapas anteriores serão mantidas com as da etapa atual por meio 
+da função sigmoide e multiplicação de vetores. O \textit{update gate},
+por sua vez, tem como objetivo determinal quanto das informações
+armazenadas no estado oculto anterior devem ser retidas para 
+o futuro.
 
 
 \subsection{Normalização}
