@@ -500,3 +500,30 @@ o futuro.
 
 
 \subsection{Normalização}
+
+O objetivo da normalização dos dados, é garantior que as variáveis de entrada 
+estejam na mesma escala. Esse processo é necessário não apenas para realizar melhor comparação entre variáveis 
+com diferentes unidades, mas também para o melhor funcionamentos dos algoritmos 
+de aprendizado, uma vez que se as \textit{features} estiverem em escalas diferentes
+os pesos podem ser atualizados mais rápidos que outros.
+
+\subsubsection{\textit{Standard scaler}}
+
+O \textit{standard scaler} garante que as variáveis de entrada estejam em uma 
+escala com as propriedades de uma distribuição normal, ou seja, média ($\mu$)
+igual a zero e variância ($\sigma$) igual a um. Dessa forma, a operação 
+realizada para aplicar o processo em um entrada $x$ é
+
+\begin{equation}
+  z = \frac{x - \mu}{\sigma}
+\end{equation}
+
+\subsubsection{\textit{Min-Max scaler}}
+
+O \textit{min-max scaler} transforma os dados de modo que a 
+escala dos dados tenha um itnervalo definido, em geral, entre
+0 e 1.
+
+\begin{equation}
+  X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
+\end{equation}
