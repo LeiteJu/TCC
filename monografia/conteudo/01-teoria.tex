@@ -4,7 +4,8 @@
 
 \chapter{Fundamentação teórica}
 
-\section{Aprendizado de máquina}
+\section{Inteligência artificial}
+% talvez por um sub cap de ml
 
 Atualmente, a inteligência artificial (IA) permeia diversos 
 momentos do cotidiano. Um exemplo é a empresa norte-americana 
@@ -26,16 +27,17 @@ o usuário ao logar no perfil da plataforma é executada por um
 modelo de IA diferente do que o que elenca os vídeos já assistidos que o 
 membro pode continuar a ver. (\cite{netflix})
 
-Mas a final, o que é inteligência artificial ? O termo 
+Mas afinal, o que é inteligência artificial? O termo 
 "inteligência artificial", de \textit{artificial intelligence} 
 em inglês, foi elaborado por John McCarthy e utilizado 
 oficialmente pela primeira vez em 1956 no seminário de 
 Dartmouth, um \textit{workshop} sobre a área que reuniu os 
-maiores estudiosos do ramo durante dois meses, segundo (\cite{aima}).
+maiores estudiosos do ramo durante dois meses segundo (\cite{aima}).
 Esse termo apresenta várias definições, de acordo com o 
 pioneiro Arthur Samuel, pode ser definida como o campo de 
 estudo que dá aos computadores a habilidade de aprender sem 
 serem explicitamente programados. (\cite{dl-oreilly}) 
+%quem é arthur samuel? pioneiro em ....
 
 \begin{quote}
   \textit{"The field of study that gives computers the 
@@ -43,6 +45,9 @@ serem explicitamente programados. (\cite{dl-oreilly})
   programmed."} Arthur Samuel
 \end{quote}
 
+% fazer uma transição pra aprendizado de máquina
+% está meio abrupto
+% vem do ingles tá meio estranho 
 Aprendizado de máquina, por sua vez, vem do inglês 
 \textit{machine learning} e compreende sistemas de IA capazes 
 de adquirir seu próprio conhecimento por meio da extração 
@@ -56,15 +61,18 @@ aprendizado profundo configura-se como um tipo particular de
 algoritmo de aprendizado de máquina que, por sua vez, trata-se
 de um sub-campo da área de inteligência artificial, essa 
 relação pode ser vista na imagem \ref{fig:ia_ml}.
+% repetindo algumas vezes a mesma coisa
 
 \begin{figure}[H] 
   \includegraphics[width= 10cm]{../figuras/ia_ml.png}
-  \caption{Relação entre inteligência artificial, aprendizado de máquina e aprendizado profundo \cite{dl-oreilly}}
+  \caption{Relação entre inteligência artificial, aprendizado de máquina e aprendizado profundo (\cite{dl-oreilly})}
   \label{fig:ia_ml}
 \end{figure}
 
 \section{Problema}
 
+% quem sabe quebrar em mais de um paragrafo
+% explicar melhor a questão do valor
 As tarefas de \textit{machine learning} são descritas de acordo com o processamento 
 que o modelo deve realizar a partir de um exemplo de entrada (\textit{input}), em geral, descrito com 
 um vetor $x \in \mathbb{R}^n, x=\{x_1, x_2, ..., x_n\}$.
@@ -77,7 +85,7 @@ consumo de cimento em um estado em um mês específico
 representa um aumento, queda ou estabilidade em relação ao mês anterior, essa 
 análise, contudo, foge do escopo do estudo.
 
-Outra categoria de tarefas são as de regressão, cujo objetivo é prever um valor numérico
+Outra categoria de tarefas são as de regressão, cujo objetivo é prever um valor contínuo
 a partir da entrada, a função criada pelo modelo, então, pode ser dada 
 por $ f : \mathbb{R}^n \rightarrow \mathbb{R}$. 
 Logo, o problema abordado neste trabalho pertence à categoria de regressão, 
@@ -88,10 +96,10 @@ Ainda segundo \cite{Goodfellow-et-al-2016}, os problemas de aprendizado de máqu
  aprendizado não-supervisionado e supervisionado. No primeiro, o modelo recebe
 um conjunto de dados (\textit{dataset}) não rotulado e então aprende
  propriedades da estrutura do \textit{dataset} e então
-performa tarefas como a clusterização, que consiste em dividir o conjunto de dados
+realiza tarefas como a clusterização, que consiste em dividir o conjunto de dados
 em \textit{clusters} com exemplos similares. No último, por sua vez, os dados de 
 entrada estão associados a rótulos, resultados conhecidos, chamados de \textit{labels} ou
-\textit{target} em inglês. Neste trabalho, a utiliza-se aprendizado supervisionado, uma vez 
+\textit{target} em inglês. Neste trabalho, utiliza-se aprendizado supervisionado, uma vez 
 que o obejtivo é utilizar os dados disponíveis para prever o consumo de cimento mensal
 nos estados, um valor conhecido.
 
@@ -111,6 +119,7 @@ Seja $\hat{y}$ o valor previsto pelo modelo para $\hat{y}$, então:
   \hat{y} = w^T x + b
 \end{equation}
 
+% aonde ou onde?
 aonde $ w \in \mathbb{R}^n, w=\{w_1, w_2, ..., w_n\}$ é um vetor de parâmetros. Em 
 particular, $w$ corresponde a um conjunto de pesos que 
 determina como cada variável afeta a previsão. Então, se $x_i$
