@@ -107,49 +107,67 @@ imagem \ref{fig:ia_ml}.
   \label{fig:ia_ml}
 \end{figure}
 
-\section{Problema}
+\section{Tarefa}
+ 
+Os modelos de \textit{machine learning} podem realizar várias categorias 
+de tarefas, dentre elas a regressão e a classificação, a 
+depender da atividade realizada pelo algoritmo.
+Neste trabalho,  foram utilizados modelos de regressão onde o objetivo é prever um valor real a 
+partir dos dados de entrada de acordo com \cite{Goodfellow-et-al-2016}.
+É possível, então, descrever cada \textit{input} dos modelos como um vetor $x$ com 
+$n$ atributos (\textit{features}) tal que
+$x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$, neste trabalho, 
+as \textit{features} utilizadas são indicadores econômicos, monetários,
+sociais e da construção civil descritos na sessão \ref{sec:dados}, já o 
+processamento realizado pelos modelos de regressão pode ser descrito 
+pela função $ f : \mathbb{R}^n \rightarrow \mathbb{R}$. 
 
-% quem sabe quebrar em mais de um paragrafo
-% explicar melhor a questão do valor
-As tarefas de \textit{machine learning} são descritas de acordo com o processamento 
-que o modelo deve realizar a partir de um exemplo de entrada (\textit{input}), em geral, descrito com 
-um vetor $x \in \mathbb{R}^n, x=\{x_1, x_2, ..., x_n\}$.
-Conforme explica \cite{Goodfellow-et-al-2016}, nas tarefas de classificação, o modelo deve prever a qual das $k$ categorias 
-disponíveis um \textit{input} pertence, o algoritmo, então, cria uma função  
-$ f : \mathbb{R}^n \rightarrow \{1,...,k\}$,  quando 
-$ f(x) = y$, o vetor de entrada $x$ foi classificado na categoria $y$. Um exemplo 
-de tarefa de classificação, no contexto deste trabalho, seria determinar se o 
-consumo de cimento em um estado em um mês específico 
-representa um aumento, queda ou estabilidade em relação ao mês anterior, essa 
-análise, contudo, foge do escopo do estudo.
+Os modelos de classificação, por outro lado, têm como objetivo 
+determinar a qual das $k$ categorias disponíveis um 
+\textit{input} pertence de acordo com \cite{dl-oreilly}. Dessa forma, é utilizada uma função  
+$ f : \mathbb{R}^n \rightarrow \{1,...,k\}$, quando 
+$ f(x) = y$, o vetor de entrada $x$ foi classificado 
+na categoria $y$. Um exemplo de tarefa de classificação,
+seria determinar se uma operação com cartão de crédito 
+é fraudulenta ou não, neste trabalho, contudo, não foi empregado 
+tal tipo de modelo. 
 
-Outra categoria de tarefas são as de regressão, cujo objetivo é prever um valor contínuo
-a partir da entrada, a função criada pelo modelo, então, pode ser dada 
-por $ f : \mathbb{R}^n \rightarrow \mathbb{R}$. 
-Logo, o problema abordado neste trabalho pertence à categoria de regressão, 
-uma vez que o objetivo é prever o valor do consumo de 
-cimento em um estado e mês específicos a partir dos dados de entrada.
+Ainda segundo \cite{Goodfellow-et-al-2016}, os problemas de 
+aprendizado de máquina também podem ser divididos entre
+aprendizado não-supervisionado e supervisionado. No primeiro, 
+o modelo recebe um conjunto de dados (\textit{dataset}) não 
+rotulado e aprende propriedades da estrutura dos dados, 
+um exemplo de aprendizado não supervisionado é a clusterização,
+que consiste em dividir o conjunto de dados
+em \textit{clusters} com amostras similares. No último, por sua vez, 
+os dados de entrada estão associados a resultados conhecidos, 
+chamados de \textit{labels} ou rótulos. Neste trabalho, utiliza-se aprendizado 
+supervisionado para prever o consumo de cimento mensal nos 
+estados da União a partir dos dados de entrada e compará-lo 
+com o valor real 
+do consumo e, assim, calcular a precisão do modelo.
 
-Ainda segundo \cite{Goodfellow-et-al-2016}, os problemas de aprendizado de máquina também podem ser divididos entre
- aprendizado não-supervisionado e supervisionado. No primeiro, o modelo recebe
-um conjunto de dados (\textit{dataset}) não rotulado e então aprende
- propriedades da estrutura do \textit{dataset} e então
-realiza tarefas como a clusterização, que consiste em dividir o conjunto de dados
-em \textit{clusters} com exemplos similares. No último, por sua vez, os dados de 
-entrada estão associados a rótulos, resultados conhecidos, chamados de \textit{labels} ou
-\textit{target} em inglês. Neste trabalho, utiliza-se aprendizado supervisionado, uma vez 
-que o obejtivo é utilizar os dados disponíveis para prever o consumo de cimento mensal
-nos estados, um valor conhecido.
+\section{Modelos utilizados}
 
-  
-\section{Regressão linear}
+Neste trabalho, utilizou-se três categorias de modelos de aprendizado 
+de máquina para prever a demanda por cimento: regressão linear, redes
+neurais \textit{multi layer perceptron} e redes recorrentes. Foram testados, também,
+três métodos de pré-processamento de dados (\textit{standard scaler, minmax 
+scaler e power transformer}) e  diferentes arquiteturas de 
+redes neurais ao alterar o número de camadas, a quantidade de neurônios
+em cada camada, o tipo de camada, a função de ativação entre outras
+configurações, com o objetivo de comparar 
+o desempenho dos modelos e encontrar o que apresenta menor erro na previsão.
+
+\subsection{Regressão linear}
 \label{sec:reg_lin}
 
 A regressão linear é um modelo de aprendizado de máquina que assume um relacionamento
 linear entre a variável que será prevista (\textit{target}) e os dados de entrada.
-Dessa forma, o objetivo é obter uma função linear que receba um vetor 
+Desse modo, o objetivo é obter uma função linear que receba um vetor 
 $x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$
-como entrada e devolva a previsão de um escalar $y \in \mathbb{R}$. \cite{Goodfellow-et-al-2016}
+como entrada e devolva a previsão de um escalar $y \in \mathbb{R}$
+de acordo com \cite{Goodfellow-et-al-2016}.
 Seja $\hat{y}$ o valor previsto pelo modelo para $\hat{y}$, então:
 
 \begin{equation}
@@ -201,7 +219,7 @@ os erros em cada previsão.
 Por se tratar de um modelo mais simples, é utilizada neste trabalho como base 
 para comparar o desempenho de outros modelos mais robustos.
 
-\section{Redes neurais}
+\subsection{Redes neurais}
 
 Redes neurais são modelos computacionais inspirados no funcionamento
 do cérebro animal, onde neurônios trabalham em paralelo sem 
@@ -238,7 +256,7 @@ A estrutura e funcionamento dos neurônios biológicos foram
 base para os cientistas criarem neurônios artificiais, como 
 os \textit{perceptrons}. 
 
-\subsection{Neurônios artificiais}
+\subsubsection{Neurônios artificiais}
 
 O \textit{perceptron}, foi desenvolvido em 1957 por Frank 
 Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts.
@@ -309,7 +327,7 @@ como ilustrado na figura abaixo:
 \end{figure}
 
 
-\subsection{Função de ativação}
+\subsubsection{Função de ativação}
 
 A função de ativação propaga a saída de um 
 neurônio na rede neural para a camada seguinte. Enquanto os pesos 
