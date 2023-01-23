@@ -164,43 +164,67 @@ o desempenho dos modelos e encontrar o que apresenta menor erro na previsão.
 
 A regressão linear é um modelo de aprendizado de máquina que assume um relacionamento
 linear entre a variável que será prevista (\textit{target}) e os dados de entrada.
-Desse modo, o objetivo é obter uma função linear que receba um vetor 
-$x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$
-como entrada e devolva a previsão de um escalar $y \in \mathbb{R}$
-de acordo com \cite{Goodfellow-et-al-2016}.
-Seja $\hat{y}$ o valor previsto pelo modelo para $\hat{y}$, então:
+Desse modo, o objetivo do modelo é construir uma 
+função que, para cada par\footnote{No
+caso deste estudo, o par  $(x,y)$ é tal que,
+$x$ representa o valor de cada
+indicador descrito em \ref{sec:dados} em um estado e mês, já 
+$y$ corresponde ao número de toneladas de cimento consumidas
+por esse estado no mês e ano correspondente.} $(x,y)$, recebe como
+entrada o vetor $x$ que corresponde às variáveis de \textit{input},
+$x \in \mathbb{R}^k , x=\{x_1, x_2, ..., x_k\}$, calcula coeficientes
+$\beta = \{\beta_0, \beta_1, \dots, \beta_k\}$
+e prevê um valor para a variável \textit{target}, $y$, sendo 
+que $y \in \mathbb{R}$, segundo \cite{forecasting}. Seja,
+então, $\hat{y}$ o valor previsto pelo modelo para um 
+par $(x, y)$, a função que descreve a 
+regressão linear, então é dada por
+
+\begin{equation}
+  \hat{y} = f(x) = \beta_0 + \beta_1 x_{1_i} + \beta_2 x_{2_i} + \dots + \beta_k x_{k_i} 
+\end{equation}
+
+É possível, logo, contruir uma matriz $X$ em que a linha $i$
+corresponde ao vetor $x_i$ dos dados de entrada e 
+cada coluna $j$ representa uma das \textit{features}. Pode-se, 
+além disso, construir a matriz $\beta$ dos coeficientes associados 
+a cada elemento da matriz $X$. Assim, o modelo
+é dado por:
 
 \begin{equation}
   \label{eq:reg_lin}
-  \hat{y} = w^T x + b
+  y = X\beta + \epsilon
 \end{equation}
 
-% aonde ou onde?
-aonde $ w \in \mathbb{R}^n, w=\{w_1, w_2, ..., w_n\}$ é um vetor de parâmetros. Em 
-particular, $w$ corresponde a um conjunto de pesos que 
-determina como cada variável afeta a previsão. Então, se $x_i$
-for associado a um peso $w_i$ positivo, aumentar o valor de $x_i$
-resulta em um aumento na previsão $\hat{y}$, se $w_i$ for negativo, 
-por outro lado, um aumento de $x_i$ resulta em diminuição de 
-$\hat{y}$. Se $w_i$ for igual a 0, por sua vez, a 
-variável $x_i$ não influencia no valor previsto.
-
-A constante $b$, do inglês \textit{bias}, é um parâmetro para
-mensurar viés, já que o \textit{output} da função é $b$ na ausência
-de uma entrada. Dessa forma, a equação \ref{eq:reg_lin} pode ser escrita da 
-seguinte forma: 
+Na equação \ref{eq:reg_lin}, $\epsilon$ é o vetor com o erro associado a cada umas 
+das $n$ previsões, tal que $\epsilon_i = y_i - \hat{y_i} = y - (\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k )$.
+Os coeficientes $\beta$ são calculados durante o treinamento 
+do modelo utilizando o método do \textit{least squares estimation}
+que visa minimizar a soma do erro quadrado associado às previsões, 
+como descrito em:
 
 \begin{equation}
-  \hat{y} = w_1 x_1 + w_2 x_2 + ... + w_n x_n + b
+  \sum_{i=1}^{n} \epsilon_i^2 = \sum_{i=1}^{n} (y_i - \hat{y_i}) = 
+  \sum_{i=1}^{n} (y_i - (\beta_0 + \beta_1 x_{1_i} + \beta_2 x_{2_i} + \dots + \beta_k x_{k_i} ))
 \end{equation}
 
-Na ilustração abaixo, um exemplo de um modelo de regressão 
+Os coeficientes $\beta_1, \beta_2, \dots, \beta_k$ também 
+determinam como cada atributo de entrada afeta a previsão.
+Por exemplo, se o coeficiente da variável $x_i$ for $\beta_i = 0$,
+essa variável não tem influência no valor previsto pelo modelo. 
+Caso o coeficiente seja positivo, por outro lado, um aumento 
+no valor de $x_i$ resulta em aumento no valor previsto $\hat{y_i}$,
+já se for negativo a redução no valor de $x_i$ se reflete na 
+diminuição no valor de $\hat{y_i}$. 
+
+
+Na imagem \ref{fig:reg_lin}, há um exemplo de um modelo de regressão 
 linear com apenas uma variável:
 
 \begin{figure}[H] 
   \includegraphics[width= 10cm]{../figuras/reg_lin.png}
   \caption{Exemplo de um modelo simples de regressão linear
-  \cite{forecasting}}
+  (\cite{forecasting})}
   \label{fig:reg_lin}
 \end{figure}
 
