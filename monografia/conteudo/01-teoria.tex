@@ -228,17 +228,13 @@ linear com apenas uma variável:
   \label{fig:reg_lin}
 \end{figure}
 
-Nessa imagem, as observações estão 
+Nota-se na  figura \ref{fig:reg_lin}, as observações estão 
 representadas nos pontos pretos, enquanto a linha em laranja
 corresponde à previsão realizada pelo modelo. Observa-se que
 o modelo não prevê com total exatidão os dados observados, há 
 um erro associado a cada previsão, como o destacado em verde 
 na ilustração.
 
-Dessa forma, cada observação $y_i$ possui um erro ${\varepsilon}_i$ 
-associado e pode ser descrita por $y_i = w^T x_i + b + {\varepsilon}_i$.
-O vetor de pesos $w$, então, é escolhido de modo a minimizar 
-os erros em cada previsão.
 
 Por se tratar de um modelo mais simples, é utilizada neste trabalho como base 
 para comparar o desempenho de outros modelos mais robustos.
@@ -250,32 +246,31 @@ do cérebro animal, onde neurônios trabalham em paralelo sem
 uma unidade central de controle. Um neurônio biológico é uma célula 
 nervosa que se comunica com outros neurônios e passa impulsos 
 eletro-químicos de uma célula para outra por meio das sinapses.
-A comunicação entre neurônios, sinapse, ocorre apenas se o impulso 
+Sinapse é a comunicação entre neurônios e ocorre apenas se o impulso 
 for forte o bastante para ativar a liberação de
-químicos na fenda sináptica.
-
-Um neurônio é composto de vários dendritos, um axônio e corpo 
-celular, como na imagem \ref{fig:neuron}. 
+químicos na fenda sináptica. Um neurônio é composto de vários dendritos, 
+um axônio e corpo celular, como ilustrado em \ref{fig:neuron}. 
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/neuron.png}
-  \caption{Ilustração de um neurônio biológico. \cite{dl-oreilly}
-  Destaca-se a informação chegando a um dendrito do neurônio
-  por meio de uma sinapse, além de uma sinapse que se inicia no axônio 
-  do neurônio e propaga informação a diante.
-  }
+  \caption{Ilustração de um neurônio biológico (\cite{dl-oreilly})}
   \label{fig:neuron}
 \end{figure}
 
+Destaca-se na figura \ref{fig:neuron}, a informação chegando a um 
+dendrito do neurônio
+por meio de uma sinapse, além de uma sinapse que se inicia no axônio 
+do neurônio e propaga informação a diante. 
+
 Os dendritos recebem 
 informações de outros neurônios vizionhos, na forma de impulsos
-elétricos, e conduzi-las até o corpo celular. Ao chegar no corpo
+elétricos, e são responsáveis por conduzi-las até o corpo celular. 
+Ao chegar no corpo
 celular, a informação é processada e novos impulsos são gerados. 
 Essa informação é, então, repassada para outro neurônio 
-através do axônio por meio de sinapse. Dessa forma, sinapse é o
+através do axônio por meio de sinapse. Assim, a sinapse também é o
 ponto de contato entre a terminação axônica de um neurônio e o 
-dendrito de outro.\cite{deeplearningbook}. 
-
+dendrito de outro.\cite{deeplearningbook}.
 A estrutura e funcionamento dos neurônios biológicos foram 
 base para os cientistas criarem neurônios artificiais, como 
 os \textit{perceptrons}. 
@@ -283,7 +278,9 @@ os \textit{perceptrons}.
 \subsubsection{Neurônios artificiais}
 
 O \textit{perceptron}, foi desenvolvido em 1957 por Frank 
-Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts.
+Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts
+\footnote{Em 1943, Warren McCulloch e Walter Pitts, em \cite{neuronio}, apresentaram a 
+primeira ideia de neurônio artificial.}.
 Trata-se de um modelo linear de classificação binária que 
 recebe $n$ entradas e produz uma saída binária, como mostrado 
 na ilustração simplificada \ref{fig:perceptron-simples}.\cite{deeplearningbook}
