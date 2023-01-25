@@ -118,7 +118,7 @@ partir dos dados de entrada de acordo com \cite{Goodfellow-et-al-2016}.
 $n$ atributos (\textit{features}) tal que
 $x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$, neste trabalho, 
 as \textit{features} utilizadas são indicadores econômicos, monetários,
-sociais e da construção civil descritos na sessão \ref{sec:dados}, já o 
+sociais e da construção civil descritos na seção \ref{sec:dados}, já o 
 processamento realizado pelos modelos de regressão pode ser descrito 
 pela função $ f : \mathbb{R}^n \rightarrow \mathbb{R}$. 
 
@@ -164,17 +164,18 @@ o desempenho dos modelos e encontrar o que apresenta menor erro na previsão.
 
 A regressão linear é um modelo de aprendizado de máquina que assume um relacionamento
 linear entre a variável que será prevista (\textit{target}) e os dados de entrada.
-Desse modo, o objetivo do modelo é construir uma 
+Desse modo, seu objetivo é construir uma 
 função que, para cada par\footnote{No
-caso deste estudo, o par  $(x,y)$ é tal que,
+caso deste estudo, o par  $(x,y)$ é tal que 
 $x$ representa o valor de cada
-indicador descrito em \ref{sec:dados} em um estado e mês, já 
+indicador descrito na seção \ref{sec:dados} em um estado e mês, já 
 $y$ corresponde ao número de toneladas de cimento consumidas
 por esse estado no mês e ano correspondente.} $(x,y)$, recebe como
 entrada o vetor $x$ que corresponde às variáveis de \textit{input},
-$x \in \mathbb{R}^k , x=\{x_1, x_2, ..., x_k\}$, calcula coeficientes
-$\beta = \{\beta_0, \beta_1, \dots, \beta_k\}$
-e prevê um valor para a variável \textit{target}, $y$, sendo 
+$x \in \mathbb{R}^k , x=\{x_1, x_2, ..., x_k\}$ e calcula coeficientes
+$\beta = \{\beta_0, \beta_1, \dots, \beta_k\}$ para cada atributo de $x$,
+além da constante $\beta_0$. O algoritmo, então, utiliza esses coeficientes para
+prever um valor para a variável \textit{target}, $y$, sendo 
 que $y \in \mathbb{R}$, segundo \cite{forecasting}. Seja,
 então, $\hat{y}$ o valor previsto pelo modelo para um 
 par $(x, y)$, a função que descreve a 
@@ -186,7 +187,7 @@ regressão linear, então é dada por
 
 É possível, logo, contruir uma matriz $X$ em que a linha $i$
 corresponde ao vetor $x_i$ dos dados de entrada e 
-cada coluna $j$ representa uma das \textit{features}. Pode-se, 
+cada coluna $j$ representa uma \textit{feature}. Pode-se, 
 além disso, construir a matriz $\beta$ dos coeficientes associados 
 a cada elemento da matriz $X$. Assim, o modelo
 é dado por:
@@ -197,7 +198,7 @@ a cada elemento da matriz $X$. Assim, o modelo
 \end{equation}
 
 Na equação \ref{eq:reg_lin}, $\epsilon$ é o vetor com o erro associado a cada umas 
-das $n$ previsões, tal que $\epsilon_i = y_i - \hat{y_i} = y - (\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k )$.
+das previsões, tal que $\epsilon_i = y_i - \hat{y_i} = y - (\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k )$.
 Os coeficientes $\beta$ são calculados durante o treinamento 
 do modelo utilizando o método do \textit{least squares estimation}
 que visa minimizar a soma do erro quadrado associado às previsões, 
@@ -208,13 +209,13 @@ como descrito em:
   \sum_{i=1}^{n} (y_i - (\beta_0 + \beta_1 x_{1_i} + \beta_2 x_{2_i} + \dots + \beta_k x_{k_i} ))
 \end{equation}
 
-Os coeficientes $\beta_1, \beta_2, \dots, \beta_k$ também 
+Os coeficientes $\beta_1, \beta_2, \dots, \beta_k$ 
 determinam como cada atributo de entrada afeta a previsão.
 Por exemplo, se o coeficiente da variável $x_i$ for $\beta_i = 0$,
 essa variável não tem influência no valor previsto pelo modelo. 
 Caso o coeficiente seja positivo, por outro lado, um aumento 
 no valor de $x_i$ resulta em aumento no valor previsto $\hat{y_i}$,
-já se for negativo a redução no valor de $x_i$ se reflete na 
+já se $\beta_i$ for negativo um aumento no valor de $x_i$ se reflete na 
 diminuição no valor de $\hat{y_i}$. 
 
 
@@ -228,28 +229,32 @@ linear com apenas uma variável:
   \label{fig:reg_lin}
 \end{figure}
 
-Nota-se na  figura \ref{fig:reg_lin}, as observações estão 
-representadas nos pontos pretos, enquanto a linha em laranja
+Na  figura \ref{fig:reg_lin}, as observações $y_i$, estão 
+representadas pelos pontos pretos, enquanto a linha em laranja
 corresponde à previsão realizada pelo modelo. Observa-se que
 o modelo não prevê com total exatidão os dados observados, há 
 um erro associado a cada previsão, como o destacado em verde 
-na ilustração.
+na ilustração, comportamento esperado já os fenômenos previstos são 
+sujeitos a fatores externos e não lineares como os modelos matemáticos.
 
 
-Por se tratar de um modelo mais simples, é utilizada neste trabalho como base 
-para comparar o desempenho de outros modelos mais robustos.
+Por se tratar de um modelo mais simples, os resultados obtidos
+com a regressão linear são utilizados neste trabalho como base 
+para comparar o desempenho de modelos mais robustos.
 
 \subsection{Redes neurais}
 
 Redes neurais são modelos computacionais inspirados no funcionamento
-do cérebro animal, onde neurônios trabalham em paralelo sem 
-uma unidade central de controle. Um neurônio biológico é uma célula 
-nervosa que se comunica com outros neurônios e passa impulsos 
-eletro-químicos de uma célula para outra por meio das sinapses.
-Sinapse é a comunicação entre neurônios e ocorre apenas se o impulso 
+do cérebro animal. O cérebro é formado por neurônios que se
+conectam para transmitir informações sem a necessidade de 
+uma unidade central de controle. Um neurônio biológico, então, 
+é uma célula nervosa que se comunica com outros neurônios 
+por meio de impulsos eletroquímicos. Essa comunicação é 
+denominada sinapse e ocorre apenas se o impulso 
 for forte o bastante para ativar a liberação de
-químicos na fenda sináptica. Um neurônio é composto de vários dendritos, 
-um axônio e corpo celular, como ilustrado em \ref{fig:neuron}. 
+químicos na fenda sináptica, de acordo com segundo \cite{deeplearningbook}. 
+Um neurônio é composto de vários dendritos, 
+um axônio e um corpo celular, como ilustrado em \ref{fig:neuron}. 
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/neuron.png}
@@ -257,22 +262,23 @@ um axônio e corpo celular, como ilustrado em \ref{fig:neuron}.
   \label{fig:neuron}
 \end{figure}
 
-Destaca-se na figura \ref{fig:neuron}, a informação chegando a um 
-dendrito do neurônio
-por meio de uma sinapse, além de uma sinapse que se inicia no axônio 
-do neurônio e propaga informação a diante. 
+Destaca-se na figura \ref{fig:neuron}, informação chegando a um 
+dendrito do neurônio em destaque
+por meio de uma sinapse, além da comunicação com outra célula
+por meio de outra sinapse iniciada no axônio 
+do neurônio em questão. 
 
-Os dendritos recebem 
-informações de outros neurônios vizionhos, na forma de impulsos
-elétricos, e são responsáveis por conduzi-las até o corpo celular. 
-Ao chegar no corpo
-celular, a informação é processada e novos impulsos são gerados. 
-Essa informação é, então, repassada para outro neurônio 
-através do axônio por meio de sinapse. Assim, a sinapse também é o
-ponto de contato entre a terminação axônica de um neurônio e o 
-dendrito de outro.\cite{deeplearningbook}.
-A estrutura e funcionamento dos neurônios biológicos foram 
-base para os cientistas criarem neurônios artificiais, como 
+O processo de propagação da informação nos neurônios 
+envolve as três partes da célula: dendritos, corpo celular
+e axônio.
+Os dendritos recebem informações de neurônios vizinhos 
+na forma de impulsos elétricos e são responsáveis 
+por conduzi-las até o corpo celular. 
+Ao chegar no local, a informação é processada e novos 
+impulsos são gerados e repassados a outro neurônio 
+através do axônio no processo de sinapse, segundo \cite{fund_deep_learning}
+A estrutura e funcionamento dos neurônios biológicos inspiraram
+os cientistas ao projetarem neurônios artificiais, como 
 os \textit{perceptrons}. 
 
 \subsubsection{Neurônios artificiais}
@@ -281,11 +287,12 @@ O \textit{perceptron}, foi desenvolvido em 1957 por Frank
 Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts
 \footnote{Em 1943, Warren McCulloch e Walter Pitts, em \cite{neuronio}, apresentaram a 
 primeira ideia de neurônio artificial.}.
-Trata-se de um modelo linear de classificação binária que 
+Trata-se de um modelo linear de classificação que 
 recebe $n$ entradas e produz uma saída binária, como mostrado 
-na ilustração simplificada \ref{fig:perceptron-simples}.\cite{deeplearningbook}
+na ilustração simplificada \ref{fig:perceptron-simples},
+conforme \cite{deeplearningbook}.
 Esse modelo inicial apresentava limitações e foi evoluído com o passar do 
-tempo, as redes neurais atualmente, em geral, utilizam 
+tempo, contudo, as redes neurais atualmente utilizam, em geral,
 outro modelo de neurônio como ilustrado em \ref{fig:perceptron}.
 
 
@@ -294,7 +301,7 @@ outro modelo de neurônio como ilustrado em \ref{fig:perceptron}.
   \begin{subfigure}{7cm}
     \centering 
     \includegraphics[width=7cm]{../figuras/perceptron-simples.png}
-    \caption{Visão simplificada de um neurônio \cite{deeplearningbook}}
+    \caption{Visão simplificada de um neurônio (\cite{deeplearningbook})}
     \label{fig:perceptron-simples}
   \end{subfigure}
   \hfill
@@ -302,30 +309,47 @@ outro modelo de neurônio como ilustrado em \ref{fig:perceptron}.
     \centering
     \includegraphics[width=7cm]{../figuras/perceptron.png}
     \caption{Ilustração da arquitetura de um 
-    neurônio artificial \cite{dl-oreilly}}
+    neurônio artificial (\cite{dl-oreilly})}
     \label{fig:perceptron}
   \end{subfigure}
 \end{figure}
 
-Como é possível observar na figura \ref{fig:perceptron}, cada
-uma das entradas $x_i$ está associada a um peso $w_i$. Os pesos
-$w_1, w_2, ..., w_n$ expressam a importância das respectivas
-entradas para o valor de saída, de modo semelhante à 
-regressão linear na seção \ref{sec:reg_lin}. O produto escalar entre
-os pesos e as respectivas entradas, chamada de \textit{net input}
+A figura \ref{fig:perceptron} mostra o funcionamento de 
+um neurônio artificial. O neurônio apresenta $n$ entradas 
+$x_i$, cada uma associada a um peso $w_i$, que expressa 
+a importância das respectivas entradas para o valor de saída\footnote{ 
+O peso atribuído a uma das entradas expressa a influência
+dessa no \textit{output} do nó, de modo similar aos coeficientes calculados 
+para cada atributo da regressão linear, explicada na seção \ref{sec:reg_lin}}.
+O produto escalar entre os pesos e as respectivas entradas, 
+chamada de \textit{net input}
 na imagem \ref{fig:perceptron}, passa por uma função de 
-ativação $\phi$ que determina a saída do neurônio. 
+ativação\footnote{Um detalhamento sobre as funções de 
+ativação pode ser encontrado na seção \ref{sec:funcao_ativacao}} 
+$\phi$ que determina a saída do neurônio. 
 Além disso, um valor de \textit{bias} ou polarização é
-adicionado ao produto escalar para aumentar a liberdade 
-da função. O \textit{bias} possibilita que 
-um neurônio que possua todas as entradas nulas a 
+adicionado ao produto escalar e possibilita que 
+um neurônio que possua todas as entradas nulas
 apresente saída não nula, dessa forma,
 aumenta a capacidade de aproximação da rede. 
 \cite{deeplearningbook}
 
+É possível, então, traçar um paralelo entre o neurônio
+artificial e o biológio. Em primeiro lugar, as entradas 
+$x_i$ do neurônio  têm um funcionamento similar aos 
+dentritos responsáveis 
+por receber as informações que chegam à celula. Em segundo lugar,
+o processamento matemático entre as entradas e os pesos 
+tem comportamento similar ao corpo 
+celular do neurônio biológico, que processa a informação 
+recebida. Por fim, a função de ativação é responsável por modelar o 
+\textit{output} que será repassado às camadas seguintes como uma das entradas
+assim como o neurônio repassa, por meio de sinapses, os impulsos processados
+a outros neurônios.
+
 
 Seja $x$ o vetor das $n$ entradas do neurônio, então
-$x \in \mathbb{R}^n, x=\{x_1, x_2, ..., x_n\}$, seja também 
+$x \in \mathbb{R}^n, x=\{x_1, x_2, ..., x_n\}$ e seja 
 $w$ o vetor com os pesos associados a cada entrada, 
 $w \in \mathbb{R}^n, w=\{w_1, w_2, ..., w_n\}$. Além disso,
 seja $b$ o valor de \textit{bias} e $\Phi$ a função de ativação.
@@ -337,9 +361,12 @@ Dessa forma, o \textit{output} de um neurônio é dado por:
 
 Essa saída é utilizada como uma das entradas dos neurônios
 na camada seguinte, de modo a formar a estrutura das redes 
-neurais semelhante ao funcionamento do cérebro. Os neurônios,
+neurais. 
+
+
+Os neurônios,
 então, formam a unidade que compõe as redes neurais artificiais,
-como ilustrado na figura abaixo:
+como ilustrado na figura \ref{fig:redeneural}:
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/rede-neural.png}
@@ -347,8 +374,18 @@ como ilustrado na figura abaixo:
   \label{fig:redeneural}
 \end{figure}
 
+A imagem \ref{fig:redeneural} representa uma simplificação de uma 
+rede neural. Pode-se observar o fluxo da informação na rede, recebida pelos 
+neurônios de uma camada, processada nessas unidadades e repassada à camada 
+seguinte, até obter a saída final da rede. Em particular, é representada uma
+rede \textit{feed forward}, uma vez que não há conexões entre neurônios de uma 
+mesma camada nem conexões entre uma camada e a anterior. A informação então 
+se propaga apenas no sentido da camada de entrada em direção à final, de saída.
+As camadas intermediárias são chamadas de camadas ocultas ou \textit{hidden layers}.
+
 
 \subsubsection{Função de ativação}
+\label{sec:funcao_ativacao}
 
 A função de ativação propaga a saída de um 
 neurônio na rede neural para a camada seguinte. Enquanto os pesos 
@@ -595,6 +632,7 @@ o futuro.
 
 
 \subsection{Normalização}
+\label{sec:scaler}
 
 O objetivo da normalização dos dados, é garantior que as variáveis de entrada 
 estejam na mesma escala. Esse processo é necessário não apenas para realizar melhor comparação entre variáveis 

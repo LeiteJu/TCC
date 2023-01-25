@@ -5,19 +5,26 @@
 \chapter{Experimentos}
 
 Para cada um dos modelos selecionados foram realizados experimentos
-alterando parâmetros e os dados visando melhoria de performance. O
-treino dos modelos foram realizados com dados de 2003 até junho de 
-2017, os testes, por sua vez, foram realizados com dados de 
+alterando parâmetros e os dados com o objetivo de obter um melhor 
+desempenho. O treino dos modelos foram realizados com dados 
+de 2003 até junho de 2017,  os testes, por sua vez, foram realizados com dados de 
 julho de 2017 até dezembro de 2019, dessa forma 85\% do conjunto 
-de dados foi usado para treino e 15\% para teste. Para cada modelo foram 
+de dados foi usado para treino e 15\% para teste. Além disso, 
+cuidou-se para que não houvesse embaralhamento de dados no 
+processo de separação entre treino e teste, uma vez trata-se 
+de dados temporais. Para cada modelo foram 
 alterados diferentes parâmetros.
 
 \section{Regressao linear}
 
-A regressão linear é um modelo simples de aprendizado de máquina que assume
-uma relação linear entre as variáveis de entrada e o alvo da previsão. Foram testados
-métodos de normalização e transformação dos dados, além da remoção de variáveis de 
-alta correlação. 
+A regressão linear é um modelo simples de aprendizado de máquina que visa 
+construir uma função linear entre as variáveis de entrada e o alvo da previsão. 
+Por tratar-se de um modelo mais simples, é utilizado 
+neste estudo como base para comparar o desempenho dos
+outros modelos. Foram testados métodos de normalização  e transformação de 
+dados, além da 
+remoção de variáveis de alta correlação conforme 
+descrito na tabela \ref{tab:exp-reg-lin}. 
 
 \begin{table}
     \centering
@@ -37,7 +44,9 @@ alta correlação.
     \caption{Experimentos realizados na regressão linear}
 \end{table}
 
-O resultado dos experimentos se encontra na tabela abaixo:
+O desempenho do modelo em cada um dos experimentos 
+encontra-se na 
+tabela \ref{tab:res_reg_lin}:
 
 \begin{table}[H]
     \begin{tabular}{llll}
@@ -48,25 +57,20 @@ O resultado dos experimentos se encontra na tabela abaixo:
         B           & 35148.6 & 55391.1 & 0.6  \\
         C           & 35148.6 & 55391.1 & 0.6  \\
         D           & 49073.6 & 67446.7 & 1.05 \\
-        E           & 26435.6 & 38970.6 & 0.32 \\
+        E           & \textbf{26435.6} & \textbf{38970.6} & \textbf{0.32} \\
         \bottomrule
     \end{tabular}
-    \caption{resultado dos experimentos para regressão linear}
+    \caption{Desempenho dos modelos de regressão linear}
+    \label{tab:res_reg_lin}
 \end{table}
 
-Observa-se que não houve melhoria de performance ao normalizar 
+Observa-se que não houve alteração na performance ao normalizar 
 os dados com \textit{standard scaler} ou \textit{minmax scaler},
-ao utilizar \textit{power transformer}, contudo, house piora 
+ao utilizar \textit{power transformer}, contudo, houve piora 
 no desempenho. Ressalta-se a grande melhoria nas métricas ao 
 remover variáveis de alta correlação tanto nas métricas de erro 
 quantitativo, como o MAE e RMSE, quanto proporcionalmente ao 
 atingir 32\% de erro percentual médio.
-
-Na sessão \ref{chap:resultados}, estão apresentados os 
-resultados e previsões do modelo de regressão linear com
-melhor desempenho dentre os testados no modelo, ou seja, sem 
-normalização de dados e deletando \textit{features} com alta 
-correlação.
 
 Foi realizado o teste de remover variáveis de alta correlação, 
 pois segundo \cite{corr_reg_lin}, esse tipo de \textit{feature}
@@ -75,10 +79,17 @@ dos coeficientes em relação à amostra, ou seja, os coeficientes
 calculados pelo modelo podem ter um alto grau de variação de uma 
 amostra para outra.
 
+Na sessão \ref{chap:resultados}, estão apresentados os 
+resultados e previsões do modelo de regressão linear com
+melhor desempenho dentre os testados no modelo, ou seja, o
+experimento E, sem 
+normalização de dados e removendo \textit{features} com alta 
+correlação.
+
 \section{Redes neurais \textit{Feed Forward}}
 
 As redes neurais \textit{feed forward} podem ser construídas
-com várias arquiteturas e hiperparâmetros. Neste estudo, testou-se
+com várias arquiteturas e configurações. Neste estudo, testou-se
 alterar a quantidade de camadas da rede, o número neurônios em 
 cada camada, a função de ativação utilizada, além da quantidade
 de \textit{epoch}\footnote{Uma \textit{epoch} é uma passada 
