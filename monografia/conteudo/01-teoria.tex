@@ -370,13 +370,13 @@ como ilustrado na figura \ref{fig:redeneural}:
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/rede-neural.png}
-  \caption{Ilustração de uma rede neural simples.\cite{deeplearningbook}}
+  \caption{Ilustração de uma rede neural simples.(\cite{deeplearningbook})}
   \label{fig:redeneural}
 \end{figure}
 
 A imagem \ref{fig:redeneural} representa uma simplificação de uma 
-rede neural. Pode-se observar o fluxo da informação na rede, recebida pelos 
-neurônios de uma camada, processada nessas unidadades e repassada à camada 
+rede neural. Pode-se observar o fluxo da informação, primeiro recebida pelos 
+neurônios de uma camada, então processada nessas unidadades e, por fim, repassada à camada 
 seguinte, até obter a saída final da rede. Em particular, é representada uma
 rede \textit{feed forward}, uma vez que não há conexões entre neurônios de uma 
 mesma camada nem conexões entre uma camada e a anterior. A informação então 
@@ -387,63 +387,102 @@ As camadas intermediárias são chamadas de camadas ocultas ou \textit{hidden la
 \subsubsection{Função de ativação}
 \label{sec:funcao_ativacao}
 
-A função de ativação propaga a saída de um 
-neurônio na rede neural para a camada seguinte. Enquanto os pesos 
+A função de ativação determina se um neurônio será ativado, ou seja, 
+se a saída propagada para a camada seguinte. Enquanto os pesos 
 e o \textit{bias} realizam uma transformação linear nos dados 
 de entrada, a função de ativação aplica uma transformação não
-linear e dessa forma torna possível que a rede neural resolva
+linear, assim, possibilita que a rede neural resolva
 problemas não lineares e complexos, como reconhecer padrões de 
-escrita.\cite{deeplearningbook}
+escrita, conforme \cite{deeplearningbook} e \cite{zhang2021dive}. 
 
 A função de ativação é um atributo de cada uma das camadas 
 da rede e é escolhida de acordo com a tarefa que será 
-executada, por exemplo, a função sigmóide é recomendada
+executada. Por exemplo, a função sigmóide é recomendada
  para problemas de classificação. Neste trabalho, 
-foram utilizada: \textit{rectified linear unit} (ReLU) e \textit{swish}.
+foram utilizadas: \textit{rectified linear unit} (ReLU) e \textit{swish}.
 
 \subsubsection{Rectified linear unit (ReLU)}
 
-A função ReLU, do inglês \textit{rectified linear unit}, é o 
-estado da arte atualmente, uma vez que apresenta bom desempenho 
-em diferentes tarefas. \cite{dl-oreilly} A função ReLu é dada por:
+A função ReLU, do inglês \textit{rectified linear unit}, é a
+função de ativação mais popular atualmente, uma vez que apresenta bom desempenho 
+em diferentes tarefas, de acordo com \cite{dl-oreilly}. A função ReLu é dada por:
 
 \begin{equation}
   f(x) = max(0,x)
 \end{equation}
 
-Ao utilizar essa função, a derivada, utilizada para atualizar
-os pesos e \textit{bias} no treinamento da rede, é zero, quando 
-a entrada é nula ou uma constante, como na imagem abaixo. Dessa
-forma, a ReLU não sofre do problema da dissipação do gradiente como
-a sigmóide.
+A derivada da função, utilizada nos modelos de \textit{machine learning}
+para atualizar os pesos e \textit{bias} no treinamento da rede, é zero, quando 
+a entrada é nula, ou uma constante, caso contrário. Dessa
+forma, a ReLU não sofre do problema da dissipação do gradiente\footnote{Um 
+detalhamento sobre o problema da dissipação do gradiente está na seção \ref{sec:vanishing_gradient_problem}.} como
+outras funções de ativação. O gráfica da ReLU está ilustrado em \ref{fig:relu}.
 
 \begin{figure}[H] 
   \includegraphics[width= 8cm]{../figuras/relu.png}
-  \caption{Rectified linear unit (ReLU) \cite{dl-oreilly}}
+  \caption{Rectified linear unit (ReLU) (\cite{dl-oreilly})}
   \label{fig:relu}
 \end{figure}
 
 \subsubsection{Swish}
 
 A função \textit{swish} foi proposta por pesquisadores da 
-Google com a prerrogativa de apresentar melhor desempenho 
-que a ReLU em redes neurais profundas. \cite{swish}
-
-A \textit{swish} é uma função não monotônica e suave 
-dada por:
+Google em \cite{swish}, com a promessa de apresentar desempenho igual 
+ou superior à ReLU em redes neurais profundas. A \textit{swish} é uma função 
+não monótona\footnote{Uma função definida como $f: I \rightarrow \mathbb{R}$
+é monótona se é não crescente no intervalo $I$ ou não decrescente em $I$.} e 
+suave\footnote{Uma função $f$ é suave se possui derivada de todas as ordens.},
+cuja fórmula é dada por:
 
 \begin{equation}
   f(x) = x \cdot sigmoid(x) = \frac{x}{1+e^{-x}}
 \end{equation}
 
 
-O gráfico da função é similar ao da ReLU:
+O gráfico da função é similar ao da ReLU e pode ser observado em \ref{fig:swish}.
 
 \begin{figure}[H] 
-  \includegraphics[width= 8cm]{../figuras/swish.png}
-  \caption{Função \textit{swish} \cite{swish}}
+  \includegraphics[width= 12cm]{../figuras/swish.png}
+  \caption{Função \textit{swish} (\cite{swish})}
   \label{fig:swish}
 \end{figure}
+
+
+\subsubsection{Problema da Dissipação do Gradiente}
+\label{sec:vanishing_gradient_problem}
+
+De acordo com \cite{neuralnetworksanddeeplearning} aprendizado de uma rede neural se dá ao alterar os valores dos pesos
+e \textit{bias} dos neurônios de acordo com a função de custo, também conhecida 
+como \textit{loss function}. Sejam $x$, $w$ e $b$ os conjuntos de entradas,
+pesos e $b$ \textit{bias} da rede, respectivamente, a função de custo, então, é dada por:
+
+\begin{equation}
+  C(w,b) = \frac{1}{2n}\sum_x || y(x) - a ||^2
+\label{eq:func_custo}
+\end{equation}
+
+Na equação da função de custo \ref{eq:func_custo}, $y(x)$ representa a resposta
+que a rede tenta prever, $a$ representa o vetor de \textit{output} da rede e 
+$n$ é o número total de entradas de treino. É possível, então, calcular o gradiente
+associado ao $j$-ésimo neurônia da $i$-ésima:
+
+\begin{equation}
+  \delta_j^i = \frac{\partial C}{\partial b_j^i}
+\label{eq:func_grad}
+\end{equation}
+
+Os gradientes dos neurônios de uma camada determinam quão rápido essa camada
+aprende, ou seja, determinam a variação dos valores dos pesos e \textit{bias}.
+Dessa forma, $\partial^i$ é o vetor cujos elementos determinam a velocidade
+do aprendizado da camada $i$, então $||\partial^i||$ representa a velocidade
+de aprendizado da camada $i$.
+
+O problema da dissipação do gradiente\footnote{O problema da dissipação do gradiente 
+é conhecido em inglês como \textit{The vanishing gradient problem}.
+} ocorre, então, quando os gradientes das camadas iniciais, durante o treinamento
+da rede, ficam com valores muito próximos a zero, dessa forma, o aprendizado das 
+camadas iniciais torna-se muito lento e custoso para a rede.
+
 
 \subsection{Redes neurais multi-layer perceptrons}
   % dar uma melhorada -> parte do com o treinamento fornecido
