@@ -1,0 +1,2 @@
+lstm,dense,epochs,neuronios,ativacao_lstm,ativacao_normal,normalizacao,timesteps,mae,rmse,mape
+2,0,50,"(256, 128)",tanh,,<class 'sklearn.preprocessing._data.StandardScaler'>,3,146535.6033091412,231284.7384646997,0.9779915039333062

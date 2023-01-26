@@ -369,8 +369,8 @@ então, formam a unidade que compõe as redes neurais artificiais,
 como ilustrado na figura \ref{fig:redeneural}:
 
 \begin{figure}[H] 
-  \includegraphics[width= 12cm]{../figuras/rede-neural.png}
-  \caption{Ilustração de uma rede neural simples.(\cite{deeplearningbook})}
+  \includegraphics[width= 12cm]{../figuras/redes/rede_mlp.png}
+  \caption{Ilustração de uma rede neural (\cite{neuralnetworksanddeeplearning})}
   \label{fig:redeneural}
 \end{figure}
 
@@ -381,8 +381,14 @@ seguinte, até obter a saída final da rede. Em particular, é representada uma
 rede \textit{feed forward}, uma vez que não há conexões entre neurônios de uma 
 mesma camada nem conexões entre uma camada e a anterior. A informação então 
 se propaga apenas no sentido da camada de entrada em direção à final, de saída.
-As camadas intermediárias são chamadas de camadas ocultas ou \textit{hidden layers}.
 
+Além disso, em \ref{fig:redeneural}, é ilustrada uma rede neural \textit{multilayer}.
+Conforme a figura, a camada mais à esquerda da rede é 
+denomida \textit{input layer}, a camada mais à direita de \textit{output layer}
+e, por fim, as camadas intermediárias são chamadas \textit{hidden layers}.
+É possível encontrar, na literatura, referências a essas redes como redes 
+\textit{multilayer perceptron} por razões históricas, contudo as redes, em geral,
+utilizam neurônios sigmóides.
 
 \subsubsection{Função de ativação}
 \label{sec:funcao_ativacao}
@@ -482,35 +488,17 @@ O problema da dissipação do gradiente\footnote{O problema da dissipação do g
 da rede, ficam com valores muito próximos a zero, por isso, o aprendizado das 
 camadas iniciais torna-se lento e custoso.
 
-\subsection{Redes neurais \textit{multi-layer}}
-  % dar uma melhorada -> parte do com o treinamento fornecido
-  % se agredar -> combinação -> melhorar
-  % redes de arquitetura multilayer ...
-  % o "e feedforward" não tem nada a ver -> é um passo do treinamento  -> sequencia dos dados de entrada
-
-
-
-  Redes neurais são modelos de \textit{machine learning} 
-inspiradas no cérebro humano aonde o aprendizado ocorre 
-ao se agregarem neurônios matemáticos que 
-estabelecem conexões de acordo com o treinamento fornecido. 
-Neste trabalho, aplicaram-se redes 
-\textit{multilayer perceptrons} (MLPs), ou seja, que 
-apresentam múltiplas camadas de neurônios 
-e \textit{feedfoward}, onde a saída de 
-uma camada de neurônios é utilizada como entrada para a camada seguinte, sem utilizar retropropagação.
-          
         
 \subsection{Redes Neurais Recorrentes}
 \label{rnn}
 
+O diferencial das redes recorrentes frente às redes tradicionais são os
+\textit{feedback loops} que permitem analisar a dimensão temporal.
 Se por um lado as redes neurais tradicionais são projetadas
-para realizar previsões sem modelar dimensão temporal, as redes
+para realizar previsões sem considerar tempo ou sequência, as redes
 neurais recorrentes se diferem por capturar informação de contexto, ou seja,
 histórico, para realizar previsões. Essa dimensão temporal, então, se dá por 
-meio de ciclos nas conexões, ou \textit{feedback loops}, como mostrado na 
-figura abaixo.
-
+meio de ciclos nas conexões, ou \textit{feedback loops}, como mostrado em \ref{fig:rnn_loops}
 
 \begin{figure}[H]
   \centering
@@ -518,6 +506,7 @@ figura abaixo.
       \centering
       \includegraphics[width=7cm]{../figuras/redes/rnn.png}
       \caption{Redes neurais recorrentes}
+      \label{fig:rnn_loops}
   \end{subfigure}
   \hfill
   \begin{subfigure}{7cm}
