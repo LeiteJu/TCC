@@ -451,20 +451,20 @@ O gráfico da função é similar ao da ReLU e pode ser observado em \ref{fig:sw
 \subsubsection{Problema da Dissipação do Gradiente}
 \label{sec:vanishing_gradient_problem}
 
-De acordo com \cite{neuralnetworksanddeeplearning} aprendizado de uma rede neural se dá ao alterar os valores dos pesos
+De acordo com \cite{neuralnetworksanddeeplearning} aprendizado de uma rede neural ocorre ao alterar os valores dos pesos
 e \textit{bias} dos neurônios de acordo com a função de custo, também conhecida 
 como \textit{loss function}. Sejam $x$, $w$ e $b$ os conjuntos de entradas,
-pesos e $b$ \textit{bias} da rede, respectivamente, a função de custo, então, é dada por:
+pesos e \textit{bias} da rede, respectivamente, a função de custo, então, é dada por:
 
 \begin{equation}
   C(w,b) = \frac{1}{2n}\sum_x || y(x) - a ||^2
 \label{eq:func_custo}
 \end{equation}
 
-Na equação da função de custo \ref{eq:func_custo}, $y(x)$ representa a resposta
+Na equação da função de custo \ref{eq:func_custo}, $y(x)$ representa o vetor com as resposta
 que a rede tenta prever, $a$ representa o vetor de \textit{output} da rede e 
 $n$ é o número total de entradas de treino. É possível, então, calcular o gradiente
-associado ao $j$-ésimo neurônia da $i$-ésima:
+associado ao $j$-ésimo neurônio da $i$-ésima camada:
 
 \begin{equation}
   \delta_j^i = \frac{\partial C}{\partial b_j^i}
@@ -472,24 +472,25 @@ associado ao $j$-ésimo neurônia da $i$-ésima:
 \end{equation}
 
 Os gradientes dos neurônios de uma camada determinam quão rápido essa camada
-aprende, ou seja, determinam a variação dos valores dos pesos e \textit{bias}.
-Dessa forma, $\partial^i$ é o vetor cujos elementos determinam a velocidade
-do aprendizado da camada $i$, então $||\partial^i||$ representa a velocidade
-de aprendizado da camada $i$.
+aprende. Então, como $\delta^i$ é o vetor cujos elementos determinam a variação
+dos pesos e \textit{bias} da camada $i$, ou seja, determinam 
+o aprendizado da camada. 
 
 O problema da dissipação do gradiente\footnote{O problema da dissipação do gradiente 
 é conhecido em inglês como \textit{The vanishing gradient problem}.
 } ocorre, então, quando os gradientes das camadas iniciais, durante o treinamento
-da rede, ficam com valores muito próximos a zero, dessa forma, o aprendizado das 
-camadas iniciais torna-se muito lento e custoso para a rede.
+da rede, ficam com valores muito próximos a zero, por isso, o aprendizado das 
+camadas iniciais torna-se lento e custoso.
 
-
-\subsection{Redes neurais multi-layer perceptrons}
+\subsection{Redes neurais \textit{multi-layer}}
   % dar uma melhorada -> parte do com o treinamento fornecido
   % se agredar -> combinação -> melhorar
   % redes de arquitetura multilayer ...
   % o "e feedforward" não tem nada a ver -> é um passo do treinamento  -> sequencia dos dados de entrada
-Redes neurais são modelos de \textit{machine learning} 
+
+
+
+  Redes neurais são modelos de \textit{machine learning} 
 inspiradas no cérebro humano aonde o aprendizado ocorre 
 ao se agregarem neurônios matemáticos que 
 estabelecem conexões de acordo com o treinamento fornecido. 
