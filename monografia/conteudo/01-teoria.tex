@@ -14,22 +14,22 @@ técnicas de inteligência artificial para recomendar conteúdo personalizado ao
 usuários da plataforma de acordo com os interesses 
 particulares de cada um. Em particular para a Netflix, 
 não há um modelo ou algoritmo único utilizado 
-para todas as recomendações de conteúdo, essa tarefa é 
-dividida em subtarefas realizadas por diferentes modelos de 
+para todas as recomendações de conteúdo. Essa tarefa é 
+dividida em subtarefas realizadas por diferentes modelos, de 
 acordo com a atividade a ser realizada e os dados disponíveis. 
 Por exemplo, a escolha de qual vídeo será exibido para 
 o usuário ao logar no perfil da plataforma é executada por um 
 modelo  diferente do que o que elenca os vídeos já assistidos que o 
 membro pode continuar a ver.
 
-Dessa forma, segundo \cite{netflix}, a empresa proporciona uma 
+Dessa forma, segundo (\cite{netflix}), a empresa proporciona uma 
 experiência única a cada indivíduo que acessa a plataforma. Essa 
 estratégia tem o objetivo de aumentar a satisfação a longo prazo 
 do cliente e garantir a retenção dos membros, uma vez 
-que a plataforma é monetizada com assinaturas mensais. \cite{netflix}
+que a plataforma é monetizada com assinaturas mensais. O artigo
 ainda ressalta que a estratégia de utilizar inteligência 
 artificial para as recomendações tem se refletido ao longo 
-dos anos com uma melhora na taxa de retenção dos membros.
+dos anos com uma melhora na taxa de retenção dos membros. 
 
 \begin{quote}
   \textit{"Therefore, the value of a recommender system can be measured by
@@ -37,28 +37,27 @@ the increase in member retention. Over years of the development of personalizati
 improvements in retention"} (\cite{netflix})
 \end{quote}
 
-Mas afinal, o que é inteligência artificial? O termo 
-"inteligência artificial", de \textit{artificial intelligence} 
-em inglês, foi elaborado por John McCarthy e utilizado 
+Mas afinal, o que é inteligência artificial? O termo, do
+inglês \textit{artificial intelligence}, foi elaborado por John McCarthy e utilizado 
 oficialmente pela primeira vez em 1956 no seminário de 
 Dartmouth, um \textit{workshop} sobre a área que reuniu os 
-maiores estudiosos do ramo durante dois meses segundo \cite{aima}.
-Entretanto, em 1950, Alan Turing já se perguntava se máquinas 
-poderiam pensar e desenvolvia estudos e conceitos no tema que permanecem relevantes
-como o Teste de Turing\footnote{Em \cite{turing}, Alan Turing propôs o 
-Teste de Turing com a intenção de determinar se uma máquina era inteligente. O teste de Turing é uma variação 
-do Jogo da Imitação em que um entrevistador deve fazer perguntas a dois jogadores, um 
+maiores estudiosos do ramo durante dois meses segundo (\cite{aima}).
+Em 1950, entretanto, Alan Turing já se perguntava se máquinas 
+poderiam pensar e desenvolvia estudos e conceitos no tema que permanecem relevantes,
+como o Teste de Turing\footnote{Em 1950, Alan Turing propôs o 
+Teste de Turing com a intenção de determinar se uma máquina era inteligente. Esse teste é uma variação 
+do Jogo da Imitação, em que um entrevistador deve fazer perguntas a dois jogadores, um 
 humano e uma máquina, sem qualquer distinção. Ao final, o entrevistador deve
 descobrir qual dos jogadores é uma máquina e qual é a pessoa. Se 
-a máquina fosse capaz de enganar o entrevistador, seria considera
-inteligente.}.
-O termo "inteligência artificial, pode ser utilizado com
+a máquina fosse capaz de enganar o entrevistador, seria considerada
+inteligente.(\cite{turing})}.
+O termo "inteligência artificial" pode ser utilizado com
 várias conotações, uma vez que não apresenta uma definição 
 única e aceita, conforme 
 relembra \cite{wang2019defining}. Uma possível definição,
 segundo \cite{what-is-ai}, é a ciência e engenharia de 
 construir máquinas inteligentes, em especial programas 
-de computador, nesse contexto, inteligência é o aspecto
+de computador. Nesse contexto, inteligência é o aspecto
 computacional da habilidade de atingir os objetivos.
 
 \begin{quote}
@@ -66,24 +65,24 @@ computacional da habilidade de atingir os objetivos.
   engineering of making intelligent machines, 
   especially intelligent computer programs. (...)
   Intelligence is the computational part of the ability 
-  to achieve goals in the world."} John McCarthy
+  to achieve goals in the world."} (\cite{what-is-ai})
 \end{quote}
 
 Em 1959, o pioneiro em IA Arthur Samuel\footnote{Arthur Samuel
-foi um engenheiro e um dos pioneiros em inteligência artificial,
+foi um engenheiro e um dos pioneiros em inteligência artificial e
 desenvolveu um programa que jogava damas com humanos e aprendia
 com cada jogada dos oponentes. O programa tornava suas jogadas mais 
 assertivas ao calcular as probabilidades de cada jogada e é 
 considerado uma das primeiras aplicações de aprendizado de máquina.
 } descreveu 
 aprendizado de máquina como o campo de estudo que dá aos 
-computadores a habilidade de aprender sem serem específicamente
-programados. Aprendizado de máquina ou \textit{machine learning} 
-em inglês, portanto, compreende sistemas de inteligência 
+computadores a habilidade de aprender sem serem especificamente
+programados. Aprendizado de máquina ou \textit{machine learning}, 
+portanto, compreende sistemas de inteligência 
 artificial capazes de adquirir seu próprio conhecimento 
-ao extrair padrões dos dados brutos de acordo com \cite{Goodfellow-et-al-2016}.
+ao extrair padrões dos dados brutos, de acordo com \cite{Goodfellow-et-al-2016}.
 \textit{Machine learning}, então, configura-se como uma 
-sub-área de inteligência artificial.
+sub-área da inteligência artificial.
 
 
 Já o aprendizado profundo, ou \textit{deep learning}, é uma 
@@ -92,9 +91,8 @@ De acordo com \cite{deeplearningbook}, caracteriza-se por
 modelos que fazem processamento de dados com neurônios 
 matemáticos de forma a imitar o 
 funcionamento do cérebro humano. Nesses algoritmos, a informação
-é passada de camada em camada até obter a saída, trata-se, portanto,
-de redes neurais com várias camadas ocultas de neurônios 
-segundo \cite{d2l}. 
+é passada de camada em camada até obter a saída. Trata-se, portanto,
+de redes neurais com várias camadas ocultas de neurônios (\cite{d2l}). 
 
 A relação entre inteligência artificial, aprendizado de 
 máquina e aprendizado profundo pode ser vista na 
@@ -112,11 +110,11 @@ imagem \ref{fig:ia_ml}.
 Os modelos de \textit{machine learning} podem realizar várias categorias 
 de tarefas, dentre elas a regressão e a classificação, a 
 depender da atividade realizada pelo algoritmo.
-Neste trabalho,  foram utilizados modelos de regressão onde o objetivo é prever um valor real a 
-partir dos dados de entrada de acordo com \cite{Goodfellow-et-al-2016}.
+Neste trabalho,  foram utilizados modelos de regressão cujo objetivo é prever um valor real a 
+partir dos dados de entrada de acordo com (\cite{Goodfellow-et-al-2016}).
 É possível, então, descrever cada \textit{input} dos modelos como um vetor $x$ com 
 $n$ atributos (\textit{features}) tal que
-$x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$, neste trabalho, 
+$x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$. Neste trabalho, 
 as \textit{features} utilizadas são indicadores econômicos, monetários,
 sociais e da construção civil descritos na seção \ref{sec:dados}, já o 
 processamento realizado pelos modelos de regressão pode ser descrito 
@@ -124,20 +122,20 @@ pela função $ f : \mathbb{R}^n \rightarrow \mathbb{R}$.
 
 Os modelos de classificação, por outro lado, têm como objetivo 
 determinar a qual das $k$ categorias disponíveis um 
-\textit{input} pertence de acordo com \cite{dl-oreilly}. Dessa forma, é utilizada uma função  
+\textit{input} pertence, de acordo com \cite{dl-oreilly}. Dessa forma, é utilizada uma função  
 $ f : \mathbb{R}^n \rightarrow \{1,...,k\}$, quando 
 $ f(x) = y$, o vetor de entrada $x$ foi classificado 
-na categoria $y$. Um exemplo de tarefa de classificação,
+na categoria $y$. Um exemplo de tarefa de classificação
 seria determinar se uma operação com cartão de crédito 
-é fraudulenta ou não, neste trabalho, contudo, não foi empregado 
+é fraudulenta ou não. Neste trabalho, contudo, não foi empregado 
 tal tipo de modelo. 
 
 Ainda segundo \cite{Goodfellow-et-al-2016}, os problemas de 
 aprendizado de máquina também podem ser divididos entre
 aprendizado não-supervisionado e supervisionado. No primeiro, 
 o modelo recebe um conjunto de dados (\textit{dataset}) não 
-rotulado e aprende propriedades da estrutura dos dados, 
-um exemplo de aprendizado não supervisionado é a clusterização,
+rotulado e aprende propriedades da estrutura dos dados. 
+Um exemplo de aprendizado não supervisionado é a clusterização,
 que consiste em dividir o conjunto de dados
 em \textit{clusters} com amostras similares. No último, por sua vez, 
 os dados de entrada estão associados a resultados conhecidos, 
@@ -149,13 +147,13 @@ do consumo e, assim, calcular a precisão do modelo.
 
 \section{Modelos utilizados}
 
-Neste trabalho, utilizou-se três categorias de modelos de aprendizado 
+Neste trabalho, utilizaram-se três categorias de modelos de aprendizado 
 de máquina para prever a demanda por cimento: regressão linear, redes
 neurais \textit{multi layer perceptron} e redes recorrentes. Foram testados, também,
 três métodos de pré-processamento de dados (\textit{standard scaler, minmax 
 scaler e power transformer}) e  diferentes arquiteturas de 
 redes neurais ao alterar o número de camadas, a quantidade de neurônios
-em cada camada, o tipo de camada, a função de ativação entre outras
+em cada camada, o tipo de camada, a função de ativação, entre outras
 configurações, com o objetivo de comparar 
 o desempenho dos modelos e encontrar o que apresenta menor erro na previsão.
 
@@ -168,7 +166,7 @@ Desse modo, seu objetivo é construir uma
 função que, para cada par\footnote{No
 caso deste estudo, o par  $(x,y)$ é tal que 
 $x$ representa o valor de cada
-indicador descrito na seção \ref{sec:dados} em um estado e mês, já 
+indicador descrito na seção \ref{sec:dados} em um estado e mês e 
 $y$ corresponde ao número de toneladas de cimento consumidas
 por esse estado no mês e ano correspondente.} $(x,y)$, recebe como
 entrada o vetor $x$ que corresponde às variáveis de \textit{input},
@@ -179,13 +177,13 @@ prever um valor para a variável \textit{target}, $y$, sendo
 que $y \in \mathbb{R}$, segundo \cite{forecasting}. Seja,
 então, $\hat{y}$ o valor previsto pelo modelo para um 
 par $(x, y)$, a função que descreve a 
-regressão linear, então é dada por
+regressão linear, então, dada por
 
 \begin{equation}
   \hat{y} = f(x) = \beta_0 + \beta_1 x_{1_i} + \beta_2 x_{2_i} + \dots + \beta_k x_{k_i} 
 \end{equation}
 
-É possível, logo, contruir uma matriz $X$ em que a linha $i$
+Logo, é possível contruir uma matriz $X$ em que a linha $i$
 corresponde ao vetor $x_i$ dos dados de entrada e 
 cada coluna $j$ representa uma \textit{feature}. Pode-se, 
 além disso, construir a matriz $\beta$ dos coeficientes associados 
@@ -215,7 +213,7 @@ Por exemplo, se o coeficiente da variável $x_i$ for $\beta_i = 0$,
 essa variável não tem influência no valor previsto pelo modelo. 
 Caso o coeficiente seja positivo, por outro lado, um aumento 
 no valor de $x_i$ resulta em aumento no valor previsto $\hat{y_i}$,
-já se $\beta_i$ for negativo um aumento no valor de $x_i$ se reflete na 
+já se $\beta_i$ for negativo, um aumento no valor de $x_i$ se reflete na 
 diminuição no valor de $\hat{y_i}$. 
 
 
@@ -229,12 +227,12 @@ linear com apenas uma variável:
   \label{fig:reg_lin}
 \end{figure}
 
-Na  figura \ref{fig:reg_lin}, as observações $y_i$, estão 
+Na  figura \ref{fig:reg_lin}, as observações $y_i$ estão 
 representadas pelos pontos pretos, enquanto a linha em laranja
 corresponde à previsão realizada pelo modelo. Observa-se que
 o modelo não prevê com total exatidão os dados observados, há 
 um erro associado a cada previsão, como o destacado em verde 
-na ilustração, comportamento esperado já os fenômenos previstos são 
+na ilustração, comportamento esperado, já que fenômenos previstos são 
 sujeitos a fatores externos e não lineares como os modelos matemáticos.
 
 
@@ -253,7 +251,7 @@ por meio de impulsos eletroquímicos. Essa comunicação é
 denominada sinapse e ocorre apenas se o impulso 
 for forte o bastante para ativar a liberação de
 químicos na fenda sináptica, de acordo com segundo \cite{deeplearningbook}. 
-Um neurônio é composto de vários dendritos, 
+Um neurônio é composto por vários dendritos, 
 um axônio e um corpo celular, como ilustrado em \ref{fig:neuron}. 
 
 \begin{figure}[H] 
@@ -457,9 +455,9 @@ O gráfico da função é similar ao da ReLU e pode ser observado em \ref{fig:sw
 \subsubsection{Problema da Dissipação do Gradiente}
 \label{sec:vanishing_gradient_problem}
 
-De acordo com \cite{neuralnetworksanddeeplearning} aprendizado de uma rede neural ocorre ao alterar os valores dos pesos
-e \textit{bias} dos neurônios de acordo com a função de custo, também conhecida 
-como \textit{loss function}. Sejam $x$, $w$ e $b$ os conjuntos de entradas,
+O aprendizado de uma rede neural ocorre ao alterar os valores dos pesos
+e \textit{bias} dos neurônios de acordo com a função de custo ou \textit{loss function} (\cite{neuralnetworksanddeeplearning}). 
+Sejam $x$, $w$ e $b$ os conjuntos de entradas,
 pesos e \textit{bias} da rede, respectivamente, a função de custo, então, é dada por:
 
 \begin{equation}
@@ -470,35 +468,39 @@ pesos e \textit{bias} da rede, respectivamente, a função de custo, então, é 
 Na equação da função de custo \ref{eq:func_custo}, $y(x)$ representa o vetor com as resposta
 que a rede tenta prever, $a$ representa o vetor de \textit{output} da rede e 
 $n$ é o número total de entradas de treino. É possível, então, calcular o gradiente
-associado ao $j$-ésimo neurônio da $i$-ésima camada:
+relativo ao $j$-ésimo neurônio da $i$-ésima camada:
 
 \begin{equation}
   \delta_j^i = \frac{\partial C}{\partial b_j^i}
 \label{eq:func_grad}
 \end{equation}
 
-Os gradientes dos neurônios de uma camada determinam quão rápido essa camada
-aprende. Então, como $\delta^i$ é o vetor cujos elementos determinam a variação
-dos pesos e \textit{bias} da camada $i$, ou seja, determinam 
-o aprendizado da camada. 
-
+Seja, então, $\delta^i$ o vetor cujos elementos estão associados
+aos neurônios da camada $i$. Como os gradientes definem a alteração nos pesos e \textit{bias}
+de cada neurônio, determinam a velocidade de aprendizado dessa camada.
 O problema da dissipação do gradiente\footnote{O problema da dissipação do gradiente 
 é conhecido em inglês como \textit{The vanishing gradient problem}.
-} ocorre, então, quando os gradientes das camadas iniciais, durante o treinamento
-da rede, ficam com valores muito próximos a zero, por isso, o aprendizado das 
-camadas iniciais torna-se lento e custoso.
+} ocorre, então, quando os gradientes das camadas iniciais ficam com valores 
+muito próximos a zero. Assim, nessas camadas o ajuste nos pesos e \textit{bias}
+torna-se moroso, assim como o aprendizado.
 
         
 \subsection{Redes Neurais Recorrentes}
 \label{rnn}
 
-O diferencial das redes recorrentes frente às redes tradicionais são os
-\textit{feedback loops} que permitem analisar a dimensão temporal.
-Se por um lado as redes neurais tradicionais são projetadas
-para realizar previsões sem considerar tempo ou sequência, as redes
-neurais recorrentes se diferem por capturar informação de contexto, ou seja,
-histórico, para realizar previsões. Essa dimensão temporal, então, se dá por 
-meio de ciclos nas conexões, ou \textit{feedback loops}, como mostrado em \ref{fig:rnn_loops}
+As redes \textit{feed forward} tradicionais não possuem
+dimensão temporal. Então, ao analisar uma entrada não levam em consideração o valor
+previsto para a entrada anterior, ou seja, tratam cada entrada de forma independente. 
+Além disso, as informações são repassadas 
+sequencialmente, dessa forma, os neurônios de uma camada recebem informação 
+apenas da camada anterior, como ilustrado 
+em \ref{fig:nn-trad}. Os neurônios das redes recorrentes, doutro modo, 
+têm como entrada as saídas da camada anterior e o estado atual por conta dos 
+ciclos ou \textit{loops} de \textit{feedback}. Por isso, a rede recorrente
+leva em consideração o presente e o passado recente ao realizar uma previsão 
+e apresenta bom desempenho na previsão de séries temporais ou sequências.
+Em \ref{fig:rnn_loops} e \ref{fig:nn-trad} , pode-se comparar a arquitetura de uma rede \textit{feed forward}
+tradicional e uma rede recorrente.
 
 \begin{figure}[H]
   \centering
@@ -512,21 +514,23 @@ meio de ciclos nas conexões, ou \textit{feedback loops}, como mostrado em \ref{
   \begin{subfigure}{7cm}
       \centering
       \includegraphics[width=7cm]{../figuras/redes/ff.png}
-      \caption{Redes \textit{feed forward}}
+      \caption{Redes \textit{feed forward} tradicionais}
+      \label{fig:nn-trad}
   \end{subfigure}
 \end{figure}
 
-Dessa forma, os neurônios nas redes recorrentes recebem entradas de ativação 
-de seu próprio estado atual e dos nós anteriores na rede, não apenas dos anteriores
-na rede, como nas redes tradicionais.
+Observa-se em \ref{fig:rnn_loops}, os \textit{loops} de \textit{feedback} que 
+proporcionam a captura de contexto (dimensão temporal) pelas redes recorrentes.
 
 As redes recorrentes, então, não recebem como entrada apenas um vetor de tamanho 
-fixo como as redes \textit{feed forward}, seu \textit{input} é formado 
-por vários vetores, um para cada \textit{time-step}. Na figura abaixo, o número
+fixo como as redes \textit{feed forward}. Cada \textit{input} é composto por  
+uma sequência de vetores, um para cada\textit{time step}\footnote{O termo
+\textit{time step} denota o tamanho da sequência que a rede recorrente receberá de entrada.}. 
+Na figura \ref{fig:input-rnn}, o número
 total de amostras corresponde ao campo "examples", o vetor com as 
-variávies de entrada ao campo "inputs" ou "values per time step" (na 
-figura de Recurrent Network Data) e o tamanho das sequências consideradas
-pelo modelo ao "time steps". 
+variávies de entrada ao campo \textit{inputs} ou \textit{values per time step} (na 
+figura de \textit{Recurrent Network Data}) e o tamanho das sequências consideradas
+pelo modelo ao \textit{time steps}. 
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/redes/input-rnn.png}
@@ -535,8 +539,8 @@ pelo modelo ao "time steps".
   \label{fig:input-rnn}
 \end{figure}
 
-Redes recorrentes são uma subclasse das redes neurais, contudo, possuem mais
-de uma categoria, neste trabalho testaram-se as redes LSTM e GRU.
+Redes recorrentes são uma subclasse das redes neurais, contudo, há várias 
+implementações disponíveis. Neste trabalho testaram-se as redes LSTM e GRU.
 
 \subsubsection{LSTM}
 
