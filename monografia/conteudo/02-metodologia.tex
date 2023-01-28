@@ -12,11 +12,11 @@
 
 % melhorar.. só usar isso?
 
-Nesta seção é feito um detalhamento dos dados utilizados no trabalho que 
+Nesta seção é feito um detalhamento dos dados utilizados, que 
 abrange fonte, preparação e pré-processamento. Também são descritas as 
-tecnologias utilizadas na implementação, as métricas estatísticas que foram 
+tecnologias utilizadas na implementação, as métricas estatísticas 
 usadas para mensurar o desempenho dos modelos e o método de validação
-cruzada utilizado para avaliar os modelos.
+cruzada aplicado para avaliar os modelos.
 
 \section{Tecnologias utilizadas}
 
@@ -28,97 +28,35 @@ e a Scikit-learn. A maior parte dos gráficos foram gerados por meio das bibliot
 Seaborn e Matplotlib, contudo alguns foram contruídos com a plataforma
 Microsoft Excel.
 
+Os códigos utilizados no projeto estão disponíveis em \url{https://github.com/LeiteJu/TCC}.
+
 \section{Dados}
 \label{sec:dados}
 
+Os algoritmos de aprendizado de máquina utilizam dados para fazer 
+previsões. 
+Neste trabalho, optou-se por utilizar dados de 2003 até 2019 para treinamento e 
+avaliação dos modelos, em virtude da disponibilidade dos dados de consumo mensal 
+de cimento por estado. Além disso,
+adotou-se a estratégia de utilizar granularidade de dados
+mensal e por estado com o intuito de aumentar a quantidade de entradas disponíveis 
+para treinamento e avaliação dos modelos\footnote{Por exemplo, se fossem usados dados 
+anuais a nível de estados da União, haveria 459 \textit{inputs} para os modelos, ao 
+utilizar dados mensais por estado, o número de entradas disponíveis aumenta para 5508.}.
+
+Essa estratégia de aumentação de dados visa diminuir o risco de ocorrer 
+\textit{underfitting} nos experimentos. O \textit{underfitting} acontece quando o 
+modelo não é capaz de aprender com os dados e resulta em altos erros nas etapas de
+treinamento e teste (\cite{Goodfellow-et-al-2016}).
+
+
 \subsection{Fontes}
 
-O consumo mensal de cimento nos estados do Brasil, alvo da previsão 
-dos modelos aplicados neste trabalho, é um indicador fornecido pelo SNIC, 
-Sindicato Nacional da Indústria de Cimento. Os dados obtidos apresentavam granularidade
-mensal para cada um dos estados da União e estavam disponíveis de 1990 até 2021,
-a exceção dos anos de 2001 e 2002. Dessa forma, optou-se por utilizar apenas 
-dados posteriores a 2003 no trabalho, uma vez que os modelos recorrentes se 
-valem do contexto para obter a próxima previsão \ref{rnn} , então esse lapso nos dados
-poderia trazer inconsistências no modelo.
-
-Além disso, o descarte de dados mais antigos favorece a assertividade do 
-modelo, pois houve alteração no total de cimento consumida no Brasil
-ao longo do tempo, então dados mais antigos poderiam privilegiar tendências 
-mais antigas. Retirar dados mais antigos, então evita, por exemplo, que a 
-estagnação econômica da época de hiperinflação ou o otimismo do Plano real
-impacto a previsão atual. Essa alteração na quantidade de cimento consumida pela União
-pode ser observada na imagem abaixo. 
-
-\begin{figure}[H] 
-    \includegraphics[width= 14cm]{../figuras/evolucao-consumo.png}
-    \caption{Evolução do consumo de cimento no Brasil \cite{relatorio-snic}}
-    \label{fig:evolucao-consumo-cimento}
-\end{figure}
-
-Observa-se, por exemplo, uma queda no consumo de cimento entre 2015 e 2018,
-fruto das crises econômicas nesse período. Ressalta-se, também,
-que o consumo não é uniforme ao longo do ano como pode ser 
-visto na figura \ref{consumo-sp}, aonde bserva-se a 
-grande variação na demanda de cimento no estado
-de São Paulo, não apenas ao longo dos anos, mas também ao 
-longo dos meses do ano
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm]{../figuras/graficos/evolucao-consumo-sp.png}
-    \caption{Evolução do consumo mensal de cimento em São Paulo}
-    \label{consumo-sp}
-\end{figure}
-
-Além disso, destaca-se que existe uma 
-grande diferença no consumo entre os estados do Brasil, por 
-exemplo, o consumo médio em São Paulo de 2003 a 2019 foi de 
-aproximadamente 1014,7 mil toneladas enquanto o de 
-Alagoas foi de 41,5 mil toneladas. Mesmo ao comparar apenas
-estados de uma mesma região, é evidente que há singularidades 
-de cada unidade da federação, como pode ser visto na imagem
-\ref{consumo-se}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm]{../figuras/consumo/dado-se.png}
-    \caption{Evolução do consumo de cimento nos estados do Sudeste}
-    \label{consumo-se}
-\end{figure}
-
-No gráfico \ref{consumo-se}, os pontos representam cada uma das
- medições mensais  do consumo de cimento em cada um dos estados
- da região.
-
-A região Sudeste foi escolhida neste trabalho para demonstrar as 
-previsões do modelo. Essa escolha se deu pois possui apenas quatro 
-estados, então o gráfico com as previsões é mais simples de 
-ler e interpretar que o de outras regiões com maior número de estados.
-Além disso, os estados dessa região apresentam certa distância
-na quantidade de cimento consumida, dessa forma, há pouca sobreposição 
-entre as curvas, isso torna o gráfico mais legível também. Por 
-exemplo, a média de consumo de cimento do período analisado no 
-estado de São Paulo foi de 1014,7 mil toneladas, no Rio de Janeiro
-foi de 310,2 mil toneladas, já em Minas Geral foi de 480,3 mil 
-tonelada e no Espírito Santo, por sua vez, foi de 91,9 mil toneladas.
-
 O modelo utiliza dados econômicos, sociais e da construção
-civil para treinar estimar a demanda por cimento. Na tabela
-\ref{tab:indicadores}, estão
-apresentadas a fonte, granularidade e o período em que os dados 
-estavam disponíveis para todos os indicadores utilizados neste 
-trabalho. Na tabela são utilizadas siglas para melhor visualização,
-como IBGE para Instituto Brasileiro
-de Geografia e Estatística, FGV para Fundação Getúlio Vargas,
-BACEN para Banco Central do Brasil, IPEA para Instituto de 
-Pesquisa Econômica Aplicada e SNIC para Sindicato Nacional 
-da Indústria do Cimento todas fontes utilizadas neste trabalho.
-Além disso, utilizou-se abreviação para Produto Interno Bruto (PIB),
-Índice Nacional de Preços ao Consumidor Amplo (IPCA),
-Índice Nacional de Custo da Construção (INCC), Índice Geral de 
-Preços (IGP), Necessidade de Financiamento do Setor Público (NFSP) e 
-Índice de Desenvolvimento Humano (IDH).
+civil para estimar a demanda por cimento. Na tabela
+\ref{tab:indicadores}, são
+apresentados a fonte, a granularidade e o período em que os dados 
+estavam disponíveis.
 
 
 \begin{table}[H]
@@ -126,7 +64,7 @@ Preços (IGP), Necessidade de Financiamento do Setor Público (NFSP) e
     \caption{Indicadores utilizados no trabalho}
     \begin{tabular}{llll}
         \toprule
-        Indicador                   & Fonte & Período disponível & Granularidade         \\
+        Dado                   & Fonte & Período disponível & Granularidade         \\
         \midrule
         PIB a preços constantes     
                                     & IBGE\footnote{\label{portal ipea} Dado retirado do portal do Ipeadata em \url{http://www.ipeadata.gov.br/Default.aspx}}  & 1983 até 2019      & anual por estado      \\
@@ -134,9 +72,9 @@ Preços (IGP), Necessidade de Financiamento do Setor Público (NFSP) e
         PIB per capita              & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
         PIB da construção civil      & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
         Desemprego                   & IBGE\footref{portal ipea}  & 1991 até 2022      & irregular \footnote{Havia dados de 1992 até 2014
-        com granularidade anual e por estado, contudo, a partir de 2012 foram disponibilizados dados mensais a nível de Brasil por conta da 
+        com granularidade anual e por estado. A partir de 2012 foram disponibilizados dados mensais a nível de Brasil por conta da 
         Pesquisa Nacional por Amostra de Domicílios (PNAD) Contínua mensal realizada pelo IBGE. Neste trabalho, utilizou-se os dados anuais até 2012
-        e, após 2012, os dados provenientes da PNAD Contínua} \\
+        e, após 2012, os dados provenientes da PNAD Contínua.} \\
         IPCA                        & IBGE\footnote{Dado retirado do IBGE em \url{https://sidra.ibge.gov.br/tabela/1737}}  & 1981 até 2021      & mensal para o Brasil      \\
         INCC                        & FGV\footnote{Dado obtido a partir do portal da FGV em \url{https://www.debit.com.br/tabelas/tabela-completa-pdf.php?indice=incc}}   & 1980 ate 2021      & mensal para o Brasil      \\
         IGP                         & FGV\footref{portal ipea}   & 1944 até 2021      & mensal para o Brasil      \\
@@ -144,39 +82,46 @@ Preços (IGP), Necessidade de Financiamento do Setor Público (NFSP) e
         NFSP                        & BACEN\footref{portal ipea}  & 1991 até 2022      & mensal para o Brasil      \\
         Estoque líquido de capital fixo   & IPEA\footref{portal ipea}   & 1947 ate 2019      & anual para o Brasil      \\
         População                   & IBGE\footnote{Dado obtido do portal Base dos Dados em \url{https://basedosdados.org/dataset/br-ibge-populacao}}   & 1991 até 2021      & anual por estado      \\
-        IDH                         & IBGE\footref{portal ipea}   & 1991 ate 2017      & irregular\footnote{Os indicadores de IDH (Renda, Longevidade e Educação) estão disponíveis em anos de censo do IBGE (1990, 2000, 2010), há 
-        dados, também, de 2014 a 2017 por conta da PNAD Contínua}      \\
+        IDH                         & IBGE\footref{portal ipea}   & 1991 ate 2017      & irregular\footnote{Os indicadores de IDH (Renda, Longevidade e Educação) estão disponíveis em anos de censo do IBGE (1990, 2000, 2010). Há 
+        dados, também, de 2014 a 2017 por conta da PNAD Contínua.}      \\
         Produção mensal de cimento  & SNIC\footnote{\label{cbic} Dados retirados do portal \url{http://www.cbicdados.com.br/menu/materiais-de-construcao/cimento}}  & 2003 até 2022      & mensal por estado      \\
-        Valor médio do cimento\footnote{Evolução do valor médio/mediano do cimento Portland 32 em US\$/Tonelada}      & IPEA\footref{cbic}   & 1947 ate 2019      & anual para o Brasil      \\
+        Valor médio do cimento\footnote{Evolução do valor médio/mediano do cimento Portland 32 em US\$/Tonelada}      & SNIC\footref{cbic}   & 1947 ate 2019      & anual para o Brasil      \\
+        Consumo de cimento em ton.  & SNIC\footref{cbic} & 2003 até 2019 & mensal por estado \\
         \bottomrule
     \end{tabular}
     \label{tab:indicadores}
 \end{table}
 % quem sabe por a legenda no apendice
 
+Na tabela, são utilizadas siglas 
+para melhorar a legibilidade.
+Em particular IBGE para Instituto Brasileiro
+de Geografia e Estatística, FGV para Fundação Getúlio Vargas,
+BACEN para Banco Central do Brasil, IPEA para Instituto de 
+Pesquisa Econômica Aplicada e SNIC para Sindicato Nacional 
+da Indústria do Cimento.
+Além disso, utilizou-se abreviação para Produto Interno Bruto (PIB),
+Índice Nacional de Preços ao Consumidor Amplo (IPCA),
+Índice Nacional de Custo da Construção (INCC), Índice Geral de 
+Preços (IGP), Necessidade de Financiamento do Setor Público (NFSP) e 
+Índice de Desenvolvimento Humano (IDH).
+
 \subsection{Preparação dos dados}
 
 Com o objetivo de direcionar a estratégia de preparação de dados
-foi realizada uma análise exploratória de cada um dos dados de 
+foi realizada uma análise exploratória dos dados de 
 entrada e da variável resposta. 
-A partir dessa análise, 
-optou-se por utilizar os dados de 2003 até 2019 para o estudo.
-Destaca-se nessa análise, a alta
-taxa de variação dos dados de entrada, em alguns indicadores, por exemplo 
-para o  PIB da construção civil,   
-o desvio padrão é maior que o valor médio do indicador. Dessa 
+Destacou-se nessa análise, a alta
+taxa de variação dos dados de entrada. Alguns indicadores, como o PIB
+da construção civil apresentam
+o desvio padrão maior que o valor médio do indicador. Dessa 
 forma, está presente nos dados um grande número de \textit{outliers},
 em especial ao analisar o Brasil como um todo, por conta da 
 forte diferença entre as regiões do Brasil. 
 
-\begin{quote}
-    \textit{An outlier is an observation strikingly far from
-some central value. It is an unusual value relative
-to the bulk of the data...}\cite{tukey77}
-\end{quote}
 
-\textit{Outliers} são observações discrepantes do restante dos dados, que parecem
-inconsistentes e podem interferir no processo de previsão. \cite{outliers}
+\textit{Outliers} são observações discrepantes do restante dos Dados
+que podem interferir no processo de previsão (\cite{outliers} e \cite{tukey77}).
 Para ilustrar melhor o alto volume de \textit{outliers} presentes
 nos dados, utilizou-se gráficos \textit{boxplot}, como mostrado na 
 figura abaixo.
@@ -184,7 +129,7 @@ figura abaixo.
 \begin{figure}[H]
     \centering
     \includegraphics[width=8cm]{../figuras/explicacao-boxplot.png}
-    \caption{Gráfico \textit{boxplot} \cite{explicacao-boxplot}}
+    \caption{Gráfico \textit{boxplot} (\cite{explicacao-boxplot})}
     \label{fig:boxplot}
 \end{figure}
 
