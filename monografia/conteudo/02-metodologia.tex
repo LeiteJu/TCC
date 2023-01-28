@@ -322,3 +322,35 @@ modelo apresenta tendência de subestimar ou superestimar a variável, se
 \begin{equation}
     \Delta = \frac{\hat{y_i} - y_i}{y_i}
 \end{equation}
+
+\subsection{Pré-processamento de dados}
+\label{sec:norm_dados}
+\subsubsection{Normalização}
+
+
+
+O objetivo da normalização dos dados, é garantir que as variáveis de entrada 
+estejam na mesma escala. Esse processo é necessário não apenas para realizar melhor comparação entre variáveis 
+com diferentes unidades, mas também para o melhor funcionamentos dos algoritmos 
+de aprendizado, uma vez que se as \textit{features} estiverem em escalas diferentes
+alguns pesos podem ser atualizados mais rápidos que outros. (\cite{Raschka})
+
+
+A normalização garante que as variáveis de entrada estejam em uma 
+escala com as propriedades de uma distribuição normal, ou seja, média ($\mu$)
+igual a zero e variância ($\sigma$) igual a um. Dessa forma, a operação 
+realizada para aplicar o processo em um entrada $x$ é
+
+\begin{equation}
+  z = \frac{x - \mu}{\sigma}
+\end{equation}
+
+\subsubsection{\textit{Min-Max scaler}}
+
+O \textit{min-max scaler} transforma os dados de modo que a 
+escala dos dados tenha um itnervalo definido, em geral, entre
+0 e 1.
+
+\begin{equation}
+  X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
+\end{equation}
