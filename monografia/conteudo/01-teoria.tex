@@ -20,9 +20,9 @@ acordo com a atividade a ser realizada e os dados disponíveis.
 Por exemplo, a escolha de qual vídeo será exibido para 
 o usuário ao logar no perfil da plataforma é executada por um 
 modelo  diferente do que o que elenca os vídeos já assistidos que o 
-membro pode continuar a ver.
+membro pode continuar a ver.(\cite{netflix})
 
-Dessa forma, segundo (\cite{netflix}), a empresa proporciona uma 
+Dessa forma, a empresa proporciona uma 
 experiência única a cada indivíduo que acessa a plataforma. Essa 
 estratégia tem o objetivo de aumentar a satisfação a longo prazo 
 do cliente e garantir a retenção dos membros, uma vez 
@@ -41,7 +41,7 @@ Mas afinal, o que é inteligência artificial? O termo, do
 inglês \textit{artificial intelligence}, foi elaborado por John McCarthy e utilizado 
 oficialmente pela primeira vez em 1956 no seminário de 
 Dartmouth, um \textit{workshop} sobre a área que reuniu os 
-maiores estudiosos do ramo durante dois meses segundo (\cite{aima}).
+maiores estudiosos do ramo durante dois meses (\cite{aima}).
 Em 1950, entretanto, Alan Turing já se perguntava se máquinas 
 poderiam pensar e desenvolvia estudos e conceitos no tema que permanecem relevantes,
 como o Teste de Turing\footnote{Em 1950, Alan Turing propôs o 
@@ -53,12 +53,11 @@ a máquina fosse capaz de enganar o entrevistador, seria considerada
 inteligente.(\cite{turing})}.
 O termo "inteligência artificial" pode ser utilizado com
 várias conotações, uma vez que não apresenta uma definição 
-única e aceita, conforme 
-relembra \cite{wang2019defining}. Uma possível definição,
-segundo \cite{what-is-ai}, é a ciência e engenharia de 
+única e aceita \cite{wang2019defining}. Uma possível definição
+é a ciência e engenharia de 
 construir máquinas inteligentes, em especial programas 
 de computador. Nesse contexto, inteligência é o aspecto
-computacional da habilidade de atingir objetivos.
+computacional da habilidade de atingir objetivos(\cite{what-is-ai}).
 
 \begin{quote}
   \textit{"The science and
@@ -80,17 +79,17 @@ computadores a habilidade de aprender sem serem especificamente
 programados. Aprendizado de máquina ou \textit{machine learning}, 
 portanto, compreende sistemas de inteligência 
 artificial capazes de adquirir seu próprio conhecimento 
-ao extrair padrões dos dados brutos, de acordo com (\cite{Goodfellow-et-al-2016}).
+ao extrair padrões dos dados brutos (\cite{Goodfellow-et-al-2016}).
 \textit{Machine learning}, então, configura-se como uma 
 sub-área da inteligência artificial.
 
 
 Já o aprendizado profundo, ou \textit{deep learning}, é uma 
 categoria específica de algoritmos de \textit{machine learning}. 
-De acordo com (\cite{deeplearningbook}), caracteriza-se por 
+Caracteriza-se por 
 modelos que fazem processamento de dados com neurônios 
 matemáticos de forma a imitar o 
-funcionamento do cérebro humano. Nesses algoritmos, a informação
+funcionamento do cérebro humano (\cite{deeplearningbook}). Nesses algoritmos, a informação
 é passada de camada em camada até obter a saída. Trata-se, portanto,
 de redes neurais com várias camadas ocultas de neurônios (\cite{d2l}). 
 
@@ -111,7 +110,7 @@ Os modelos de \textit{machine learning} podem realizar várias categorias
 de tarefas, dentre elas a regressão e a classificação, a 
 depender da atividade realizada pelo algoritmo.
 Neste trabalho,  foram utilizados modelos de regressão cujo objetivo é prever um valor real a 
-partir dos dados de entrada de acordo com (\cite{Goodfellow-et-al-2016}).
+partir dos dados de entrada (\cite{Goodfellow-et-al-2016}).
 É possível, então, descrever cada \textit{input} dos modelos como um vetor $x$ com 
 $n$ atributos (\textit{features})\footnote{Neste trabalho, 
 as \textit{features} utilizadas são indicadores econômicos, monetários,
@@ -121,7 +120,7 @@ processamento realizado pelos modelos de regressão como $ f : \mathbb{R}^n \rig
 
 Os modelos de classificação, por outro lado, têm como objetivo 
 determinar a qual das $k$ categorias disponíveis um 
-\textit{input} pertence, de acordo com (\cite{dl-oreilly}). Dessa forma, é utilizada uma função  
+\textit{input} pertence (\cite{dl-oreilly}). Dessa forma, é utilizada uma função  
 $ f : \mathbb{R}^n \rightarrow \{1,...,k\}$, quando 
 $ f(x) = y$, o vetor de entrada $x$ foi classificado 
 na categoria $y$. Um exemplo de tarefa de classificação
@@ -129,7 +128,7 @@ seria determinar se uma operação com cartão de crédito
 é fraudulenta ou não. Neste trabalho, contudo, não foi empregado 
 tal tipo de modelo. 
 
-Ainda segundo \cite{Goodfellow-et-al-2016}, os problemas de 
+Os problemas de 
 aprendizado de máquina também podem ser divididos entre
 aprendizado não-supervisionado e supervisionado. No primeiro, 
 o modelo recebe um conjunto de dados (\textit{dataset}) não 
@@ -138,7 +137,7 @@ Um exemplo de aprendizado não supervisionado é a clusterização,
 que consiste em dividir o conjunto de dados
 em \textit{clusters} com amostras similares. No último, por sua vez, 
 os dados de entrada estão associados a resultados conhecidos, 
-chamados de \textit{labels} ou rótulos. Neste trabalho, utiliza-se aprendizado 
+chamados de \textit{labels} ou rótulos(\cite{Goodfellow-et-al-2016}). Neste trabalho, utiliza-se aprendizado 
 supervisionado para prever o consumo de cimento mensal nos 
 estados da União a partir dos dados de entrada e compará-lo 
 com o valor real 
@@ -172,7 +171,7 @@ $x \in \mathbb{R}^k , x=\{x_1, x_2, ..., x_k\}$ e calcula coeficientes
 $\beta = \{\beta_0, \beta_1, \dots, \beta_k\}$ para cada atributo de $x$,
 além da constante $\beta_0$. O algoritmo, então, utiliza esses coeficientes para
 prever um valor para a variável \textit{target}, $y$, sendo 
-que $y \in \mathbb{R}$, segundo \cite{forecasting}. Seja,
+que $y \in \mathbb{R}$ (\cite{forecasting}). Seja,
 então, $\hat{y}$ o valor previsto pelo modelo para um 
 par $(x, y)$, a função que descreve a 
 regressão linear, então, dada por
@@ -248,7 +247,7 @@ uma unidade central de controle. Um neurônio biológico, então,
 por meio de impulsos eletroquímicos. Essa comunicação é 
 denominada sinapse e ocorre apenas se o impulso 
 for forte o bastante para ativar a liberação de
-químicos na fenda sináptica, de acordo com \cite{deeplearningbook}. 
+químicos na fenda sináptica (\cite{deeplearningbook}). 
 Um neurônio é composto por vários dendritos, 
 um axônio e um corpo celular, como ilustrado em \ref{fig:neuron}. 
 
@@ -258,9 +257,9 @@ um axônio e um corpo celular, como ilustrado em \ref{fig:neuron}.
   \label{fig:neuron}
 \end{figure}
 
-Destaca-se na figura \ref{fig:neuron}, informação chegando a um 
+Destaca-se na figura \ref{fig:neuron} a informação chegando a um 
 dendrito do neurônio em destaque
-por meio de uma sinapse. Além disso, está representada a comunicação com outra célula
+por meio de uma sinapse, também está representada a comunicação com outra célula
 por meio de outra sinapse iniciada no axônio 
 do neurônio em questão. 
 
@@ -270,26 +269,25 @@ e axônio.
 Os dendritos recebem informações de neurônios vizinhos 
 na forma de impulsos elétricos e são responsáveis 
 por conduzí-las até o corpo celular. 
-Ao chegar no local, a informação é processada e novos 
+Ao chegar ao local, a informação é processada, e novos 
 impulsos são gerados e repassados a outro neurônio 
-através do axônio no processo de sinapse, segundo \cite{fund_deep_learning}.
+por meio do axônio no processo de sinapse (\cite{fund_deep_learning}).
 A estrutura e funcionamento dos neurônios biológicos inspiraram
 os cientistas ao projetarem neurônios artificiais, como 
 os \textit{perceptrons}. 
 
 \subsubsection{Neurônios artificiais}
 
-O \textit{perceptron}, foi desenvolvido em 1957 por Frank 
-Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts
-\footnote{Em 1943, Warren McCulloch e Walter Pitts apresentaram a 
+O \textit{perceptron} foi desenvolvido em 1957 por Frank 
+Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts\footnote{Em 
+1943, Warren McCulloch e Walter Pitts apresentaram a 
 primeira ideia de neurônio artificial.(\cite{neuronio})}.
 Trata-se de um modelo linear de classificação que 
 recebe $n$ entradas e produz uma saída binária, como mostrado 
-na ilustração simplificada \ref{fig:perceptron-simples},
-conforme \cite{deeplearningbook}.
-Esse modelo inicial apresentava limitações e foi evoluído com o passar do 
+na ilustração simplificada \ref{fig:perceptron-simples} (\cite{deeplearningbook}).
+Esse modelo inicial apresentava limitações e passou por evoluções com o passar do 
 tempo. Apesar disso, as redes neurais atualmente utilizam, em geral,
-outro modelo de neurônio como o ilustrado em \ref{fig:perceptron}.
+outro modelo de neurônio, como o ilustrado em \ref{fig:perceptron}.
 
 
 \begin{figure}[H] 
@@ -315,7 +313,7 @@ um neurônio artificial. O neurônio apresenta $n$ entradas
 $x_i$, cada uma associada a um peso $w_i$, que expressa 
 a importância da respectiva entrada para o valor de saída\footnote{ 
 O peso atribuído a uma das entradas expressa a influência
-dessa no \textit{output} do nó, de modo similar aos coeficientes calculados 
+desta no \textit{output} do nó, de modo similar aos coeficientes calculados 
 para cada atributo da regressão linear, explicada na seção \ref{sec:reg_lin}}.
 O produto escalar entre os pesos e as respectivas entradas
  passa por uma função de 
@@ -324,9 +322,9 @@ ativação pode ser encontrado na seção \ref{sec:funcao_ativacao}}
 $\phi$ que determina a saída do neurônio. 
 Além disso, um valor de \textit{bias} ou polarização é
 adicionado ao produto escalar e possibilita que 
-um neurônio que possua todas as entradas nulas
-apresente saída não nula, dessa forma,
-aumenta a capacidade de aproximação da rede. 
+um neurônio com todas as entradas nulas
+apresente saída não nula, de modo a
+aumentar a capacidade de aproximação da rede. 
 (\cite{deeplearningbook})
 
 % É possível, então, traçar um paralelo entre o neurônio
@@ -343,15 +341,15 @@ aumenta a capacidade de aproximação da rede.
 % a outros neurônios.
 
 
-Seja $x$ o vetor das $n$ entradas do neurônio, então
-$x \in \mathbb{R}^n, x=\{x_1, x_2, ..., x_n\}$ e seja 
+Seja $x$ o vetor das $n$ entradas do neurônio,
+$x \in \mathbb{R}^n, x=\{x_1, x_2, ..., x_n\}$, e seja 
 $w$ o vetor com os pesos associados a cada entrada, 
 $w \in \mathbb{R}^n, w=\{w_1, w_2, ..., w_n\}$. Além disso,
-seja $b$ o valor de \textit{bias} e $\Phi$ a função de ativação.
-Dessa forma, o \textit{output} de um neurônio é dado por:
+seja $b$ o valor de \textit{bias} e $\phi$ a função de ativação.
+Dessa forma, o \textit{output} $h$ de um neurônio é dado por:
  
 \begin{equation}
-  h_{w,b} = \Phi(w \cdot x + b)
+  h_{w,b} = \phi(w \cdot x + b)
 \end{equation}
 
 Essa saída é utilizada como uma das entradas dos neurônios
@@ -370,7 +368,7 @@ como ilustrado na figura \ref{fig:redeneural}:
 
 A imagem \ref{fig:redeneural} representa uma simplificação de uma 
 rede neural. Pode-se observar o fluxo da informação, primeiro recebida pelos 
-neurônios de uma camada, então processada nessas unidadades e, por fim, repassada à camada 
+neurônios de uma camada, então processada nessas unidades e, por fim, repassada à camada 
 seguinte, até obter a saída final da rede. Em particular, é representada uma
 rede \textit{feed forward}, uma vez que não há conexões entre neurônios de uma 
 mesma camada nem conexões entre uma camada e a anterior. A informação então 
@@ -378,10 +376,10 @@ se propaga apenas no sentido da camada de entrada em direção à final, de saí
 
 Além disso, em \ref{fig:redeneural}, é ilustrada uma rede neural \textit{multilayer}.
 Conforme a figura, a camada mais à esquerda da rede é 
-denomida \textit{input layer}, a camada mais à direita de \textit{output layer}
-e, por fim, as camadas intermediárias são chamadas \textit{hidden layers}.
-É possível encontrar, na literatura, referências a essas redes como redes 
-\textit{multilayer perceptron} por razões históricas, contudo as redes, em geral,
+denomida \textit{input layer}, a camada mais à direita, de \textit{output layer},
+e as camadas intermediárias são chamadas \textit{hidden layers}.
+Por razões históricas, é possível encontrar referências a essas redes como
+\textit{multilayer perceptron}. Contudo, as redes em geral
 utilizam neurônios sigmóides ao invés de \textit{perceptrons}.
 
 \subsubsection{Função de ativação}
@@ -393,26 +391,26 @@ e o \textit{bias} realizam uma transformação linear nos dados
 de entrada, a função de ativação aplica uma transformação não
 linear. Assim, possibilita que a rede neural resolva
 problemas não lineares e complexos, como reconhecer padrões de 
-escrita, conforme \cite{deeplearningbook} e \cite{zhang2021dive}. 
+escrita (\cite{deeplearningbook} e \cite{zhang2021dive}). 
 
 A função de ativação é um atributo de cada uma das camadas 
 da rede e é escolhida de acordo com a tarefa que será 
 executada. Por exemplo, a função sigmóide é recomendada
  para problemas de classificação. Neste trabalho, 
-foram utilizadas: \textit{rectified linear unit} (ReLU) e \textit{swish}.
+foram utilizadas as funções \textit{rectified linear unit} (ReLU) e \textit{swish}.
 
 \subsubsection{\textit{Rectified linear unit} (ReLU)}
 
 A função ReLU, do inglês \textit{rectified linear unit}, é a
 função de ativação mais popular atualmente, uma vez que apresenta bom desempenho 
-em diferentes tarefas, segundo (\cite{dl-oreilly}). A função ReLU é dada por:
+em diferentes tarefas (\cite{dl-oreilly}). A função ReLU é dada por:
 
 \begin{equation}
   f(x) = max(0,x)
 \end{equation}
 
 Por possuir derivada igual a zero ou a uma constante, a ReLU não sofre do problema da dissipação do gradiente\footnote{Um 
-detalhamento sobre o problema da dissipação do gradiente está na seção \ref{sec:vanishing_gradient_problem}.} como
+detalhamento sobre o problema da dissipação do gradiente será dado na seção \ref{sec:vanishing_gradient_problem}.} como
 outras funções de ativação, 
 uma vez que a derivada é utilizada nos modelos de \textit{machine learning}
 para atualizar os pesos e \textit{bias} no treinamento da rede.
@@ -427,8 +425,8 @@ O gráfico da função ReLU está ilustrado em \ref{fig:relu}.
 \subsubsection{Swish}
 
 A função \textit{swish} foi proposta por pesquisadores da 
-Google em \cite{swish}, com a promessa de apresentar desempenho igual 
-ou superior à ReLU em redes neurais profundas. A \textit{swish} é uma função 
+Google em 2017, com a promessa de apresentar desempenho igual 
+ou superior à ReLU em redes neurais profundas (\cite{swish}). A \textit{swish} é uma função 
 não monótona\footnote{Uma função definida como $f: I \rightarrow \mathbb{R}$
 é monótona se é não crescente no intervalo $I$ ou não decrescente em $I$.} e 
 suave\footnote{Uma função $f$ é suave se possui derivada de todas as ordens.},
@@ -454,16 +452,16 @@ O gráfico da função é similar ao da ReLU e pode ser observado em \ref{fig:sw
 O aprendizado de uma rede neural ocorre ao alterar os valores dos pesos
 e \textit{bias} dos neurônios de acordo com a função de custo ou \textit{loss function} (\cite{neuralnetworksanddeeplearning}). 
 Sejam $x$, $w$ e $b$ os conjuntos de entradas,
-pesos e \textit{bias} da rede, respectivamente. Então, função de custo é dada por:
+pesos e \textit{bias} da rede, respectivamente. Então, a função de custo $C$ é dada por:
 
 \begin{equation}
   C(w,b) = \frac{1}{2n}\sum_x || y(x) - a ||^2
 \label{eq:func_custo}
 \end{equation}
 
-Na equação da função de custo \ref{eq:func_custo}, $y(x)$ representa o vetor com as resposta
-que a rede tenta prever, $a$ representa o vetor de \textit{output} da rede e 
-$n$ é o número total de entradas de treino. Assim, é possível calcular o gradiente
+Na equação acima, $y(x)$ representa o vetor com as respostas
+que a rede tenta prever, $a$ é o vetor de \textit{output} da rede e 
+$n$ é o número total de entradas de treino. Assim, é possível calcular o gradiente $\delta_j^i$
 relativo ao $j$-ésimo neurônio da $i$-ésima camada:
 
 \begin{equation}
@@ -492,16 +490,17 @@ de capturar o contexto como diferencial frente às redes \textit{feed forward}
 tradicionais. Por levar em consideração o presente e o passado recente ao 
 realizar uma previsão, apresentam bom desempenho na previsão de séries 
 temporais ou sequências. Há várias implementações possíveis de redes 
-recorrentes, neste trabalho testaram-se as redes LSTM e GRU.
+recorrentes. Neste trabalho testaram-se as redes LSTM e GRU.
 
 \subsubsection{Redes LSTM}
 
 As redes \textit{Long Short Term Memory} (LSTM) foram introduzidas em 1997 por Hochreiter 
-and Schmidhuber\footnote{As redes neurais LSTM foram apresentadas no artigo \cite{lstm-origem}.}.
+e Schmidhuber\footnote{As redes neurais LSTM foram apresentadas no artigo \cite{lstm-origem}.}.
 Atualmente, são a variação mais utilizada de redes
 neurais recorrentes, em particular, na classificação de séries temporais e
 reconhecimento de fala. Redes LSTM apresentam células de 
-memória conectadas cujo conteúdo é modulado pelo \textit{input gate} e o \textit{forget gate}.
+memória conectadas cujo conteúdo é modulado pelo \textit{input gate} e o \textit{forget gate},
+um melhor detalhamento sobre os \textit{gates} será dado abaixo.
 Por exemplo, se ambos estiverem fechados em um instante, o conteúdo da célula permanecerá 
 o mesmo no instante em questão e no próximo. Essa estrutura permite que a informação
 seja retida ao longo do tempo e evita o problema do \textit{vanishing gradient} que 
@@ -510,12 +509,12 @@ ocorre com a maioria das redes recorrentes.
 As redes neurais LSTM apresentam uma arquitetura diferente 
 das redes tradicionais, uma vez que há ciclos de \textit{feedback}
 nas conexões entre as células. Para melhor ilustrar essa 
-arquitetura, \cite{dl-oreilly} utiliza a visualização \textit{flat} 
+arquitetura, \cite{dl-oreilly} utilizam a visualização \textit{flat} 
  (achatada) das redes neurais, na qual as células de uma mesma 
 camada da rede estão representadas como um único nó.
 Pode-se observar essa representação em uma rede tradicional 
 \textit{feed forward}
-na imagem \ref{fig:arq-ff-flat} e, em
+na imagem \ref{fig:arq-ff} e, em
 \ref{fig:arq-ff-flat}, a representação 
 tradicional.
 
@@ -537,12 +536,12 @@ tradicional.
   \label{fig:comparacao-ff-flat-normal}
 \end{figure}
 
-As redes LSTM introduzem o conceito de conexão entre a saída de uma da 
-camada oculta da rede neural e a entrada da mesma camada. A partir desse
+As redes LSTM introduzem o conceito de conexão entre a saída de uma 
+camada oculta da rede neural e a entrada na mesma camada. A partir desse
 ciclo, obtém-se \textit{outputs} de tempos anteriores como parte da informação que 
-chega no tempo atual. Na figura \ref{fig:arq-rnn-flat}, essas 
+chega ao tempo atual. Na figura \ref{fig:arq-rnn-flat}, essas 
 conexões recorrentes são representadas como as setas que saem de uma célula e 
-atingem a mesma célula, uma vez que utiliza-se a representação achatada.
+atingem a mesma célula, uma vez que se utiliza a representação achatada.
 A imagem \ref{fig:arq-rnnff}, por sua vez, representa a rede LSTM desenrolada 
 atráves do eixo do tempo.
 
@@ -567,8 +566,8 @@ atráves do eixo do tempo.
 As unidades que formam cada uma das camadas de uma LSTM são uma variação dos
 neurônios artificiais clássicos. Essas unidades, representadas em \ref{fig:lstm-cell},
  permitem que a rede mantenha o estado
-ao longo tempo e apresentam dois tipos de 
-conexões: as vindas da camada anteriores e as vindas \textit{outputs} dessa
+ao longo do tempo e apresentam conexões vindas da camada anterior e de \textit{outputs} 
+dessa
 mesma unidade em tempos anteriores.
 
 \begin{figure}[H]
@@ -577,7 +576,7 @@ mesma unidade em tempos anteriores.
   \label{fig:lstm-cell}
 \end{figure}
 
-A unidade LSTM recebe duas entradas, a observação no tempo atual e a saída do 
+A unidade LSTM recebe duas entradas: a observação no tempo atual e a saída do 
 último estado oculto. Nela, a informação é retida nas células e as manipulações de memória 
 são realizadas nos \textit{gates} (portões). O \textit{forget gate} é responsável
 por remover informações que não são mais úteis para a célula, ou seja, pelo 
@@ -593,12 +592,12 @@ hiperbólica e sigmoide, além da multiplicação de vetores. (\cite{deeplearnin
 
 
 As redes \textit{gated recurrent units} são redes recorrentes
-similares às LSTM e foram introduzidas por \cite{gru}.
+similares às LSTM e foram introduzidas por (\cite{gru}).
 As unidades
-das redes LSTM apresentam dois estados passados entre as células,
-um carrega memória de longo prazo e outro, de curto prazo. AS unidades 
-GRU, por outro lado, apresentam apenas um 
-estado oculto carregado ao longo do tempo e capaz de manter
+das redes LSTM apresentam dois estados passados entre as células:
+um que carrega memória de longo prazo e outro, de curto prazo. As unidades 
+GRU, por sua vez, apresentam apenas um 
+estado oculto carregado ao longo do tempo, capaz de manter
 as dependências de curto e longo prazo (\cite{deeplearningbook}). A 
 estrutura das unidades GRU pode ser vista em \ref{fig:gru-cell}.
 
