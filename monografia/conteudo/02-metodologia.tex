@@ -16,14 +16,26 @@ de Geografia e Estatística (IBGE), a Fundação Getúlio Vargas, FGV, e o
 Banco Central do Brasil (BACEN) para prever o consumo mensal de 
 cimento nos estados da União. Para melhorar o desempenho dos modelos de 
 aprendizado de máquina, realizaram-se técnicas
-de preparação de dados, como o preenchimento de valores nulos, e para mensurar 
+de preparação de dados, como o preenchimento de valores nulos, além de estratégias
+de pré-processamento de dados. Para mensurar 
 o acerto das previsões são aplicadas as métricas estatísticas: \textit {root 
 mean squared error} (RMSE),  \textit{mean absolute error} (MAE) e \textit{mean 
 absolute percentage error} (MAPE), além da variação percentual.
+Além disso, utilizou-se o método de validação cruzada para avaliar os modelos.
 
+
+\section{Tecnologias utilizadas}
+
+Este projeto foi implementado na linguagem Python com auxílio de bibliotecas e 
+utilizando o ambiente de desenvolvimento interativo fornecido pelo Jupyter.
+Para realizar a preparação dos dados foram utilizadas as bibliotecas Pandas e 
+\textit{Numpy}, já para o treinamento e avaliação dos modelos utilizou-se a \textit{Tensorflow}
+e a \textit{Scikit-learn}
 
 \section{Dados}
 \label{sec:dados}
+
+\subsection{Fontes}
 
 O consumo mensal de cimento nos estados do Brasil, alvo da previsão 
 dos modelos aplicados neste trabalho, é um indicador fornecido pelo SNIC, 
@@ -145,6 +157,8 @@ Preços (IGP), Necessidade de Financiamento do Setor Público (NFSP) e
     \label{tab:indicadores}
 \end{table}
 % quem sabe por a legenda no apendice
+
+\subsection{Preparação dos dados}
 
 Com o objetivo de direcionar a estratégia de preparação de dados
 foi realizada uma análise exploratória de cada um dos dados de 
@@ -269,18 +283,55 @@ para cada estado, nas quais o valor é 1 quando a linha possui dados daquele est
 e é 0 caso contrário.
 
 
-    \section{Avaliação de performance}
+\subsection{Pré-processamento de dados}
+\label{sec:norm_dados}
 
-    Para comparar a eficiência dos modelos mede-se os erros de 
-    cada previsão, ou seja, a distância entre o valor previsto 
-    pelo algoritmo e o valor do dado real. Neste trabalho, 
-    utilizou-se as seguintes métricas estatísticas para 
-    mensurar o desempenho: \textit{mean absolute error} (MAE),
-    \textit{root mean square  error} (RMSE) e \textit{mean 
-    absolute percentage error} (MAPE). Além disso, foi utilizado
-    o delta percentual ($\Delta$) para avaliar se o modelo tende 
-    a subestimar ou superestimar o valor previsto, se é otimista
-    ou pessimista.
+
+\subsubsection{Normalização}
+
+
+
+O objetivo da normalização dos dados, é garantir que as variáveis de entrada 
+estejam na mesma escala. Esse processo é necessário não apenas para realizar melhor comparação entre variáveis 
+com diferentes unidades, mas também para o melhor funcionamentos dos algoritmos 
+de aprendizado, uma vez que se as \textit{features} estiverem em escalas diferentes
+alguns pesos podem ser atualizados mais rápidos que outros. (\cite{Raschka})
+
+
+A normalização garante que as variáveis de entrada estejam em uma 
+escala com as propriedades de uma distribuição normal, ou seja, média ($\mu$)
+igual a zero e variância ($\sigma$) igual a um. Dessa forma, a operação 
+realizada para aplicar o processo em um entrada $x$ é
+
+\begin{equation}
+  z = \frac{x - \mu}{\sigma}
+\end{equation}
+
+\subsubsection{\textit{Min-Max scaler}}
+
+O \textit{min-max scaler} transforma os dados de modo que a 
+escala dos dados tenha um itnervalo definido, em geral, entre
+0 e 1.
+
+\begin{equation}
+  X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
+\end{equation}
+
+
+
+
+\section{Avaliação de performance}
+
+Para comparar a eficiência dos modelos mede-se os erros de 
+cada previsão, ou seja, a distância entre o valor previsto 
+pelo algoritmo e o valor do dado real. Neste trabalho, 
+utilizou-se as seguintes métricas estatísticas para 
+mensurar o desempenho: \textit{mean absolute error} (MAE),
+\textit{root mean square  error} (RMSE) e \textit{mean 
+absolute percentage error} (MAPE). Além disso, foi utilizado
+o delta percentual ($\Delta$) para avaliar se o modelo tende 
+a subestimar ou superestimar o valor previsto, se é otimista
+ou pessimista.
 
 \subsection{Mean absolute error (MAE)}
 
@@ -313,9 +364,9 @@ e é 0 caso contrário.
         MAPE=\sum_{t=1}^n\left|\frac{y_t-\hat{y}_t}{y_t}\right|
     \end{equation}
 
-\subsection{Delta percentual}
+\subsection{Variação percentual}
 
-O delta percentual, $\Delta$, é utilizado para mensurar se o 
+A variação percentual, $\Delta$, é utilizado para mensurar se o 
 modelo apresenta tendência de subestimar ou superestimar a variável, se 
 é otimista ou pessimista.
 
@@ -323,34 +374,3 @@ modelo apresenta tendência de subestimar ou superestimar a variável, se
     \Delta = \frac{\hat{y_i} - y_i}{y_i}
 \end{equation}
 
-\subsection{Pré-processamento de dados}
-\label{sec:norm_dados}
-\subsubsection{Normalização}
-
-
-
-O objetivo da normalização dos dados, é garantir que as variáveis de entrada 
-estejam na mesma escala. Esse processo é necessário não apenas para realizar melhor comparação entre variáveis 
-com diferentes unidades, mas também para o melhor funcionamentos dos algoritmos 
-de aprendizado, uma vez que se as \textit{features} estiverem em escalas diferentes
-alguns pesos podem ser atualizados mais rápidos que outros. (\cite{Raschka})
-
-
-A normalização garante que as variáveis de entrada estejam em uma 
-escala com as propriedades de uma distribuição normal, ou seja, média ($\mu$)
-igual a zero e variância ($\sigma$) igual a um. Dessa forma, a operação 
-realizada para aplicar o processo em um entrada $x$ é
-
-\begin{equation}
-  z = \frac{x - \mu}{\sigma}
-\end{equation}
-
-\subsubsection{\textit{Min-Max scaler}}
-
-O \textit{min-max scaler} transforma os dados de modo que a 
-escala dos dados tenha um itnervalo definido, em geral, entre
-0 e 1.
-
-\begin{equation}
-  X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
-\end{equation}
