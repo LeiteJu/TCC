@@ -494,7 +494,7 @@ realizar uma previsão, apresentam bom desempenho na previsão de séries
 temporais ou sequências. Há várias implementações possíveis de redes 
 recorrentes, neste trabalho testaram-se as redes LSTM e GRU.
 
-\subsubsection{LSTM}
+\subsubsection{Redes LSTM}
 
 As redes \textit{Long Short Term Memory} (LSTM) foram introduzidas em 1997 por Hochreiter 
 and Schmidhuber\footnote{As redes neurais LSTM foram apresentadas no artigo \cite{lstm-origem}.}.
@@ -589,7 +589,7 @@ Por fim, o \textit{output gate} extrai informações úteis ao estado da célula
 para apresentar como saída da célula e entrada para a seguinte, com o auxílio de funções tangente
 hiperbólica e sigmoide, além da multiplicação de vetores. (\cite{deeplearningbook})
 
-\subsubsection{GRU}
+\subsubsection{Redes GRU}
 
 
 As redes \textit{gated recurrent units} são redes recorrentes
@@ -619,3 +619,25 @@ armazenadas no estado oculto atual são apenas cópias do estado anterior. (\cit
 
 Por possuírem arquitetura mais simples, as redes GRU 
 apresentam um treinamento mais rápido que as LSTM.
+
+\subsubsection{Redes bidirecionais}
+
+As redes recorrentes, como as LSTM e GRU, analisam uma entrada com base nos 
+eventos passados e presentes. As redes bidirecionais, por outro lado, inovam ao 
+analisar o passado, presente e o futuro ao realizar uma previsão. Assim, 
+apresentam bom desempenho em atividades como reconhecimento de escrita a mão, reconhecimento de
+fala, processamento de linguagem natural. (\cite{bidirectional})
+
+Para utilizar o passado, presente e futuro em uma previsão, as redes 
+bidirecionais combinam duas redes recorrentes. Uma rede analisa a sequência 
+fornecida no \textit{input} do início em direção ao final, a outra é treinada
+ no sentido oposto. As redes utilizadas podem ser simples redes 
+recorrentes, redes LSTM ou GRU. Na figura \ref{fig:bi}, pode-se observar a 
+análise nos dois sentidos.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=9cm]{../figuras/redes/bi.png}
+  \caption{Estrutura de rede bidirecional (\cite{bidirectional})}
+  \label{fig:bi}
+\end{figure}

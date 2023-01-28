@@ -256,3 +256,5 @@ lstm,dense,epochs,neuronios,ativacao_lstm,ativacao_normal,normalizacao,timesteps
 2,0,150,"(256, 32)",tanh,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,3,146769.74531901043,231433.15529701454,0.9835086138405661
 2,0,150,"(256, 32)",tanh,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,5,146844.97982524813,231643.86940852887,0.983712015015672
 2,0,150,"(256, 32)",tanh,,<class 'sklearn.preprocessing._data.PowerTransformer'>,3,146760.24208414715,231427.12867406523,0.9832846880045383
+2,0,150,"(256, 32)",tanh,,<class 'sklearn.preprocessing._data.PowerTransformer'>,5,146823.11959434685,231630.01226628755,0.9831961158515731
+2,0,150,"(256, 32)",relu,,<class 'sklearn.preprocessing._data.StandardScaler'>,3,27849.23298058712,43060.523722593316,0.32804163806473946
