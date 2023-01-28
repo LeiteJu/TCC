@@ -499,8 +499,9 @@ e Schmidhuber\footnote{As redes neurais LSTM foram apresentadas no artigo \cite{
 Atualmente, são a variação mais utilizada de redes
 neurais recorrentes, em particular, na classificação de séries temporais e
 reconhecimento de fala. Redes LSTM apresentam células de 
-memória conectadas cujo conteúdo é modulado pelo \textit{input gate} e o \textit{forget gate},
-um melhor detalhamento sobre os \textit{gates} será dado abaixo.
+memória conectadas cujo conteúdo é modulado pelo \textit{input gate} e o \textit{forget gate}\footnote{Um 
+melhor detalhamento sobre o \textit{input gate} e o \textit{forget gate} será 
+dado mais adiante nesta seção.}.
 Por exemplo, se ambos estiverem fechados em um instante, o conteúdo da célula permanecerá 
 o mesmo no instante em questão e no próximo. Essa estrutura permite que a informação
 seja retida ao longo do tempo e evita o problema do \textit{vanishing gradient} que 
@@ -514,8 +515,8 @@ arquitetura, \cite{dl-oreilly} utilizam a visualização \textit{flat}
 camada da rede estão representadas como um único nó.
 Pode-se observar essa representação em uma rede tradicional 
 \textit{feed forward}
-na imagem \ref{fig:arq-ff} e, em
-\ref{fig:arq-ff-flat}, a representação 
+na imagem \ref{fig:arq-ff-flat} e, em
+\ref{fig:arq-ff}, a representação 
 tradicional.
 
 \begin{figure}[H]
@@ -537,7 +538,7 @@ tradicional.
 \end{figure}
 
 As redes LSTM introduzem o conceito de conexão entre a saída de uma 
-camada oculta da rede neural e a entrada na mesma camada. A partir desse
+camada oculta da rede neural e a entrada da mesma camada. A partir desse
 ciclo, obtém-se \textit{outputs} de tempos anteriores como parte da informação que 
 chega ao tempo atual. Na figura \ref{fig:arq-rnn-flat}, essas 
 conexões recorrentes são representadas como as setas que saem de uma célula e 
@@ -621,18 +622,21 @@ apresentam um treinamento mais rápido que as LSTM.
 
 \subsubsection{Redes bidirecionais}
 
-As redes recorrentes, como as LSTM e GRU, analisam uma entrada com base nos 
+As redes bidirecionais foram introduzidas em 1997 por Schuster e Paliwal com a 
+proposta de utilizar uma entrada para influenciar ao mesmo tempo as previsões 
+do futuro e do passado (\cite{brnn}).
+Redes recorrentes, como as LSTM e GRU, analisam uma entrada com base nos 
 eventos passados e presentes. As redes bidirecionais, por outro lado, inovam ao 
-analisar o passado, presente e o futuro ao realizar uma previsão. Assim, 
+considerar o passado, presente e o futuro ao realizar uma previsão. Por isso, 
 apresentam bom desempenho em atividades como reconhecimento de escrita a mão, reconhecimento de
 fala, processamento de linguagem natural. (\cite{bidirectional})
 
-Para utilizar o passado, presente e futuro em uma previsão, as redes 
-bidirecionais combinam duas redes recorrentes. Uma rede analisa a sequência 
-fornecida no \textit{input} do início em direção ao final, a outra é treinada
- no sentido oposto. As redes utilizadas podem ser simples redes 
-recorrentes, redes LSTM ou GRU. Na figura \ref{fig:bi}, pode-se observar a 
-análise nos dois sentidos.
+As redes bidirecionais combinam duas redes recorrentes para realizar a previsão. 
+Uma rede analisa a sequência $x^{(i)}$
+fornecida no \textit{input} do início $x_0$ em direção ao final $x_i$, a outra é treinada
+no sentido oposto. As redes utilizadas podem ser simples redes 
+recorrentes, redes LSTM ou GRU. Na figura \ref{fig:bi}, pode-se observar o 
+treinamento das redes nos dois sentidos ocorrendo simultaneamente.
 
 \begin{figure}[H]
   \centering

@@ -1,0 +1,19 @@
+gru,dense,epochs,neuronios,ativacao_gru,ativacao_normal,normalizacao,timesteps,mae,rmse,mape
+1,0,150,256,tanh,,<class 'sklearn.preprocessing._data.StandardScaler'>,3,141966.9907611269,228412.47454197347,0.8728432529845517
+1,0,150,256,tanh,,<class 'sklearn.preprocessing._data.StandardScaler'>,5,142039.4259699176,228622.65907918554,0.8728010522844057
+1,0,150,256,tanh,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,3,141975.68473129734,228417.9042909403,0.8730371498855612
+1,0,150,256,tanh,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,5,142044.33558508314,228625.72409530918,0.8729107150788629
+1,0,150,256,tanh,,<class 'sklearn.preprocessing._data.PowerTransformer'>,3,141967.709913589,228412.92367506475,0.8728592918518383
+1,0,150,256,tanh,,<class 'sklearn.preprocessing._data.PowerTransformer'>,5,142039.6548326198,228622.80195407826,0.8728061642377103
+1,0,150,256,relu,,<class 'sklearn.preprocessing._data.StandardScaler'>,3,31061.251648910984,48412.038863727554,0.35447774937540794
+1,0,150,256,relu,,<class 'sklearn.preprocessing._data.StandardScaler'>,5,47262.55701024738,81057.30770236786,0.5065090267872947
+1,0,150,256,relu,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,3,40898.30852746212,53767.872243659214,0.8408543702614302
+1,0,150,256,relu,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,5,40879.08517452347,85617.79557070698,0.3815490427134603
+1,0,150,256,relu,,<class 'sklearn.preprocessing._data.PowerTransformer'>,3,43451.53120087595,74461.39139802638,0.44212836281861434
+1,0,150,256,relu,,<class 'sklearn.preprocessing._data.PowerTransformer'>,5,72774.04480321614,120997.61046870626,0.7319725544283132
+1,0,150,256,swish,,<class 'sklearn.preprocessing._data.StandardScaler'>,3,28101.48287331321,41251.225219359876,0.34548887305878495
+1,0,150,256,swish,,<class 'sklearn.preprocessing._data.StandardScaler'>,5,29800.33841687709,61483.51113231744,0.25641677537749746
+1,0,150,256,swish,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,3,28113.158401988636,42699.697072035444,0.437990316240881
+1,0,150,256,swish,,<class 'sklearn.preprocessing._data.MinMaxScaler'>,5,26750.98757092834,52281.184412153736,0.24441602546837446
+1,0,150,256,swish,,<class 'sklearn.preprocessing._data.PowerTransformer'>,3,36886.19468158144,64244.25566295324,0.42136230646041123
+1,0,150,256,swish,,<class 'sklearn.preprocessing._data.PowerTransformer'>,5,49755.53919065158,94217.036541787,0.4433771373014745
