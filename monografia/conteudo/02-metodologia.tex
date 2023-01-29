@@ -213,24 +213,20 @@ presente no intervalo dos dados de entrada (-1) para marcar as ocorrências
 faltantes como nulo, uma vez que essas variáveis não apresentavam 
 valores mais antigos.
 
-Além disso, foi realizado um deslocamento nos dados para garantir que a previsão
-do consumo em um mês só utilize dados dos meses anterior e não do mês alvo da
-previsão. atentou-se para evitar que a previsão fosse 
-realizada com os dados do mês anterior ou do ano anterior no caso dos
-indicadores anuais. Deslocou-se, portanto, os dados de entrada 
-para frente em um ocorrência de modo a associar os dados de um 
-mês com o consumo no mês seguinte.\footnote{os dados correspondentes 
-a, por exemplo, fevereiro de 2004 estão relacionados ao consumo de 
-cimento em março de 2004, com o objetivo de propor um cenário mais pertinente, 
-uma vez que o objetivo do projeto é prever a demanda por cimento no mês seguinte 
-em um estado a partir dos dados do mês atual e, eventualmente, dos anteriores.
-}
+Além disso, garantiu-se que a previsão
+ utiliza dados dos meses anteriores e não do mês alvo da
+previsão, uma vez que o objetivo do projeto é prever a demanda
+por cimento em um mês a partir dos dados disponíveis no mês anterior.
+Por isso, nos dados com granularidade anual, foi realizado um um 
+deslocamento de modo a associar as entradas de um ano ao consumo no 
+ano seguinte. Nos dados mensais, analogamente, deslocou-se as entradas 
+para associá-las ao consumo no mês seguinte.
 
 Por fim, o estado correspondente à medição foi usado como dado de entrada. 
 Como os modelos de inteligência artificial aceitam apenas caracteres numéricos,
 utilizou-se o método de codificação \textit{one hot} para criar 27 colunas, uma
-para cada estado, nas quais o valor é 1 quando a linha possui dados daquele estado 
-e é 0 caso contrário.
+para cada estado, nas quais o valor é um quando a linha possui dados daquele estado 
+e é zero caso contrário.
 
 
 \subsection{Pré-processamento de dados}
@@ -239,19 +235,16 @@ e é 0 caso contrário.
 
 \subsubsection{Normalização}
 
-
-
-O objetivo da normalização dos dados, é garantir que as variáveis de entrada 
-estejam na mesma escala. Esse processo é necessário não apenas para realizar melhor comparação entre variáveis 
-com diferentes unidades, mas também para o melhor funcionamentos dos algoritmos 
-de aprendizado, uma vez que se as \textit{features} estiverem em escalas diferentes
-alguns pesos podem ser atualizados mais rápidos que outros. (\cite{Raschka})
-
+Aa normalização dos dados garante que as variáveis de entrada 
+estejam na mesma escala. Esse processo tem a finalidade de permitir a comparação 
+entre variáveis com diferentes unidades e melhorar o funcionamento dos 
+algorimos de aprendizado de máquina, uma vez que se as \textit{features} estiverem em escalas diferentes
+alguns pesos podem ser atualizados mais rápidos que outros, segundo \citet{Raschka}.
 
 A normalização garante que as variáveis de entrada estejam em uma 
-escala com as propriedades de uma distribuição normal, ou seja, média ($\mu$)
+escala com as propriedades de uma distribuição normal: média ($\mu$)
 igual a zero e variância ($\sigma$) igual a um. Dessa forma, a operação 
-realizada para aplicar o processo em um entrada $x$ é
+realizada para aplicar o processo em uma entrada $x$ é
 
 \begin{equation}
   z = \frac{x - \mu}{\sigma}
@@ -259,14 +252,24 @@ realizada para aplicar o processo em um entrada $x$ é
 
 \subsubsection{\textit{Min-Max scaler}}
 
-O \textit{min-max scaler} transforma os dados de modo que a 
-escala dos dados tenha um itnervalo definido, em geral, entre
-0 e 1.
+De acordo com \citet{Raschka}, o \textit{min-max scaler} é uma 
+abordagem alterantiva à normalização 
+e transforma os dados de modo que a 
+escala tenha um intervalo definido, em geral, entre
+0 e 1. A operação aplicada em uma entrada $x$ para é
 
 \begin{equation}
-  X_{norm} = \frac{X - X_{min}}{X_{max} - X_{min}}
+  x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}
 \end{equation}
 
+Sendo $x_norm$ a versão normalizada da entrada $x$, $x_{min}$ o valor mínimo
+da variável e $x_max$ o maior valor assumido por $x$. 
+
+\subsubsection{\textit{Power transformer}}
+
+O \textit{power transformer} é outra alternativa para aproximar os dados 
+de uma distribuição Gaussiana, por meio da aplicação da 
+transformação de \citet{yeo} nas entradas.
 
 
 
@@ -278,41 +281,40 @@ pelo algoritmo e o valor do dado real. Neste trabalho,
 utilizou-se as seguintes métricas estatísticas para 
 mensurar o desempenho: \textit{mean absolute error} (MAE),
 \textit{root mean square  error} (RMSE) e \textit{mean 
-absolute percentage error} (MAPE). Além disso, foi utilizado
-o delta percentual ($\Delta$) para avaliar se o modelo tende 
-a subestimar ou superestimar o valor previsto, se é otimista
-ou pessimista.
+absolute percentage error} (MAPE). Além disso, foi utilizada
+a variação percentual ($\Delta$) para avaliar se o modelo tende 
+a subestimar ou superestimar o valor previsto.
 
 \subsection{Mean absolute error (MAE)}
 
-    O MAE, sigla do inglês para \textit{mean absolute error}
-    ou média do erro absoluto mede o erro absoluto de cada previsão
-    e é dado por:\cite{forecast-evaluation-ds}
+De acordo com \citet{forecast-evaluation-ds}, a
+ \textit{mean absolute error} (MAE)
+ou mede o erro absoluto de cada previsão
+e é dada por:
 
-    \begin{equation}
-        MAE = \frac{\sum_{i=1}^n |\hat{y}_i - y_i|}{n}
-    \end{equation}
+\begin{equation}
+    MAE = \frac{\sum_{i=1}^n |\hat{y}_i - y_i|}{n}
+\end{equation}
 
 \subsection{Root mean squared error (RMSE)}
 
-    A RMSE, sigla para \textit{root mean squared  error} é
-    semelhante à MAE, contudo eleva os erros ao quadrado antes de 
-    somá-los e tira a raiz logo depois. A RMSE é, portanto, 
-    mais sensível a \textit{outliers}.\cite{forecast-evaluation-ds}
+A RMSE, sigla para \textit{root mean squared  error} é
+semelhante à MAE, contudo inclui operação de raiz e potência. A RMSE é, portanto, 
+mais sensível a \textit{outliers}.(\cite{forecast-evaluation-ds})
 
-    \begin{equation}
-        RMSE = \sqrt{\frac{\sum_{i=1}^n (\hat{y}_i - y_i)^2}{n}}
-    \end{equation}
+\begin{equation}
+    RMSE = \sqrt{\frac{\sum_{i=1}^n (\hat{y}_i - y_i)^2}{n}}
+\end{equation}
 
 \subsection{Mean absolute percentage error (MAPE)}
 
-    Foi utilizada também a MAPE, \textit{Mean absolute
-    percentage error}, para mensurar a escala do erro em 
-    relação ao tamanho das medições.
+Foi utilizada também a MAPE, \textit{Mean absolute
+percentage error}, para mensurar a escala do erro em 
+relação ao tamanho das medições.
 
-    \begin{equation}
-        MAPE=\sum_{t=1}^n\left|\frac{y_t-\hat{y}_t}{y_t}\right|
-    \end{equation}
+\begin{equation}
+    MAPE=\sum_{t=1}^n\left|\frac{y_t-\hat{y}_t}{y_t}\right|
+\end{equation}
 
 \subsection{Variação percentual}
 
@@ -324,3 +326,14 @@ modelo apresenta tendência de subestimar ou superestimar a variável, se
     \Delta = \frac{\hat{y_i} - y_i}{y_i}
 \end{equation}
 
+\section{Avaliação do desempenho do modelo}
+
+A validação cruzada é uma técnica para avaliar o desempenho do modelo 
+em dados desconhecidos para ele, assim, 
+
+Para medir a capacidade de generalização 
+do modelo, ou seja, desempenho em dados desconhecidos, separou-se o 
+conjunto de dados em teste e treino. O conjunto de treinamento representa 85\%
+dos dados e o de teste 15\%. Naõ utilizou-se embaralhamento de dados, então o 
+modelo foi treinado com dados de janeiro de 2003 a julho de 2017 e foi treinado 
+com dados de agosto de 2017 a dezembro de 2019.
