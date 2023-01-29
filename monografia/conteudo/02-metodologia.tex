@@ -16,8 +16,8 @@ Nesta seção é feito um detalhamento dos dados utilizados que
 abrange as fontes e as estratégias de preparação e de pré-processamento. 
 Também são descritas as 
 tecnologias utilizadas na implementação, as métricas estatísticas 
-usadas para mensurar o desempenho dos modelos e o método de validação
-cruzada aplicado na avaliação dos modelos.
+usadas para mensurar o desempenho dos modelos e o método de
+ avaliação dos modelos.
 
 \section{Tecnologias utilizadas}
 
@@ -55,8 +55,8 @@ treinamento e teste, de acordo com \citet{Goodfellow-et-al-2016}.
 O modelo utiliza dados econômicos, sociais e da construção
 civil para estimar a demanda por cimento. Na tabela
 \ref{tab:indicadores}, são
-apresentados os dados utilizados, juntamente com a fonte, a granularidade e o período em que os dados 
-estavam disponíveis.
+apresentados os dados utilizados, juntamente com a fonte, a granularidade 
+e o período em que estavam disponíveis.
 
 
 \begin{table}[H]
@@ -72,8 +72,8 @@ estavam disponíveis.
         PIB \textit{per capita}              & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
         PIB da construção civil      & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
         Desemprego                   & IBGE\footref{portal ipea}  & 1991 até 2022      & irregular \footnote{Havia dados de 1992 até 2014
-        com granularidade anual e por estado. A partir de 2012 foram disponibilizados dados mensais a nível de Brasil por conta da 
-        Pesquisa Nacional por Amostra de Domicílios (PNAD) Contínua mensal realizada pelo IBGE. Neste trabalho, utilizou-se os dados anuais até 2012
+        com granularidade anual e por estado. A partir de 2012, foram disponibilizados dados mensais a nível de Brasil por conta da 
+        Pesquisa Nacional por Amostra de Domicílios (PNAD) Contínua realizada pelo IBGE. Neste trabalho, utilizou-se os dados anuais até 2012
         e, após 2012, os dados provenientes da PNAD Contínua.} \\
         IPCA                        & IBGE\footnote{Dado retirado do IBGE em \url{https://sidra.ibge.gov.br/tabela/1737}}  & 1981 até 2021      & mensal para o Brasil      \\
         INCC                        & FGV\footnote{Dado obtido a partir do portal da FGV em \url{https://www.debit.com.br/tabelas/tabela-completa-pdf.php?indice=incc}}   & 1980 ate 2021      & mensal para o Brasil      \\
@@ -103,7 +103,7 @@ Com o intuito de direcionar a estratégia de preparação de dados,
 foi realizada uma análise exploratória dos dados de 
 entrada e da variável resposta. 
 Foi identificada nessa análise, uma alta
-taxa de variação dos atributos,
+taxa de variação nos atributos,
 dessa forma, está presente nos dados um grande número de \textit{outliers}.
 De acordo com \citet{outliers} e \citet{tukey77}, \textit{outliers} são
 observações discrepantes do restante dos dados
@@ -127,7 +127,7 @@ Na figura acima, a linha em laranja corresponde à mediana \footnote{Mediana é
 valor que fica no meio quando os dados estão ordenados ou a média
 dos dois valores centrais se o número de pontos de dados for par.
 (\cite{boxplot-stat})} 
-dos dados, os limite inferior e o superior ao retângulo representam
+dos dados, os limite inferior e o superior do retângulo representam
 o primeiro e terceiro quartis\footnote{O primeiro quartil marca a mediana 
 relativa aos valores superiores à mediana destacada na imagem. O terceiro quartil,
 de maneira análoga, assinala a mediana dos valores inferiores à mediana destacada. 
@@ -232,14 +232,16 @@ e é zero caso contrário.
 \subsection{Pré-processamento de dados}
 \label{sec:norm_dados}
 
-
-\subsubsection{Normalização}
-
-Aa normalização dos dados garante que as variáveis de entrada 
-estejam na mesma escala. Esse processo tem a finalidade de permitir a comparação 
+Foram utilizadas técnicas de pré-processamento de dados 
+com o intuito de garantir que as variáveis de entrada 
+estivessem na mesma escala. Esse processo tem a finalidade de permitir a comparação 
 entre variáveis com diferentes unidades e melhorar o funcionamento dos 
 algorimos de aprendizado de máquina, uma vez que se as \textit{features} estiverem em escalas diferentes
 alguns pesos podem ser atualizados mais rápidos que outros, segundo \citet{Raschka}.
+Neste trabalho, foram testadas: normalização, 
+\textit{min-max scaler} e \textit{power transformer}.
+
+\subsubsection{Normalização}
 
 A normalização garante que as variáveis de entrada estejam em uma 
 escala com as propriedades de uma distribuição normal: média ($\mu$)
@@ -247,7 +249,7 @@ igual a zero e variância ($\sigma$) igual a um. Dessa forma, a operação
 realizada para aplicar o processo em uma entrada $x$ é
 
 \begin{equation}
-  z = \frac{x - \mu}{\sigma}
+  x_{norm} = \frac{x - \mu}{\sigma}
 \end{equation}
 
 \subsubsection{\textit{Min-Max scaler}}
@@ -262,15 +264,15 @@ escala tenha um intervalo definido, em geral, entre
   x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}
 \end{equation}
 
-Sendo $x_norm$ a versão normalizada da entrada $x$, $x_{min}$ o valor mínimo
-da variável e $x_max$ o maior valor assumido por $x$. 
+Sendo $x_{norm}$ a versão normalizada da entrada $x$, e $x_{min}$ e $x_{max}$
+os valor mínimo e máximo assumido por $x$. 
 
 \subsubsection{\textit{Power transformer}}
 
 O \textit{power transformer} é outra alternativa para aproximar os dados 
-de uma distribuição Gaussiana, por meio da aplicação da 
-transformação de \citet{yeo} nas entradas.
-
+de uma distribuição Gaussiana. Esse método visa estabilizar a variância e 
+diminuir a assimetria dos dados, por meio da aplicação da 
+transformação de \citet{yeo} nas entradas. 
 
 
 \section{Avaliação de performance}
@@ -285,42 +287,59 @@ absolute percentage error} (MAPE). Além disso, foi utilizada
 a variação percentual ($\Delta$) para avaliar se o modelo tende 
 a subestimar ou superestimar o valor previsto.
 
-\subsection{Mean absolute error (MAE)}
+\subsection{\textit{Mean absolute error} (MAE)}
 
 De acordo com \citet{forecast-evaluation-ds}, a
- \textit{mean absolute error} (MAE)
-ou mede o erro absoluto de cada previsão
-e é dada por:
+\textit{mean absolute error} (MAE)
+mede o erro absoluto de cada previsão. Seja $\hat{y_i}$ o valor previsto pelo 
+modelo e $y_i$ o valor real, a fórmula da MAE é dada por:
 
 \begin{equation}
     MAE = \frac{\sum_{i=1}^n |\hat{y}_i - y_i|}{n}
 \end{equation}
 
-\subsection{Root mean squared error (RMSE)}
+Essa métrica não leva em consideração a proporção do erro em relação ao valor
+real, apenas o valor absoluto da diferença, dessa forma não expressa a ordem de
+grandeza do erro em relação ao valor real.
 
-A RMSE, sigla para \textit{root mean squared  error} é
-semelhante à MAE, contudo inclui operação de raiz e potência. A RMSE é, portanto, 
-mais sensível a \textit{outliers}.(\cite{forecast-evaluation-ds})
+\subsection{\textit{Root mean squared error} (RMSE)}
+
+A RMSE, sigla para \textit{root mean squared  error} é uma métrica de erro
+semelhante à MAE. Sendo $\hat{y_i}$ o valor previsto pelo 
+modelo para um \textit{output} $y_i$, a fórmula da RMSE é dada por: 
 
 \begin{equation}
     RMSE = \sqrt{\frac{\sum_{i=1}^n (\hat{y}_i - y_i)^2}{n}}
 \end{equation}
 
-\subsection{Mean absolute percentage error (MAPE)}
+A RMSE é influenciada por erros mais significativos, dessa forma, é mais 
+sensível a \textit{outliers} que a MAE. (\cite{forecast-evaluation-ds})
 
-Foi utilizada também a MAPE, \textit{Mean absolute
-percentage error}, para mensurar a escala do erro em 
+\subsection{\textit{Mean absolute percentage error} (MAPE)}
+
+Foi utilizada também a \textit{mean absolute
+percentage error}, para mensurar a magnitude do erro em 
 relação ao tamanho das medições.
+
+A MAPE, \textit{mean absolute percentage error}, calcula a proporção 
+do erro em relação ao valor que o modelo tentou prever. Sendo $\hat{y_i}$ 
+o valor previsto pelo 
+modelo para um \textit{output} $y_i$, a fórmula da MAPE é dada por: 
 
 \begin{equation}
     MAPE=\sum_{t=1}^n\left|\frac{y_t-\hat{y}_t}{y_t}\right|
 \end{equation}
 
+A MAPE proporciona uma visão do tamanho do erro em relação ao valor que se 
+deseja prever.
+
 \subsection{Variação percentual}
 
 A variação percentual, $\Delta$, é utilizado para mensurar se o 
-modelo apresenta tendência de subestimar ou superestimar a variável, se 
-é otimista ou pessimista.
+modelo apresenta tendência de subestimar ou superestimar a variável. 
+Sendo $\hat{y_i}$ o valor previsto pelo 
+modelo para um \textit{output} $y_i$, a fórmula da variação percentual
+$\Delta$ é dada por:
 
 \begin{equation}
     \Delta = \frac{\hat{y_i} - y_i}{y_i}
@@ -328,12 +347,12 @@ modelo apresenta tendência de subestimar ou superestimar a variável, se
 
 \section{Avaliação do desempenho do modelo}
 
-A validação cruzada é uma técnica para avaliar o desempenho do modelo 
-em dados desconhecidos para ele, assim, 
-
-Para medir a capacidade de generalização 
-do modelo, ou seja, desempenho em dados desconhecidos, separou-se o 
-conjunto de dados em teste e treino. O conjunto de treinamento representa 85\%
-dos dados e o de teste 15\%. Naõ utilizou-se embaralhamento de dados, então o 
-modelo foi treinado com dados de janeiro de 2003 a julho de 2017 e foi treinado 
-com dados de agosto de 2017 a dezembro de 2019.
+Neste trabalho, separou-se a massa de dados em conjunto de treino com 85\% 
+das entradas e teste com 15\% do conjunto. Esse método tem o objetivo de avaliar
+a capacidade de generalização do modelo. Por medir o desempenho em dados 
+desconhecidos pelo modelo, também permite avaliar a ocorrência de \textit{overfitting}\footnote{
+O \textit{overfitting} ocorre quando um modelo tem baixa capacidade de generalização, 
+então, apesar de apresentar baixa taxa de erro nos dados de treino, apresenta 
+desempenho ruim em dados não conhecidos.}. Não foi utilizado embaralhamento de dados, 
+então os modelos foram treinados com dados de janeiro de 2003 até junho de 2017
+e testados com dados de julho de 2017 até dezembro de 2019.
