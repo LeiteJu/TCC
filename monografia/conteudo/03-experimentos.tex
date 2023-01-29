@@ -202,20 +202,52 @@ de uma camada com 32 neurônios, que utiliza a ReLU como função de ativação,
 
 \section{Redes bidirecionais}
 
-% \begin{table}[H]
-%     \centering
-%     \begin{tabular}{ll}
-%         \toprule
-%         Parâmetro           & Valores   \\
-%         \midrule
-%         Número de camadas   & 1 e 2 \\
-%         Número de neurônios & 32,64,128 e 256       \\
-%         Função de ativação  & tangente hiperbólica\footnote{Por padrão, as redes LSTM e GRU utilizam a tangente hiperbólica ($tanh$) como função de ativação.}, ReLU e \textit{swish}  \\
-%         \textit{Epochs}              & 50, 100 e 150      \\
-%         Pré-processamento de dados & normalização, \textit{min-max scaler} e \textit{power transformer}\\
-%         \textit{time step}\footnote{O \textit{time step} é o tamanho da sequência que a rede recebe como entrada.}  & 3 e 5 \\
-%         \bottomrule
-%     \end{tabular}
-%     \caption{Parâmetros testados nas redes bidirecionais}
-%     \label{tab:param-bi}
-% \end{table} 
+As redes bidirecionais utilizam duas redes recorrentes para 
+realizar as previsões. Neste estudo, realizaram-se experimentos com redes
+LSTM e GRU, alterou-se também o número de camadas, a quantidade de neurônios
+nas camadas, a função de ativação utilizada nas redes, o método de pré-processamento
+de dados e a quantidade de \textit{epochs}. A relação dos valores testados 
+para cada parâmetro está na tabela \ref{tab:param-bi}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ll}
+        \toprule
+        Parâmetro           & Valores   \\
+        \midrule
+        Número de camadas   & 1 e 2 \\
+        Número de neurônios & 32, 64, 128 e 256       \\
+        Função de ativação  & tangente hiperbólica\footnote{Por padrão, as redes LSTM e GRU utilizam a tangente hiperbólica ($tanh$) como função de ativação.}, ReLU e \textit{swish}  \\
+        \textit{Epochs}              & 50, 100 e 150      \\
+        Pré-processamento de dados & normalização, \textit{min-max scaler} e \textit{power transformer}\\
+        \textit{time step}\footnote{O \textit{time step} é o tamanho da sequência que a rede recebe como entrada.}  & 3 e 5 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Parâmetros testados nas redes bidirecionais}
+    \label{tab:param-bi}
+\end{table} 
+
+O resultado dos modelos foi agrupado de acordo com o número de camadas da 
+rede e com a categoria de rede recorrente escolhida (LSTM ou GRU). A relação dos modelos com 
+melhor desempenho é dada na tabela \ref{tab:res-bi}.
+
+\begin{table}[H]
+    \centering
+    \caption{Experimentos com melhor desempenho das redes bidirecionais}
+    \begin{tabular}{lllll}
+    \toprule
+    Número de camadas & Rede & MAE & RMSE & MAPE \\
+    \midrule
+    \textbf{1} & \textbf{LSTM} & \textbf{19185}  & \textbf{33942} & \textbf{0.17}\\
+    1 & GRU  & 19952  & 33979  & 0.18 \\
+    2 & LSTM & 22964  & 38688 & 0.20  \\
+    2 & GRU  & 20993  & 35817  & 0.20 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:res-bi}
+\end{table}
+
+Observa-se que, o modelo com melhor desempenho das redes bidirecionais 
+utiliza uma camada de rede LSTM de 2 neurônios para fazer as previsões, além disso, o experimento foi 
+realizado com 150 \textit{epochs} e com o método de pré-processamento de dados 
+\textit{min-max scaler}.
