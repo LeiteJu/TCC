@@ -43,6 +43,7 @@ encontra-se na
 tabela \ref{tab:res_reg_lin}:
 
 \begin{table}[H]
+    \centering
     \begin{tabular}{llll}
         \toprule
         Experimento & MAE     & RMSE    & MAPE \\
@@ -80,7 +81,7 @@ experimento E, sem
 normalização de dados e removendo atributos com alta 
 correlação.
 
-\section{Redes neurais \textit{feed forward}}
+\section{Redes \textit{feed forward}}
 
 As redes neurais \textit{feed forward} podem ser construídas
 com várias arquiteturas e configurações. Neste estudo, testou-se
@@ -92,14 +93,16 @@ pelos dados de entrada (\cite{dl-oreilly})} utilizada no treinamento.
 Os valores testados para cada um dos parâmetros são dados na tabela \ref{tab:param-mlp}:
 
 \begin{table}[H]
+    \centering
     \begin{tabular}{ll}
         \toprule
         Parâmetro           & Valores   \\
         \midrule
         Número de camadas   & 1,2,3 e 4 \\
-        Número de neurônios & 16,32,64,128 e 256       \\
+        Número de neurônios & 32,64,128 e 256       \\
         Função de ativação  & ReLU e \textit{swish}  \\
-        epochs              & 50, 100 e 150      \\
+        Epochs              & 50, 100 e 150      \\
+        Pré-processamento de dados & normalização, \textit{min-max scaler} e \textit{power transformer}\\
         \bottomrule
     \end{tabular}
     \caption{Parâmetros testados nas redes \textit{feed forward}}
@@ -110,11 +113,12 @@ Cada experimento corresponde a uma combinação dos parâmetros
 da tabela \ref{tab:param-mlp}, por exemplo, um modelo de uma 
 camada de 32 neurônios, função de ativação ReLU e 50 \textit{epochs}.
 Os resultados dos experimentos foram separados de acordo 
-com o número de camadas na rede para melhor visualização, os resultados 
-dos modelos com melhor desempenho em relação a outros com o mesmo número de 
-camadas é dado na tablea
+com o número de camadas na rede para melhor visualização. O desempenho dos 
+melhores modelos com melhor em relação a outros com o mesmo número de 
+camadas é dado na tabela \ref{tab:res-mlp}.
 
 \begin{table}[H]
+    \centering
     \caption{Experimentos com melhor desempenho segundo o número de camadas das redes \textit{feed forward}}
     \begin{tabular}{llll}
     \toprule
@@ -131,11 +135,87 @@ camadas é dado na tablea
 
 Interessante notar que ao priorizar os erros absolutos (MAE e RMSE), o modelo 
 com quatro camadas apresentou um desempenho ligeiramente
-melhor que o de três camadas, contudo, possui maior erro percentual (MAPE)\footnote{Em geral,
-um modelo que apresenta um erro absoluto baixo e erro percentual mais baixo tem
-}. 
-Assim, por mais que o valor do erro médio absoluto seja mais baixo, ao levar em 
-consideração o valor real do consumo de cimento, os erros apresentados por esse 
-modelo são mais altos que o de três camadas.
+melhor que o de três camadas, contudo, possui maior erro percentual.
+Assim, por mais que os erros absolutos sejam menores, ao levar em 
+consideração o valor que o modelo pretende prever, os erros desse 
+modelo são maiores que os gerados pelo modelo de três camadas. 
+
+Neste trabalho, priorizou-se modelos com menor erro percentual (MAPE), então 
+o modelo com melhor desempenho entre as redes \textit{multilayer feed forward}
+foi o de três camadas. Esse modelo utiliza a função de ativação \textit{swish},
+o método de normalizaçõa para pré-processar os dados e foi treinado com 100 
+\textit{epochs}, além disso a primeira camada oculta possui 256 neurônios, a 
+segunda, 64 e a terceira, 32.
 
 \section{Redes recorrentes}
+
+Neste trabalho, foram utilizadas redes recorrentes LSTM e GRU, para ambas as 
+redes, realizaram-se experimentos alterando os mesmos parâmetros, a saber,
+número de camadas, número de neurônios, função de ativação, número de \textit{epochs}
+e método de pré-processamento de dados. Na tabela \ref{tab:param-rnn} encontra-se 
+a relação dos valores testados para cada parâmetro.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ll}
+        \toprule
+        Parâmetro           & Valores   \\
+        \midrule
+        Número de camadas   & 1 e 2 \\
+        Número de neurônios & 32,64,128 e 256       \\
+        Função de ativação  & tangente hiperbólica\footnote{Por padrão, as redes LSTM e GRU utilizam a tangente hiperbólica ($tanh$) como função de ativação.}, ReLU e \textit{swish}  \\
+        \textit{Epochs}              & 50, 100 e 150      \\
+        Pré-processamento de dados & normalização, \textit{min-max scaler} e \textit{power transformer}\\
+        \textit{time step}\footnote{O \textit{time step} é o tamanho da sequência que a rede recebe como entrada.}  & 3 e 5 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Parâmetros testados nas redes recorrentes}
+    \label{tab:param-rnn}
+\end{table} 
+
+Foram realizados os mesmos experimentos para ambas as redes, assim como para 
+as redes neurais tradicionais, os resultados foram agrupados de acordo com 
+o número de camadas da rede. O desempenho dos modelos com melhores resultados 
+estão na tabela \ref{tab:res-rnn}.
+
+\begin{table}[H]
+    \centering
+    \caption{Experimentos com melhor desempenho segundo o número de camadas das redes recorrentes}
+    \begin{tabular}{lllll}
+    \toprule
+    Número de camadas & Rede & MAE & RMSE & MAPE \\
+    \midrule
+    \textbf{1} & \textbf{LSTM} & \textbf{22694}  & \textbf{43918} & \textbf{0.19}\\
+    1 & GRU  & 26751  & 52281  & 0.24 \\
+    2 & LSTM & 25002  & 47565 & 0.19  \\
+    2 & GRU  & 24992  & 50602  & 0.20 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:res-rnn}
+\end{table}
+
+Observa-se que as redes LSTM obtiveram um melhor desempenho, em geral, que as
+redes GRU e que a rede LSTM mais simples, com uma camada, fez as previsões 
+mais precisas. A rede recorrente com melhor desempenho, então, é uma rede LSTM 
+de uma camada com 32 neurônios, que utiliza a ReLU como função de ativação, com 
+150 \textit{epochs} e normalização como método de processamento de dados.
+
+\section{Redes bidirecionais}
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{ll}
+%         \toprule
+%         Parâmetro           & Valores   \\
+%         \midrule
+%         Número de camadas   & 1 e 2 \\
+%         Número de neurônios & 32,64,128 e 256       \\
+%         Função de ativação  & tangente hiperbólica\footnote{Por padrão, as redes LSTM e GRU utilizam a tangente hiperbólica ($tanh$) como função de ativação.}, ReLU e \textit{swish}  \\
+%         \textit{Epochs}              & 50, 100 e 150      \\
+%         Pré-processamento de dados & normalização, \textit{min-max scaler} e \textit{power transformer}\\
+%         \textit{time step}\footnote{O \textit{time step} é o tamanho da sequência que a rede recebe como entrada.}  & 3 e 5 \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Parâmetros testados nas redes bidirecionais}
+%     \label{tab:param-bi}
+% \end{table} 
