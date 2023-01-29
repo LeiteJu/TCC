@@ -12,20 +12,21 @@
 
 % melhorar.. só usar isso?
 
-Nesta seção é feito um detalhamento dos dados utilizados, que 
-abrange fonte, preparação e pré-processamento. Também são descritas as 
+Nesta seção é feito um detalhamento dos dados utilizados que 
+abrange as fontes e as estratégias de preparação e de pré-processamento. 
+Também são descritas as 
 tecnologias utilizadas na implementação, as métricas estatísticas 
 usadas para mensurar o desempenho dos modelos e o método de validação
-cruzada aplicado para avaliar os modelos.
+cruzada aplicado na avaliação dos modelos.
 
 \section{Tecnologias utilizadas}
 
 Este projeto foi implementado na linguagem Python e 
 utilizando o ambiente de desenvolvimento interativo fornecido pelo Jupyter.
-Para realizar a preparação dos dados foram utilizadas as bibliotecas Pandas e 
-Numpy e para o treinamento e avaliação dos modelos utilizou-se a Tensorflow
-e a Scikit-learn. A maior parte dos gráficos foram gerados por meio das bibliotecas 
-Seaborn e Matplotlib, contudo alguns foram contruídos com a plataforma
+Foram utilizadas as bibliotecas Pandas e NumPy para realizar a preparação dos dados,
+além da TensorFlow e Scikit-learn com o intuito de treinar e avaliar os modelos.
+A maior parte dos gráficos foram gerados por meio das bibliotecas 
+Seaborn e Matplotlib, contudo alguns foram contruídos por meio da plataforma
 Microsoft Excel.
 
 Os códigos utilizados no projeto estão disponíveis em \url{https://github.com/LeiteJu/TCC}.
@@ -37,17 +38,16 @@ Os algoritmos de aprendizado de máquina utilizam dados para fazer
 previsões. 
 Neste trabalho, optou-se por utilizar dados de 2003 até 2019 para treinamento e 
 avaliação dos modelos, em virtude da disponibilidade dos dados de consumo mensal 
-de cimento por estado. Além disso,
-adotou-se a estratégia de utilizar granularidade de dados
+de cimento. Além disso,
+adotou-se granularidade de dados
 mensal e por estado com o intuito de aumentar a quantidade de entradas disponíveis 
 para treinamento e avaliação dos modelos\footnote{Por exemplo, se fossem usados dados 
 anuais a nível de estados da União, haveria 459 \textit{inputs} para os modelos, ao 
 utilizar dados mensais por estado, o número de entradas disponíveis aumenta para 5508.}.
-
-Essa estratégia de aumentação de dados visa diminuir o risco de ocorrer 
-\textit{underfitting} nos experimentos. O \textit{underfitting} acontece quando o 
+Essa estratégia de aumentação de dados visa diminuir o risco de  
+\textit{underfitting}, que acontece quando o 
 modelo não é capaz de aprender com os dados e resulta em altos erros nas etapas de
-treinamento e teste (\cite{Goodfellow-et-al-2016}).
+treinamento e teste, de acordo com \citet{Goodfellow-et-al-2016}.
 
 
 \subsection{Fontes}
@@ -55,7 +55,7 @@ treinamento e teste (\cite{Goodfellow-et-al-2016}).
 O modelo utiliza dados econômicos, sociais e da construção
 civil para estimar a demanda por cimento. Na tabela
 \ref{tab:indicadores}, são
-apresentados a fonte, a granularidade e o período em que os dados 
+apresentados os dados utilizados, juntamente com a fonte, a granularidade e o período em que os dados 
 estavam disponíveis.
 
 
@@ -69,7 +69,7 @@ estavam disponíveis.
         PIB a preços constantes     
                                     & IBGE\footnote{\label{portal ipea} Dado retirado do portal do Ipeadata em \url{http://www.ipeadata.gov.br/Default.aspx}}  & 1983 até 2019      & anual por estado      \\
         PIB a preços de mercado      & IBGE\footref{portal ipea}  & 1985 ate 2019      & anual por estado      \\
-        PIB per capita              & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
+        PIB \textit{per capita}              & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
         PIB da construção civil      & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
         Desemprego                   & IBGE\footref{portal ipea}  & 1991 até 2022      & irregular \footnote{Havia dados de 1992 até 2014
         com granularidade anual e por estado. A partir de 2012 foram disponibilizados dados mensais a nível de Brasil por conta da 
@@ -82,7 +82,7 @@ estavam disponíveis.
         NFSP                        & BACEN\footref{portal ipea}  & 1991 até 2022      & mensal para o Brasil      \\
         Estoque líquido de capital fixo   & IPEA\footref{portal ipea}   & 1947 ate 2019      & anual para o Brasil      \\
         População                   & IBGE\footnote{Dado obtido do portal Base dos Dados em \url{https://basedosdados.org/dataset/br-ibge-populacao}}   & 1991 até 2021      & anual por estado      \\
-        IDH                         & IBGE\footref{portal ipea}   & 1991 ate 2017      & irregular\footnote{Os indicadores de IDH (Renda, Longevidade e Educação) estão disponíveis em anos de censo do IBGE (1990, 2000, 2010). Há 
+        IDH                         & IBGE\footref{portal ipea}   & 1991 ate 2017      & irregular\footnote{Os indicadores de IDH (Renda, Longevidade e Educação) estão disponíveis a nível de estados da União em anos de censo do IBGE (1990, 2000, 2010). Há 
         dados, também, de 2014 a 2017 por conta da PNAD Contínua.}      \\
         Produção mensal de cimento  & SNIC\footnote{\label{cbic} Dados retirados do portal \url{http://www.cbicdados.com.br/menu/materiais-de-construcao/cimento}}  & 2003 até 2022      & mensal por estado      \\
         Valor médio do cimento\footnote{Evolução do valor médio/mediano do cimento Portland 32 em US\$/Tonelada}      & SNIC\footref{cbic}   & 1947 ate 2019      & anual para o Brasil      \\
@@ -94,93 +94,98 @@ estavam disponíveis.
 % quem sabe por a legenda no apendice
 
 Na tabela, são utilizadas siglas 
-para melhorar a legibilidade.
-Em particular IBGE para Instituto Brasileiro
-de Geografia e Estatística, FGV para Fundação Getúlio Vargas,
-BACEN para Banco Central do Brasil, IPEA para Instituto de 
-Pesquisa Econômica Aplicada e SNIC para Sindicato Nacional 
-da Indústria do Cimento.
-Além disso, utilizou-se abreviação para Produto Interno Bruto (PIB),
-Índice Nacional de Preços ao Consumidor Amplo (IPCA),
-Índice Nacional de Custo da Construção (INCC), Índice Geral de 
-Preços (IGP), Necessidade de Financiamento do Setor Público (NFSP) e 
-Índice de Desenvolvimento Humano (IDH).
+para melhorar a legibilidade, uma descrição das abreviações utilizadas no 
+trabalho pode ser encontrada no início do documento, em Lista de Abreviaturas.
 
 \subsection{Preparação dos dados}
 
-Com o objetivo de direcionar a estratégia de preparação de dados
+Com o intuito de direcionar a estratégia de preparação de dados,
 foi realizada uma análise exploratória dos dados de 
 entrada e da variável resposta. 
-Destacou-se nessa análise, a alta
-taxa de variação dos dados de entrada. Alguns indicadores, como o PIB
-da construção civil apresentam
-o desvio padrão maior que o valor médio do indicador. Dessa 
-forma, está presente nos dados um grande número de \textit{outliers},
-em especial ao analisar o Brasil como um todo, por conta da 
-forte diferença entre as regiões do Brasil. 
+Foi identificada nessa análise, uma alta
+taxa de variação dos atributos,
+dessa forma, está presente nos dados um grande número de \textit{outliers}.
+De acordo com \citet{outliers} e \citet{tukey77}, \textit{outliers} são
+observações discrepantes do restante dos dados
+que podem interferir no processo de previsão. 
 
-
-\textit{Outliers} são observações discrepantes do restante dos Dados
-que podem interferir no processo de previsão (\cite{outliers} e \cite{tukey77}).
-Para ilustrar melhor o alto volume de \textit{outliers} presentes
-nos dados, utilizou-se gráficos \textit{boxplot}, como mostrado na 
-figura abaixo.
+Um exemplo de atributo com alta variação é o PIB da contrução civil,
+que apresenta desvio padrão maior que o valor médio dessa variável.
+Para ilustrar a distribuição dos pontos de dados desse indicador, utiliza-se 
+um gráfico \textit{boxplot} na figura \ref{fig:boxplot_pibcc}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=8cm]{../figuras/explicacao-boxplot.png}
-    \caption{Gráfico \textit{boxplot} (\cite{explicacao-boxplot})}
-    \label{fig:boxplot}
+    \includegraphics[width=9cm]{../figuras/graficos/boxplot-pib-cc.png}
+    \caption{Gráfico \textit{boxplot} do PIB da construção civil}
+    \label{fig:boxplot_pibcc}
 \end{figure}
 
-O \textit{boxplot} \cite{boxplot} é
-uma técnica estatística utilizada na análise exploratória
-os dados para identificar visualmente padrões, como a distribuição
-dos dados. Na figura, acima linha em verde corresponde à mediana \footnote{
+Segundo \citet{boxplot}, o \textit{boxplot} é
+uma técnica estatística utilizada para identificar visualmente padrões nos dados. 
+Na figura acima, a linha em laranja corresponde à mediana \footnote{Mediana é
 valor que fica no meio quando os dados estão ordenados ou a média
-dos dois valores centrais se o número de pontos de dados for par
-\cite{boxplot-stat}} 
+dos dois valores centrais se o número de pontos de dados for par.
+(\cite{boxplot-stat})} 
 dos dados, os limite inferior e o superior ao retângulo representam
-o primeiro e terceiro quartil\footnote{O primeiro e terceiro 
-quartis também representam a mediana dos valores superiores
-à mediana dos dados e a mediana dos valores inferiores à mediana. Então metade
-dos dados está contida dos quadrados nas imagens}, respectivamente. 
+o primeiro e terceiro quartis\footnote{O primeiro quartil marca a mediana 
+relativa aos valores superiores à mediana destacada na imagem. O terceiro quartil,
+de maneira análoga, assinala a mediana dos valores inferiores à mediana destacada. 
+Assim, entre o primeiro e terceiro quartis está contida metade
+dos dados.}, respectivamente. As observações fora do intervalo dos limites 
+superior e inferior, representadas com círculos vermelhos na figura, são 
+\textit{outliers}. Pode-se observar, então, a alta incidência de dados discrepantes
+nesse indicador.
 
-\begin{figure}[H]
+Parte do alto volume de \textit{outliers} nos atributos se deve às diferenças
+econômicas, geográficas e sociais entre os estados do Brasil. A saber, o valor 
+médio do PIB da construção civil no estado 
+de São Paulo é de $48,96$ milhões, enquanto em Santa Catarina é de $7,1$ milhões e 
+em Roraima, de $0,4$ milhões. Aliás, ao analisar o PIB da construção civil nas 
+regiões do país, há uma significativa redução no número de dados discrepantes, como 
+pode-se observar na figura abaixo.
+
+\begin{figure}[H] 
     \centering
-    \label{fig:boxplot_all}
-    \begin{subfigure}{5 cm}
-        \centering
-        \includegraphics[width=5cm]{../figuras/graficos/boxplot-pib-cc.png}
-        \caption{Gráfico \textit{boxplot} do Brasil}
-    \end{subfigure}
-    \hfill
     \begin{subfigure}{5cm}
-        \centering
-        \includegraphics[width=5cm]{../figuras/graficos/boxplot-pib-cc-se.png}
-        \caption{Gráfico \textit{boxplot} do Sudeste}
+      \centering 
+      \includegraphics[width=4.5cm]{../figuras/graficos/boxplot-pib-cc-n.png}
+      \caption{Região Norte}
+      \label{fig:boxplot-n}
     \end{subfigure}
-    \hfill
+    \hfill 
     \begin{subfigure}{5cm}
-        \centering
-        \includegraphics[width=4.8cm]{../figuras/graficos/boxplot-pib-cc-n.png}
-        \caption{Gráfico \textit{boxplot} do Norte}
+        \centering 
+        \includegraphics[width=4.5cm]{../figuras/graficos/boxplot-pib-cc-ne.png}
+        \caption{Região Nordeste}
+        \label{fig:boxplot-ne}
     \end{subfigure}
-\end{figure}
+    \begin{subfigure}{5cm}
+        \centering 
+        \includegraphics[width=4.5cm]{../figuras/graficos/boxplot-pib-cc-co.png}
+        \caption{Região Centro Oeste}
+        \label{fig:boxplot-co}
+    \end{subfigure}
+    \begin{subfigure}{5cm}
+        \centering 
+        \includegraphics[width=4.3cm]{../figuras/graficos/boxplot-pib-cc-se.png}
+        \caption{Região Sudeste}
+        \label{fig:boxplot-se}
+    \end{subfigure}
+    \begin{subfigure}{5cm}
+        \centering 
+        \includegraphics[width=4.5cm]{../figuras/graficos/boxplot-pib-cc-s.png}
+        \caption{Região Sul}
+        \label{fig:boxplot-s}
+    \end{subfigure}
+    \caption{Comparação dos gráficos \textit{boxplot} entre as regiões}
+  \end{figure}
 
-Conforme explicado na figura \ref{fig:boxplot}, a linha em 
-laranja nos gráficos acima representa a mediana dos dados,
-o retângulo que envolve a mediana é delimitado pelo primeiro e 
-terceiro quartil e retém metade central das amostras. Os valores
-reoresentados por pontos vermelhos acima ou abaixo dos limites
-superiores ou inferiores são \textit{outliers}. Observa-se,
-então, que pode-se obter uma significativa redução no número de 
-amostras com \textit{outliers} ao separar a análise por região.\cite{boxplot}
-
-Analisou-se, também, a correlação entre as variáveis de entrada e observou-se
-alta correlação entre os indicadores de PIB do estado, PIB da construção
-civil e população. Além disso, há alta correlação entre os três indicadores
-de IDH, além do preço do saco de cimento e o preço do kilograma, como pode-se
+Além disso, analisou-se, a correlação entre as variáveis de entrada com o auxílio 
+de uma matriz de correlação. Foi identificada
+alta correlação entre os indicadores do PIB do estado, o PIB da construção
+civil e a população. Além disso, há correlação entre os três indicadores
+de IDH (Longevidade, Saúde e Renda) e entre o preço do saco de cimento e o preço do kilograma, como pode-se
 validar na figura \ref{fig:matriz-corr}.
 
 \begin{figure}[H]
@@ -191,22 +196,26 @@ validar na figura \ref{fig:matriz-corr}.
 \end{figure}
 
 Foram adotadas estratégias para garantir dados na granularidade
-mensal e por estado. Caso os indicadores apresentassem granularidade anual, 
-o valor foi dividido por 12 de modo a obter a média mensal, já caso a granularidade
+mensal e por estado. Caso os indicadores apresentassem granularidade anual, o valor de
+cada medição foi dividido por 12 de modo a obter a média mensal utilizada em 
+todos os meses do ano correspondente. Caso a granularidade
 fosse a nível de Brasil, o valor apresentado foi repetido para todos os 
-estados.
+estados no mês e ano correspondente. As exceções foram os 
+indicadores de IDH por apresentarem valores apenas em anos específicos, conforme 
+detalhado em \ref{tab:indicadores}. Nesse caso, quando não havia dados para um 
+determinado ano foi repetido o valor da última medição.
 
+Também foi necessário lidar com dados faltantes, o método utilizado foi
+repetir o último valor disponível nos dados de entrada para
+preencher a ocorrência faltante. Contudo, para a produção mensal de cimento e os 
+indicadores de evolução do preço do cimento foi utilizado um valor não 
+presente no intervalo dos dados de entrada (-1) para marcar as ocorrências 
+faltantes como nulo, uma vez que essas variáveis não apresentavam 
+valores mais antigos.
 
-A estratégia utilizada para lidar com dados faltantes foi, sempre que possível,
-repetir o valor anterior que estava disponível nos dados de entrada para
-preencher a ocorrência. Contudo, alguns indicadores não apresentavam 
-valores mais antigos, então foi usado um valor não presente no intervalo
-de dados de entrada (-1) para marcar como nulo. Os indicadores 
-com dados faltantes são, em ordem descrescente de acordo com 
-o percentual de dados faltantes: produção de cimento, valor 
-médio do quilo, saco e da tonelada e cimento e desemprego.
-
-Além disso, tomou-se um cuidado para evitar que a previsão fosse 
+Além disso, foi realizado um deslocamento nos dados para garantir que a previsão
+do consumo em um mês só utilize dados dos meses anterior e não do mês alvo da
+previsão. atentou-se para evitar que a previsão fosse 
 realizada com os dados do mês anterior ou do ano anterior no caso dos
 indicadores anuais. Deslocou-se, portanto, os dados de entrada 
 para frente em um ocorrência de modo a associar os dados de um 
