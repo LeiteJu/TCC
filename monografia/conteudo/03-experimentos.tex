@@ -4,30 +4,25 @@
 
 \chapter{Experimentos}
 
-Para cada um dos modelos selecionados foram realizados experimentos
-alterando parâmetros e os dados com o objetivo de obter um melhor 
-desempenho. O treino dos modelos foram realizados com dados 
-de 2003 até junho de 2017,  os testes, por sua vez, foram realizados com dados de 
-julho de 2017 até dezembro de 2019, dessa forma 85\% do conjunto 
-de dados foi usado para treino e 15\% para teste. Além disso, 
-cuidou-se para que não houvesse embaralhamento de dados no 
-processo de separação entre treino e teste, uma vez trata-se 
-de dados temporais. Para cada modelo foram 
-alterados diferentes parâmetros.
+Para cada um dos modelos selecionados foram realizados diferentes experimentos
+alterando parâmetros com o objetivo de obter um melhor 
+desempenho. Neste seção estão descritos os experimentos realizados de acordo 
+com o modelo.
+
 
 \section{Regressao linear}
 
-A regressão linear é um modelo simples de aprendizado de máquina que visa 
-construir uma função linear entre as variáveis de entrada e o alvo da previsão. 
-Por tratar-se de um modelo mais simples, é utilizado 
+A regressão linear é utilizada 
 neste estudo como base para comparar o desempenho dos
-outros modelos. Foram testados métodos de normalização  e transformação de 
+outros modelos por ser um modelo mais simples de aprendizado de máquina. 
+Foram testados métodos de normalização  e transformação de 
 dados, além da 
 remoção de variáveis de alta correlação conforme 
 descrito na tabela \ref{tab:exp-reg-lin}. 
 
 \begin{table}
     \centering
+    \caption{Experimentos realizados na regressão linear}
     \begin{tabular}{llll}
         \toprule
         Experimento & Transformação nos dados     & Período de dados & Remoção de variáveis  \\
@@ -41,7 +36,6 @@ descrito na tabela \ref{tab:exp-reg-lin}.
         \bottomrule
     \end{tabular}
     \label{tab:exp-reg-lin}
-    \caption{Experimentos realizados na regressão linear}
 \end{table}
 
 O desempenho do modelo em cada um dos experimentos 
@@ -74,28 +68,74 @@ atingir 32\% de erro percentual médio.
 
 Foi realizado o teste de remover variáveis de alta correlação, 
 pois segundo \cite{corr_reg_lin}, esse tipo de \textit{feature}
-pode ter efeitos ruins no modelo como: aumentar a variabilidade
-dos coeficientes em relação à amostra, ou seja, os coeficientes 
+pode prejudicar no modelo por aumentar a variabilidade
+dos coeficientes em relação à amostra, dessa forma, os coeficientes 
 calculados pelo modelo podem ter um alto grau de variação de uma 
 amostra para outra.
 
-Na sessão \ref{chap:resultados}, estão apresentados os 
+Na seção \ref{chap:resultados}, estão apresentados os 
 resultados e previsões do modelo de regressão linear com
-melhor desempenho dentre os testados no modelo, ou seja, o
-experimento E, sem 
-normalização de dados e removendo \textit{features} com alta 
+melhor desempenho dentre os testados no modelo, o
+experimento E, sem   
+normalização de dados e removendo atributos com alta 
 correlação.
 
-\section{Redes neurais \textit{Feed Forward}}
+\section{Redes neurais \textit{feed forward}}
 
 As redes neurais \textit{feed forward} podem ser construídas
 com várias arquiteturas e configurações. Neste estudo, testou-se
 alterar a quantidade de camadas da rede, o número neurônios em 
 cada camada, a função de ativação utilizada, além da quantidade
 de \textit{epoch}\footnote{Uma \textit{epoch} é uma passada 
-pelos dados de entrada \cite{dl-oreilly}} utilizada no treinamento.
+pelos dados de entrada (\cite{dl-oreilly})} utilizada no treinamento.
 
+Os valores testados para cada um dos parâmetros são dados na tabela \ref{tab:param-mlp}:
 
+\begin{table}[H]
+    \begin{tabular}{ll}
+        \toprule
+        Parâmetro           & Valores   \\
+        \midrule
+        Número de camadas   & 1,2,3 e 4 \\
+        Número de neurônios & 16,32,64,128 e 256       \\
+        Função de ativação  & ReLU e \textit{swish}  \\
+        epochs              & 50, 100 e 150      \\
+        \bottomrule
+    \end{tabular}
+    \caption{Parâmetros testados nas redes \textit{feed forward}}
+    \label{tab:param-mlp}
+\end{table} 
+
+Cada experimento corresponde a uma combinação dos parâmetros 
+da tabela \ref{tab:param-mlp}, por exemplo, um modelo de uma 
+camada de 32 neurônios, função de ativação ReLU e 50 \textit{epochs}.
+Os resultados dos experimentos foram separados de acordo 
+com o número de camadas na rede para melhor visualização, os resultados 
+dos modelos com melhor desempenho em relação a outros com o mesmo número de 
+camadas é dado na tablea
+
+\begin{table}[H]
+    \caption{Experimentos com melhor desempenho segundo o número de camadas das redes \textit{feed forward}}
+    \begin{tabular}{llll}
+    \toprule
+    Número de camadas  & MAE & RMSE & MAPE \\
+    \midrule
+    1 & 51665.4  & 87660.1  & 0.49\\
+    2 & 32407.0  & 55355.1 & 0.35 \\
+    \textbf{3} & \textbf{25520.8}  & \textbf{42929.2} & \textbf{0.25} \\
+    4 & 24458.9  & 38424.9 & 0.30 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:res-mlp}
+\end{table}
+
+Interessante notar que ao priorizar os erros absolutos (MAE e RMSE), o modelo 
+com quatro camadas apresentou um desempenho ligeiramente
+melhor que o de três camadas, contudo, possui maior erro percentual (MAPE)\footnote{Em geral,
+um modelo que apresenta um erro absoluto baixo e erro percentual mais baixo tem
+}. 
+Assim, por mais que o valor do erro médio absoluto seja mais baixo, ao levar em 
+consideração o valor real do consumo de cimento, os erros apresentados por esse 
+modelo são mais altos que o de três camadas.
 
 \section{Redes recorrentes}
-\section{regressao linear}
