@@ -38,7 +38,7 @@ simples.
 redes \textit{feed forward} em relação à regressão linear que se refletiu na 
 redução do erro médio percentual
 em 5\%. Essa melhora, contudo, não é perceptível nos indicadores de erro absoluto,
-enquanto a MAE apresenta um valor similar que a da regressão, a RMSE teve um 
+enquanto a MAE apresenta um valor similar ao da regressão, a RMSE teve um 
 aumento significativo, isso indica a presenta de \textit{outliers}.
 
 Observa-se uma significativa melhora de 8\% das redes \textit{feed forward} para os modelos
@@ -73,15 +73,30 @@ cimento em São Paulo. Observa-se que a demanda por cimento no estado vinha em t
 de queda desde 2013 e passou a apresentar alta de 2018 em diante, além disso, há certa
 sazonalidade da demanda.
 
+Os modelos foram utilizados para prever o consumo mensal de 
+cimento a partir de julho de 2017. Os gráficos do consumo real 
+e da previsão realizada pelo modelo são sobrepostos para melhor
+visualização. Nos gráficos das previsões apresentados neste 
+capítulo, o consumo real está representado em azul claro e 
+as previsões do modelo, em laranja, além disso, a linha 
+tracejada em cinza marca julho de 2017, início das previsões.
 
 \section{Regressão linear}
+
+As previsões realizadas pela regressão linear para o estado 
+de São Paulo podem ser visualizadas na imagem \ref{prev-sp-rg}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=10cm]{../figuras/graficos/reg_lin/prev_sp.png}
-    \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
+    \caption{Previsão realizada pela regressão linear para o 
+    consumo de cimento em São Paulo}
+    \label{prev-sp-rg}
 \end{figure}
+
+Observa-se na figura \ref{prev-sp-rg} a proximidade das previsões 
+em cada ano, é perceptível variações apenas na passagem de um 
+ano para o seguinte.
 
 \begin{figure}[H]
     \centering
