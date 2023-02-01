@@ -63,7 +63,7 @@ mensal de cimento em São Paulo pode ser vista na figura \ref{consumo-sp}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=10cm]{../figuras/graficos/evolucao-consumo-sp.png}
+    \includegraphics[width=11cm]{../figuras/graficos/evolucao-consumo-sp.png}
     \caption{Evolução do consumo mensal de cimento em São Paulo}
     \label{consumo-sp}
 \end{figure}
@@ -83,6 +83,22 @@ tracejada em cinza marca julho de 2017, início das previsões.
 
 \section{Regressão linear}
 
+Comparou-se as previsões realizadas pela regressão linear com o valor real 
+que foi demandado de cimento. Na imagem \ref{img:erro-perc-rg}, está a 
+distribuição do erro percentual das previsões.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{../figuras/graficos/reg_lin/erro-perc-rg.png}
+    \caption{Previsão realizada pela regressão linear em São Paulo}
+    \label{img:erro-perc-rg}
+\end{figure}
+
+No gráfico acima, é possível ver que o modelo concentra 60\% das previsões 
+com erro percentual menor ou igual a 30\%. Além disso, observa-se uma 
+tendência de superestimar o valor do consumo, uma vez que 50.8\% das previsões
+superestimam o valor real em mais de 10\%. 
+
 As previsões realizadas pela regressão linear para o estado 
 de São Paulo podem ser visualizadas na imagem \ref{prev-sp-rg}.
 
@@ -94,64 +110,118 @@ de São Paulo podem ser visualizadas na imagem \ref{prev-sp-rg}.
     \label{prev-sp-rg}
 \end{figure}
 
-Observa-se na figura \ref{prev-sp-rg} a proximidade das previsões 
-em cada ano, é perceptível variações apenas na passagem de um 
-ano para o seguinte.
+Destaca-se na figura \ref{prev-sp-rg} a proximidade das previsões realizadas 
+ao longo dos meses de um ano, são perceptível variações apenas na passagem de um 
+ano para o seguinte. Uma possível explicação para esse comportamento são as 
+variáveis que originalmente possuíam granularidade anuais utilizadas como atributos.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm]{../figuras/graficos/reg_lin/erro-perc-rg.png}
-    \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
-\end{figure}
-
+Para o estado de São Paulo, as previsões estão com valores próximos aos
+reais. Apesar disso, o modelo previu que a tendência de queda, presente
+nos dados até 2018, continuaria em 2018 e 2019, contudo o consumo real passou 
+a apresentar alta.
 
 \section{Redes \textit{feed forward}}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm]{../figuras/graficos/mlp/prev_sp.png}
-    \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
-\end{figure}
+As redes \textit{feed forward} são modelos mais robustos que a regressão linear.
+A distribuição da diferença percentual entre as previsões e os valores reais 
+do consumo é dada na figura \ref{img:erro-perc-rff}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=10cm]{../figuras/graficos/mlp/erro-perc-mlp.png}
-    \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
+    \caption{Previsão realizada pela rede \textit{feed forward} em São Paulo}
+    \label{img:erro-perc-rff}
 \end{figure}
 
+Ao analisar o gráfico acima, observa-se que as redes \textit{feed forward}
+concentram 69.5\% das previsões com erro percentual de até 30\%, dessa forma, 
+há melhora de 9.5\% em comparação com a regressão linear. Essas redes ainda 
+apresentam tendência a superestimar o consumo, contudo, em menor grau que 
+a regressão linear, já que 49.7\% das previsões sobrestimam  o valor real 
+em mais de 10\%.
 
-\section{Redes recorrentes}
+Na imagem \ref{img:consumo-sp-rff}, são dadas as previsões do modelo para o estado 
+de São Paulo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=10cm]{../figuras/graficos/rnn/prev_sp.png}
-    \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
+    \includegraphics[width=10cm]{../figuras/graficos/mlp/prev_sp.png}
+    \caption{Previsão realizada pelas redes \textit{feed forward} em São Paulo}
+    \label{img:consumo-sp-rff}
 \end{figure}
+
+Observa-se na imagem que o modelo capturou a leve tendência de aumento do 
+consumo a partir de 2018, contudo as previsões superestimam o valor real 
+do consumo.
+
+\section{Redes recorrentes}
+
+A distribuição do erro percentual das previsões realizadas pelas redes 
+recorrentes pode ser observada na figura \ref{img:erro-perc-rnn}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=10cm]{../figuras/graficos/rnn/erro-perc-rnn.png}
     \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
+    \label{img:erro-perc-rnn}
 \end{figure}
 
+Na análise do gráfico acima, é perceptível o impacto da análise de contexto histórico 
+nas previsões realizadas pelas redes recorrentes. As previsões com erro percentual 
+de até 30\% correspondem a 79.2\% do conjunto de teste, um aumento de 9.7\% em 
+relação à rede \textit{feed forward} e de 19.2\% em relação à regressão linear.
+Além disso, destaca-se que 37.2\% das previsões apresentaram erro percentual 
+de até 10\%. Ao contrário da regressão linear e das redes \textit{feed forward},
+as redes recorrentes apresentam tendência de subestimar o consumo, com 38\% das
+previsões com valores subestimando o valor real do consumo em mais de 30\%.
 
-\section{Redes bidirecional}
+Na figura \ref{img:consumo-sp-rnn}, é possível observar as previsões realizadas pelas 
+redes recorrentes no estado de São Paulo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=10cm]{../figuras/graficos/bi/prev-sp-bi.png}
-    \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
+    \includegraphics[width=10cm]{../figuras/graficos/rnn/prev_sp.png}
+    \caption{Previsão realizada pela rede recorrente em São Paulo}
+    \label{img:consumo-sp-rnn}
 \end{figure}
+
+Evidencia-se no gráfico que o modelo capturou com precisão a tendência do 
+consumo, primeiro de queda até 2018 e aumento após essa data. Destaca-se, 
+também, a proximidade das previsões realizadas pelas redes recorrentes e o 
+valor real do consumo, embora o modelo tenha tendência de subestimar o valor.
+
+
+\section{Redes bidirecionais}
+
+Na imagem \ref{img:erro-perc-bnn}, está a distribuição do erro percentual das 
+previsões realizadas ao utilizar redes bidirecionais. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=10cm]{../figuras/graficos/bi/erro-perc-bi.png}
-    \caption{Previsão realizada pela regressão linear em São Paulo}
-    \label{consumo-sp}
+    \caption{Previsão realizada pela rede bidirecional em São Paulo}
+    \label{img:erro-perc-bnn}
 \end{figure}
+
+Observa-se no gráfico acima, a melhora no desempenho ao utilizar a arquitetura 
+robusta das redes bidirecionais. 84.4\% das previsões desse modelo apresentam 
+erro de até 30\%, um crescimento de 5.2\% ao comparar com as redes recorrentes 
+e de 24.4\% ao comparar com a regressão linear. Destaca-se, também, uma tendência
+maior de subestimar o valor real, 45.5\%¨subestimam o consumo real em mais de 
+30\%,
+
+Na imagem \ref{img:consumo-sp-bnn}, encontra-se as previsões realizadas pelo 
+modelo para São Paulo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{../figuras/graficos/bi/prev-sp-bi.png}
+    \caption{Previsão realizada pela rede bidirecional em São Paulo}
+    \label{img:consumo-sp-bnn}
+\end{figure}
+
+Destaca-se na figura acima a assertividade das previsões realizadas pelas 
+redes bidirecionais. O modelo não apenas captura de forma certeira a tendência 
+do consumo, como prevê valor muito próximos ao valor real. Em comparação com 
+as previsões realizadas pelos outros modelos testados nesta trabalho, trata-se 
+da previsão mais precisa.
