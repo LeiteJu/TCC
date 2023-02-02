@@ -1,109 +1,181 @@
-bi_lstm,dense,epochs,neuronios,ativacao_lstm,ativacao_normal,normalizacao,mae,rmse,mape
-2,50,"(256, 128)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,41371.43738191506,71241.87746471715,0.515616329619977,,
-2,50,"(256, 128)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,51326.38003056629,85911.85602259262,0.6167950977648198,,
-2,50,"(256, 128)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,37203.37660713611,61874.840328402286,0.4319089184883209,,
-2,50,"(256, 128)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,39187.797117279406,59486.120006447825,0.505132264887546,,
-2,50,"(256, 128)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,41822.47122033706,72895.40573588228,0.6048408230382956,,
-2,50,"(256, 128)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,41076.94103494665,76250.35179194713,0.44069759294112587,,
-2,50,"(256, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,43904.977619101955,75797.05515234567,0.47658481849600975,,
-2,50,"(256, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,52059.15338791613,84755.31515068993,0.6611411435424764,,
-2,50,"(256, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,41309.90952054707,65895.87813060141,0.435072123237027,,
-2,50,"(256, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,42568.90631956172,67112.9385812154,0.5172333192429152,,
-2,50,"(256, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,45981.50435024939,76960.23283718416,0.6812107874335575,,
-2,50,"(256, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,43737.474084395166,74015.10626130323,0.5285009128642224,,
-2,50,"(256, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,43124.934587434815,79064.88355538009,0.41818199109421217,,
-2,50,"(256, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,58061.745392674835,88087.2066671773,0.7960878203525615,,
-2,50,"(256, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,46003.07054306086,71786.86805717758,0.43643427113233013,,
-2,50,"(256, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,43956.58515257184,70155.49371916837,0.5304642940525253,,
-2,50,"(256, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,49312.605420335174,80577.93917133866,0.7334009207352996,,
-2,50,"(256, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,47872.40007701952,75092.49495981385,0.5524982865417831,,
-2,50,"(128, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,43059.00949871612,76706.19742815373,0.46102077935441005,,
-2,50,"(128, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,56144.247814247654,89080.24841958642,0.71529675396144,,
-2,50,"(128, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,47774.46860180339,70688.41774391911,0.5498356443240181,,
-2,50,"(128, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,44002.4389424399,71071.98608107837,0.5220503936315146,,
-2,50,"(128, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,47155.5656493255,77786.36688290998,0.6911751942484524,,
-2,50,"(128, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,47200.001099166155,72579.15393789347,0.5484764288105273,,
-2,50,"(128, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,43865.53158801816,80282.7579311412,0.44118178403557634,,
-2,50,"(128, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,63146.69813598485,90321.33567446946,0.8932949778146253,,
-2,50,"(128, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,53400.80432125216,76818.53545130209,0.5812514985217337,,
-2,50,"(128, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,44898.41444092304,73346.23195004273,0.5358326314091808,,
-2,50,"(128, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,50208.20449478537,79701.32911682223,0.7406910442888601,,
-2,50,"(128, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,53872.38120271217,79584.66403710765,0.6082585440178471,,
-2,50,"(64, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,44492.59710143526,81646.62882337248,0.433733685145152,,
-2,50,"(64, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,66974.90327204528,86788.17290556293,1.0554485096829722,,
-2,50,"(64, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,61080.96286376067,84117.41090776266,0.6483728980912858,,
-2,50,"(64, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,46222.5952202775,77039.87720496858,0.5480106134752454,,
-2,50,"(64, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,49693.3207399675,76503.7816447019,0.7342100210363809,,
-2,50,"(64, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,61269.03454068379,85131.9993445429,0.6825887688897422,,
-2,100,"(256, 128)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,35144.30906254723,55510.268239739504,0.5622297771271518,,
-2,100,"(256, 128)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44170.64680261393,79844.06383623692,0.4589818910835743,,
-2,100,"(256, 128)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32836.83477672499,54211.04662605298,0.4333589222084884,,
-2,100,"(256, 128)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,30519.291142391034,42924.482995588005,0.44131329217303744,,
-2,100,"(256, 128)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,36028.49998346811,66090.2752650353,0.5104575249565408,,
-2,100,"(256, 128)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,37219.22696716811,67943.21886948716,0.4219050892539278,,
-2,100,"(256, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,36178.26844782062,61022.03452211681,0.49620882212233774,,
-2,100,"(256, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,45022.746346451786,80762.58853020464,0.45498661574434324,,
-2,100,"(256, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32765.915719231787,55121.960901997474,0.4249830772953052,,
-2,100,"(256, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,31307.1363686512,47002.13157657188,0.44270828397739426,,
-2,100,"(256, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,39222.14286389057,70045.08241343831,0.56688785979762,,
-2,100,"(256, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,38773.80960241454,66943.90916997193,0.49869249391192966,,
-2,100,"(256, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39596.43059734451,65401.39432474365,0.5499124520732808,,
-2,100,"(256, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,45526.36915299538,76080.36193635943,0.5891506482693388,,
-2,100,"(256, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32407.028752355796,55355.12727212215,0.35405488679551095,,
-2,100,"(256, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,34320.64161847263,52027.3133500715,0.46538935572369333,,
-2,100,"(256, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,40994.143475570585,71202.90778394415,0.5834546978640027,,
-2,100,"(256, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,38154.69829681678,62383.566932989845,0.5028935632298125,,
-2,100,"(128, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39498.016058666966,67536.96847739737,0.4432080802465358,,
-2,100,"(128, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,47835.07419513301,83698.08430215999,0.5213032506984748,,
-2,100,"(128, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33106.291659187955,57173.73649947036,0.3792857518067754,,
-2,100,"(128, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,36529.123391932124,57679.11322580194,0.4583053571863615,,
-2,100,"(128, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,40608.92829291679,71518.2928667654,0.5911952025983913,,
-2,100,"(128, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,38023.90183636297,63908.00993094455,0.4982589472613639,,
-2,100,"(128, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39718.543353264104,68987.82583258084,0.462867781505733,,
-2,100,"(128, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,47584.27810864524,80083.27677307831,0.5782943264198717,,
-2,100,"(128, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,34872.218157213574,58653.50706865841,0.3601949547244709,,
-2,100,"(128, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,40411.51558114021,62732.429966683645,0.504516783752167,,
-2,100,"(128, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,42678.18115883842,72643.38789541373,0.6281083865039496,,
-2,100,"(128, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,40958.593674739874,67388.748893232,0.5082872008668361,,
-2,100,"(64, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39862.780352554415,71159.67193751839,0.4524065424136027,,
-2,100,"(64, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,49734.61692048042,80550.42824694635,0.6725608330945982,,
-2,100,"(64, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,39914.252582665365,63370.81715624489,0.4453503456546223,,
-2,100,"(64, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,38746.45271619315,63342.627004432696,0.4696078127924605,,
-2,100,"(64, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44299.39568966332,74116.28146294327,0.6568287090260667,,
-2,100,"(64, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,42564.57552727188,68639.38818457989,0.5170340905914188,,
-2,150,"(256, 128)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,31320.70716114344,46361.613985345255,0.5493610207983166,,
-2,150,"(256, 128)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,40199.72637887791,74183.0401919061,0.401218032544224,,
-2,150,"(256, 128)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33085.0030920543,54663.77406133549,0.40070163380550977,,
-2,150,"(256, 128)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,29792.06159665939,41860.9650263316,0.4064256283405919,,
-2,150,"(256, 128)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,33850.47822041264,61114.376704786264,0.49831215358223685,,
-2,150,"(256, 128)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,34276.76157271213,61593.37220966846,0.36987559145209326,,
-2,150,"(256, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,33008.54990683098,52288.7674795371,0.5293292268726555,,
-2,150,"(256, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,42572.3495639123,77789.00435586165,0.41324500221077876,,
-2,150,"(256, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33683.281115383164,54651.036217954825,0.45958033035540385,,
-2,150,"(256, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,32150.602961053584,43956.966785845165,0.4565630690076971,,
-2,150,"(256, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,35984.74631220715,65499.24778467981,0.49527159053701353,,
-2,150,"(256, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,35969.98321219194,59731.09198302861,0.47950329677972375,,
-2,150,"(256, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,36976.286994832604,59002.30432761348,0.570656183691884,,
-2,150,"(256, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,43114.078094894685,75070.82887049159,0.5379965089729914,,
-2,150,"(256, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33966.65969335701,55649.88169872963,0.4503285311427768,,
-2,150,"(256, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,29763.529366432107,44132.17182531476,0.4209143479966814,,
-2,150,"(256, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,41302.46394984696,72301.07398674579,0.5634094252048228,,
-2,150,"(256, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,35678.41317472723,58280.01837267066,0.48711841102588144,,
-2,150,"(128, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,34653.17381277396,58289.607531659305,0.49905929864631565,,
-2,150,"(128, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44750.16806439881,80546.2726785443,0.4698854410206919,,
-2,150,"(128, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33106.204582168226,55086.0640729741,0.4369435678693622,,
-2,150,"(128, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,31784.110555289015,47965.93967177427,0.4417072889447787,,
-2,150,"(128, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,36895.94137554791,66828.73784041539,0.5318804310648664,,
-2,150,"(128, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,36096.42092709386,58980.552645663134,0.4925364199681244,,
-2,150,"(128, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,37445.151986690646,63054.11735185168,0.5273943913806045,,
-2,150,"(128, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,46029.98209123715,81368.84857043053,0.4874203020004501,,
-2,150,"(128, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32613.205376879912,55909.83480403586,0.39874741196415253,,
-2,150,"(128, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,35841.774674172266,55547.53569582422,0.4726442935650172,,
-2,150,"(128, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,40374.329196030456,71419.91016723364,0.5680646216024435,,
-2,150,"(128, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,37929.46623339647,64377.794565709075,0.4759484521818772,,
-2,150,"(64, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,41187.15110061073,67670.8251222429,0.5826229694954871,,
-2,150,"(64, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,46706.44531775847,80093.36302387413,0.5781633708219951,,
-2,150,"(64, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33290.70567799652,57846.76592678779,0.3794766294225561,,
-2,150,"(64, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,33663.6372848543,55159.80520818092,0.42987369630028416,,
-2,150,"(64, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,42159.74915923519,73232.91916728126,0.6200531166460693,,
-2,150,"(64, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,39761.669754351205,66568.30337261992,0.49632003677347525,,
+camadas,epochs,neuronios,ativacao,normalizacao,mae,rmse,mape
+1,50,256,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,55594.437095033216,90943.19304668951,0.5827614474137817
+1,50,256,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,97395.15766229595,172683.9207712365,1.2558866489715754
+1,50,256,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,58061.30882702312,104899.26106850799,0.6273701868515483
+1,50,256,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,83196.87850054403,137737.31837700697,0.6658341673818237
+1,50,256,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,98446.7879666717,179424.62804198178,1.0768709687135678
+1,50,256,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,72758.16020493986,140916.99346843542,0.5881318307049278
+1,50,128,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,91597.12223201046,151152.21772507028,0.6917150426966066
+1,50,128,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,107135.68718589404,196528.475411899,0.7687796497531816
+1,50,128,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,80612.34533619678,150978.06684534816,0.6143414468802109
+1,50,128,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,110443.64316396356,179046.44558540054,0.7777721597269409
+1,50,128,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,110496.62614778568,200999.57084363434,0.7180658524205679
+1,50,128,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,104202.48115286602,179824.93227537093,0.7175436501383637
+1,50,64,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,119268.65421415384,192596.6073957196,0.8178498720218021
+1,50,64,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,123956.90086768818,214118.32267671093,0.6836232602102952
+1,50,64,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,112335.41952739518,189812.2539030145,0.7625122415830188
+1,50,64,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,130529.48704346377,207888.98279555578,0.8917073621489683
+1,50,64,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,126668.80777896388,216346.1486020586,0.6950662958910668
+1,50,64,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,127093.73065020182,207263.5793898502,0.8583369510680072
+1,50,32,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,134801.4419416793,214148.99342828844,0.9159194605792806
+1,50,32,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,137224.32517937102,224480.63210187238,0.7977775440846822
+1,50,32,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,131259.42524649587,212211.24589019894,0.8873317390498248
+1,50,32,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,139843.24729739307,220962.2540945925,0.9501251868252097
+1,50,32,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,139226.42798235337,225930.1601669619,0.8332030254827436
+1,50,32,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,138221.83456441425,220568.67210497643,0.9344998286248852
+1,100,256,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,69009.8900515177,103307.04566781658,0.6952696570603971
+1,100,256,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,111219.06240553204,145302.3366316921,2.549887283449117
+1,100,256,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,92714.55158909863,122409.90657950913,0.9599049031048629
+1,100,256,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,55857.8255781176,79868.4550963089,0.7181625184913834
+1,100,256,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,96653.20990779928,136686.41338767807,2.1873851502786614
+1,100,256,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,80656.26526013366,105243.75585617582,0.9292896906639286
+1,100,128,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,51629.43368222492,74827.76565131727,0.6885361380909463
+1,100,128,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,102068.38505139056,155972.96386397234,2.0118674064830353
+1,100,128,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,82034.35068328954,108247.99713377192,0.9262388274382131
+1,100,128,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,53898.37497862478,84550.65853300401,0.5989944759989103
+1,100,128,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,96522.58346243954,158304.52908269406,1.716148303675461
+1,100,128,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,59103.12782276066,103971.6280572787,0.6514415901595364
+1,100,64,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,66119.75904967736,111938.24803096827,0.6001243760799699
+1,100,64,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,99255.54460776904,180985.97005511177,1.0540267770794904
+1,100,64,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,59011.26097232745,115764.1106422755,0.5855032211482065
+1,100,64,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,94248.58135406974,154574.51037055408,0.707572224675882
+1,100,64,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,101101.72072438028,186129.41920687363,0.9411766603933679
+1,100,64,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,84295.12780280615,155368.21422162524,0.6283785078383923
+1,100,32,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,105484.41255123988,172732.71367219443,0.743507213047091
+1,100,32,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,116907.94663741309,207969.35589381255,0.6753425639344591
+1,100,32,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,95013.41378684776,168452.22202583976,0.6750884089708531
+1,100,32,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,121579.87905476488,195338.58489136255,0.8363828802535312
+1,100,32,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,121860.49579145254,212377.9814157963,0.67755036322774
+1,100,32,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,116288.50419549816,194546.9864032637,0.7857901817874562
+1,150,256,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,51317.151898562835,87397.9526453492,0.49597116774203975
+1,150,256,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,103556.62638867895,125315.79567913144,2.349455730167072
+1,150,256,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,77040.26161572088,102572.04962821912,0.7440760419180633
+1,150,256,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,60226.38088122071,90612.08496373805,0.7964427935091555
+1,150,256,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,81629.03760769348,102904.34047701738,1.8054390636996862
+1,150,256,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,72592.5604428357,93665.30334277725,0.8416157776956728
+1,150,128,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,68838.63873977616,103820.42416897704,0.6929836753262693
+1,150,128,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,114700.44541641475,147467.75517482348,2.678095868003924
+1,150,128,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,92815.08995737447,122079.43713039541,0.9819709955803902
+1,150,128,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,61827.67246568304,88369.40470591075,0.76153972463919
+1,150,128,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,100015.3250642382,137013.87409493863,2.297788028773332
+1,150,128,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,82805.15044130928,107062.93185423389,0.9513625837277663
+1,150,64,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,51364.18273379408,74729.6821012136,0.6809018580971343
+1,150,64,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,101834.4548632104,156281.4369118916,1.9905989805480437
+1,150,64,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,83975.61578663891,110305.72662145352,0.9449556983314965
+1,150,64,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,56271.18210061199,90356.2453748717,0.5965448836937226
+1,150,64,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,96312.95133010883,158257.6857237608,1.7135817816825236
+1,150,64,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,58482.073603324476,105858.30320498557,0.634616758133625
+1,150,32,relu,<class 'sklearn.preprocessing._data.StandardScaler'>,68621.8434781417,116760.06994494423,0.6025555733640233
+1,150,32,relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,101614.6338988815,186864.85117582724,0.9353455499070843
+1,150,32,relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,59804.130717523156,118237.48561798496,0.5819418294460413
+1,150,32,swish,<class 'sklearn.preprocessing._data.StandardScaler'>,96699.85908099616,158188.96402412193,0.7182823190555129
+1,150,32,swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,105600.3530787107,194249.45224701872,0.8039576222806808
+1,150,32,swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,86936.89859717299,158593.31072828543,0.6389567914636123
+2,50,"(256, 128)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,43068.97499551277,71541.8122581686,0.5843893459776212
+2,50,"(256, 128)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,51521.751810389826,86380.46708916356,0.6182747702814679
+2,50,"(256, 128)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,37699.76872886279,62769.9111354705,0.4168694938863327
+2,50,"(256, 128)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,39929.59959038915,61203.45564919584,0.5062764902237076
+2,50,"(256, 128)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,42282.67219855275,73576.38814528768,0.6142880884137875
+2,50,"(256, 128)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,41371.02386725598,77050.17693491871,0.4323934108602758
+2,50,"(256, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,42587.67475863437,73158.07147361177,0.5492772985991071
+2,50,"(256, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,51311.07938378552,83662.11001997885,0.6428999257417966
+2,50,"(256, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,40582.27339152068,65036.611056273236,0.4262710200058719
+2,50,"(256, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,41327.98203940432,65031.70447867715,0.5067880972453466
+2,50,"(256, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44833.87536252078,76045.72460181953,0.6561936303774334
+2,50,"(256, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,43024.13425109868,71875.17273532023,0.5195346252266705
+2,50,"(256, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39998.607806831926,74397.42114262929,0.4010985679399967
+2,50,"(256, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,56991.15779897927,86345.22954848537,0.7780046789662699
+2,50,"(256, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,47284.0312595575,69576.6355478011,0.5474413134220661
+2,50,"(256, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,43296.70714369247,68858.91169313564,0.5286551877085979
+2,50,"(256, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,47455.30098435611,77396.9178346728,0.710495434593625
+2,50,"(256, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,45797.893016965674,70420.47657169189,0.5390775672620024
+2,50,"(128, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,41021.204582758655,75672.36635222269,0.3918479666153048
+2,50,"(128, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,55058.84929999244,88391.92466913069,0.6949351547196166
+2,50,"(128, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,46764.95826992418,69627.67612912924,0.542412056602587
+2,50,"(128, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,43328.26898013983,68614.9934410605,0.5268714144464854
+2,50,"(128, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,46500.374336362605,77561.05083523103,0.6793933880150377
+2,50,"(128, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,46439.70195642175,72158.8844986822,0.5401373452185927
+2,50,"(128, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,42281.04733018056,78094.36454608702,0.41089097264280344
+2,50,"(128, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,60737.86829032114,87693.48977575488,0.8737588941786664
+2,50,"(128, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,52029.09540152867,74864.5365161613,0.5757919653715962
+2,50,"(128, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,43787.91230857819,70502.80845404844,0.5311731090629234
+2,50,"(128, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,47810.50546615213,76317.83926203569,0.7092369489517442
+2,50,"(128, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,53794.359859494805,78013.43427645529,0.609808119070746
+2,50,"(64, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,44822.54263161748,79325.8870557251,0.47787429996279657
+2,50,"(64, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,67130.3934495919,86072.71934472516,1.0845199961375522
+2,50,"(64, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,60336.71349020131,82970.62694711941,0.6460986511019761
+2,50,"(64, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,45079.367671699016,74079.37504928236,0.5413039444260286
+2,50,"(64, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,48054.673987539674,73785.01400340778,0.714955643555154
+2,50,"(64, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,63160.55211576672,85436.02246609241,0.6971203233603301
+2,100,"(256, 128)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,34761.9980923377,55426.56844404832,0.5269278365791178
+2,100,"(256, 128)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44488.80997003004,80142.85504348493,0.46901269463637824
+2,100,"(256, 128)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32851.13025714178,54277.55189834218,0.4287186503652547
+2,100,"(256, 128)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,30867.322958331588,43136.80329117598,0.4359320478732021
+2,100,"(256, 128)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,36826.06122468259,66702.42415191814,0.5358465274596025
+2,100,"(256, 128)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,36464.35352517212,67608.42896733152,0.39487801682773166
+2,100,"(256, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,37302.22157813445,59558.29339998384,0.5510544714590674
+2,100,"(256, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44177.65727851987,79193.3685602688,0.46335652926037424
+2,100,"(256, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32357.107072343562,53952.02491276701,0.419273406417905
+2,100,"(256, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,31051.657775569856,44420.74921250153,0.4543113083580274
+2,100,"(256, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,37925.91201372619,68340.64856312014,0.5426349896374638
+2,100,"(256, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,36584.865997219895,60986.27337728208,0.47421099582654136
+2,100,"(256, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,40934.57638560875,65497.26312168869,0.5879126751095015
+2,100,"(256, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,45320.33771644971,78302.81092277801,0.5114770477431978
+2,100,"(256, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33052.63398272181,55698.97557780943,0.39817052949071746
+2,100,"(256, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,35936.26853155023,54327.696240517245,0.4834879698823145
+2,100,"(256, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,41429.0910375888,71637.53395733717,0.6010377880483829
+2,100,"(256, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,38507.49020796503,65261.820550084936,0.49186668356178165
+2,100,"(128, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39597.4946253637,65352.74256424195,0.5471772985829099
+2,100,"(128, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,46970.17521326141,82794.87987021139,0.508010302701872
+2,100,"(128, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32594.885664251437,55907.539186838396,0.3784328546409374
+2,100,"(128, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,32838.151212504294,52036.740766843184,0.42488030315611425
+2,100,"(128, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,39834.78045174577,70561.44908838389,0.5775590141938837
+2,100,"(128, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,37435.24011757008,62716.216661640814,0.4775095768280731
+2,100,"(128, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39717.42149417605,68591.69357840832,0.5029096533823777
+2,100,"(128, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,47083.46772066829,78818.7622533104,0.6052974126098063
+2,100,"(128, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,34786.75989138547,58174.231068408364,0.38170049765754926
+2,100,"(128, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,38146.94501003187,59331.0739722747,0.4870291052996832
+2,100,"(128, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,43230.78668899259,73119.99672829539,0.6410800835292
+2,100,"(128, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,40661.09936054096,65927.43174440546,0.5109108054890694
+2,100,"(64, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,41818.332888620505,72458.49565878542,0.45657084584847435
+2,100,"(64, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,51961.29415432285,85639.71661513812,0.6319710833726611
+2,100,"(64, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,40108.86495303762,62727.155699967516,0.4669171233273799
+2,100,"(64, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,40796.97807895287,66849.10567019039,0.49174642594935114
+2,100,"(64, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44698.1928244502,74647.73144366263,0.6611649804506011
+2,100,"(64, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,41461.712462262636,67488.06246429405,0.48792595224776514
+2,150,"(256, 128)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,30940.870694622885,46259.3904362155,0.5231311137139082
+2,150,"(256, 128)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,40590.42185374471,74485.09557854156,0.40775532642858453
+2,150,"(256, 128)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33277.77787749395,53970.4638345446,0.41850422535202003
+2,150,"(256, 128)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,32813.10162052768,44669.11513157881,0.47762139111828045
+2,150,"(256, 128)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,34680.93971763528,61733.34471575171,0.5272696488511595
+2,150,"(256, 128)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,33027.60385550207,60232.50253428311,0.3427158635135057
+2,150,"(256, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,33338.86725008502,52240.11655456181,0.5689319913366107
+2,150,"(256, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,42812.140794451894,78014.7982089007,0.4230304283792031
+2,150,"(256, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33585.47488451292,54783.448793239884,0.4440952414560294
+2,150,"(256, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,33464.538519433794,45413.6715010099,0.4671693657926443
+2,150,"(256, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,35980.1728657327,65478.69453191492,0.5005493128319372
+2,150,"(256, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,33171.162294401656,53626.55917425394,0.4558992740259657
+2,150,"(256, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,37610.917264963726,59532.3977496742,0.5646377688020999
+2,150,"(256, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44239.01134205902,79107.68204362989,0.4654689423058489
+2,150,"(256, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33449.75028104217,54926.26525727205,0.4505701654479426
+2,150,"(256, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,31816.244352384518,46712.437139060305,0.461004906386282
+2,150,"(256, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,40648.35041589518,71732.00461749194,0.5413391988016446
+2,150,"(256, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,36935.058508035785,60867.06126972875,0.48804250487804596
+2,150,"(128, 64)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,36867.16283736869,58954.77825850073,0.5421333087429147
+2,150,"(128, 64)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,44461.80425176655,80538.09389113958,0.46153257548006515
+2,150,"(128, 64)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33386.87285793909,55283.58036888175,0.43483583159511063
+2,150,"(128, 64)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,29012.62371388312,44463.81349103173,0.3995269153680679
+2,150,"(128, 64)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,37051.876060402814,67197.41380200679,0.5363889323967697
+2,150,"(128, 64)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,34764.47955121152,57157.81015356098,0.47115455595542066
+2,150,"(128, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,39061.72511448336,63672.64020959534,0.5590827613783298
+2,150,"(128, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,45002.66773769616,78685.05361343932,0.5399915839631232
+2,150,"(128, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,32655.245591888983,55369.010868098856,0.3960918464605087
+2,150,"(128, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,32918.49698075245,51699.13591053077,0.45971655562389324
+2,150,"(128, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,40120.619630677524,70902.40124255641,0.5664583736283221
+2,150,"(128, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,37997.27647220007,62612.79750414644,0.4968022897204561
+2,150,"(64, 32)",relu,<class 'sklearn.preprocessing._data.StandardScaler'>,41590.82508165574,69524.86558425475,0.491019931700891
+2,150,"(64, 32)",relu,<class 'sklearn.preprocessing._data.MinMaxScaler'>,48567.63566425144,84264.41427601081,0.5391924405691478
+2,150,"(64, 32)",relu,<class 'sklearn.preprocessing._data.PowerTransformer'>,33074.74241776564,57278.994245822585,0.37317681060296815
+2,150,"(64, 32)",swish,<class 'sklearn.preprocessing._data.StandardScaler'>,37731.948875129725,60561.40239850415,0.4772776899532727
+2,150,"(64, 32)",swish,<class 'sklearn.preprocessing._data.MinMaxScaler'>,41449.808662239266,72369.62396785158,0.6095631899733096
+2,150,"(64, 32)",swish,<class 'sklearn.preprocessing._data.PowerTransformer'>,36575.91152743186,63214.17286629324,0.4471301525118998
