@@ -20,30 +20,30 @@ um importante componente do investimento brasileiro e,
 consequentemente, uma das grandes engrenagens responsáveis 
 por movimentar a atividade econômica no Brasil. Em 2021, 
 por exemplo, o Produto Interno Bruto (PIB) desse setor 
-destacou-se com alta de 9,7\%, enquanto o PIB do Brasil cresceu 
+teve destaque com alta de 9,7\%, enquanto o PIB do Brasil cresceu 
 4,6\% e o PIB do Agronegócio registrou queda de 0,2\%. Dessa 
 forma, o setor da construção figura como importante 
 impulsionador da economia do país e como fonte de renda e de
-empregos. (\cite{cbic-report})
+empregos, de acordo com \citet{cbic-report}.
 
 Nesse contexto, o cimento\footnote{O material conhecido na contrução 
-civil como "cimento" é denominado mundialmente como cimento de 
+civil como cimento é denominado mundialmente como cimento de 
 \textit{portland}. Em 1824, construções com pedra de \textit{portland} eram 
 comuns na Inglaterra, por isso, o inventor do cimento, Joseph
 Aspdin, ao notar que sua invenção tinha aspecto similar ao 
 material tão difundido na época, optou por registrar a patente
-como "cimento de \textit{portland}".} é uma das principais matérias
+como "cimento de \textit{portland}". (\cite{boletim-cimento})} é uma das principais matérias
 primas da indústria da construção civil. Esse material é 
 um pó com propriedades aglomeramentes que endurece quando é 
-submetido água. Após endurecer, não é 
-mais decomposto, mesmo em contato com a água. Além disso,
+submetido à água. Após endurecer, não é 
+mais decomposto, mesmo em contato com a água, além disso,
 ao ser misturado com areia, pedra 
-britada, pó-de-pedra e cal resulta na argamassa e no 
-concreto utilizados em construções. (\cite{boletim-cimento})
+britada, pó-de-pedra e cal, este cimento se torna argamassa ou
+concreto, utilizados em construções. (\cite{boletim-cimento})
 
 \section*{Motivação}
 
-Apesar disso, a falta de um modo bem fundamentado para prever o 
+A falta de um modo bem fundamentado para prever o 
 consumo de cimento nos estados do Brasil é 
 uma demanda entre as empresas cimenteiras. Uma nova fábrica 
 representa para a empresa um alto investimento a longo prazo,
@@ -52,35 +52,38 @@ financeiro, além de tempo, por demorar anos para finalizar as obras.
 
 Um exemplo é a fábrica construída pela Votorantim Cimentos no Complexo 
 Industrial e Portuário do Pecém, no Ceará, cuja construção 
-demorou 3 anos e custou cerca de 200 milhões de reais, conforme 
+demorou três anos e custou cerca de 200 milhões de reais, conforme 
 noticiado no portal do Instituto Brasileiro de Mineração 
 (\cite{fabrica-noticia}).
 Além disso, o cimento é um produto que não suporta longas 
 estadias em estoque, visto que a norma brasileira recomenda
 o uso em até 90 dias após a fabricação $-$ importante, então, que 
 a produção do material esteja fortemente alinhada ao 
-consumo. (\cite{abnt})
+consumo, conforme \citet{abnt}.
 
 Assim, um modelo que permitisse prever a demanda por cimento a nível de 
 estados do Brasil poderia auxiliar gestores a tomar melhores 
 decisões e a estruturar a estratégia de forma mais embasada, de 
-modo a reduzir os riscos do setor. Além disso, poder-se-ia apoiar órgãos 
+modo a reduzir os riscos do setor. Com isso, seria possível apoiar órgãos 
 governamentais a direcionar ações para mitigar o impacto ambiental da
-fabricação desse produto, pontuado como um grande emissor de 
-gases de efeito-estufa em escala mundial. (\cite{meio-ambiente})
+fabricação desse produto, pontuado em \citet{meio-ambiente} como um grande emissor de 
+gases de efeito-estufa em escala mundial.
 
 %valeu a pena a grana da votorantin?
 
 \section*{Objetivos}
 
-Este trabalho, então, propõe-se a aplicar modelos de aprendizado 
-de máquina para determinar qual é mais eficiente para prever a 
-demanda por cimento nos estados do Brasil. Os algoritmos avaliados em ordem 
+Este trabalho propõe o uso de modelos de aprendizado de máquina para prever o 
+consumo mensal de cimento nos estados do Brasil
+como solução a necessidade da indústria por um meio de prever a demanda 
+do material e investiga 
+o desempenho de diferentes modelos para determinar qual é o mais eficiente. 
+Os algoritmos avaliados em ordem 
 crescente de complexidade e robustez são: 
-regressão linear, redes neurais \textit{multi-layer} 
+regressão linear, redes neurais \textit{feed forward} 
 e redes neurais recorrentes.
 
-
+ 
 %% ------------------------------------------------------------------------- %%
 % \unnumberedsection{Considerações de estilo}
 % \label{sec:consideracoes_preliminares}
