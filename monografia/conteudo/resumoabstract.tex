@@ -4,35 +4,51 @@
 
 % As palavras-chave são obrigatórias, em português e em inglês, e devem ser
 % definidas antes do resumo/abstract. Acrescente quantas forem necessárias.
-\palavrachave{Palavra-chave1}
-\palavrachave{Palavra-chave2}
-\palavrachave{Palavra-chave3}
+\palavrachave{cimento}
+\palavrachave{consumo de cimento}
+\palavrachave{aprendizado de máquina}
+\palavrachave{aprendizado profundo}
+\palavrachave{redes neurais}
+\palavrachave{regressão linear}
+\palavrachave{inteligência artificial}
 
-\keyword{Keyword1}
-\keyword{Keyword2}
-\keyword{Keyword3}
+\keyword{cement}
+\keyword{cement consumption}
+\keyword{machine learning}
+\keyword{deep learning}
+\keyword{neural networks}
+\keyword{linear regression}
+\keyword{artificial intelligence}
 
 % O resumo é obrigatório, em português e inglês. Estes comandos também
 % geram automaticamente a referência para o próprio documento, conforme
 % as normas sugeridas da USP.
 \resumo{
-Elemento obrigatório, constituído de uma sequência de frases concisas e
-objetivas, em forma de texto. Deve apresentar os objetivos, métodos empregados,
-resultados e conclusões. O resumo deve ser redigido em parágrafo único, conter
-no máximo 500 palavras e ser seguido dos termos representativos do conteúdo do
-trabalho (palavras-chave). Deve ser precedido da referência do documento.
-Texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto.
-Texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto texto texto texto texto texto texto texto texto texto texto texto
-texto texto.
-}
+O cimento é um dos principais insumos da indústria da construção civil, um  
+grande impulsionador da economia brasileira. Nesse contexto, indústria 
+cimenteira apresenta a demanda por um método bem fundamentado para prever o 
+consumo no Brasil, para melhor direcionar estratégia e investimentos. Este trabalho, 
+então, propõe o uso de aprendizado de máquina para prever o 
+consumo de cimento no país, além de investigar o desempenho dos modelos para 
+identificar o mais eficiente para a tarefa. Os modelos recebem como entrada 
+indicadores econômicos, monetários, sociais e da construção civil correspondentes a 
+um estado em um mês específicos e têm o objetivo de prever o consumo de cimento 
+no mês seguinte nesse estado. Foram testadas  regressão linear, 
+redes \textit{feed forward}, redes recorrentes e redes bidirecionais. Foi realizada
+durante o trabalho 
+uma preparação dos dados para garantir a granularidade necessária, tratar
+de valores faltantes e assegurar que foram utilizados apenas dados do passado ao 
+realizar a previsão. Nos experimentos realizados para identificar o modelo com 
+melhor desempenho, destaca-se o aumento na assertividade das previsões $-$ mensurada
+a partir de métricas de erro absoluto e percentual $-$  à medida que 
+se eleva a complexidade do modelo. O modelo mais assertivo dentre os testados 
+neste trabalho é a rede neural bidirecional, que foi capaz de capturar a tendência 
+de evolução do consumo de cimento em São Paulo com precisão, além de realizar 
+as previsões mais assertivas dentre os modelos, 84.4\% das previsões do modelo
+apresentaram erro percentual inferior a 30\% e a média do erro percentual absoluto 
+foi de 17\%. Assim, o trabalho constata que é possível prever a demanda por 
+cimento com bastante assertividade ao utilizar modelos de aprendizado de máquina 
+e que a implementação dessa estratégia é viável nas indústrias.}
 
 \abstract{
 Elemento obrigatório, elaborado com as mesmas características do resumo em
