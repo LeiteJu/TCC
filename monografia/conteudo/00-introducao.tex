@@ -21,67 +21,48 @@ consequentemente, uma das grandes engrenagens responsáveis
 por movimentar a atividade econômica no Brasil. Em 2021, 
 por exemplo, o Produto Interno Bruto (PIB) desse setor 
 teve destaque com alta de 9,7\%, enquanto o PIB do Brasil cresceu 
-4,6\% e o PIB do Agronegócio registrou queda de 0,2\%. Dessa 
-forma, o setor da construção figura como importante 
+4,6\% e o do Agronegócio registrou queda de 0,2\%. Dessa 
+forma, e em consonância com \citet{cbic-report}, o setor de construção figura como importante 
 impulsionador da economia do país e como fonte de renda e de
-empregos, de acordo com \citet{cbic-report}.
+empregos.
 
-Nesse contexto, o cimento\footnote{O material conhecido na contrução 
+Tendo isso em vista, o cimento\footnote{O material conhecido na contrução 
 civil como cimento é denominado mundialmente como cimento de 
 \textit{portland}. Em 1824, construções com pedra de \textit{portland} eram 
 comuns na Inglaterra, por isso, o inventor do cimento, Joseph
 Aspdin, ao notar que sua invenção tinha aspecto similar ao 
 material tão difundido na época, optou por registrar a patente
-como "cimento de \textit{portland}". (\cite{boletim-cimento})} é uma das principais matérias
-primas da indústria da construção civil. Esse material é 
+como "cimento de \textit{portland}" (\cite{boletim-cimento}).}, que é uma das principais matérias
+primas da indústria da construção civil, é 
 um pó com propriedades aglomeramentes que endurece quando é 
 submetido à água. Após endurecer, não é 
 mais decomposto, mesmo em contato com a água, além disso,
-ao ser misturado com areia, pedra 
-britada, pó-de-pedra e cal, este cimento se torna argamassa ou
-concreto, utilizados em construções. (\cite{boletim-cimento})
+ao ser misturado com "[...]areia, a pedra britada, o pó-de-pedra, a cal" 
+\citet{boletim-cimento}, este cimento se torna argamassa ou
+concreto, utilizados em construções.\footnote{As informações técnicas sobre o processo de fabricação do cimento foram retiradas de \cite{boletim-cimento}.}
 
 \section*{Motivação}
 
-A falta de um modo bem fundamentado para prever o 
-consumo de cimento nos estados do Brasil é 
-uma demanda entre as empresas cimenteiras. Uma nova fábrica 
-representa para a empresa um alto investimento a longo prazo,
-uma vez que a contrução exige grande capital
-financeiro, além de tempo, por demorar anos para finalizar as obras. 
+É necessário considerar que a ampliação da produção de cimento representa para a empresa um alto investimento de recursos financeiros e de tempo a longo prazo, um exemplo que ilustra essa necessidade é o da fábrica construída pela Votorantim Cimentos no Complexo Industrial e Portuário do Pecém, no Ceará, cuja construção demorou três anos e custou cerca de 200 milhões de reais, conforme noticiado no portal do Instituto Brasileiro de Mineração\footnote{As informações sobre a construção dessa fábrica pela Votorantim foram retiradas de \cite{fabrica-noticia}.}. Além disso, o cimento é um produto que não suporta longos períodos de tempo em estoque, visto que a norma brasileira recomenda
+o uso em até 90 dias após a fabricação, o que reforça o fato de que a produção do material deva estar fortemente alinhada com o seu  
+consumo\footnote{As informações sobre o período adequado de armazenamento de cimento foram retiradas de \citet{abnt}.}.
 
-Um exemplo é a fábrica construída pela Votorantim Cimentos no Complexo 
-Industrial e Portuário do Pecém, no Ceará, cuja construção 
-demorou três anos e custou cerca de 200 milhões de reais, conforme 
-noticiado no portal do Instituto Brasileiro de Mineração 
-(\cite{fabrica-noticia}).
-Além disso, o cimento é um produto que não suporta longas 
-estadias em estoque, visto que a norma brasileira recomenda
-o uso em até 90 dias após a fabricação $-$ importante, então, que 
-a produção do material esteja fortemente alinhada ao 
-consumo, conforme \citet{abnt}.
-
-Assim, um modelo que permitisse prever a demanda por cimento a nível de 
-estados do Brasil poderia auxiliar gestores a tomar melhores 
-decisões e a estruturar a estratégia de forma mais embasada, de 
-modo a reduzir os riscos do setor. Com isso, seria possível apoiar órgãos 
-governamentais a direcionar ações para mitigar o impacto ambiental da
-fabricação desse produto, pontuado em \citet{meio-ambiente} como um grande emissor de 
-gases de efeito-estufa em escala mundial.
+Tendo em vista o que foi falado, um modelo que permitisse prever a demanda por cimento em cada  
+estado brasileiro poderia auxiliar gestores a tomar melhores 
+decisões e a estruturar as suas estratégias administrativas  de forma mais embasada, reduzindo os riscos do setor. Com isso, seria possível apoiar órgãos 
+governamentais a direcionar ações para mitigar o impacto ambiental advindo da
+fabricação desse produto\footnote{É importante ter em mente o que foi pontuado por \citet{meio-ambiente}, de que a fabricação do cimento é uma grande emissora de gases de efeito-estufa em escala mundial}.
 
 %valeu a pena a grana da votorantin?
 
 \section*{Objetivos}
 
-Este trabalho propõe o uso de modelos de aprendizado de máquina para prever o 
-consumo mensal de cimento nos estados do Brasil
-como solução a necessidade da indústria por um meio de prever a demanda 
-do material e investiga 
+Este trabalho propõe o uso de modelos de \textit{machine learning} para comprovar a possibilidade de prever o consumo mensal de cimento nos estados brasileiros e, também, discorrer mais especificamente sobre as previsões realizadas para o estado de São Paulo. Isso de forma a propor uma solução para a necessidade da indústria de prever a demanda 
+do material e investigar
 o desempenho de diferentes modelos para determinar qual é o mais eficiente. 
 Os algoritmos avaliados em ordem 
 crescente de complexidade e robustez são: 
-regressão linear, redes neurais \textit{feed forward} 
-e redes neurais recorrentes.
+regressão linear e redes neurais \textit{feed forward}, recorrentes e bidirecionais.
 
  
 %% ------------------------------------------------------------------------- %%
