@@ -12,10 +12,9 @@
 
 % melhorar.. só usar isso?
 
-Nesta seção 
-é feito um detalhamento dos dados utilizados que 
-abrange as fontes e as estratégias de preparação e de pré-processamento. 
-Também são descritas as 
+Nesta seção são detalhadas as fontes dos dados utilizados no 
+projeto e as estratégias de preparação e pré-processamento de 
+dados. São descritas, ainda, as 
 tecnologias utilizadas na implementação, as métricas estatísticas 
 usadas para mensurar o desempenho dos modelos e o método de
  avaliação dos modelos.
@@ -23,8 +22,13 @@ usadas para mensurar o desempenho dos modelos e o método de
 \section{Tecnologias utilizadas}
 
 Este projeto foi implementado na linguagem Python e 
-utilizando o ambiente de desenvolvimento interativo fornecido pelo Jupyter.
-Foram utilizadas as bibliotecas Pandas e NumPy para realizar a preparação dos dados,
+utilizando o ambiente de desenvolvimento interativo fornecido pelo Jupyter Notebook\footnote{O projeto Jupyter, cujo nome é originado da junção do nome das linguagens Julia, Python e R, provê um 
+ambiente de desenvolvimento iterativo baseado em \textit{web}. Nos \textit{notebooks}, é possível executar células de código 
+em várias linguagens, além de inserir células de Markdown para auxiliar na documentação, explicação e organização do código. Essas informações foram 
+retiradas de \url{https://jupyter-notebook.readthedocs.io/en/stable/notebook.html}.}.
+Foram utilizadas as bibliotecas Pandas\footnote{A Pandas é uma ferramenta \textit{open source} para análise e manipulação de dados em Python, informação retirada da documentação oficial em \url{https://pandas.pydata.org/about/index.html}.} e NumPy\footnote{
+Numpy é um pacote que provê operações matemáticas em vetores, segundo a documentação \url{https://numpy.org/doc/stable/}
+} para realizar a preparação dos dados,
 além da TensorFlow e Scikit-learn com o intuito de treinar e avaliar os modelos.
 A maior parte dos gráficos foram gerados por meio das bibliotecas 
 Seaborn e Matplotlib, contudo alguns foram contruídos por meio da plataforma
