@@ -52,3 +52,4 @@ de permitir a comparação entre variáveis com diferentes unidades e melhorar o
 namento dos algorimos de machine learning, uma vez que se as features estiverem em
 escalas diferentes alguns pesos podem ser atualizados mais rápidos que outros, segundo
 Raschka (2014
+- rever o fraude em normalização

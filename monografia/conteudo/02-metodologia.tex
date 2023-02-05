@@ -236,7 +236,7 @@ estivessem na mesma escala. Esse processo tem a finalidade de permitir a compara
 entre variáveis com diferentes unidades e melhorar o funcionamento dos 
 algorimos de \textit{machine learning}, uma vez que se as \textit{features} estiverem em escalas diferentes
 alguns pesos podem ser atualizados mais rápidos que outros, segundo \citet{Raschka}.
-Neste trabalho, foram testadas: normalização, 
+Tendo o que se disse em mente, foram testadas no presente trabalho: normalização, 
 \textit{min-max scaler} e \textit{power transformer}.
 
 \subsubsection{Normalização}
@@ -275,7 +275,7 @@ transformação de \citet{yeo} nas entradas.
 
 \section{Avaliação de performance}
 
-Para comparar a eficiência dos modelos mede-se os erros de 
+Para comparar a eficiência dos modelos, mede-se os erros de 
 cada previsão, ou seja, a distância entre o valor previsto 
 pelo algoritmo e o valor do dado real. Neste trabalho, 
 utilizou-se as seguintes métricas estatísticas para 
@@ -346,11 +346,11 @@ $\Delta$ é dada por:
 \section{Avaliação do desempenho do modelo}
 
 Neste trabalho, separou-se a massa de dados em conjunto de treino com 85\% 
-das entradas e teste com 15\% do conjunto. Esse método tem o objetivo de avaliar
-a capacidade de generalização do modelo. Por medir o desempenho em dados 
+das entradas e de teste com 15\% do conjunto. Esse método tem o objetivo de avaliar
+a capacidade de generalização do modelo e, por medir o desempenho em dados 
 desconhecidos pelo modelo, também permite avaliar a ocorrência de \textit{overfitting}\footnote{
 O \textit{overfitting} ocorre quando um modelo tem baixa capacidade de generalização, 
 então, apesar de apresentar baixa taxa de erro nos dados de treino, apresenta 
-desempenho ruim em dados não conhecidos.}. Não foi utilizado embaralhamento de dados, 
-então os modelos foram treinados com dados de janeiro de 2003 até junho de 2017
+desempenho ruim em dados não conhecidos.}. Levando isso em conta, não foi utilizado embaralhamento de dados, 
+logo, os modelos foram treinados com dados de janeiro de 2003 até junho de 2017,
 e testados com dados de julho de 2017 até dezembro de 2019.
