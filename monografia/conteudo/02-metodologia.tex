@@ -12,29 +12,26 @@
 
 % melhorar.. só usar isso?
 
-Nesta seção são detalhadas as fontes dos dados utilizados no 
+Nesta seção serão detalhadas as fontes dos dados utilizados no 
 projeto e as estratégias de preparação e pré-processamento de 
-dados. São descritas, ainda, as 
+dados. Serão descritas, ainda, as 
 tecnologias utilizadas na implementação, as métricas estatísticas 
 usadas para mensurar o desempenho dos modelos e o método de
  avaliação dos modelos.
 
 \section{Tecnologias utilizadas}
 
-Este projeto foi implementado na linguagem Python e 
-utilizando o ambiente de desenvolvimento interativo fornecido pelo Jupyter Notebook\footnote{O projeto Jupyter, cujo nome é originado da junção do nome das linguagens Julia, Python e R, provê um 
-ambiente de desenvolvimento iterativo baseado em \textit{web}. Nos \textit{notebooks}, é possível executar células de código 
+Neste projeto\footnote{Os códigos utilizados no projeto estão disponíveis em \url{https://github.com/LeiteJu/TCC}.} foi utilizada a linguagem Python e  o ambiente de desenvolvimento interativo fornecido pelo Jupyter Notebook\footnote{O projeto Jupyter, cujo nome é originado da junção do nome das linguagens Julia, Python e R, provê um 
+ambiente de desenvolvimento interativo baseado em \textit{web}. Nos \textit{notebooks}, é possível executar células de código 
 em várias linguagens, além de inserir células de Markdown para auxiliar na documentação, explicação e organização do código. Essas informações foram 
 retiradas de \url{https://jupyter-notebook.readthedocs.io/en/stable/notebook.html}.}.
 Foram utilizadas as bibliotecas Pandas\footnote{A Pandas é uma ferramenta \textit{open source} para análise e manipulação de dados em Python, informação retirada da documentação oficial em \url{https://pandas.pydata.org/about/index.html}.} e NumPy\footnote{
 Numpy é um pacote que provê operações matemáticas em vetores, segundo a documentação \url{https://numpy.org/doc/stable/}
 } para realizar a preparação dos dados,
 além da TensorFlow e Scikit-learn com o intuito de treinar e avaliar os modelos.
-A maior parte dos gráficos foram gerados por meio das bibliotecas 
+A maior parte dos gráficos foi gerada por meio das bibliotecas 
 Seaborn e Matplotlib, contudo alguns foram contruídos por meio da plataforma
 Microsoft Excel.
-
-Os códigos utilizados no projeto estão disponíveis em \url{https://github.com/LeiteJu/TCC}.
 
 \section{Dados}
 \label{sec:dados}
@@ -44,13 +41,13 @@ previsões.
 Neste trabalho, optou-se por utilizar dados de 2003 até 2019 para treinamento e 
 avaliação dos modelos, em virtude da disponibilidade dos dados de consumo mensal 
 de cimento. Além disso,
-adotou-se granularidade de dados
-mensal e por estado com o intuito de aumentar a quantidade de entradas disponíveis 
+adotou-se granularidade
+mensal e por estados de dados com o intuito de aumentar a quantidade de entradas disponíveis 
 para treinamento e avaliação dos modelos.
-Essa estratégia de aumentação de dados visa diminuir o risco de  
+Essa estratégia de aumento de dados, de acordo com \citet{Goodfellow-et-al-2016}, visa diminuir o risco de  
 \textit{underfitting}, que acontece quando o 
 modelo não é capaz de aprender com os dados e resulta em altos erros nas etapas de
-treinamento e teste, de acordo com \citet{Goodfellow-et-al-2016}.
+treinamento e teste.
 
 
 \subsection{Fontes}
@@ -76,7 +73,7 @@ e o período em que estavam disponíveis.
         PIB da construção civil      & IBGE\footref{portal ipea}  & 1985 até 2019      & anual por estado      \\
         Desemprego                   & IBGE\footref{portal ipea}  & 1991 até 2022      & irregular \footnote{Havia dados de 1992 até 2014
         com granularidade anual e por estado. A partir de 2012, foram disponibilizados dados mensais a nível de Brasil por conta da 
-        Pesquisa Nacional por Amostra de Domicílios (PNAD) Contínua realizada pelo IBGE. Neste trabalho, utilizou-se os dados anuais até 2012
+        Pesquisa Nacional por Amostra de Domicílios Contínua (PNAD Contínua) realizada pelo IBGE. Neste trabalho, utilizou-se os dados anuais até 2012
         e, após 2012, os dados provenientes da PNAD Contínua.} \\
         IPCA                        & IBGE\footnote{Dado retirado do IBGE em \url{https://sidra.ibge.gov.br/tabela/1737}}  & 1981 até 2021      & mensal para o Brasil      \\
         INCC                        & FGV\footnote{Dado obtido a partir do portal da FGV em \url{https://www.debit.com.br/tabelas/tabela-completa-pdf.php?indice=incc}}   & 1980 ate 2021      & mensal para o Brasil      \\
@@ -85,7 +82,7 @@ e o período em que estavam disponíveis.
         NFSP                        & BACEN\footref{portal ipea}  & 1991 até 2022      & mensal para o Brasil      \\
         Estoque líquido de capital fixo   & IPEA\footref{portal ipea}   & 1947 ate 2019      & anual para o Brasil      \\
         População                   & IBGE\footnote{Dado obtido do portal Base dos Dados em \url{https://basedosdados.org/dataset/br-ibge-populacao}}   & 1991 até 2021      & anual por estado      \\
-        IDH                         & IBGE\footref{portal ipea}   & 1991 ate 2017      & irregular\footnote{Os indicadores de IDH (Renda, Longevidade e Educação) estão disponíveis a nível de estados da União em anos de censo do IBGE (1990, 2000, 2010). Há 
+        IDH                         & IBGE\footref{portal ipea}   & 1991 ate 2017      & irregular\footnote{Os indicadores de IDH (Renda, Longevidade e Educação) estão disponíveis a nível de estado da União em anos de censo do IBGE (1990, 2000, 2010). Há 
         dados, também, de 2014 a 2017 por conta da PNAD Contínua.}      \\
         Produção mensal de cimento  & SNIC\footnote{\label{cbic} Dados retirados do portal \url{http://www.cbicdados.com.br/menu/materiais-de-construcao/cimento}}  & 2003 até 2022      & mensal por estado      \\
         Valor médio do cimento\footnote{Evolução do valor médio/mediano do cimento Portland 32 em US\$/Tonelada}      & SNIC\footref{cbic}   & 1947 ate 2019      & anual para o Brasil      \\
@@ -97,24 +94,22 @@ e o período em que estavam disponíveis.
 % quem sabe por a legenda no apendice
 
 Na tabela, são utilizadas siglas 
-para melhorar a legibilidade, uma descrição das abreviações utilizadas no 
-trabalho pode ser encontrada no início do documento, em Lista de Abreviaturas.
+para melhorar a legibilidade; uma descrição das abreviações utilizadas no 
+trabalho pode ser encontrada no início do documento, mais especificamente na Lista de Abreviaturas.
 
 \subsection{Preparação dos dados}
 
 Com o intuito de direcionar a estratégia de preparação de dados,
 foi realizada uma análise exploratória dos dados de 
 entrada e da variável resposta. 
-Foi identificada nessa análise, uma alta
-taxa de variação nos atributos,
-dessa forma, está presente nos dados um grande número de \textit{outliers}.
+Na análise em questão, foi identificada uma alta taxa de variação nos atributos, sendo possível a observância de um grande número de \textit{outliers} presente nos dados.
 De acordo com \citet{outliers} e \citet{tukey77}, \textit{outliers} são
 observações discrepantes do restante dos dados
 que podem interferir no processo de previsão. 
 
 Um exemplo de atributo com alta variação é o PIB da contrução civil,
 que apresenta desvio padrão maior que o valor médio dessa variável.
-Para ilustrar a distribuição dos pontos de dados desse indicador, utiliza-se 
+Para ilustrar a distribuição dos pontos de dados desse indicador, foi utilizado 
 um gráfico \textit{boxplot} na figura \ref{fig:boxplot_pibcc}.
 
 \begin{figure}[H]
@@ -126,7 +121,7 @@ um gráfico \textit{boxplot} na figura \ref{fig:boxplot_pibcc}.
 
 Segundo \citet{boxplot}, o \textit{boxplot} é
 uma técnica estatística utilizada para identificar visualmente padrões nos dados. 
-Na figura acima, a linha em laranja corresponde à mediana \footnote{Mediana é
+Na figura acima, a linha em laranja corresponde à mediana\footnote{Mediana é
 valor que fica no meio quando os dados estão ordenados ou a média
 dos dois valores centrais se o número de pontos de dados for par.
 (\cite{boxplot-stat})} 
@@ -143,10 +138,10 @@ nesse indicador.
 Parte do alto volume de \textit{outliers} nos atributos se deve às diferenças
 econômicas, geográficas e sociais entre os estados do Brasil. A saber, o valor 
 médio do PIB da construção civil no estado 
-de São Paulo é de $48,96$ milhões, enquanto em Santa Catarina é de $7,1$ milhões e 
-em Roraima, de $0,4$ milhões. Aliás, ao analisar o PIB da construção civil nas 
-regiões do país, há uma significativa redução no número de dados discrepantes, como 
-pode-se observar na figura abaixo.
+de São Paulo é de $48.96$ milhões, enquanto em Santa Catarina é de $7.1$ milhões e 
+em Roraima, de $0.4$ milhões. Aliás, ao analisar o PIB da construção civil nas 
+regiões do país, há uma significativa redução no número de dados discrepantes, como é possível
+pode observar na figura abaixo.
 
 \begin{figure}[H] 
     \centering
@@ -184,11 +179,11 @@ pode-se observar na figura abaixo.
     \caption{Comparação dos gráficos \textit{boxplot} entre as regiões}
   \end{figure}
 
-Além disso, analisou-se, a correlação entre as variáveis de entrada com o auxílio 
-de uma matriz de correlação. Foi identificada
+Além disso, a correlação entre as variáveis de entrada foi analisada com o auxílio 
+de uma matriz de correlação, o que gerou a identificação de uma 
 alta correlação entre os indicadores do PIB do estado, o PIB da construção
-civil e a população. Além disso, há correlação entre os três indicadores
-de IDH (Longevidade, Saúde e Renda) e entre o preço do saco de cimento e o preço do kilograma, como pode-se
+civil e o tamanho da população. Por fim, também foi observada a correlação entre os três indicadores
+de IDH (longevidade, saúde e renda) e entre o preço do saco de cimento e o preço do kilograma, como pode-se
 validar na figura \ref{fig:matriz-corr}.
 
 \begin{figure}[H]
@@ -198,38 +193,38 @@ validar na figura \ref{fig:matriz-corr}.
     \label{fig:matriz-corr}
 \end{figure}
 
-Foram adotadas estratégias para garantir dados na granularidade
+Foram adotadas estratégias para garantir que os dados estivessem na granularidade\footnote{A granularidade original dos dados está na tabela \ref{tab:indicadores}.}
 mensal e por estado. Caso os indicadores apresentassem granularidade anual, o valor de
-cada medição foi dividido por 12 de modo a obter a média mensal utilizada em 
+cada medição seria dividido por 12 de modo a obter a média mensal utilizada em 
 todos os meses do ano correspondente. Caso a granularidade
-fosse a nível de Brasil, o valor apresentado foi repetido para todos os 
-estados no mês e ano correspondente. As exceções foram os 
-indicadores de IDH por apresentarem valores apenas em anos específicos, conforme 
-detalhado em \ref{tab:indicadores}. Nesse caso, quando não havia dados para um 
-determinado ano foi repetido o valor da última medição.
+fosse a nível de Brasil, o valor apresentado seria repetido para todos os 
+estados no mês e ano correspondentes. As exceções foram os 
+indicadores de IDH, por apresentarem valores apenas em anos específicos, conforme 
+detalhado na tabela \ref{tab:indicadores}, quando não havia dados para um 
+determinado ano, o valor da última medição foi repetido.
 
-Também foi necessário lidar com dados faltantes, o método utilizado foi
+Também foi necessário lidar com dados faltantes e, para isso, o método utilizado foi
 repetir o último valor disponível nos dados de entrada para
-preencher a ocorrência faltante. Contudo, para a produção mensal de cimento e os 
-indicadores de evolução do preço do cimento foi utilizado um valor não 
+preencher a ocorrência faltante. Contudo, para a produção mensal de cimento e para os 
+indicadores de evolução do preço do cimento, foi utilizado um valor não 
 presente no intervalo dos dados de entrada (-1) para marcar as ocorrências 
 faltantes como nulo, uma vez que essas variáveis não apresentavam 
 valores mais antigos.
 
 Além disso, garantiu-se que a previsão
- utiliza dados dos meses anteriores e não do mês alvo da
+ utilizasse dados dos meses anteriores e não do mês alvo da
 previsão, uma vez que o objetivo do projeto é prever a demanda
 por cimento em um mês a partir dos dados disponíveis no mês anterior.
-Por isso, nos dados com granularidade anual, foi realizado um um 
+Por isso, nos dados com granularidade anual, foi realizado um 
 deslocamento de modo a associar as entradas de um ano ao consumo no 
-ano seguinte. Nos dados mensais, analogamente, deslocou-se as entradas 
+ano seguinte. Nos dados mensais, analogamente, deslocaram-se as entradas 
 para associá-las ao consumo no mês seguinte.
 
 Por fim, o estado correspondente à medição foi usado como dado de entrada. 
 Como os modelos de inteligência artificial aceitam apenas caracteres numéricos,
 utilizou-se o método de codificação \textit{one hot} para criar 27 colunas, uma
 para cada estado, nas quais o valor é um quando a linha possui dados daquele estado 
-e é zero caso contrário.
+e é zero em caso contrário.
 
 
 \subsection{Pré-processamento de dados}

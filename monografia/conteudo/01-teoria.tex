@@ -39,13 +39,13 @@ the increase in member retention. Over years of the development of personalizati
 improvements in retention} (\cite{netflix}).
 \end{quote}
 
-Mas afinal, o que é inteligência artificial? O termo, do
+Com base no que até agora foi exposto, o que seria inteligência artificial? O termo, do
 inglês \textit{artificial intelligence}, foi elaborado por John McCarthy e utilizado 
 oficialmente pela primeira vez em 1956 no seminário de 
 Dartmouth, um \textit{workshop} sobre a área que reuniu os 
 maiores estudiosos do ramo durante dois meses, de acordo com \cite{aima}.
 Em 1950, entretanto, Alan Turing já se perguntava se máquinas 
-poderiam pensar e desenvolvia estudos e conceitos no tema que permanecem relevantes,
+poderiam pensar e desenvolvia estudos e conceitos sobre o tema que permanecem relevantes,
 como o Teste de Turing\footnote{Em 1950, Alan Turing propôs o 
 Teste de Turing com a intenção de determinar se uma máquina era inteligente. Esse teste é uma variação 
 do Jogo da Imitação, em que um entrevistador deve fazer perguntas a dois jogadores, um 
@@ -53,32 +53,21 @@ humano e uma máquina, sem qualquer distinção. Ao final, o entrevistador deve
 descobrir qual dos jogadores é uma máquina e qual é a pessoa. Se 
 a máquina fosse capaz de enganar o entrevistador, seria considerada
 inteligente.(\cite{turing})}.
-O termo "inteligência artificial" pode ser utilizado com
+O termo \textit{artificial intelligence} 
+pode ser utilizado com
 várias conotações, uma vez que não apresenta uma definição 
-única e aceita conforme \citet{wang2019defining}. Uma possível definição
-é a ciência e engenharia de 
-construir máquinas inteligentes, em especial programas 
-de computador. Nesse contexto, inteligência é o aspecto
-computacional da habilidade de atingir objetivos, segundo \citet{what-is-ai}.
+única e aceita\footnote{Para um maior aprofundamento sobre a questão, WANG, Pei. On defining artificial intelligence. \textbf{Journal of Artificial General Intelligence}. Vol. 10, n. 2, p. 1-37, 2019. DOI: doi:10.2478/jagi-2019-0002. Disponível em: https://sciendo.com/article/10.2478/jagi-2019-0002. }. Uma possível definição do termo é a conferida por McCarthy: "The science and engineering of making intelligent machines, especially intelligent computer programs. [...]Intelligence is the computational part of the ability to achieve goals in the world" (McCarthy, 2007, p. 2)\footnote{"A ciência e engenharia de construir máquinas inteligentes, em especial programas de computador. [...] Inteligência é o aspecto computacional da abilidade de atingir os objetivos no mundo (McCarthy, 2007, p. 2, tradução nossa).}.
 
-\begin{quote}
-  \textit{"The science and
-  engineering of making intelligent machines, 
-  especially intelligent computer programs. (...)
-  Intelligence is the computational part of the ability 
-  to achieve goals in the world."} (\cite{what-is-ai})
-\end{quote}
-
-Em 1959, o pioneiro em IA Arthur Samuel\footnote{Arthur Samuel
-foi um engenheiro e um dos pioneiros em inteligência artificial e
-desenvolveu um programa que jogava damas com humanos e aprendia
+Em 1959, o pioneiro em IA, Arthur Samuel\footnote{Arthur Samuel
+foi um engenheiro e um dos pioneiros em inteligência artificial,
+tendo desenvolvido um programa que jogava damas com humanos e aprendia
 com cada jogada dos oponentes. O programa tornava suas jogadas mais 
 assertivas ao calcular as probabilidades de cada jogada e é 
 considerado uma das primeiras aplicações de \textit{machine learning}.
-} descreveu 
+}, descreveu 
 \textit{machine learning} como o campo de estudo que dá aos 
 computadores a habilidade de aprender sem serem especificamente
-programados. \textit{machine learning} ou \textit{machine learning}, 
+programados. \textit{Machine learning}, 
 portanto, compreende sistemas de inteligência 
 artificial capazes de adquirir seu próprio conhecimento 
 ao extrair padrões dos dados brutos, conforme \citet{Goodfellow-et-al-2016}.
@@ -87,8 +76,7 @@ sub-área da inteligência artificial.
 
 
 Já o aprendizado profundo, ou \textit{deep learning}, é uma 
-categoria específica de algoritmos de \textit{machine learning}. 
-Caracteriza-se por 
+categoria específica de algoritmos de \textit{machine learning}, caracterizando-se por 
 modelos que fazem processamento de dados com neurônios 
 matemáticos de forma a imitar o 
 funcionamento do cérebro humano (\cite{deeplearningbook}). Nesses algoritmos, a informação
@@ -115,10 +103,10 @@ Neste trabalho,  foram utilizados modelos de regressão, cujo objetivo é prever
 partir dos dados de entrada segundo \citet{Goodfellow-et-al-2016}.
 É possível, então, descrever cada \textit{input} dos modelos como um vetor $x$ com 
 $n$ atributos (\textit{features})\footnote{Neste trabalho, 
-as \textit{features} utilizadas são indicadores econômicos, monetários,
+os atributos utilizadas são indicadores econômicos, monetários,
 sociais e da construção civil descritos na seção \ref{sec:dados}.} tal que
 $x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$ e o 
-processamento realizado pelos modelos de regressão como $ f : \mathbb{R}^n \rightarrow \mathbb{R}$. 
+processamento realizado pelos modelos de regressão como $ f : \mathbb{R}^n \rightarrow \mathbb{R}$\footnote{As equações apresentadas neste subcapítulo foram retiradas de \cite{Goodfellow-et-al-2016}.}. 
 
 Os modelos de classificação, por outro lado, têm como objetivo 
 determinar a qual das $k$ categorias disponíveis um 
@@ -141,19 +129,18 @@ em \textit{clusters} com amostras similares. No segundo, por sua vez,
 os dados de entrada estão associados a resultados conhecidos, 
 chamados de \textit{labels} ou rótulos ainda conforme \citet{Goodfellow-et-al-2016}. Neste trabalho, utiliza-se aprendizado 
 supervisionado para prever o consumo de cimento mensal nos 
-estados da União a partir dos dados de entrada e compará-lo 
+estados da União a partir dos dados de entrada e compará-los 
 com o valor real 
 do consumo e, assim, calcular a precisão do modelo.
 
 \section{Modelos utilizados}
 
-Neste trabalho, utilizaram-se três categorias de modelos de aprendizado 
-de máquina para prever a demanda por cimento: regressão linear, redes
-neurais \textit{multilayer} e redes recorrentes. Foram testados, também,
- métodos de pré-processamento de dados (descritos na seção \ref{sec:norm_dados}) e  diferentes arquiteturas de 
+Para a produção desta pesquisa, foram utilizadas três categorias de modelos de \textit{machine learning} para prever a demanda por cimento: regressão linear, redes
+neurais \textit{feed forward} e redes recorrentes. Foram testados, também,
+ métodos de pré-processamento de dados\footnote{Os métodos de pré-processamento de dados são descritos na seção \ref{sec:norm_dados}.} e  diferentes arquiteturas de 
 redes neurais ao alterar o número de camadas, a quantidade de neurônios
 em cada camada, o tipo de camada, a função de ativação, entre outras
-configurações, com o objetivo de comparar 
+configurações, tudo isso com o objetivo de comparar 
 o desempenho dos modelos e encontrar o que apresenta menor erro na previsão.
 
 \subsection{Regressão linear}
@@ -165,7 +152,7 @@ Desse modo, seu objetivo é construir uma
 função que, para cada par\footnote{No
 caso deste estudo, o par  $(x,y)$ é tal que 
 $x$ representa o valor de cada
-indicador descrito na seção \ref{sec:dados} em um estado, mês e ano e 
+indicador descrito na seção \ref{sec:dados} em um estado, mês e ano, enquanto 
 $y$ corresponde ao número de toneladas de cimento consumidas
 por esse estado nessa data.} $(x,y)$, recebe como
 entrada o vetor $x$ que corresponde às variáveis de \textit{input},
@@ -195,9 +182,9 @@ a cada elemento da matriz $X$. Assim, o modelo
 \end{equation}
 
 Na equação \ref{eq:reg_lin}, $\epsilon$ é o vetor com o erro associado a cada umas 
-das previsões, tal que $\epsilon_i = y_i - \hat{y_i} = y - (\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k )$.
+das previsões; lembrando que $\epsilon_i$ é a i-ésima entrada do vetor $\epsilon$, assim como $\epsilon_i = y_i - \hat{y_i} = y - (\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k )$ .
 Os coeficientes $\beta$ são calculados durante o treinamento 
-do modelo utilizando o método do \textit{least squares estimation}
+do modelo utilizando o método do \textit{least squares estimation},
 que visa minimizar a soma do erro quadrado associado às previsões, 
 como descrito em:
 
@@ -207,12 +194,12 @@ como descrito em:
 \end{equation}
 
 Os coeficientes $\beta_1, \beta_2, \dots, \beta_k$ 
-determinam como cada atributo de entrada afeta a previsão.
+determinam como cada atributo de entrada afeta a previsão, no presente caso, o consumo de cimento.
 Por exemplo, se o coeficiente da variável $x_i$ for $\beta_i = 0$,
-essa variável não tem influência no valor previsto pelo modelo. 
-Caso o coeficiente seja positivo, por outro lado, um aumento 
-no valor de $x_i$ resulta em aumento no valor previsto $\hat{y_i}$,
-já se $\beta_i$ for negativo, um aumento no valor de $x_i$ se reflete na 
+essa variável não terá influência no valor previsto pelo modelo. 
+Caso o coeficiente seja positivo um aumento 
+no valor de $x_i$ resultará no aumento do valor previsto $\hat{y_i}$,
+já se $\beta_i$ for negativo, um aumento no valor de $x_i$  refletirá na 
 diminuição no valor de $\hat{y_i}$. 
 
 
@@ -229,10 +216,10 @@ linear com apenas uma variável:
 Na  figura \ref{fig:reg_lin}, as observações $y_i$ estão 
 representadas pelos pontos pretos, enquanto a linha em laranja
 corresponde à previsão realizada pelo modelo. Observa-se que
-o modelo não prevê com total exatidão os dados observados, há 
-um erro associado a cada previsão, como o destacado em verde 
-na ilustração, comportamento esperado, já que fenômenos previstos são 
-sujeitos a fatores externos e não lineares.
+o modelo não prevê com total exatidão os dados observados, isso porque há 
+um erro associado a cada previsão $-$ o que é comportamento esperado, já que fenômenos previstos são 
+sujeitos a fatores externos e não lineares $-$, como o destacado em verde 
+na ilustração.
 
 
 Por se tratar de um modelo mais simples, os resultados obtidos
