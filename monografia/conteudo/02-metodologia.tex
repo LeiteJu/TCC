@@ -19,20 +19,6 @@ tecnologias utilizadas na implementação, as métricas estatísticas
 usadas para mensurar o desempenho dos modelos e o método de
  avaliação dos modelos.
 
-\section{Tecnologias utilizadas}
-
-Neste projeto\footnote{Os códigos utilizados no projeto estão disponíveis em \url{https://github.com/LeiteJu/TCC}.} foi utilizada a linguagem Python e  o ambiente de desenvolvimento interativo fornecido pelo Jupyter Notebook\footnote{O projeto Jupyter, cujo nome é originado da junção do nome das linguagens Julia, Python e R, provê um 
-ambiente de desenvolvimento interativo baseado em \textit{web}. Nos \textit{notebooks}, é possível executar células de código 
-em várias linguagens, além de inserir células de Markdown para auxiliar na documentação, explicação e organização do código. Essas informações foram 
-retiradas de \url{https://jupyter-notebook.readthedocs.io/en/stable/notebook.html}.}.
-Foram utilizadas as bibliotecas Pandas\footnote{A Pandas é uma ferramenta \textit{open source} para análise e manipulação de dados em Python, informação retirada da documentação oficial em \url{https://pandas.pydata.org/about/index.html}.} e NumPy\footnote{
-Numpy é um pacote que provê operações matemáticas em vetores, segundo a documentação \url{https://numpy.org/doc/stable/}
-} para realizar a preparação dos dados,
-além da TensorFlow e Scikit-learn com o intuito de treinar e avaliar os modelos.
-A maior parte dos gráficos foi gerada por meio das bibliotecas 
-Seaborn e Matplotlib, contudo alguns foram contruídos por meio da plataforma
-Microsoft Excel.
-
 \section{Dados}
 \label{sec:dados}
 
@@ -115,7 +101,7 @@ um gráfico \textit{boxplot} na figura \ref{fig:boxplot_pibcc}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=9cm]{../figuras/graficos/boxplot-pib-cc.png}
-    \caption{Gráfico \textit{boxplot} do PIB da construção civil}
+    \caption{Gráfico \textit{boxplot} do PIB da construção civil construído a partir dos dados disponíveis no portal do IPEA, conforme descrito na tabela \ref{tab:indicadores}}
     \label{fig:boxplot_pibcc}
 \end{figure}
 
@@ -354,3 +340,17 @@ então, apesar de apresentar baixa taxa de erro nos dados de treino, apresenta
 desempenho ruim em dados não conhecidos.}. Levando isso em conta, não foi utilizado embaralhamento de dados, 
 logo, os modelos foram treinados com dados de janeiro de 2003 até junho de 2017,
 e testados com dados de julho de 2017 até dezembro de 2019.
+
+\section{Tecnologias utilizadas}
+
+Neste projeto\footnote{Os códigos utilizados no projeto estão disponíveis em \url{https://github.com/LeiteJu/TCC}.} foi utilizada a linguagem Python e  o ambiente de desenvolvimento interativo fornecido pelo Jupyter Notebook\footnote{O projeto Jupyter, cujo nome é originado da junção do nome das linguagens Julia, Python e R, provê um 
+ambiente de desenvolvimento interativo baseado em \textit{web}. Nos \textit{notebooks}, é possível executar células de código 
+em várias linguagens, além de inserir células de Markdown para auxiliar na documentação, explicação e organização do código. Essas informações foram 
+retiradas de \url{https://jupyter-notebook.readthedocs.io/en/stable/notebook.html}.}.
+Foram utilizadas as bibliotecas Pandas\footnote{A Pandas é uma ferramenta \textit{open source} para análise e manipulação de dados em Python, informação retirada da documentação oficial em \url{https://pandas.pydata.org/about/index.html}.} e NumPy\footnote{
+Numpy é um pacote que provê operações matemáticas em vetores, segundo a documentação \url{https://numpy.org/doc/stable/}
+} para realizar a preparação dos dados,
+além da TensorFlow e Scikit-learn com o intuito de treinar e avaliar os modelos.
+A maior parte dos gráficos foi gerada por meio das bibliotecas 
+Seaborn e Matplotlib, contudo alguns foram contruídos por meio da plataforma
+Microsoft Excel.

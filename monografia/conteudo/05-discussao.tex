@@ -5,55 +5,48 @@
 \chapter{Discussão}
 \label{chap:discussao}
 
-Neste trabalho, para comparar o desempenho dos modelos, 
- será utilizada a diferença entre 1 e o valor da MAPE de um 
-modelo como métrica de assertividade, com o objetivo de mensurar o grau 
-de acerto das previsões.
+Nesta dissertação, a diferença entre 1 e o valor da MAPE de um 
+modelo foi empregada como métrica de assertividade, com o propósito de 
+mensurar o grau de acerto das previsões. 
 
-Na análise dos experimentos realizados, é possível observar que à medida que 
-se eleva a complexidade do modelo, mais assertivas as previsões se mostram,
-como o esperado. As redes \textit{feed forward} acrescentam à regressão linear
+Durante a análise dos experimentos realizados, foi possível observar que as previsões se tornaram mais assertivas à medida que se elevou a complexidade do modelo. Essa melhora nas previsões indicou que não houve sintomas de falta de dados e era esperada, visto que as redes \textit{feed forward} acrescentaram à regressão linear
 a capacidade de reconhecer padrões não lineares nos dados por meio do 
-processamento matemático realizado nas camadas de neurônios. As redes neurais 
-recorrentes, por sua vez, adicionam a capacidade de identificar contexto 
-histórico e sequências. Por fim, as redes bidirecionais agregam a habilidade 
-de fazer análises nos dois sentidos das sequências.
+processamento matemático realizado nas camadas de neurônios. As redes 
+recorrentes, de maneira análoga, adicionaram às redes \textit{feed forward} a capacidade de identificar contexto histórico e sequências e, por fim, as redes bidirecionais agregaram às recorrentes a habilidade de avaliar as entradas nos dois sentidos das sequências. 
 
-A regressão linear é o modelo mais simples utilizado neste trabalho e, apesar
+A regressão linear é o modelo mais simples empregado neste estudo e, apesar
 de apresentar as previsões menos exatas entre os modelos, obteve 68\% de 
-assertividade. O erro absoluto médio desse modelo é de 26.4 mil toneladas
-e ainda que pareça um valor alto, em comparação com as 151.2 mil toneladas de cimento
-consumidas em média por mês no Brasil, representa uma taxa de erro aceitável.
+assertividade. Seu erro absoluto médio foi de 26.4 mil toneladas, uma taxa de erro aceitável ao levar em consideração que a média de consumo mensal de cimento no Brasil é de 151.2 mil toneladas.
 
-O processamento mais robusto das redes \textit{feed forward} em virtude das 
-camadas de neurônios resultou em uma assertividade de 73\% em média, um aumento 
+O processamento mais robusto das redes \textit{feed forward}, conferido pelas 
+camadas de neurônios, resultou em uma assertividade de 73\% em média, um aumento 
 de 5\% em relação à regressão linear. Essa melhora, contudo, não se refletiu 
-no erro absoluto que foi de 26.9 mil toneladas, houve, também, um provável
+no erro absoluto que foi de 26.9 mil toneladas e houve um provável
 aumento nos \textit{outliers} $-$ amostras cuja previsão foi distante do valor 
 real $-$ indicado pelo aumento da RMSE.
 
 A capacidade de analisar contexto histórico garantida às redes recorrentes pela 
 arquitetura complexa teve como consequência uma assertividade de 81\%, uma melhora 
 de 8\% em comparação com as redes \textit{feed forward} e de 13\% em comparação 
-com a regressão linear. O impacto também se refletiu no erro absoluto que 
-reduziu para 22.7 mil toneladas, ou seja, a rede apresentou um melhor desempenho 
-tanto ao considerar o valor absoluto do erro, quanto ao comparar o tamanho do 
-erro com o tamanho do resultado que o modelo pretendia prever.
+com a regressão linear. Do mesmo modo, o impacto se refletiu na redução do  erro absoluto para 22.7 mil toneladas, ou seja, a rede apresentou um melhor desempenho 
+tanto ao considerar o valor absoluto do erro, quanto 
+ao comparar a proporção do erro em relação ao resultado que o modelo pretendia prever.
 
 Por fim, as duas redes combinadas conferiram às redes bidirecionais uma 
 assertividade de 83\% em média, um aumento de 2\% em relação às redes recorrentes e de
-15\% em relação à regressão linear. O erro absoluto também foi o menor entre 
-os modelos testados no estudo, 19.1 mil toneladas, além disso houve menor 
+15\% em relação à regressão linear. Além disso, erro absoluto foi o menor entre 
+os modelos testados no estudo $-$ 19.1 mil toneladas $-$, e houve menor 
 incidência de previsões muito discrepantes do valor real, uma vez houve queda
-na RMSE. Esse modelo também apresenta uma boa capacidade de generalização, 
-já que apresenta 12.6\% de erro no conjunto de treino e 17.4\% no de teste,
+na RMSE. Esse modelo também apresentou uma boa capacidade de generalização, 
+haja vista que apresentou 12.6\% de erro no conjunto de treino e 17.4\% no de teste,
 ou seja, um baixo \textit{overfitting}.
 
-Assim, a capacidade de analisar contexto histórico nos dois sentidoos das redes
-neurais bidirecionais configura-se como diferencial e garante ao modelo o 
-melhor desempenho entre os modelos testados. Ainda que as previsões desse modelo 
+Assim, a capacidade de analisar contexto histórico nos dois sentidos das redes
+neurais bidirecionais configurou-se como diferencial e garantiu ao modelo o 
+melhor desempenho entre os testados. Ainda que as previsões desse modelo 
 não coincidam exatamente com os dados reais de consumo, esse comportamento é 
 esperado, uma vez que esse indicador é sujeito a 
 influências externas não mensuráveis pelo modelo, como políticas governamentais
 em um estado específico, ocorrências climáticas, grandes obras da indústria
 privada, entre outros fatores.
+
