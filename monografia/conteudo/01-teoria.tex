@@ -58,30 +58,23 @@ pode ser utilizado com
 várias conotações, uma vez que não apresenta uma definição 
 única e aceita\footnote{Para um maior aprofundamento sobre a questão, WANG, Pei. On defining artificial intelligence. \textbf{Journal of Artificial General Intelligence}. Vol. 10, n. 2, p. 1-37, 2019. DOI: doi:10.2478/jagi-2019-0002. Disponível em: https://sciendo.com/article/10.2478/jagi-2019-0002. }. Uma possível definição do termo é a conferida por McCarthy: "The science and engineering of making intelligent machines, especially intelligent computer programs. [...]Intelligence is the computational part of the ability to achieve goals in the world" (\citealt[][p.2]{what-is-ai})\footnote{"A ciência e engenharia de construir máquinas inteligentes, em especial programas de computador. [...] Inteligência é o aspecto computacional da abilidade de atingir os objetivos no mundo (\citealt[][p.2]{what-is-ai}, tradução nossa).}.
 
-Em 1959, o pioneiro em IA, Arthur Samuel\footnote{Arthur Samuel
+
+Conforme relembra \citet{dl-oreilly}, o pioneiro em IA, Arthur Samuel\footnote{Arthur Samuel
 foi um engenheiro e um dos pioneiros em inteligência artificial,
 tendo desenvolvido um programa que jogava damas com humanos e aprendia
-com cada jogada dos oponentes. O programa tornava suas jogadas mais 
+com cada jogada dos oponentes. \citet{dl-oreilly} ainda explicam que o programa tornava suas jogadas mais 
 assertivas ao calcular as probabilidades de cada jogada e é 
 considerado uma das primeiras aplicações de \textit{machine learning}.
-}, descreveu 
-\textit{machine learning} como o campo de estudo que dá aos 
-computadores a habilidade de aprender sem serem especificamente
-programados. \textit{Machine learning}, 
-portanto, compreende sistemas de inteligência 
-artificial capazes de adquirir seu próprio conhecimento 
-ao extrair padrões dos dados brutos, conforme \citet{Goodfellow-et-al-2016}.
-\textit{Machine learning}, então, configura-se como uma 
-sub-área da inteligência artificial.
+}, descreveu em 1959
+\textit{machine learning} como o setor de pesquisa que proporciona aos computadores a capacidade realizar tarefas sem serem diretamente programados para isso. \textit{Machine learning}, 
+então, configura-se como uma 
+sub-área da inteligência artificial e compreende sistemas capazes de adquirir seu próprio conhecimento a partir de dados, como explica \citet{Goodfellow-et-al-2016}.
 
+\textit{Machine learning} ainda apresenta uma categoria particular de modelos que realizam um processamento de dados inspirado no 
+funcionamento do cérebro humano, por meio de neurônios matemáticos, de acordo com \citet{deeplearningbook}. Conhecidos como \textit{deep learning}, esses 
+modelos são redes neurais onde a informação é passada de uma camada para a 
+outra até obter a resposta final.
 
-Já o aprendizado profundo, ou \textit{deep learning}, é uma 
-categoria específica de algoritmos de \textit{machine learning}, caracterizando-se por 
-modelos que fazem processamento de dados com neurônios 
-matemáticos inspirados no 
-funcionamento do cérebro humano (\cite{deeplearningbook}). Nesses algoritmos, a informação
-é passada de camada em camada até obter a saída. Trata-se, portanto,
-de redes neurais com várias camadas ocultas de neurônios (\cite{d2l}). 
 
 A relação entre inteligência artificial, aprendizado de 
 máquina e aprendizado profundo pode ser vista na 
@@ -90,7 +83,7 @@ imagem \ref{fig:ia_ml}.
 
 \begin{figure}[H] 
   \includegraphics[width= 10cm]{../figuras/ia_ml.png}
-  \caption{Relação entre inteligência artificial, \textit{machine learning} e aprendizado profundo (\cite{dl-oreilly})}
+  \caption{Relação entre inteligência artificial, \textit{machine learning} e aprendizado profundo (\citealt[][p.4]{dl-oreilly})}
   \label{fig:ia_ml}
 \end{figure}
 
@@ -208,8 +201,7 @@ linear com apenas uma variável:
 
 \begin{figure}[H] 
   \includegraphics[width= 10cm]{../figuras/reg_lin.png}
-  \caption{Exemplo de um modelo simples de regressão linear
-  (\cite{forecasting})}
+  \caption{Exemplo de um modelo simples de regressão linear. Imagem retirada de \citet{forecasting} e disponível em \url{https://otexts.com/fpp3/regression-intro.html}}
   \label{fig:reg_lin}
 \end{figure}
 
@@ -242,7 +234,7 @@ um axônio e um corpo celular, como ilustrado na figura \ref{fig:neuron}.
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/neuron.png}
-  \caption{Ilustração de um neurônio biológico (\cite{dl-oreilly})}
+  \caption{Ilustração de um neurônio biológico (\citealt[][p.44]{dl-oreilly})}
   \label{fig:neuron}
 \end{figure}
 
@@ -284,7 +276,7 @@ outro modelo de neurônio, como o ilustrado na imagem \ref{fig:perceptron}.
   \begin{subfigure}{7cm}
     \centering 
     \includegraphics[width=7cm]{../figuras/perceptron-simples.png}
-    \caption{Visão simplificada de um neurônio (\cite{deeplearningbook})}
+    \caption{Visão simplificada de um neurônio. Imagem retirada de \citet{deeplearningbook} e disponível em \url{https://www.deeplearningbook.com.br/o-perceptron-parte-1/}}
     \label{fig:perceptron-simples}
   \end{subfigure}
   \hfill
@@ -292,7 +284,7 @@ outro modelo de neurônio, como o ilustrado na imagem \ref{fig:perceptron}.
     \centering
     \includegraphics[width=7cm]{../figuras/perceptron.png}
     \caption{Ilustração da arquitetura de um 
-    neurônio artificial (\cite{dl-oreilly})}
+    neurônio artificial (\citealt[][p.50]{dl-oreilly})}
     \label{fig:perceptron}
   \end{subfigure}
   \caption{Neurônios artificiais}

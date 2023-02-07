@@ -4,7 +4,7 @@
 [ok] colocar a pág no McCarthy da definição de I.A.
 -> quando  foi citar no documento (sem ser nas refs)
 
-[ ] machine learning -> ver de onde tirou pra saber se e plagio -> por entre aspas tipo IA 
+[ok] machine learning -> ver de onde tirou pra saber se e plagio -> por entre aspas tipo IA 
 [ ] ver se não é plagio
 á o aprendizado profundo, ou deep learning, é uma categoria específica de algoritmos
 de machine learning, caracterizando-se por modelos que fazem processamento de dados
@@ -58,5 +58,5 @@ Raschka (2014
 [ \citealt[][p.2]{what-is-ai}] rever o fraude em normalização
 
 
-[ \citealt[][p.2]{what-is-ai}] discussão
+[ok] discussão
 -> mudar pro passado
