@@ -70,10 +70,9 @@ considerado uma das primeiras aplicações de \textit{machine learning}.
 então, configura-se como uma 
 sub-área da inteligência artificial e compreende sistemas capazes de adquirir seu próprio conhecimento a partir de dados, como explica \citet{Goodfellow-et-al-2016}.
 
-\textit{Machine learning} ainda apresenta uma categoria particular de modelos que realizam um processamento de dados inspirado no 
-funcionamento do cérebro humano, por meio de neurônios matemáticos, de acordo com \citet{deeplearningbook}. Conhecidos como \textit{deep learning}, esses 
-modelos são redes neurais onde a informação é passada de uma camada para a 
-outra até obter a resposta final.
+A área de \textit{machine learning} ainda apresenta uma categoria particular de modelos que realizam um processamento de dados inspirado no 
+funcionamento do cérebro humano, as redes neurais. De acordo com 
+\citet{deeplearningbook}, esses algoritmos são conhecidos como \textit{deep learning} e repassam a informação por meio de neurônios matemáticos de camada em camada até obter a resposta final.
 
 
 A relação entre inteligência artificial, aprendizado de 
@@ -91,36 +90,35 @@ imagem \ref{fig:ia_ml}.
  
 Os modelos de \textit{machine learning} podem realizar várias categorias 
 de tarefas, dentre elas a regressão e a classificação, a 
-depender da atividade realizada pelo algoritmo.
-Neste trabalho,  foram utilizados modelos de regressão, cujo objetivo é prever um valor real a 
-partir dos dados de entrada segundo \citet{Goodfellow-et-al-2016}.
-É possível, então, descrever cada \textit{input} dos modelos como um vetor $x$ com 
-$n$ atributos (\textit{features})\footnote{Neste trabalho, 
+depender da atividade realizada pelo algoritmo. Os modelos de regressão têm como objetivo é prever um valor real a 
+partir dos dados de entrada, segundo \citet{Goodfellow-et-al-2016}.
+É possível, então, descrever cada entrada (\textit{input}) dos modelos como um vetor $x$ com 
+$n$ atributos (\textit{features})\footnote{Neste estudo, 
 os atributos utilizadas são indicadores econômicos, monetários,
 sociais e da construção civil descritos na seção \ref{sec:dados}.} tal que
 $x \in \mathbb{R}^n , x=\{x_1, x_2, ..., x_n\}$ e o 
-processamento realizado pelos modelos de regressão como $ f : \mathbb{R}^n \rightarrow \mathbb{R}$\footnote{As equações apresentadas neste subcapítulo foram retiradas de \cite{Goodfellow-et-al-2016}.}. 
+processamento realizado pelos modelos de regressão com a função\footnote{As equações apresentadas neste subcapítulo foram retiradas de \cite{Goodfellow-et-al-2016}.} $ f : \mathbb{R}^n \rightarrow \mathbb{R}$. 
 
-Os modelos de classificação, por outro lado, têm como objetivo 
+Os modelos de classificação, doutro modo, têm como objetivo 
 determinar a qual das $k$ categorias disponíveis um 
-\textit{input} pertence (\cite{dl-oreilly}). Dessa forma, é utilizada uma função  
+\textit{input} pertence, conforme explica \citet{dl-oreilly}. Então, é utilizada uma função  
 $ f : \mathbb{R}^n \rightarrow \{1,...,k\}$, quando 
 $ f(x) = y$, o vetor de entrada $x$ foi classificado 
 na categoria $y$. Um exemplo de tarefa de classificação
 seria determinar se uma operação com cartão de crédito 
-é fraudulenta ou não. Neste trabalho, contudo, não foi empregado 
-tal tipo de modelo. 
+é fraudulenta ou não; neste trabalho, contudo, não foi empregado 
+tal tipo de modelo, apenas modelos de regressão. 
 
-Os problemas de 
+Ainda conforme \citet{Goodfellow-et-al-2016}, os problemas de 
 \textit{machine learning} também podem ser divididos entre
 aprendizado não-supervisionado e supervisionado. No primeiro, 
 o modelo recebe um conjunto de dados (\textit{dataset}) não 
-rotulado e aprende propriedades da estrutura dos dados. 
-Um exemplo de aprendizado não supervisionado é a clusterização,
+rotulado e aprende propriedades de sua estrutura. 
+Um exemplo de aprendizado não supervisionado é o \textit{clustering},
 que consiste em dividir o conjunto de dados
-em \textit{clusters} com amostras similares. No segundo, por sua vez, 
+em agrupamentos (\textit{clusters}) com amostras similares. No segundo, por outro lado, 
 os dados de entrada estão associados a resultados conhecidos, 
-chamados de \textit{labels} ou rótulos ainda conforme \citet{Goodfellow-et-al-2016}. Neste trabalho, utiliza-se aprendizado 
+chamados de \textit{labels} ou rótulos. Neste estudo, utiliza-se aprendizado 
 supervisionado para prever o consumo de cimento mensal nos 
 estados da União a partir dos dados de entrada e compará-los 
 com o valor real 
@@ -140,26 +138,27 @@ o desempenho dos modelos e encontrar o que apresenta menor erro na previsão.
 \label{sec:reg_lin}
 
 A regressão linear é um modelo de \textit{machine learning} que assume um relacionamento
-linear entre a variável que será prevista (\textit{target}) e os dados de entrada.
-Desse modo, seu objetivo é construir uma 
+linear entre a variável que será prevista (\textit{target}) e os dados de entrada, conforme explica \citet{forecasting}.
+Desse modo, o intuito é construir uma 
 função que, para cada par\footnote{No
 caso deste estudo, o par  $(x,y)$ é tal que 
 $x$ representa o valor de cada
 indicador descrito na seção \ref{sec:dados} em um estado, mês e ano, enquanto 
 $y$ corresponde ao número de toneladas de cimento consumidas
 por esse estado nessa data.} $(x,y)$, recebe como
-entrada o vetor $x$ que corresponde às variáveis de \textit{input},
+entrada o vetor $x$ correspondente às variáveis de \textit{input},
 $x \in \mathbb{R}^k , x=\{x_1, x_2, ..., x_k\}$ e calcula coeficientes
 $\beta = \{\beta_0, \beta_1, \dots, \beta_k\}$ para cada atributo de $x$,
 além da constante $\beta_0$. O algoritmo, então, utiliza esses coeficientes para
-prever um valor para a variável \textit{target}, $y$, sendo 
-que $y \in \mathbb{R}$, de acordo com \citet{forecasting}. Seja,
+prever o valor da variável \textit{target}, $y$, sendo 
+que $y \in \mathbb{R}$. Seja,
 então, $\hat{y}$ o valor previsto pelo modelo para um 
 par $(x, y)$, a função que descreve a 
-regressão linear, então, é dada por
+regressão linear, então, é dada pela equação \ref{eq:lse}
 
 \begin{equation}
   \hat{y} = f(x) = \beta_0 + \beta_1 x_{1_i} + \beta_2 x_{2_i} + \dots + \beta_k x_{k_i} 
+  \label{eq:lse}
 \end{equation}
 
 Logo, é possível contruir uma matriz $X$ em que a linha $i$
@@ -209,7 +208,7 @@ Na  figura \ref{fig:reg_lin}, as observações $y_i$ estão
 representadas pelos pontos pretos, enquanto a linha em laranja
 corresponde à previsão realizada pelo modelo. Observa-se que
 o modelo não prevê com total exatidão os dados observados, isso porque há 
-um erro associado a cada previsão $-$ o que é comportamento esperado, já que fenômenos previstos são 
+um erro associado a cada previsão $-$ o que é um comportamento esperado, já que fenômenos previstos são 
 sujeitos a fatores externos e não lineares $-$, como o destacado em verde 
 na ilustração.
 
@@ -220,16 +219,17 @@ para comparar o desempenho de modelos mais robustos.
 
 \subsection{Redes neurais}
 
-Redes neurais são modelos computacionais inspirados no funcionamento
-do cérebro animal. O cérebro é formado por neurônios que se
+Redes neurais são modelos de \textit{machine learning} inspirados no funcionamento
+do cérebro animal, formado por neurônios que se
 conectam para transmitir informações sem a necessidade de 
-uma unidade central de controle. Um neurônio biológico, então, 
+controle central, segundo \citet{deeplearningbook} e \citet{dl-oreilly}. Um neurônio biológico, então, 
 é uma célula nervosa que se comunica com outros neurônios 
 por meio de impulsos eletroquímicos. Essa comunicação é 
 denominada sinapse e ocorre apenas se o impulso 
 for forte o bastante para ativar a liberação de
-químicos na fenda sináptica (\cite{deeplearningbook}). 
-Um neurônio é composto por vários dendritos, 
+químicos na fenda sináptica. 
+
+Um neurônio biológicoé composto por vários dendritos, 
 um axônio e um corpo celular, como ilustrado na figura \ref{fig:neuron}. 
 
 \begin{figure}[H] 
@@ -252,7 +252,7 @@ na forma de impulsos elétricos e são responsáveis
 por conduzí-las até o corpo celular. 
 Ao chegar ao local, a informação é processada, e novos 
 impulsos são gerados e repassados a outro neurônio 
-por meio do axônio no processo de sinapse, segundo \cite{fund_deep_learning}.
+por meio do axônio no processo de sinapse, segundo \citet{fund_deep_learning} e  \citet{deeplearningbook}.
 A estrutura e funcionamento dos neurônios biológicos inspiraram
 os cientistas ao projetarem neurônios artificiais, como 
 os \textit{perceptrons}. 
@@ -265,8 +265,7 @@ Rosenblatt, inspirado nos trabalhos de Warren McCulloch e Walter Pitts\footnote{
 primeira ideia de neurônio artificial.(\cite{neuronio})}.
 Trata-se de um modelo linear de classificação que 
 recebe $n$ entradas e produz uma saída binária, como mostrado 
-na ilustração simplificada \ref{fig:perceptron-simples} (\cite{deeplearningbook}).
-Esse modelo inicial apresentava limitações e passou por evoluções com o passar do 
+na ilustração simplificada \ref{fig:perceptron-simples}. Ainda de acordo com \citet{deeplearningbook}, esse modelo inicial apresentava limitações e passou por evoluções com o passar do 
 tempo. Apesar disso, as redes neurais atualmente utilizam, em geral,
 outro modelo de neurônio, como o ilustrado na imagem \ref{fig:perceptron}.
 
@@ -296,18 +295,17 @@ $x_i$, cada uma associada a um peso $w_i$, que expressa
 a importância da respectiva entrada para o valor de saída\footnote{ 
 O peso atribuído a uma das entradas expressa a influência
 desta no \textit{output} do nó, de modo similar aos coeficientes calculados 
-para cada atributo da regressão linear, explicada na seção \ref{sec:reg_lin}}.
-O produto escalar entre os pesos e as respectivas entradas
+para cada atributo da regressão linear, explicada na seção \ref{sec:reg_lin}},
+oproduto escalar entre os pesos e as respectivas entradas
  passa por uma função de 
 ativação\footnote{Um detalhamento sobre as funções de 
-ativação pode ser encontrado na seção \ref{sec:funcao_ativacao}} 
+ativação pode ser encontrado na subseção \ref{sec:funcao_ativacao}} 
 $\phi$ que determina a saída do neurônio. 
-Além disso, um valor de \textit{bias} ou polarização é
+Além disso, ainda segundo \citet{deeplearningbook} e \citet{dl-oreilly}, um valor de \textit{bias} ou polarização é
 adicionado ao produto escalar e possibilita que 
 um neurônio com todas as entradas nulas
 apresente saída não nula, de modo a
 aumentar a capacidade de aproximação da rede. 
-(\cite{deeplearningbook})
 
 % É possível, então, traçar um paralelo entre o neurônio
 % artificial e o biológio. Em primeiro lugar, as entradas 
@@ -344,23 +342,23 @@ como ilustrado na figura \ref{fig:redeneural}:
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/redes/rede_mlp.png}
-  \caption{Ilustração de uma rede neural (\cite{neuralnetworksanddeeplearning})}
+  \caption{Ilustração de uma rede neural obtida de 
+  \citet{neuralnetworksanddeeplearning}} 
   \label{fig:redeneural}
 \end{figure}
 
 A imagem \ref{fig:redeneural} representa uma simplificação de uma 
-rede neural. Pode-se observar o fluxo da informação, primeiro recebida pelos 
-neurônios de uma camada, então processada nessas unidades e, por fim, repassada à camada 
-seguinte, até obter a saída final da rede. Em particular, é representada uma
+rede neural. A informação chega a uma camada da rede, é processada pelo neurônios e repassada para a camada seguinte, até obter a saída final. Em particular, é representada uma
 rede \textit{feed forward}, uma vez que não há conexões entre neurônios de uma 
 mesma camada nem conexões entre uma camada e a anterior. A informação então 
 se propaga apenas no sentido da camada de entrada em direção à final, de saída.
+
 
 Além disso, em \ref{fig:redeneural}, é ilustrada uma rede neural \textit{multilayer}.
 Conforme a figura, a camada mais à esquerda da rede é 
 denomida \textit{input layer}, a camada mais à direita, de \textit{output layer},
 e as camadas intermediárias são chamadas \textit{hidden layers}.
-Por razões históricas, é possível encontrar referências a essas redes como
+Por razões históricas, de acordo com \citet{neuralnetworksanddeeplearning}, é possível encontrar referências a essas redes como
 \textit{multilayer perceptron}, contudo, as redes em geral
 utilizam neurônios sigmóides ao invés de \textit{perceptrons}.
 
@@ -371,14 +369,14 @@ A função de ativação determina se um neurônio será ativado, ou seja,
 se a saída será propagada para a camada seguinte. Enquanto os pesos 
 e o \textit{bias} realizam uma transformação linear nos dados 
 de entrada, a função de ativação aplica uma transformação não
-linear. Assim, possibilita que a rede neural resolva
+linear, assim, possibilita que a rede neural resolva
 problemas não lineares e complexos, como reconhecer padrões de 
 escrita, de acordo com \citet{deeplearningbook} e \citet{zhang2021dive}. 
 
 A função de ativação é um atributo de cada uma das camadas 
 da rede e é escolhida de acordo com a tarefa que será 
 executada. Por exemplo, a função sigmóide é recomendada
- para problemas de classificação. Neste trabalho, 
+ para problemas de classificação. Neste estudo, 
 foram utilizadas as funções \textit{rectified linear unit} (ReLU) e \textit{swish}.
 
 \subsubsection{\textit{Rectified linear unit} (ReLU)}
@@ -391,8 +389,8 @@ em diferentes tarefas, conforme \citet{dl-oreilly}. A função ReLU é dada por:
   f(x) = max(0,x)
 \end{equation}
 
-Por possuir derivada igual a zero ou a uma constante, a ReLU não sofre do problema da dissipação do gradiente\footnote{Um 
-detalhamento sobre o problema da dissipação do gradiente será dado na seção \ref{sec:vanishing_gradient_problem}.} como
+Ainda segundo \citet{dl-oreilly}, por possuir derivada igual a zero ou a uma constante, a ReLU não sofre do problema da dissipação do gradiente\footnote{Um 
+detalhamento sobre o problema da dissipação do gradiente será dado na subseção \ref{sec:vanishing_gradient_problem}.} como
 outras funções de ativação, 
 uma vez que a derivada é utilizada nos modelos de \textit{machine learning}
 para atualizar os pesos e \textit{bias} no treinamento da rede.
@@ -408,7 +406,7 @@ O gráfico da função ReLU está ilustrado na figura \ref{fig:relu}.
 
 A função \textit{swish} foi proposta por pesquisadores da 
 Google em 2017, com a promessa de apresentar desempenho igual 
-ou superior à ReLU em redes neurais profundas (\cite{swish}). A \textit{swish} é uma função 
+ou superior à ReLU em redes neurais profundas, conforme \cite{swish}. A \textit{swish} é uma função 
 não monótona\footnote{Uma função definida como $f: I \rightarrow \mathbb{R}$
 é monótona se é não crescente no intervalo $I$ ou não decrescente em $I$.} e 
 suave\footnote{Uma função $f$ é suave se possui derivada de todas as ordens.},
@@ -459,7 +457,7 @@ de cada neurônio,  $\delta^i$  determina a velocidade de aprendizado dessa cama
 O problema da dissipação do gradiente\footnote{O problema da dissipação do gradiente 
 é conhecido em inglês como \textit{the vanishing gradient problem}.
 } ocorre quando os gradientes das camadas iniciais ficam com valores 
-muito próximos a zero. Nesse caso, os pesos e \textit{bias} não serão atualizados
+muito próximos a zero. Por conta disso, os pesos e \textit{bias} não serão atualizados
 de forma eficiente nessas camadas, de tal forma que o treinamento e aprendizado
 tornam-se demasiadamente lentos. Esse problema atinge, em especial, modelos 
 de \textit{deep learning} com muitas camadas e redes recorrentes.
