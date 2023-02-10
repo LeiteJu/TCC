@@ -42,7 +42,7 @@ O modelo utiliza dados econômicos, sociais e da construção
 civil para estimar a demanda por cimento. Na tabela
 \ref{tab:indicadores}, são
 apresentados os dados utilizados, juntamente com a fonte, a granularidade 
-e o período em que estavam disponíveis.
+e o período em que estavam disponíveis:
 
 
 \begin{table}[H]
@@ -96,7 +96,7 @@ que podem interferir no processo de previsão.
 Um exemplo de atributo com alta variação é o PIB da contrução civil,
 que apresenta desvio padrão maior que o valor médio dessa variável.
 Para ilustrar a distribuição dos pontos de dados desse indicador, foi utilizado 
-um gráfico \textit{boxplot} na figura \ref{fig:boxplot_pibcc}.
+um gráfico \textit{boxplot} na figura \ref{fig:boxplot_pibcc}:
 
 \begin{figure}[H]
     \centering
@@ -127,7 +127,7 @@ médio do PIB da construção civil no estado
 de São Paulo é de $48.96$ milhões, enquanto em Santa Catarina é de $7.1$ milhões e 
 em Roraima, de $0.4$ milhões. Aliás, ao analisar o PIB da construção civil nas 
 regiões do país, há uma significativa redução no número de dados discrepantes, como é possível
-pode observar na figura abaixo.
+pode observar na figura abaixo:
 
 \begin{figure}[H] 
     \centering
@@ -170,7 +170,7 @@ de uma matriz de correlação, o que gerou a identificação de uma
 alta correlação entre os indicadores do PIB do estado, o PIB da construção
 civil e o tamanho da população. Por fim, também foi observada a correlação entre os três indicadores
 de IDH (longevidade, saúde e renda) e entre o preço do saco de cimento e o preço do kilograma, como pode-se
-validar na figura \ref{fig:matriz-corr}.
+validar na figura \ref{fig:matriz-corr}:
 
 \begin{figure}[H]
     \centering
@@ -220,7 +220,7 @@ Foram utilizadas técnicas de pré-processamento de dados
 com o intuito de garantir que as variáveis de entrada 
 estivessem na mesma escala. Esse processo tem a finalidade de permitir a comparação 
 entre variáveis com diferentes unidades e melhorar o funcionamento dos 
-algorimos de \textit{machine learning}, uma vez que se as \textit{features} estiverem em escalas diferentes
+algorimos de \textit{machine learning}, uma vez que se as \textit{features} estiverem em escalas diferentes,
 alguns pesos podem ser atualizados mais rápidos que outros, segundo \citet{Raschka}.
 Tendo o que se disse em mente, foram testadas no presente trabalho: normalização, 
 \textit{min-max scaler} e \textit{power transformer}.
@@ -230,7 +230,7 @@ Tendo o que se disse em mente, foram testadas no presente trabalho: normalizaç�
 A normalização garante que as variáveis de entrada estejam em uma 
 escala com as propriedades de uma distribuição normal: média ($\mu$)
 igual a zero e variância ($\sigma$) igual a um. Dessa forma, a operação 
-realizada para aplicar o processo em uma entrada $x$ é
+realizada para aplicar o processo em uma entrada $x$ é:
 
 \begin{equation}
   x_{norm} = \frac{x - \mu}{\sigma}
@@ -239,23 +239,23 @@ realizada para aplicar o processo em uma entrada $x$ é
 \subsubsection{\textit{Min-Max scaler}}
 
 De acordo com \citet{Raschka}, o \textit{min-max scaler} é uma 
-abordagem alterantiva à normalização 
+abordagem alternativa à normalização 
 e transforma os dados de modo que a 
 escala tenha um intervalo definido, em geral, entre
-0 e 1. A operação aplicada em uma entrada $x$ para é
+0 e 1. A operação aplicada em uma entrada $x$ para é:
 
 \begin{equation}
   x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}
 \end{equation}
 
 Sendo $x_{norm}$ a versão normalizada da entrada $x$, e $x_{min}$ e $x_{max}$
-os valor mínimo e máximo assumido por $x$. 
+os valores mínimo e máximo assumidos por $x$. 
 
 \subsubsection{\textit{Power transformer}}
 
 O \textit{power transformer} é outra alternativa para aproximar os dados 
-de uma distribuição Gaussiana. Esse método visa estabilizar a variância e 
-diminuir a assimetria dos dados, por meio da aplicação da 
+de uma distribuição normal, esse método visa estabilizar a variância e 
+diminuir a assimetria dos dados por meio da aplicação da 
 transformação de \citet{yeo} nas entradas. 
 
 
@@ -288,7 +288,7 @@ grandeza do erro em relação ao valor real.
 
 \subsection{\textit{Root mean squared error} (RMSE)}
 
-A RMSE, sigla para \textit{root mean squared  error} é uma métrica de erro
+A RMSE, sigla para \textit{root mean squared  error}, é uma métrica de erro
 semelhante à MAE. Sendo $\hat{y_i}$ o valor previsto pelo 
 modelo para um \textit{output} $y_i$, a fórmula da RMSE é dada por: 
 
@@ -297,15 +297,13 @@ modelo para um \textit{output} $y_i$, a fórmula da RMSE é dada por:
 \end{equation}
 
 A RMSE é influenciada por erros mais significativos, dessa forma, é mais 
-sensível a \textit{outliers} que a MAE. (\cite{forecast-evaluation-ds})
+sensível a \textit{outliers} que a MAE, segundo \citet{forecast-evaluation-ds}. 
 
 \subsection{\textit{Mean absolute percentage error} (MAPE)}
 
 Foi utilizada também a \textit{mean absolute
 percentage error}, para mensurar a magnitude do erro em 
-relação ao tamanho das medições.
-
-A MAPE, \textit{mean absolute percentage error}, calcula a proporção 
+relação ao tamanho das medições, a MAPE calcula a proporção 
 do erro em relação ao valor que o modelo tentou prever. Sendo $\hat{y_i}$ 
 o valor previsto pelo 
 modelo para um \textit{output} $y_i$, a fórmula da MAPE é dada por: 
@@ -319,7 +317,7 @@ deseja prever.
 
 \subsection{Variação percentual}
 
-A variação percentual, $\Delta$, é utilizado para mensurar se o 
+A variação percentual, $\Delta$, é utilizada para mensurar se o 
 modelo apresenta tendência de subestimar ou superestimar a variável. 
 Sendo $\hat{y_i}$ o valor previsto pelo 
 modelo para um \textit{output} $y_i$, a fórmula da variação percentual
@@ -332,7 +330,7 @@ $\Delta$ é dada por:
 \section{Avaliação do desempenho do modelo}
 
 Neste trabalho, separou-se a massa de dados em conjunto de treino com 85\% 
-das entradas e de teste com 15\% do conjunto. Esse método tem o objetivo de avaliar
+das entradas e de teste com 15\% do conjunto, a metodologia empregada teve como objetivo avaliar
 a capacidade de generalização do modelo e, por medir o desempenho em dados 
 desconhecidos pelo modelo, também permite avaliar a ocorrência de \textit{overfitting}\footnote{
 O \textit{overfitting} ocorre quando um modelo tem baixa capacidade de generalização, 
@@ -350,7 +348,7 @@ retiradas de \url{https://jupyter-notebook.readthedocs.io/en/stable/notebook.htm
 Foram utilizadas as bibliotecas Pandas\footnote{A Pandas é uma ferramenta \textit{open source} para análise e manipulação de dados em Python, informação retirada da documentação oficial em \url{https://pandas.pydata.org/about/index.html}.} e NumPy\footnote{
 Numpy é um pacote que provê operações matemáticas em vetores, segundo a documentação \url{https://numpy.org/doc/stable/}
 } para realizar a preparação dos dados,
-além da TensorFlow e Scikit-learn com o intuito de treinar e avaliar os modelos.
+além da TensorFlow\footnote{TensorFlow é uma biblioteca que permite a criação de modelos de aprendizado de máquina, informação retirada de \url{https://www.tensorflow.org/learn?hl=pt-br}.} e Scikit-learn com o intuito de treinar e avaliar os modelos.
 A maior parte dos gráficos foi gerada por meio das bibliotecas 
-Seaborn e Matplotlib, contudo alguns foram contruídos por meio da plataforma
+Seaborn e Matplotlib, contudo, alguns foram contruídos por meio da plataforma
 Microsoft Excel.

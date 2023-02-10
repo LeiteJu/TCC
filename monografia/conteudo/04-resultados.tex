@@ -5,13 +5,13 @@
 \chapter{Resultados}
 \label{chap:resultados}
 
-No capitulo \ref{chap:experimentos}, foram realizados experimentos para encontrar a combinação de 
+No capítulo \ref{chap:experimentos}, foram realizados experimentos para encontrar a combinação de 
 parâmetros que proporcionava melhor desempenho para as categorias de modelos 
 testadas neste estudo, regressão linear, redes \textit{feed forward}, redes
-recorrentes e redes bidirecionais. Neste capítulo são apresentadas as previsões 
+recorrentes e redes bidirecionais. Neste capítulo, são apresentadas as previsões 
 dos diferentes modelos.
 
-É possível comparar o desempenho dos modelos a partir da tabela \ref{tab:compara_modelos}.
+É possível comparar o desempenho dos modelos a partir da tabela \ref{tab:compara_modelos}:
 
 \begin{table}[H]
     \centering
@@ -39,27 +39,27 @@ redes \textit{feed forward} em relação à regressão linear que se refletiu na
 redução do erro médio percentual
 em 5\%. Essa melhora, contudo, não é perceptível nos indicadores de erro absoluto,
 enquanto a MAE apresenta um valor similar ao da regressão, a RMSE teve um 
-aumento significativo, isso indica a presenta de \textit{outliers}.
+aumento significativo, o que indica a presenta de \textit{outliers}.
 
-Observa-se uma significativa melhora de 8\% das redes \textit{feed forward} para os modelos
+Observa-se uma significativa melhora, de 8\%, das redes \textit{feed forward} para os modelos
 de redes recorrentes, reflexo da capacidade de reconhecer sequências e contexto.
-A melhora também se reflete nos erros absolutos calculados pela MAE, contudo a 
+A melhora também se reflete nos erros absolutos calculados pela MAE, contudo, a 
 RMSE apresentou piora em relação à regressão linear, provavelmente por conta 
 de \textit{outliers}, uma vez que a RMSE é mais sensível a valores discrepantes.
 
 As redes bidirecionais apresentaram melhor desempenho em comparação com os outros 
-modelos, em virtude da arquitetura mais complexa com duas redes recorrentes. Há 
+modelos, isso em virtude da arquitetura mais complexa com duas redes recorrentes. Percebeu-se também uma
 redução de 2\% da MAPE em relação às redes recorrentes e de 15\% em relação à 
-regressão linear. Esse comportamento se reflete, também, nos indicadores de 
+regressão linear. Esse comportamento também se reflete nos indicadores de 
 erro absoluto que são os menores entre as classes de algoritmos testados.
 
-Foi adotado o estado de São Paulo para comparar as previsões  e o valor real 
-do consumo, a escolha se deu por 
+No presente trabalho, foi adotado o estado de São Paulo como objeto de observação mais detalhado para comparar as previsões e o valor real 
+do consumo, essa escolha foi tomada por 
 se tratar do maior consumidor de cimento no Brasil\footnote{Em 2019, o estado 
 de São Paulo foi 
 responsável por 21.3\% da demanda por cimento no Brasil, 8.6\% à frente do 
-segundo maior consumidor, Minas Gerais}. A evolução do consumo 
-mensal de cimento em São Paulo pode ser vista na figura \ref{consumo-sp}.
+segundo maior consumidor, Minas Gerais.}, de tal forma que a evolução do consumo 
+mensal de cimento em São Paulo pode ser vista na figura \ref{consumo-sp}:
 
 \begin{figure}[H]
     \centering
@@ -84,8 +84,8 @@ tracejada em cinza marca julho de 2017, início das previsões.
 \section{Regressão linear}
 
 Comparou-se as previsões realizadas pela regressão linear com o valor real 
-que foi demandado de cimento. Na imagem \ref{img:erro-perc-rg}, está a 
-distribuição do erro percentual das previsões.
+que foi demandado de cimento, tendo isso em mente, na imagem \ref{img:erro-perc-rg}, representa-se 
+distribuição do erro percentual das previsões:
 
 \begin{figure}[H]
     \centering
@@ -100,7 +100,7 @@ tendência de superestimar o valor do consumo, uma vez que 50.8\% das previsões
 superestimam o valor real em mais de 10\%. 
 
 As previsões realizadas pela regressão linear para o estado 
-de São Paulo podem ser visualizadas na imagem \ref{prev-sp-rg}.
+de São Paulo podem ser visualizadas na imagem \ref{prev-sp-rg}:
 
 \begin{figure}[H]
     \centering
@@ -111,7 +111,7 @@ de São Paulo podem ser visualizadas na imagem \ref{prev-sp-rg}.
 \end{figure}
 
 Destaca-se na figura \ref{prev-sp-rg} a proximidade das previsões realizadas 
-ao longo dos meses de um ano, são perceptível variações apenas na passagem de um 
+ao longo dos meses de um ano, são perceptíveis variações apenas na passagem de um 
 ano para o seguinte. Uma possível explicação para esse comportamento são as 
 variáveis que originalmente possuíam granularidade anuais utilizadas como atributos.
 
@@ -124,7 +124,7 @@ a apresentar alta.
 
 As redes \textit{feed forward} são modelos mais robustos que a regressão linear.
 A distribuição da diferença percentual entre as previsões e os valores reais 
-do consumo é dada na figura \ref{img:erro-perc-rff}.
+do consumo é dada na figura \ref{img:erro-perc-rff}:
 
 \begin{figure}[H]
     \centering
@@ -141,7 +141,7 @@ a regressão linear, já que 49.7\% das previsões sobrestimam  o valor real
 em mais de 10\%.
 
 Na imagem \ref{img:consumo-sp-rff}, são dadas as previsões do modelo para o estado 
-de São Paulo.
+de São Paulo:
 
 \begin{figure}[H]
     \centering
@@ -157,7 +157,7 @@ do consumo.
 \section{Redes recorrentes}
 
 A distribuição do erro percentual das previsões realizadas pelas redes 
-recorrentes pode ser observada na figura \ref{img:erro-perc-rnn}.
+recorrentes pode ser observada na figura \ref{img:erro-perc-rnn}:
 
 \begin{figure}[H]
     \centering
@@ -171,12 +171,12 @@ nas previsões realizadas pelas redes recorrentes. As previsões com erro percen
 de até 30\% correspondem a 79.2\% do conjunto de teste, um aumento de 9.7\% em 
 relação à rede \textit{feed forward} e de 19.2\% em relação à regressão linear.
 Além disso, destaca-se que 37.2\% das previsões apresentaram erro percentual 
-de até 10\%. Ao contrário da regressão linear e das redes \textit{feed forward},
+de até 10\%. Inversamente à regressão linear e das redes \textit{feed forward},
 as redes recorrentes apresentam tendência de subestimar o consumo, com 38\% das
 previsões com valores subestimando o valor real do consumo em mais de 30\%.
 
 Na figura \ref{img:consumo-sp-rnn}, é possível observar as previsões realizadas pelas 
-redes recorrentes no estado de São Paulo.
+redes recorrentes no estado de São Paulo:
 
 \begin{figure}[H]
     \centering
@@ -185,7 +185,7 @@ redes recorrentes no estado de São Paulo.
     \label{img:consumo-sp-rnn}
 \end{figure}
 
-Evidencia-se no gráfico que o modelo capturou com precisão a tendência do 
+Por meio do gráfico, é possível evidenciar que o modelo capturou com precisão a tendência do 
 consumo, primeiro de queda até 2018 e aumento após essa data. Destaca-se, 
 também, a proximidade das previsões realizadas pelas redes recorrentes e o 
 valor real do consumo, embora o modelo tenha tendência de subestimar o valor.
@@ -194,7 +194,7 @@ valor real do consumo, embora o modelo tenha tendência de subestimar o valor.
 \section{Redes bidirecionais}
 
 Na imagem \ref{img:erro-perc-bnn}, está a distribuição do erro percentual das 
-previsões realizadas ao utilizar redes bidirecionais. 
+previsões realizadas ao utilizar redes bidirecionais:
 
 \begin{figure}[H] 
     \centering
@@ -204,14 +204,14 @@ previsões realizadas ao utilizar redes bidirecionais.
 \end{figure}
 
 Observa-se no gráfico acima, a melhora no desempenho ao utilizar a arquitetura 
-robusta das redes bidirecionais. 84.4\% das previsões desse modelo apresentam 
+robusta das redes bidirecionais: 84.4\% das previsões desse modelo apresentam 
 erro de até 30\%, um crescimento de 5.2\% ao comparar com as redes recorrentes 
 e de 24.4\% ao comparar com a regressão linear. Destaca-se, também, uma tendência
 maior de subestimar o valor real, 45.5\%¨subestimam o consumo real em mais de 
 30\%,
 
-Na imagem \ref{img:consumo-sp-bnn}, encontra-se as previsões realizadas pelo 
-modelo para São Paulo.
+Na imagem \ref{img:consumo-sp-bnn}, encontram-se as previsões realizadas pelo 
+modelo para São Paulo:
 
 \begin{figure}[H]
     \centering
@@ -222,6 +222,6 @@ modelo para São Paulo.
 
 Destaca-se na figura acima a assertividade das previsões realizadas pelas 
 redes bidirecionais. O modelo não apenas captura de forma certeira a tendência 
-do consumo, como prevê valor muito próximos ao valor real. Em comparação com 
+do consumo, como prevê valor muito próximos ao valor real. Por isso mesmo, em comparação com 
 as previsões realizadas pelos outros modelos testados nesta trabalho, trata-se 
 da previsão mais precisa.

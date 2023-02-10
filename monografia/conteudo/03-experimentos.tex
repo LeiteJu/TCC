@@ -5,21 +5,21 @@
 \chapter{Experimentos}
 \label{chap:experimentos}
 
-Para cada um dos modelos selecionados foram realizados diferentes experimentos
+Para cada um dos modelos selecionados, foram realizados diferentes experimentos
 alterando parâmetros com o objetivo de obter um melhor 
-desempenho. Neste seção estão descritos os experimentos realizados de acordo 
+desempenho. Nesta seção estão descritos os experimentos realizados de acordo 
 com o modelo.
 
 
 \section{Regressao linear}
 
 A regressão linear é utilizada 
-neste estudo como base para comparar o desempenho dos
-outros modelos por ser um modelo mais simples de \textit{machine learning}. 
-Foram testados métodos de normalização  e transformação de 
+neste estudo como base de comparação de desempenho dos outros modelos por se tratar de um modelo mais simples de \textit{machine learning}. 
+Dito isso, foram testados métodos de normalização  e transformação de 
 dados, além da 
-remoção de variáveis de alta correlação conforme 
-descrito na tabela \ref{tab:exp-reg-lin}. 
+remoção de variáveis de alta correlação\footnote{As variáveis removidas foram: PIB \textit{per capita}, INCC, IGP, taxa Selic, IDH Educação e IDH Longevidade, 
+NFSP, preço do saco de cimento e preço da tonelada de cimento.}  conforme 
+descrito na tabela \ref{tab:exp-reg-lin}:
 
 \begin{table}
     \centering
@@ -32,8 +32,7 @@ descrito na tabela \ref{tab:exp-reg-lin}.
         B           & \textit{Standard scaler}~            & de 2003 até 2019            & não~ ~                                   \\
         C           & \textit{MinMax scaler}~ ~            & de 2003 até 2019            & não~ ~ ~                                 \\
         D           & \textit{Power Transformer}           & de 2003 até 2019            & não                                      \\
-        E           & nenhum & de 2003 até 2019            & sim\footnote{As variáveis removidas foram: PIB \textit{per capita}, INCC, IGP, taxa Selic, IDH Educação e IDH Longevidade, 
-        NFSP, preço do saco de cimento e preço da tonelada de cimento}                                      \\
+        E           & nenhum & de 2003 até 2019            & sim                                     \\
         \bottomrule
     \end{tabular}
     \label{tab:exp-reg-lin}
@@ -63,19 +62,19 @@ tabela \ref{tab:res_reg_lin}:
 Observa-se que não houve alteração na performance ao normalizar 
 os dados com \textit{standard scaler} ou \textit{minmax scaler},
 ao utilizar \textit{power transformer}, contudo, houve piora 
-no desempenho. Ressalta-se a grande melhoria nas métricas ao 
+no desempenho. Ressalta-se ainda a grande melhoria nas métricas ao 
 remover variáveis de alta correlação tanto nas métricas de erro 
 quantitativo, como o MAE e RMSE, quanto proporcionalmente ao 
 atingir 32\% de erro percentual médio.
 
-Foi realizado o teste de remover variáveis de alta correlação, 
+Cumpre ressaltar também que foi realizado o teste de remover variáveis de alta correlação, 
 pois segundo \cite{corr_reg_lin}, esse tipo de \textit{feature}
-pode prejudicar no modelo por aumentar a variabilidade
+pode prejudicar o modelo por aumentar a variabilidade
 dos coeficientes em relação à amostra, dessa forma, os coeficientes 
 calculados pelo modelo podem ter um alto grau de variação de uma 
 amostra para outra.
 
-Na seção \ref{chap:resultados}, estão apresentados os 
+No capítulo \ref{chap:resultados}, estão apresentados os 
 resultados e previsões do modelo de regressão linear com
 melhor desempenho dentre os testados no modelo, o
 experimento E, sem   
@@ -88,8 +87,7 @@ As redes neurais \textit{feed forward} podem ser construídas
 com várias arquiteturas e configurações. Neste estudo, testou-se
 alterar a quantidade de camadas da rede, o número neurônios em 
 cada camada, a função de ativação utilizada, além da quantidade
-de \textit{epoch}\footnote{Uma \textit{epoch} é uma passada 
-pelos dados de entrada (\cite{dl-oreilly})} utilizada no treinamento.
+de \textit{epoch}\footnote{Cada \textit{epoch} corresponde a uma passagem pelos dados de entrada (\cite{dl-oreilly})} utilizada no treinamento.
 
 Os valores testados para cada um dos parâmetros são dados na tabela \ref{tab:param-mlp}:
 
@@ -110,13 +108,7 @@ Os valores testados para cada um dos parâmetros são dados na tabela \ref{tab:p
     \label{tab:param-mlp}
 \end{table} 
 
-Cada experimento corresponde a uma combinação dos parâmetros 
-da tabela \ref{tab:param-mlp}, por exemplo, um modelo de uma 
-camada de 32 neurônios, função de ativação ReLU e 50 \textit{epochs}.
-Os resultados dos experimentos foram separados de acordo 
-com o número de camadas na rede para melhor visualização. O desempenho dos 
-melhores modelos com melhor em relação a outros com o mesmo número de 
-camadas é dado na tabela \ref{tab:res-mlp}.
+Cada experimento corresponde a uma combinação dos parâmetros presentes na tabela \ref{tab:param-mlp}, por exemplo: um modelo de uma camada de 32 neurônios, com função de ativação ReLU e 50 \textit{epochs}. A partir do que se falou, os resultados dos experimentos foram separados de acordo com o número de camadas na rede para melhor visualização, de tal forma que o desempenho dos melhores modelos $-$ em relação a outros com o mesmo número de camadas $-$ é dado na tabela \ref{tab:res-mlp}:
 
 \begin{table}[H]
     \centering
@@ -134,7 +126,7 @@ camadas é dado na tabela \ref{tab:res-mlp}.
     \label{tab:res-mlp}
 \end{table}
 
-Interessante notar que ao priorizar os erros absolutos (MAE e RMSE), o modelo 
+É interessante notar que ao priorizar os erros absolutos (MAE e RMSE), o modelo 
 com quatro camadas apresentou um desempenho ligeiramente
 melhor que o de três camadas, contudo, possui maior erro percentual.
 Assim, por mais que os erros absolutos sejam menores, ao levar em 
@@ -144,7 +136,7 @@ modelo são maiores que os gerados pelo modelo de três camadas.
 Neste trabalho, priorizou-se modelos com menor erro percentual (MAPE), então 
 o modelo com melhor desempenho entre as redes \textit{multilayer feed forward}
 foi o de três camadas. Esse modelo utiliza a função de ativação \textit{swish},
-o método de normalizaçõa para pré-processar os dados e foi treinado com 100 
+o método de normalização para pré-processar os dados e foi treinado com 100 
 \textit{epochs}, além disso a primeira camada oculta possui 256 neurônios, a 
 segunda, 64 e a terceira, 32.
 
@@ -153,8 +145,8 @@ segunda, 64 e a terceira, 32.
 Neste trabalho, foram utilizadas redes recorrentes LSTM e GRU, para ambas as 
 redes, realizaram-se experimentos alterando os mesmos parâmetros, a saber,
 número de camadas, número de neurônios, função de ativação, número de \textit{epochs}
-e método de pré-processamento de dados. Na tabela \ref{tab:param-rnn} encontra-se 
-a relação dos valores testados para cada parâmetro.
+e método de pré-processamento de dados. Na tabela \ref{tab:param-rnn}, encontra-se 
+a relação dos valores testados para cada parâmetro:
 
 \begin{table}[H]
     \centering
@@ -177,7 +169,7 @@ a relação dos valores testados para cada parâmetro.
 Foram realizados os mesmos experimentos para ambas as redes, assim como para 
 as redes neurais tradicionais, os resultados foram agrupados de acordo com 
 o número de camadas da rede. O desempenho dos modelos com melhores resultados 
-estão na tabela \ref{tab:res-rnn}.
+estão na tabela \ref{tab:res-rnn}:
 
 \begin{table}[H]
     \centering
@@ -196,7 +188,7 @@ estão na tabela \ref{tab:res-rnn}.
 \end{table}
 
 Observa-se que as redes LSTM obtiveram um melhor desempenho, em geral, que as
-redes GRU e que a rede LSTM mais simples, com uma camada, fez as previsões 
+redes GRU, além disso a rede LSTM mais simples, com uma camada, fez as previsões 
 mais precisas. A rede recorrente com melhor desempenho, então, é uma rede LSTM 
 de uma camada com 32 neurônios, que utiliza a ReLU como função de ativação, com 
 150 \textit{epochs} e normalização como método de processamento de dados.
@@ -208,7 +200,7 @@ realizar as previsões. Neste estudo, realizaram-se experimentos com redes
 LSTM e GRU, alterou-se também o número de camadas, a quantidade de neurônios
 nas camadas, a função de ativação utilizada nas redes, o método de pré-processamento
 de dados e a quantidade de \textit{epochs}. A relação dos valores testados 
-para cada parâmetro está na tabela \ref{tab:param-bi}.
+para cada parâmetro está na tabela \ref{tab:param-bi}:
 
 \begin{table}[H]
     \centering
@@ -230,7 +222,7 @@ para cada parâmetro está na tabela \ref{tab:param-bi}.
 
 O resultado dos modelos foi agrupado de acordo com o número de camadas da 
 rede e com a categoria de rede recorrente escolhida (LSTM ou GRU). A relação dos modelos com 
-melhor desempenho é dada na tabela \ref{tab:res-bi}.
+melhor desempenho é dada na tabela \ref{tab:res-bi}:
 
 \begin{table}[H]
     \centering
@@ -248,7 +240,7 @@ melhor desempenho é dada na tabela \ref{tab:res-bi}.
     \label{tab:res-bi}
 \end{table}
 
-Observa-se que, o modelo com melhor desempenho das redes bidirecionais 
-utiliza uma camada de rede LSTM de 2 neurônios para fazer as previsões, além disso, o experimento foi 
+Observa-se que o modelo com melhor desempenho das redes bidirecionais 
+utiliza uma camada de rede LSTM de dois neurônios para fazer as previsões, além disso, o experimento foi 
 realizado com 150 \textit{epochs} e com o método de pré-processamento de dados 
 \textit{min-max scaler}.

@@ -77,7 +77,7 @@ funcionamento do cérebro humano, as redes neurais. De acordo com
 
 A relação entre inteligência artificial, aprendizado de 
 máquina e aprendizado profundo pode ser vista na 
-imagem \ref{fig:ia_ml}.
+imagem \ref{fig:ia_ml}:
 % repetindo algumas vezes a mesma coisa
 
 \begin{figure}[H] 
@@ -154,7 +154,7 @@ prever o valor da variável \textit{target}, $y$, sendo
 que $y \in \mathbb{R}$. Seja,
 então, $\hat{y}$ o valor previsto pelo modelo para um 
 par $(x, y)$, a função que descreve a 
-regressão linear, então, é dada pela equação \ref{eq:lse}
+regressão linear, então, é dada pela equação \ref{eq:lse}:
 
 \begin{equation}
   \hat{y} = f(x) = \beta_0 + \beta_1 x_{1_i} + \beta_2 x_{2_i} + \dots + \beta_k x_{k_i} 
@@ -174,7 +174,7 @@ a cada elemento da matriz $X$. Assim, o modelo
 \end{equation}
 
 Na equação \ref{eq:reg_lin}, $\epsilon$ é o vetor com o erro associado a cada umas 
-das previsões; lembrando que $\epsilon_i$ é a i-ésima entrada do vetor $\epsilon$, assim como $\epsilon_i = y_i - \hat{y_i} = y - (\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k )$ .
+das previsões; lembrando que $\epsilon_i$ é a i-ésima entrada do vetor $\epsilon$, assim como $\epsilon_i = y_i - \hat{y_i} = y - (\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k )$.
 Os coeficientes $\beta$ são calculados durante o treinamento 
 do modelo utilizando o método do \textit{least squares estimation},
 que visa minimizar a soma do erro quadrado associado às previsões, 
@@ -230,7 +230,7 @@ for forte o bastante para ativar a liberação de
 químicos na fenda sináptica. 
 
 Um neurônio biológicoé composto por vários dendritos, 
-um axônio e um corpo celular, como ilustrado na figura \ref{fig:neuron}. 
+um axônio e um corpo celular, como ilustrado na figura \ref{fig:neuron}:
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/neuron.png}
@@ -267,7 +267,7 @@ Trata-se de um modelo linear de classificação que
 recebe $n$ entradas e produz uma saída binária, como mostrado 
 na ilustração simplificada \ref{fig:perceptron-simples}. Ainda de acordo com \citet{deeplearningbook}, esse modelo inicial apresentava limitações e passou por evoluções com o passar do 
 tempo. Apesar disso, as redes neurais atualmente utilizam, em geral,
-outro modelo de neurônio, como o ilustrado na imagem \ref{fig:perceptron}.
+outro modelo de neurônio, como o ilustrado na imagem \ref{fig:perceptron}:
 
 
 \begin{figure}[H]  
@@ -394,7 +394,7 @@ detalhamento sobre o problema da dissipação do gradiente será dado na subseç
 outras funções de ativação, 
 uma vez que a derivada é utilizada nos modelos de \textit{machine learning}
 para atualizar os pesos e \textit{bias} no treinamento da rede.
-O gráfico da função ReLU está ilustrado na figura \ref{fig:relu}.
+O gráfico da função ReLU está ilustrado na figura \ref{fig:relu}:
 
 \begin{figure}[H] 
   \includegraphics[width= 8cm]{../figuras/relu.png}
@@ -417,7 +417,7 @@ cuja fórmula é dada por:
 \end{equation}
 
 
-O gráfico da função é similar ao da ReLU e pode ser observado na imagem \ref{fig:swish}.
+O gráfico da função é similar ao da ReLU e pode ser observado na imagem \ref{fig:swish}:
 
 \begin{figure}[H] 
   \includegraphics[width= 12cm]{../figuras/swish.png}
@@ -457,10 +457,10 @@ de cada neurônio,  $\delta^i$  determina a velocidade de aprendizado dessa cama
 O problema da dissipação do gradiente\footnote{O problema da dissipação do gradiente 
 é conhecido em inglês como \textit{the vanishing gradient problem}.
 } ocorre quando os gradientes das camadas iniciais ficam com valores 
-muito próximos a zero. Por conta disso, os pesos e \textit{bias} não serão atualizados
+muito próximos a zero e atinge, em especial, modelos 
+de \textit{deep learning} com muitas camadas e redes recorrente. Por conta disso, os pesos e \textit{bias} não são atualizados
 de forma eficiente nessas camadas, de tal forma que o treinamento e aprendizado
-tornam-se demasiadamente lentos. Esse problema atinge, em especial, modelos 
-de \textit{deep learning} com muitas camadas e redes recorrentes.
+tornam-se demasiadamente lentos. 
         
 \subsection{Redes neurais recorrentes}
 \label{rnn}
@@ -478,7 +478,7 @@ As redes \textit{Long Short Term Memory} (LSTM) foram introduzidas em 1997 por H
 e Schmidhuber\footnote{As redes neurais LSTM foram apresentadas no artigo \cite{lstm-origem}.}.
 Atualmente, são a variação mais utilizada de redes
 neurais recorrentes, em particular, na classificação de séries temporais e
-reconhecimento de fala. Redes LSTM apresentam células de 
+reconhecimento de fala. Segundo \citet{deeplearningbook}, redes LSTM apresentam células de 
 memória conectadas cujo conteúdo é modulado pelo \textit{input gate} e o \textit{forget gate}\footnote{Um 
 melhor detalhamento sobre o \textit{input gate} e o \textit{forget gate} será 
 dado mais adiante nesta seção.}.
@@ -497,7 +497,7 @@ Pode-se observar essa representação em uma rede tradicional
 \textit{feed forward}
 na imagem \ref{fig:arq-ff-flat} e, em
 \ref{fig:arq-ff}, a representação 
-tradicional.
+tradicional:
 
 \begin{figure}[H]
   \centering
@@ -525,7 +525,7 @@ chega ao tempo atual. Na figura \ref{fig:arq-rnn-flat}, essas
 conexões recorrentes são representadas como as setas que saem de uma célula e 
 atingem a mesma célula, uma vez que se utiliza a representação achatada.
 A imagem \ref{fig:arq-rnnff}, por sua vez, representa a rede LSTM desenrolada 
-atráves do eixo do tempo.
+atráves do eixo do tempo:
 
 \begin{figure}[H]
   \centering
@@ -551,7 +551,7 @@ neurônios artificiais clássicos. Essas unidades, representadas em \ref{fig:lst
  permitem que a rede mantenha o estado
 ao longo do tempo e apresentam conexões vindas da camada anterior e de \textit{outputs} 
 dessa
-mesma unidade em tempos anteriores.
+mesma unidade em tempos anteriores:
 
 \begin{figure}[H]
   \includegraphics[width=9cm]{../figuras/redes/lstm-cell.png}
@@ -582,7 +582,7 @@ um que carrega memória de longo prazo e outro, de curto prazo. As unidades
 GRU, por sua vez, apresentam apenas um 
 estado oculto carregado ao longo do tempo, capaz de manter
 as dependências de curto e longo prazo (\cite{deeplearningbook}). A 
-estrutura das unidades GRU pode ser vista em \ref{fig:gru-cell}.
+estrutura das unidades GRU pode ser vista em \ref{fig:gru-cell}:
 
 \begin{figure}[H]
   \centering
@@ -618,7 +618,7 @@ Uma rede analisa a sequência $x^{(i)}$
 fornecida no \textit{input} do início $x_0$ em direção ao final $x_i$, a outra é treinada
 no sentido oposto. As redes utilizadas podem ser simples redes 
 recorrentes, redes LSTM ou GRU. Na figura \ref{fig:bi}, pode-se observar o 
-treinamento das redes nos dois sentidos ocorrendo simultaneamente.
+treinamento das redes nos dois sentidos ocorrendo simultaneamente:
 
 \begin{figure}[H]
   \centering
