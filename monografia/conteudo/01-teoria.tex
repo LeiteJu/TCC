@@ -354,7 +354,7 @@ mesma camada nem conexões entre uma camada e a anterior. A informação então
 se propaga apenas no sentido da camada de entrada em direção à final, de saída.
 
 
-Além disso, em \ref{fig:redeneural}, é ilustrada uma rede neural \textit{multilayer}.
+Além disso, em \ref{fig:redeneural}, é ilustrada uma rede neural \textit{feed forward}.
 Conforme a figura, a camada mais à esquerda da rede é 
 denomida \textit{input layer}, a camada mais à direita, de \textit{output layer},
 e as camadas intermediárias são chamadas \textit{hidden layers}.
@@ -456,7 +456,7 @@ de cada neurônio,  $\delta^i$  determina a velocidade de aprendizado dessa cama
 
 O problema da dissipação do gradiente\footnote{O problema da dissipação do gradiente 
 é conhecido em inglês como \textit{the vanishing gradient problem}.
-} ocorre quando os gradientes das camadas iniciais ficam com valores 
+}, de acordo com \citet{deeplearningbook}, ocorre quando os gradientes das camadas iniciais ficam com valores 
 muito próximos a zero e atinge, em especial, modelos 
 de \textit{deep learning} com muitas camadas e redes recorrente. Por conta disso, os pesos e \textit{bias} não são atualizados
 de forma eficiente nessas camadas, de tal forma que o treinamento e aprendizado
